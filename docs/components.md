@@ -5,10 +5,10 @@
   * `RecipesIndex`
     * 'TopicNavBar'
   * `RecipeIndexItem`
-    * 'RecipeIndexItemDetail'
-  * 'BoardForm'
+    * `RecipeIndexItemDetail`
+  * `BoardForm`
   * `BoardsIndex`
-    * 'BoardsNavBar'
+    * `BoardsNavBar`
     * `BoardIndexItem`
-      * 'BoardInfo'
-  * 'UserInfo'
+      * `BoardInfo`
+  * `UserInfo`

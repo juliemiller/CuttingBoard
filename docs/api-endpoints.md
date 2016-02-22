@@ -16,15 +16,15 @@
 
 ## JSON API
 
-### Articles
+### Recipes
 
-- `GET /api/articles`
+- `GET /api/recipes`
   - Notes index/search
-  - accepts `category` query param to list articles by category
-- `POST /api/articles`
-- `GET /api/articles/:id`
-- `PATCH /api/articles/:id`
-- `DELETE /api/articles/:id`
+  - accepts `category` query param to list recipes by category
+- `POST /api/recipes`
+- `GET /api/recipes/:id`
+- `PATCH /api/recipes/:id`
+- `DELETE /api/recipes/:id`
 
 ### Boards
 
@@ -33,8 +33,8 @@
 - `GET /api/boards/:id`
 - `PATCH /api/boards/:id`
 - `DELETE /api/boards/:id`
-- `GET /api/boards/:id/articles`
-  - index of all pinned articles for a board
+- `GET /api/boards/:id/recipes`
+  - index of all pinned recipes for a board
 
 
 ### Categories

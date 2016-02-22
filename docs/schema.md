@@ -10,7 +10,7 @@ author_id   | integer   | not null, foreign key (references users), indexed
 private     | boolean   | not null, default: false
 category_id | integer   | foreign key
 
-## articles
+## recipes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -31,7 +31,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 board_id    | integer   | not null, foreign key
-article_id  | integer   | not null, foreign key
+recipe_id   | integer   | not null, foreign key
 
 ## users
 column name     | data type | details

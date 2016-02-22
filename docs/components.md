@@ -3,7 +3,7 @@
 * `App`
   * `SearchIndex`
   * `RecipesIndex`
-    * 'TopicNavBar'
+    * `TopicNavBar`
   * `RecipeIndexItem`
     * `RecipeIndexItemDetail`
   * `BoardForm`

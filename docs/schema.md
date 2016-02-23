@@ -6,9 +6,9 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 description | text      | 
-author_id   | integer   | not null, foreign key (references users), indexed
+user_id     | integer   | not null, foreign key (references users), indexed
 private     | boolean   | not null, default: false
-category_id | integer   | foreign key
+category_id | integer   | not null, foreign key
 
 ## recipes
 column name | data type | details

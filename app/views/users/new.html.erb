@@ -1,7 +1,7 @@
 <%= render "form", user: @user, action_url: users_url, submit_button: "Create Account" %>
 
 <p>
-Already a user?
-<%= link_to("Log In", new_session_url) %>
-<%= link_to("Demo Account") %>
+Already a user? <%= button_to("Log In", new_session_url, method: :get) %>
 </p>
+
+<%= render "demo" %>

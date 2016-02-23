@@ -1,11 +1,11 @@
 class Api::BoardsController < ApplicationController
 	def create
 		@board = Board.new(board_params)
-
+		@board.user_id = current_user.id
 		if @board.save
 			render :show
 		else
-			
+			render json: @board.errors.full_messages, status: 422
 		end
 
 	end
@@ -29,7 +29,11 @@ class Api::BoardsController < ApplicationController
 	end
 
 	def index 
-		@boards = Board.all
+		if current_user
+			@boards = Board.getUsersBoards(current_user.id)
+		else
+			redirect_to new_session_url
+		end
 	end
 
 	private

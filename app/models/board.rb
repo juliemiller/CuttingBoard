@@ -15,4 +15,7 @@
 class Board < ActiveRecord::Base
 	validates :title, :user_id, :category_id, presence: true
 	
+	def self.getUsersBoards(id)
+		self.where(user_id: id)
+	end
 end

@@ -7,8 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Users
+User.create(email: "me@gmail.com", password: "password")
+
 3.times do 
-	User.new({email: Faker::Internet.email, password: "password"})
+	User.create({email: Faker::Internet.email, password: "password"})
 end
 
 
@@ -18,7 +20,7 @@ Category.create({name: 'Category2'})
 Category.create({name: 'Category3'})
 
 #Boards
-5.times do 
+10.times do 
 	user_id = (1..4).to_a.sample
 	category_id = (1..3).to_a.sample
 	Board.create({ title: Faker::App.name, description: Faker::Hipster.sentence, user_id: user_id, category_id: category_id})

@@ -1,0 +1,11 @@
+<%= render "users/form", user: @user, action_url: session_url, submit_button: "Log In" %>
+
+
+<p>
+New user? <%= link_to("Sign Up", new_user_url) %>
+</p>
+
+<form>
+	<input type="hidden" value="me@gmail.com" name="user[email]"/>
+	<input type="hidden" value="password" name="user[password]"/>
+</form>

@@ -1,11 +1,9 @@
-class UsersController < 
-
-	def show
-	end
+class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
 		if @user.save
+			login_user!(@user)
 			redirect_to root_url
 		else
 			render :new
@@ -13,12 +11,12 @@ class UsersController <
 	end
 
 	def new
-		@user = user.new
+		@user = User.new
 	end
 
 	private
 	def user_params
-		params.require(:user).permit(:username, :password)
+		params.require(:user).permit(:email, :password)
 	end
-	
+
 end

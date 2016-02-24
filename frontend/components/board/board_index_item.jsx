@@ -5,7 +5,6 @@ var BoardIndexItem = React.createClass({
 	mixins: [History],
 
 	renderBoard: function() {
-		debugger;
 		this.history.push("boards/" + this.props.board.id);
 	},
 

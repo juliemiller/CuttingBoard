@@ -4,8 +4,7 @@ var CategoryStore = require('../../stores/category_store');
 
 var BoardForm = React.createClass({
 	getInitialState: function() {
-		this.categories = CategoryStore.all();
-		return { title: "", description: "", private: false, category_id: null };
+		return { title: "", description: "", private: false, category_id: null, categories: CategoryStore.all() };
 	},
 
 	componentDidMount: function() {
@@ -13,8 +12,12 @@ var BoardForm = React.createClass({
 		ApiUtil.fetchCategories();
 	},
 
+	componentWillUnmount: function() {
+		this.categoryListener.remove();
+	},
+
 	_onCategoryChange: function() {
-		this.categories = CategoryStore.all();
+		this.setState({ categories: CategoryStore.all() });
 	},
 
 	handleSubmit: function(e) {
@@ -42,7 +45,7 @@ var BoardForm = React.createClass({
 	handleCancel: function(e) {
 		e.preventDefault();
 		this.resetForm();
-		this.props.history.push("/boards");
+		this.props.history.goBack();
 	},
 
 	resetForm: function() {
@@ -65,7 +68,7 @@ var BoardForm = React.createClass({
 					<select value={this.state.category_id} onChange={this.handleCategoryChange}>
 						<option key="0"></option>
 						{
-							this.categories.map(function(category) {
+							this.state.categories.map(function(category) {
 								return <option key={category.id} value={category.id}>{category.name}</option>
 							})
 						}

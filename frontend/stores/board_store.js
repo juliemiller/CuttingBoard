@@ -16,6 +16,10 @@ BoardStore.all = function() {
 	return boards;
 };
 
+BoardStore.find = function(id) {
+	return _boards[id];
+};
+
 BoardStore.__onDispatch = function(payload) {
 	switch (payload.actionType) {
 		case BoardConstants.BOARDS_RECEIVED:

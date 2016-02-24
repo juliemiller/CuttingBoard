@@ -1,11 +1,11 @@
 var React = require('react');
 
-var BoardIndexItem = React.createClass({
+var BoardIndexItemDetail = React.createClass({
 	render: function() {
 		return (
-			<div />
+			<div>DETAIL</div>
 		)
 	}
 });
 
-module.exports = BoardIndexItem;
+module.exports = BoardIndexItemDetail;

@@ -19,8 +19,7 @@ var BoardForm = React.createClass({
 
 	handleSubmit: function(e) {
 		e.preventDefault();
-		console.log(this.state)
-		// ApiUtil.createBoard(this.state);
+		ApiUtil.createBoard(this.state);
 		this.resetForm();
 	},
 
@@ -42,6 +41,8 @@ var BoardForm = React.createClass({
 
 	handleCancel: function(e) {
 		e.preventDefault();
+		this.resetForm();
+		this.props.history.push("/boards");
 	},
 
 	resetForm: function() {

@@ -6,6 +6,8 @@ var IndexRoute = require('react-router').IndexRoute;
 
 var BoardIndex = require('./components/board/board_index');
 var BoardIndexItemDetail = require('./components/board/board_index_item_detail');
+var BoardForm = require('./components/board/board_form');
+
 var App = React.createClass({
 	render: function() {
 		return (
@@ -19,8 +21,9 @@ var App = React.createClass({
 var routes = (
 	<Route path="/" component={App}>
 		<Route path="boards" component={BoardIndex}>
-			<Route path="boards/:boardId" component={BoardIndexItemDetail} />
+			<Route path="newBoard" component={BoardForm} />
 		</Route>
+		<Route path="boards/:boardId" component={BoardIndexItemDetail} />
 
 	</ Route>
 	)

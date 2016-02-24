@@ -61,4 +61,3 @@ var ApiUtil = {
 };
 
 module.exports = ApiUtil;
-window.ApiUtil = ApiUtil;

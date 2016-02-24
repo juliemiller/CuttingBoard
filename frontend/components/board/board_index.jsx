@@ -22,16 +22,23 @@ var BoardIndex = React.createClass( {
 		this.setState({ boards: BoardStore.all() });
 	},
 
+	openNewBoardForm: function() {
+		this.props.history.push("boards/newBoard")
+	},
+
 	render: function() {
+
 		return (
 			<div>
-				<BoardForm /> 
+				<div className="board-box" onClick={this.openNewBoardForm}>Create Board</div> 
 				{
 					this.state.boards.map(function(board) {
 						return <BoardIndexItem board={board} key={board.id} />
 					})
 				}
+			{this.props.children}
 			</div>
+
 		)
 	}
 });

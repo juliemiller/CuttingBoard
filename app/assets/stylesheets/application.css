@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+
+.board-box {
+	width: 100px;
+	height: 100px;
+	border: solid black 1px;
+	padding: 5px;
+	margin: 5px;
+	display: inline-block;
+}

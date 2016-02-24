@@ -1,4 +1,5 @@
 var BoardActions = require('../actions/board_actions');
+var CategoryActions = require('../actions/category_actions');
 
 var ApiUtil = {
 	fetchBoards: function() {
@@ -44,8 +45,20 @@ var ApiUtil = {
 				BoardActions.receiveSingleBoard(board);
 			}
 		})
-	}	
+	},
+
+	fetchCategories: function() {
+		$.ajax( {
+			url: 'api/categories',
+			dataType: 'json',
+			method: 'GET',
+			success: function(categories) {
+				CategoryActions.receiveCategories(categories);
+			}
+		});
+	}
 
 };
 
 module.exports = ApiUtil;
+window.ApiUtil = ApiUtil;

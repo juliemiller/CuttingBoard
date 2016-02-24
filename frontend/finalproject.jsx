@@ -4,13 +4,12 @@ var Router = require('react-router').Router;
 var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 
-var BoardIndex
-
+var BoardIndex = require('./components/board/board_index');
+var BoardIndexItemDetail = require('./components/board/board_index_item_detail');
 var App = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<header> WELCOME </header>
 				{this.props.children}
 			</div>		
 		)
@@ -19,7 +18,10 @@ var App = React.createClass({
 
 var routes = (
 	<Route path="/" component={App}>
-		<Route path="boards" component={BoardIndex} />
+		<Route path="boards" component={BoardIndex}>
+			<Route path="boards/:boardId" component={BoardIndexItemDetail} />
+		</Route>
+
 	</ Route>
 	)
 

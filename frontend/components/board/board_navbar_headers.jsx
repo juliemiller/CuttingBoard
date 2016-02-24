@@ -2,13 +2,13 @@ var React = require('react');
 
 var BoardNavBarHeader = React.createClass({
 	render: function () {
-    var selected = this.props.selectedPane;
+    var selected = this.props.selectedTab;
     var that = this;
     var headers = this.props.tabs.map(function (tab, index) {
-      var title = tab;
+      var title = tab.title;
       var klass = ""
       if (index === selected) {
-        klass = "active"
+        klass = "tabs active"
       }
 
       return (
@@ -21,7 +21,7 @@ var BoardNavBarHeader = React.createClass({
       );
     });
     return (
-      <div>
+      <div className="tabs">
         {headers}
       </div>
 

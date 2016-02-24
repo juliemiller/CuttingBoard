@@ -5,8 +5,11 @@ var BoardIndexItem = require('./board_index_item');
 var BoardForm = require('./board_form');
 var BoardNavBar = require('./board_navbar');
 var BoardNavBarTabs = require('./board_navbar_tabs');
+var History = require('react-router').History;
 
 var BoardIndex = React.createClass( {
+	mixins: [History],
+	
 	getInitialState: function() {
 		return { boards: BoardStore.all() };
 	},
@@ -25,16 +28,14 @@ var BoardIndex = React.createClass( {
 	},
 
 	openNewBoardForm: function() {
-		this.props.history.push("boards/newBoard")
+		this.history.push("boards/newBoard")
 	},
 
 	render: function() {
-		var tabs = ["Boards", "Pins", "Followed Topics"];
 
 		return (
 			<div>
-				<BoardNavBar />
-				<BoardNavBarTabs tabs={tabs}/>
+
 				<div className="board-box" onClick={this.openNewBoardForm}>Create Board</div> 
 				{
 					this.state.boards.map(function(board) {

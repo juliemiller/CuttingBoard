@@ -8,7 +8,6 @@ NavBarTabs = React.createClass({
 	},
 
 	selectTab: function(num) {
-		console.log(num);
 		this.setState({ selectedTab: num });
 	},
 
@@ -16,15 +15,15 @@ NavBarTabs = React.createClass({
     var tab = this.props.tabs[this.state.selectedTab];
 
     return (
-      <div className="tabs">
-        <Headers
+    	<div >
+        <Headers 
           selectedTab={this.state.selectedTab}
           onTabChosen={this.selectTab}
           tabs={this.props.tabs}>
         </Headers>
-        <p>
-          {tab.content}
-        </p>
+        <div>
+        	{tab.content}
+        </div>
       </div>
     );
   }

@@ -13,7 +13,7 @@ var UserForm = require('./components/user/user_form');
 var App = React.createClass({
 	render: function() {
 		return (
-			<div>
+			<div className="container-fluid">
 				<NavBar />
 				{this.props.children}
 			</div>		
@@ -24,14 +24,18 @@ var App = React.createClass({
 var routes = (
 	<Route path="/" component={App}>
 		<Route path="boards" component={BoardHome}>
-			<Route path="newBoard" component={BoardForm} />
 			<Route path="editProfile" component={UserForm} />
 		</Route>
 		<Route path="boards/:boardId" component={BoardIndexItemDetail}>
-			<Route path="edit" component={BoardForm}/>
+			// <Route path="edit" component={BoardForm}/>
 		</ Route>
 	</ Route>
 	)
 
 document.addEventListener("DOMContentLoaded", function() {
 	ReactDOM.render(<Router>{routes}</Router>, document.getElementById("content"))});
+		
+
+
+
+	// <Route path="newBoard" component={BoardForm} />

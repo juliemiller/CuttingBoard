@@ -33,6 +33,7 @@ var ApiUtil = {
 				BoardActions.receiveSingleBoard(board);
 				callback(board.id);
 			}
+
 		});
 	},
 
@@ -55,6 +56,10 @@ var ApiUtil = {
 			data: {board: board},
 			success: function(board) {
 				BoardActions.receiveSingleBoard(board);
+			},
+			error: function(errors) {
+				debugger;
+				BoardActions.receiveErrors(errors);
 			}
 		})
 	},

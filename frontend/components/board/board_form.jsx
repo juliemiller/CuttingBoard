@@ -2,8 +2,11 @@ var React = require('react');
 var ApiUtil = require('../../util/api_util');
 var CategoryStore = require('../../stores/category_store');
 var BoardStore = require('../../stores/board_store');
+var History = require('react-router').History;
 
 var BoardForm = React.createClass({
+	mixins: [History],
+
 	getInitialState: function() {
 		return { title: "", description: "", private: false, category_id: null, categories: CategoryStore.all() };
 	},
@@ -11,8 +14,8 @@ var BoardForm = React.createClass({
 	componentDidMount: function() {
 		this.categoryListener = CategoryStore.addListener(this._onCategoryChange);
 		ApiUtil.fetchCategories();
-		var id = this.props.params.boardId;
-		if (id) {
+		var id = this.props.boardId;
+		if (id !== "") {
 			this.setState({ boardId: parseInt(id)});
 			var board = BoardStore.find(id)
 			this.editing = true;
@@ -30,14 +33,14 @@ var BoardForm = React.createClass({
 
 	handleSubmit: function(e) {
 		e.preventDefault();
+
 		if (this.editing) {
 			ApiUtil.editBoard(this.state);
-			this.props.history.push("/boards/" + this.state.boardId);
+			this.props.modalCallback();
 		} else {
 			ApiUtil.createBoard(this.state, function(id) {
-				this.props.history.push("/boards/" + id)
+				this.history.push("/boards/" + id)
 			}.bind(this));
-			this.resetForm();
 		}
 	},
 
@@ -60,7 +63,7 @@ var BoardForm = React.createClass({
 	handleCancel: function(e) {
 		e.preventDefault();
 		this.resetForm();
-		this.props.history.goBack();
+		this.props.modalCallback();
 	},
 
 	resetForm: function() {
@@ -68,43 +71,49 @@ var BoardForm = React.createClass({
 	},
 
 	deleteBoard: function() {
-		if (confirmation) {
 		ApiUtil.destroyBoard(this.state.boardId);
-		this.props.history.push("/boards");
-		}
+		this.history.push("/boards");
 	},
 
 	render: function() {
 
 		return (
-			<form onSubmit={this.handleSubmit} className="modal-content">
-				<label>Title
-					<input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
-				</label>
+			<form onSubmit={this.handleSubmit} className="form-inline">
+				<div className="form-group">
+					<label className="control-label">Title</label>
+					<input type="text" className="form-control required" value={this.state.title} onChange={this.handleTitleChange}/>
+				</div>
 				<br/>
-				<label>Description
-					<input type="text" value={this.state.description} onChange={this.handleDescriptionChange}/>
-				</label>
+				<div className="form-group">
+					<label className="control-label">Description</label>
+					<input type="text" className="form-control" value={this.state.description} onChange={this.handleDescriptionChange}/>
+				</div>
 				<br/>
-				<label>Category
-					<select value={this.state.category_id} onChange={this.handleCategoryChange}>
-						<option key="0"></option>
-						{
-							this.state.categories.map(function(category) {
-								return <option key={category.id} value={category.id}>{category.name}</option>
-							})
-						}
-					</select>
+				<div className="form-group">
+					<label className="control-label">Category
+						<select className="form-control" value={this.state.category_id} onChange={this.handleCategoryChange}>
+							<option key=""></option>
+							{
+								this.state.categories.map(function(category) {
+									return <option key={category.id} value={category.id}>{category.name}</option>
+								})
+							}
+						</select>
+					</label>
+				</div>
 				<br/>
-				</label>
-				<label>Private
-					<input type="checkbox" checked={this.state.private} onClick={this.handlePrivateChange}/>
+				<div className="form-group">
+					<label className="control-label">Private
+						<input type="checkbox" className="form-control" checked={this.state.private} onClick={this.handlePrivateChange}/>
 
-				</label>
+					</label>
+				</div>
 				<br/>
-				{this.editing ? <button onClick={this.deleteBoard}>Delete</button> : ""}
-				<button onClick={this.handleCancel}>Cancel</button>
-				<input type="submit" value="Submit"/>
+				<div className="btn-toolbar">
+					{this.editing ? <button className="btn" onClick={this.deleteBoard}>Delete</button> : ""}
+					<button className="btn" onClick={this.handleCancel}>Cancel</button>
+					<input className="btn btn-primary" type="submit" value="Submit"/>
+				</div>
 			</form>
 		)
 	}

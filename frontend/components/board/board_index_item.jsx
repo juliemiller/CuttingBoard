@@ -10,7 +10,9 @@ var BoardIndexItem = React.createClass({
 
 	render: function() {
 		return (
-			<div className="board-box" onClick={this.renderBoard}>{this.props.board.title}  </div>
+			<div className="col-md-3" onClick={this.renderBoard}>
+				<section className="board">{this.props.board.title}</section> 
+			</div>
 		)
 	}
 });

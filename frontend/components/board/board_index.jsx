@@ -6,12 +6,14 @@ var BoardForm = require('./board_form');
 var BoardNavBar = require('./board_navbar');
 var BoardNavBarTabs = require('./board_navbar_tabs');
 var History = require('react-router').History;
+var Modal = require('react-bootstrap').Modal;
+
 
 var BoardIndex = React.createClass( {
 	mixins: [History],
 	
 	getInitialState: function() {
-		return { public_boards: BoardStore.all().public, private_boards: BoardStore.all().private };
+		return { public_boards: BoardStore.all().public, private_boards: BoardStore.all().private, showModal: false };
 	},
 
 	componentDidMount: function() {
@@ -29,23 +31,39 @@ var BoardIndex = React.createClass( {
 	},
 
 	openNewBoardForm: function() {
-		this.history.push("boards/newBoard")
+		// this.history.push("boards/newBoard")
+		this.setState({ showModal: true });
+	},
+
+	closeNewBoardForm: function() {
+		this.setState({ showModal: false });
 	},
 
 	render: function() {
 
 		return (
-			<div>
-				<div className="publicBoards">
-				<div className="create board-box" onClick={this.openNewBoardForm}>Create Board</div> 
+			<div className="container">
+				<div className="publicBoards row">
+				<div className="col-md-3" onClick={this.openNewBoardForm}>
+					<section className="board create">Create Board <br/>
+					</section>
+					</div> 
+				<Modal show={this.state.showModal} onHide={this.closeNewBoardForm}>
+					<Modal.Header closeButton>
+						<Modal.Title>Create a Board</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<BoardForm boardId="" modalCallback={this.closeNewBoardForm}/>
+					</Modal.Body>
+				</Modal>
 				{
 					this.state.public_boards.map(function(board) {
 						return <BoardIndexItem board={board} key={board.id} />
 					})
 				}
 				</div>
-				<p>Private Boards</p>
-				<div className="privateBoards">
+				<div className="privateBoards row">
+				<p>Private Boards</p> 
 					{
 						this.state.private_boards.map(function(board) {
 							return <BoardIndexItem board={board} key={board.id} />

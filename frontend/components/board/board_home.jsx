@@ -1,4 +1,5 @@
 var React = require('react');
+var Modal = require('react-bootstrap').Modal;
 
 var BoardForm = require('./board_form');
 var BoardNavBar = require('./board_navbar');
@@ -6,8 +7,20 @@ var BoardNavBarTabs = require('./board_navbar_tabs');
 var BoardIndex = require('./board_index');
 
 var BoardHome = React.createClass( {
-	openNewBoardForm: function() {
-		this.props.history.push("boards/newBoard")
+	getInitialState: function() {
+		return { showModal: false}; 
+	},
+
+	// openNewBoardForm: function() {
+	// 	this.props.history.push("boards/newBoard")
+	// },
+
+	open: function() {
+		this.setSate({ showModal: true });
+	},
+
+	close: function() {
+		this.setSate({ showModal: false });
 	},
 
 	render: function() {
@@ -21,11 +34,11 @@ var BoardHome = React.createClass( {
 			<div >
 				<BoardNavBar />
 				<BoardNavBarTabs tabs={tabs}/>
-
-				{this.props.children}
+				
 			</div>
 		)
 	}
 });
 
 module.exports = BoardHome;
+				// {this.props.children}

@@ -15,10 +15,18 @@ var NavBar = React.createClass({
 
 	render: function() {
 		return (
-			<header className="navBar">
-				<button id="homeButton" onClick={this.goToRoot}>Home</button> 
-				<NavBarSearch />
-				<button id="boardButton" onClick={this.renderBoardsIndex}>Boards</button>
+			<header >
+				<nav className="navbar navbar-fixed-top navbar-form navbar-default">
+					<div className="container">
+					<div className="navbar-header">
+							<button id="homeButton" onClick={this.goToRoot}>Home</button> 
+							<div className="form-group">
+								<NavBarSearch />
+							</div>
+							<button id="boardButton" onClick={this.renderBoardsIndex}>Boards</button>
+						</div>
+					</div>
+				</nav>
 			</header>
 		)
 	}

@@ -13,13 +13,25 @@ var ApiUtil = {
 		});
 	},
 
-	createBoard: function(board) {
+	fetchSingleBoard: function(id) {
+		$.ajax( {
+				url: 'api/boards/' + id,
+				dataType: 'json',
+				method: 'GET',
+				success: function(board) {
+					BoardActions.receiveSingleBoard(board);
+			}
+		});
+	},
+
+	createBoard: function(board, callback) {
 		$.ajax({
 			url: 'api/boards',
 			method: 'POST',
 			data: {board: board},
 			success: function(board) {
 				BoardActions.receiveSingleBoard(board);
+				callback(board.id);
 			}
 		});
 	},
@@ -37,7 +49,7 @@ var ApiUtil = {
 
 	editBoard: function(board) {
 		$.ajax( {
-			url: 'api/boards/' + board.id,
+			url: 'api/boards/' + board.boardId,
 			dataType: 'json',
 			method: 'PATCH',
 			data: {board: board},

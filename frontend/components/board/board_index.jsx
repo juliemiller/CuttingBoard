@@ -11,7 +11,7 @@ var BoardIndex = React.createClass( {
 	mixins: [History],
 	
 	getInitialState: function() {
-		return { boards: BoardStore.all() };
+		return { public_boards: BoardStore.all().public, private_boards: BoardStore.all().private };
 	},
 
 	componentDidMount: function() {
@@ -24,7 +24,8 @@ var BoardIndex = React.createClass( {
 	},
 
 	_onChange: function() {
-		this.setState({ boards: BoardStore.all() });
+		var boards = BoardStore.all();
+		this.setState({ public_boards: boards.public, private_boards: boards.private });
 	},
 
 	openNewBoardForm: function() {
@@ -38,7 +39,13 @@ var BoardIndex = React.createClass( {
 
 				<div className="board-box" onClick={this.openNewBoardForm}>Create Board</div> 
 				{
-					this.state.boards.map(function(board) {
+					this.state.public_boards.map(function(board) {
+						return <BoardIndexItem board={board} key={board.id} />
+					})
+				}
+				<p>Private Boards</p>
+				{
+					this.state.private_boards.map(function(board) {
 						return <BoardIndexItem board={board} key={board.id} />
 					})
 				}

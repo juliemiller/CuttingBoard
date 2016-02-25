@@ -8,12 +8,16 @@ var _boards = {};
 
 BoardStore.all = function() {
 	var boards = [];
+	var private_boards = [];
 
 	Object.keys(_boards).forEach(function(boardId) {
-		boards.push(_boards[boardId]);
+		if (_boards[boardId].private === true) {
+			private_boards.push(_boards[boardId]);
+		} else {
+			boards.push(_boards[boardId]);
+		}
 	})
-
-	return boards;
+	return { public: boards, private: private_boards };
 };
 
 BoardStore.find = function(id) {

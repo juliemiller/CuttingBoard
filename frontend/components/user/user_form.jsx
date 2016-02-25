@@ -1,23 +1,17 @@
 var React = require('react');
 var ApiUtil = require('../../util/api_util');
-var CategoryStore = require('../../stores/category_store');
-var BoardStore = require('../../stores/board_store');
 
-var BoardForm = React.createClass({
+var UserForm = React.createClass({
 	getInitialState: function() {
-		return { title: "", description: "", private: false, category_id: null, categories: CategoryStore.all() };
+		return { };
 	},
 
 	componentDidMount: function() {
-		this.categoryListener = CategoryStore.addListener(this._onCategoryChange);
-		ApiUtil.fetchCategories();
-		var id = this.props.params.boardId;
-		if (id) {
-			this.setState({ boardId: parseInt(id)});
-			var board = BoardStore.find(id)
-			this.editing = true;
-			this.setState({ title: board.title, description: board.description, private: board.private, category_id: board.category_id });
-		}
+		ApiUtil.fetchCurrentUser();
+		this.setState({ boardId: parseInt(id)});
+		var board = BoardStore.find(id)
+		this.editing = true;
+		this.setState({ title: board.title, description: board.description, private: board.private, category_id: board.category_id });
 	},
 
 	componentWillUnmount: function() {
@@ -67,15 +61,8 @@ var BoardForm = React.createClass({
 		this.setState({ title: "", description: "", private: false, category_id: 0 });
 	},
 
-	deleteBoard: function() {
-		if (confirmation) {
-		ApiUtil.destroyBoard(this.state.boardId);
-		this.props.history.push("/boards");
-		}
-	},
-
 	render: function() {
-
+		
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<label>Title
@@ -102,7 +89,6 @@ var BoardForm = React.createClass({
 
 				</label>
 				<br/>
-				{this.editing ? <button onClick={this.deleteBoard}>Delete</button> : ""}
 				<button onClick={this.handleCancel}>Cancel</button>
 				<input type="submit" value="Submit"/>
 			</form>
@@ -111,4 +97,4 @@ var BoardForm = React.createClass({
 
 });
 
-module.exports = BoardForm;
+module.exports = UserForm;

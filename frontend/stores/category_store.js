@@ -23,5 +23,4 @@ CategoryStore.receiveCategories = function(categories) {
 	CategoryStore.__emitChange();
 };
 
-
 module.exports = CategoryStore;

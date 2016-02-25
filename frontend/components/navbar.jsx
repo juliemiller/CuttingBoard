@@ -15,7 +15,7 @@ var NavBar = React.createClass({
 
 	render: function() {
 		return (
-			<header>
+			<header className="navBar">
 				<button onClick={this.goToRoot}>Home</button> 
 				<NavBarSearch />
 				<button onClick={this.renderBoardsIndex}>Boards</button>

@@ -8,6 +8,7 @@ var BoardHome = require('./components/board/board_home');
 var BoardIndexItemDetail = require('./components/board/board_index_item_detail');
 var BoardForm = require('./components/board/board_form');
 var NavBar = require('./components/navbar');
+var UserForm = require('./components/user/user_form');
 
 var App = React.createClass({
 	render: function() {
@@ -24,6 +25,7 @@ var routes = (
 	<Route path="/" component={App}>
 		<Route path="boards" component={BoardHome}>
 			<Route path="newBoard" component={BoardForm} />
+			<Route path="editProfile" component={UserForm} />
 		</Route>
 		<Route path="boards/:boardId" component={BoardIndexItemDetail}>
 			<Route path="edit" component={BoardForm}/>

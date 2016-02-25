@@ -32,13 +32,14 @@ var BoardIndexItemDetail = React.createClass({
 	},
 
 	render: function() {
-		var boardDisplay = "";
+		var displayBoard = "";
 		if (this.state.board) {
-			boardDisplay = this.state.board.title;
+			displayBoard= this.state.board;
 		}
 		return (
-			<div>
-				<h2>{boardDisplay}</h2>
+			<div className="boardDetailTitle">
+				<h2>{displayBoard.title}</h2>
+				<p>{displayBoard.description}</p>
 				<BoardDetailNavBar board={this.state.board}/>
 				{this.props.children}
 			</div>

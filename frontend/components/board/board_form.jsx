@@ -77,7 +77,7 @@ var BoardForm = React.createClass({
 	render: function() {
 
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit} className="modal-content">
 				<label>Title
 					<input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
 				</label>

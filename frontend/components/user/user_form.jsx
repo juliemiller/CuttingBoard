@@ -7,48 +7,38 @@ var UserForm = React.createClass({
 	},
 
 	componentDidMount: function() {
-		ApiUtil.fetchCurrentUser();
-		this.setState({ boardId: parseInt(id)});
-		var board = BoardStore.find(id)
-		this.editing = true;
+		// ApiUtil.fetchCurrentUser();
+		// UserStore.getCurrentUser();
 		this.setState({ title: board.title, description: board.description, private: board.private, category_id: board.category_id });
 	},
 
 	componentWillUnmount: function() {
-		this.categoryListener.remove();
-	},
-
-	_onCategoryChange: function() {
-		this.setState({ categories: CategoryStore.all() });
 	},
 
 	handleSubmit: function(e) {
 		e.preventDefault();
-		if (this.editing) {
-			ApiUtil.editBoard(this.state);
-			this.props.history.push("/boards/" + this.state.boardId);
-		} else {
-			ApiUtil.createBoard(this.state, function(id) {
-				this.props.history.push("/boards/" + id)
-			}.bind(this));
-			this.resetForm();
-		}
+		ApiUtil.updateProfile(this.state);
+		this.props.history.push("/boards/");
 	},
 
-	handleTitleChange: function(e) {
-		this.setState({ title: e.target.value});
+	handleFirstNameChange: function(e) {
+		this.setState({ firstName: e.target.value});
+	},
+
+	handleLastNameChange: function(e) {
+		this.setState({ lastName: e.target.value});
 	},
 
 	handleDescriptionChange: function(e) {
-		this.setState({ description: e.target.value});
+		this.setState({ description: parseInt(e.target.value)});
 	},
 
-	handleCategoryChange: function(e) {
-		this.setState({ category_id: parseInt(e.target.value)});
+	handleLocationChange: function(e) {
+		this.setState({ location: e.target.checked});
 	},
 
-	handlePrivateChange: function(e) {
-		this.setState({ private: e.target.checked});
+	handleWebsiteChange: function(e) {
+		this.setState({ website: e.target.checked});
 	},
 
 	handleCancel: function(e) {
@@ -65,32 +55,25 @@ var UserForm = React.createClass({
 		
 		return (
 			<form onSubmit={this.handleSubmit}>
-				<label>Title
-					<input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
+				<label>Name
+					<input type="text" value={this.state.firstName} onChange={this.handleFirstNameChange}/>
+					<input type="text" value={this.state.lastName} onChange={this.handleLastNameChange}/>
 				</label>
 				<br/>
-				<label>Description
+				<label>About You
 					<input type="text" value={this.state.description} onChange={this.handleDescriptionChange}/>
 				</label>
 				<br/>
-				<label>Category
-					<select value={this.state.category_id} onChange={this.handleCategoryChange}>
-						<option key="0"></option>
-						{
-							this.state.categories.map(function(category) {
-								return <option key={category.id} value={category.id}>{category.name}</option>
-							})
-						}
-					</select>
+				<label>Location
+					<input type="text" value={this.state.location} onChange={this.handleLocationChange} />
 				<br/>
 				</label>
-				<label>Private
-					<input type="checkbox" checked={this.state.private} onClick={this.handlePrivateChange}/>
-
+				<label>Website
+					<input type="text" value={this.state.website} onChange={this.handleWebsiteChange}/>
 				</label>
 				<br/>
 				<button onClick={this.handleCancel}>Cancel</button>
-				<input type="submit" value="Submit"/>
+				<input type="submit" value="Save"/>
 			</form>
 		)
 	}

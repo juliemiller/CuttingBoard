@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
 
 
@@ -35,4 +36,53 @@
 
 .navBar {
 	height: 30px;
+	width: 70%;
+	margin: auto;
+}
+
+.boardDetailTitle {
+	text-align: center;
+}
+
+/* Modal */
+.modal-off {
+  display: none;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal-content {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  top: 20%;
+  width: 40%;
+  height: 40%;
+  margin: 15% auto;
+  text-align: center;
+  padding: 10px;
+  border: 5px solid black;
+  z-index: 1000;
+  background-color: white;
+}
+
+.modal-button {
+  position: relative;
+  top: 60%;
+}
+
+#boardButton {
+	float: right;
+}
+
+#homeButton {
+	float: left;
 }

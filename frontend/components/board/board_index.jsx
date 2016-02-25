@@ -36,19 +36,22 @@ var BoardIndex = React.createClass( {
 
 		return (
 			<div>
-
-				<div className="board-box" onClick={this.openNewBoardForm}>Create Board</div> 
+				<div className="publicBoards">
+				<div className="create board-box" onClick={this.openNewBoardForm}>Create Board</div> 
 				{
 					this.state.public_boards.map(function(board) {
 						return <BoardIndexItem board={board} key={board.id} />
 					})
 				}
+				</div>
 				<p>Private Boards</p>
-				{
-					this.state.private_boards.map(function(board) {
-						return <BoardIndexItem board={board} key={board.id} />
-					})
-				}
+				<div className="privateBoards">
+					{
+						this.state.private_boards.map(function(board) {
+							return <BoardIndexItem board={board} key={board.id} />
+						})
+					}
+				</div>
 			{this.props.children}
 			</div>
 

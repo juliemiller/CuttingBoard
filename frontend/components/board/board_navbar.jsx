@@ -12,9 +12,9 @@ BoardNavBar = React.createClass({
 					<button className="btn">Edit Profile</button>
 					<button className="btn dropdown-toggle">⚙</button>
 				</div>
-			<div id="boardUsername">
-				<h2>{name}</h2>
-			</div>
+				<div id="boardUsername">
+					<h2>{name}</h2>
+				</div>
 			</div>
 		)
 	}

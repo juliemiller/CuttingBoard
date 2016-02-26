@@ -37,4 +37,3 @@ var BoardHome = React.createClass( {
 });
 
 module.exports = BoardHome;
-				// {this.props.children}

@@ -20,9 +20,13 @@ Category.create({name: 'Category2'})
 Category.create({name: 'Category3'})
 
 #Boards
-10.times do 
+30.times do 
 	user_id = (1..4).to_a.sample
 	category_id = (1..3).to_a.sample
 	Board.create({ title: Faker::App.name, description: Faker::Hipster.sentence, user_id: user_id, category_id: category_id})
 end
 
+#Recipes
+Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
+	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
+	description: "Strawberry lemonade", category_id: 1})

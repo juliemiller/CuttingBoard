@@ -87,6 +87,28 @@ var ApiUtil = {
 			error: function(data) {
 			}
 		})
+	},
+
+	getRecipes: function() {
+		$.ajax( {
+			url: 'api/recipes/',
+			dataType: 'json',
+			method: 'GET',
+			success: function(recipes) {
+				RecipeActions.receiveRecipes(recipes)
+			}
+		});	
+	},
+
+	getSingleRecipe: function(id) {
+		$.ajax( {
+				url: 'api/recipes/' + id,
+				dataType: 'json',
+				method: 'GET',
+				success: function(recipe) {
+					RecipeActions.receiveSingleRecipe(recipe);
+			}
+		});
 	}
 
 };

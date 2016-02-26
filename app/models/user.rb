@@ -8,6 +8,8 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  firstname       :string
+#  lastname        :string
 #
 
 class User < ActiveRecord::Base

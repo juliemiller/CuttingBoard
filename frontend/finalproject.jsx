@@ -10,6 +10,7 @@ var BoardForm = require('./components/board/board_form');
 var NavBar = require('./components/navbar');
 var UserForm = require('./components/user/user_form');
 var UserStore = require('./stores/user_store');
+var RecipeHome = require('./components/recipe/recipe_home');
 
 var App = React.createClass({
 	getInitialState: function() {
@@ -32,6 +33,7 @@ var App = React.createClass({
 				{this.props.children && React.cloneElement(this.props.children, { 
 					current_user: this.state.current_user
 				})}
+				<RecipeHome />
 			</div>	
 		)
 	}

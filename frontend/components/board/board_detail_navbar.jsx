@@ -32,9 +32,9 @@ var BoardDetailNavBar = React.createClass({
 			boardId = this.props.board.id;
 		}
 		return (
-			<div>
-				<button onClick={this.renderBoards}>Boards</button>
-				<button onClick={this.openEditBoardForm}>Edit Board</button>
+			<div className="navbar">
+				<button className="btn navbar-btn pull-left" onClick={this.renderBoards}>Boards</button>
+				<button className="btn navbar-btn pull-right" onClick={this.openEditBoardForm}>Edit Board</button>
 				<Modal show={this.state.showModal} onHide={this.closeEditBoardForm}>
 					<Modal.Header closeButton>
 						<Modal.Title>Edit you board</Modal.Title>

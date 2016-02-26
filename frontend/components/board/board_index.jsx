@@ -31,7 +31,6 @@ var BoardIndex = React.createClass( {
 	},
 
 	openNewBoardForm: function() {
-		// this.history.push("boards/newBoard")
 		this.setState({ showModal: true });
 	},
 

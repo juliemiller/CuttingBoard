@@ -33,7 +33,6 @@ var App = React.createClass({
 				{this.props.children && React.cloneElement(this.props.children, { 
 					current_user: this.state.current_user
 				})}
-				<RecipeHome />
 			</div>	
 		)
 	}
@@ -41,11 +40,10 @@ var App = React.createClass({
 
 var routes = (
 	<Route path="/" component={App}>
+		<IndexRoute component={RecipeHome} />
 		<Route path="boards" component={BoardHome}>
-			<Route path="editProfile" component={UserForm} />
-		</Route>
-		<Route path="boards/:boardId" component={BoardIndexItemDetail}>
-		</ Route>
+			<Route path="editProfile" component={UserForm} /></Route>
+		<Route path="boards/:boardId" component={BoardIndexItemDetail}></ Route>
 	</ Route>
 	)
 

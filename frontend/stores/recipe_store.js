@@ -12,7 +12,7 @@ RecipeStore.all = function() {
 	Object.keys(_recipes).forEach(function(recipeId) {
 			recipes.push(_recipes[recipeId]);
 	})
-	return { recipes: recipes };
+	return recipes;
 };
 
 RecipeStore.find = function(id) {

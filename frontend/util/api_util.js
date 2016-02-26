@@ -1,6 +1,7 @@
 var BoardActions = require('../actions/board_actions');
 var CategoryActions = require('../actions/category_actions');
 var UserActions = require('../actions/user_actions');
+var RecipeActions = require('../actions/recipe_actions');
 
 var ApiUtil = {
 	fetchBoards: function() {
@@ -89,7 +90,15 @@ var ApiUtil = {
 		})
 	},
 
-	getRecipes: function() {
+	logoutUser: function() {
+		$.ajax({
+			url: '/session',
+			method: "DELETE",
+			dataType: "json",
+		})
+	},
+
+	fetchRecipes: function() {
 		$.ajax( {
 			url: 'api/recipes/',
 			dataType: 'json',
@@ -100,7 +109,7 @@ var ApiUtil = {
 		});	
 	},
 
-	getSingleRecipe: function(id) {
+	fetchSingleRecipe: function(id) {
 		$.ajax( {
 				url: 'api/recipes/' + id,
 				dataType: 'json',

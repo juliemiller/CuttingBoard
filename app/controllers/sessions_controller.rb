@@ -18,5 +18,8 @@ class SessionsController < ApplicationController
 		logout!
     redirect_to new_session_url
 	end
+
+	def show
+	end
 	
 end

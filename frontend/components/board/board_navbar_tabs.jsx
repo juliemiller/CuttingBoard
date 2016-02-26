@@ -16,12 +16,14 @@ NavBarTabs = React.createClass({
 
     return (
     	<div >
-        <Headers 
-          selectedTab={this.state.selectedTab}
-          onTabChosen={this.selectTab}
-          tabs={this.props.tabs}>
-        </Headers>
-        <div>
+        <div className="nav nav-tabs centered boardNavBar">
+          <Headers 
+            selectedTab={this.state.selectedTab}
+            onTabChosen={this.selectTab}
+            tabs={this.props.tabs}>
+          </Headers>
+        </div>
+        <div className="boards">
         	{tab.content}
         </div>
       </div>

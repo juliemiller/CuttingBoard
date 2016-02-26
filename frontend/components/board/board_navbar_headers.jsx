@@ -8,7 +8,9 @@ var BoardNavBarHeader = React.createClass({
       var title = tab.title;
       var klass = ""
       if (index === selected) {
-        klass = "tabs active"
+        klass = "nav-pills active"
+      } else {
+        klass="nav-pills"
       }
 
       return (
@@ -21,7 +23,7 @@ var BoardNavBarHeader = React.createClass({
       );
     });
     return (
-      <div className="tabs">
+      <div className="">
         {headers}
       </div>
 

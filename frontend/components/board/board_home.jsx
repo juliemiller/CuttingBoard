@@ -11,10 +11,6 @@ var BoardHome = React.createClass( {
 		return { showModal: false}; 
 	},
 
-	// openNewBoardForm: function() {
-	// 	this.props.history.push("boards/newBoard")
-	// },
-
 	open: function() {
 		this.setSate({ showModal: true });
 	},

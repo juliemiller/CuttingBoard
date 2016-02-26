@@ -31,7 +31,7 @@ var ApiUtil = {
 			data: {board: board},
 			success: function(board) {
 				BoardActions.receiveSingleBoard(board);
-				callback(board.id);
+				callback && callback(board.id);
 			}
 
 		});
@@ -56,11 +56,11 @@ var ApiUtil = {
 			data: {board: board},
 			success: function(board) {
 				BoardActions.receiveSingleBoard(board);
-			},
-			error: function(errors) {
-				debugger;
-				BoardActions.receiveErrors(errors);
 			}
+			// error: function(errors) {
+			// 	// BoardActions.receiveErrors(errors);
+			// 	console.log(errors);
+			// }
 		})
 	},
 
@@ -73,6 +73,21 @@ var ApiUtil = {
 				CategoryActions.receiveCategories(categories);
 			}
 		});
+	},
+
+	getCurrentUser: function() {
+		console.log("getting current User")
+		$.ajax({
+			url: '/users/show',
+			method: "GET",
+			dataType: 'text',
+			success: function(user) {
+				console.log(user);
+			},
+			error: function(data) {
+				console.log("ERROR")
+			}
+		})
 	}
 
 };

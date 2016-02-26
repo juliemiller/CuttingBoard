@@ -45,7 +45,7 @@ var BoardIndex = React.createClass( {
 			<div className="container">
 				<div className="publicBoards row">
 				<div className="col-md-3" onClick={this.openNewBoardForm}>
-					<section className="board create">Create Board <br/>
+					<section className="board create">Create a Board <br/>
 					</section>
 					</div> 
 				<Modal show={this.state.showModal} onHide={this.closeNewBoardForm}>

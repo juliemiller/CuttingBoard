@@ -70,7 +70,8 @@ var BoardForm = React.createClass({
 		this.setState({ title: "", description: "", private: false, category_id: 0 });
 	},
 
-	deleteBoard: function() {
+	deleteBoard: function(e) {
+		e.preventDefault();
 		ApiUtil.destroyBoard(this.state.boardId);
 		this.history.push("/boards");
 	},

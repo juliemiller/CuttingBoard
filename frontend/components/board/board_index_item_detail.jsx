@@ -34,12 +34,10 @@ var BoardIndexItemDetail = React.createClass({
 	},
 
 	openEditBoardForm: function() {
-		// this.history.push("boards/newBoard")
 		this.setState({ showModal: true });
 	},
 
 	closeEditBoardForm: function() {
-		// this.history.push("boards/newBoard")
 		this.setState({ showModal: false });
 	},
 
@@ -59,4 +57,3 @@ var BoardIndexItemDetail = React.createClass({
 });
 
 module.exports = BoardIndexItemDetail;
-				// {this.props.children}

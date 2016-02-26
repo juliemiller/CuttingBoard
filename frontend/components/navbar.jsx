@@ -15,19 +15,23 @@ var NavBar = React.createClass({
 
 	render: function() {
 		return (
-			<header >
-				<nav className="navbar navbar-fixed-top navbar-form navbar-default">
-					<div className="container">
-					<div className="navbar-header">
-							<button id="homeButton" onClick={this.goToRoot}>Home</button> 
-							<div className="form-group">
-								<NavBarSearch />
-							</div>
-							<button id="boardButton" onClick={this.renderBoardsIndex}>Boards</button>
-						</div>
-					</div>
-				</nav>
-			</header>
+			<div className="container-fluid">
+			 <nav className="navbar navbar-fixed-top navbar-default" role="navigation">
+			  <div className="container-fluid">
+			    <div className="collapse navbar-collapse">
+	 				<button className="btn navbar-btn pull-left" onClick={this.goToRoot}>Home</button> 
+			      <form className="navbar-form navbar-left" role="search">
+			        <div className="form-group">
+			          <input type="text" className="form-control" placeholder="Search"/>
+			        </div>
+			        <button type="submit" className="btn btn-default">Submit</button>
+			      </form>
+						<button className="btn navbar-btn pull-right" onClick={this.renderBoardsIndex}>Boards</button>
+			      
+			    </div>
+			  </div>
+			</nav>
+			</div>
 		)
 	}
 });

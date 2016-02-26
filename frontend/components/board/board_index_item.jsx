@@ -11,8 +11,19 @@ var BoardIndexItem = React.createClass({
 	render: function() {
 		return (
 			<div className="col-md-3" onClick={this.renderBoard}>
-				<section className="board">{this.props.board.title}</section> 
+				<section className="board">
+				<h5>{this.props.board.title}</h5>
+				<div className="pictures" >
+	 				<div className="biggerPicture">Picture 1 </div>
+					<div className="container-float smallPictures">
+						<div className="smallPicture col-md-4">PIC1</div>
+						<div className="smallPicture col-md-4">PIC2</div>
+						<div className="smallPicture col-md-4">PIC3</div>
+					</div>
+				</div>
+			</section> 
 			</div>
+
 		)
 	}
 });

@@ -27,7 +27,6 @@ var routes = (
 			<Route path="editProfile" component={UserForm} />
 		</Route>
 		<Route path="boards/:boardId" component={BoardIndexItemDetail}>
-			// <Route path="edit" component={BoardForm}/>
 		</ Route>
 	</ Route>
 	)
@@ -35,7 +34,3 @@ var routes = (
 document.addEventListener("DOMContentLoaded", function() {
 	ReactDOM.render(<Router>{routes}</Router>, document.getElementById("content"))});
 		
-
-
-
-	// <Route path="newBoard" component={BoardForm} />

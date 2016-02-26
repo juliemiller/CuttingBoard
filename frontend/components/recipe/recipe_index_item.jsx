@@ -22,7 +22,7 @@ var RecipeIndexItem = React.createClass({
 					<img className="image" src={this.props.recipe.image_url}/>
 					<h4> {this.props.recipe.title}</h4>
 					<div>{this.props.recipe.description}</div>
-					<div>{this.props.recipe.category_id}</div>
+					<div className="recipeCategory">{this.props.recipe.category.name}</div>
 				</div>
 				<Modal show={this.state.showModal} onHide={this.closeRecipeDetail} >
 					<Modal.Header closeButton>

@@ -25,7 +25,7 @@ var RecipeIndex = React.createClass({
 	render: function() {
 
 		return (
-				<div>
+				<div className="allRecipes">
 					{
 					this.state.recipes.map(function(recipe) {
 						return <RecipeIndexItem key={recipe.id} recipe={recipe} />

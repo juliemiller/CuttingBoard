@@ -14,4 +14,6 @@
 
 class Recipe < ActiveRecord::Base
 	validates :title, :url, :image_url, :description, :category_id, null: false
+
+	belongs_to :category
 end

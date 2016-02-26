@@ -56,7 +56,6 @@
 	margin: 5px;
 	text-align: center;
 	box-shadow: 0px 2px 1px #888888;
-	height:;
 }
 
 .active {
@@ -163,3 +162,19 @@ body {
 	border-radius: 10px;
 	padding: 0px;
 }
+
+.recipeIndexItem:hover {
+	cursor: pointer;
+}
+
+.recipeCategory {
+	border-top: 1px solid #EBEBEB;
+}
+
+.allRecipes {
+	padding-top: 20px;
+}
+
+
+
+

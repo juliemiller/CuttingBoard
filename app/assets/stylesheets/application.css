@@ -48,6 +48,7 @@
 	text-align: center;
 	margin: 5px;
 	height: 200px;
+	line-height: 200px;
 }
 
 .tabs {
@@ -142,4 +143,8 @@ body {
 
 .editButton:hover {
 	color: gray;
+}
+
+#boardUsername {
+	transform: translateY(100px);
 }

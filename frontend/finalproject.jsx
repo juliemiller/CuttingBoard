@@ -9,19 +9,30 @@ var BoardIndexItemDetail = require('./components/board/board_index_item_detail')
 var BoardForm = require('./components/board/board_form');
 var NavBar = require('./components/navbar');
 var UserForm = require('./components/user/user_form');
+var UserStore = require('./stores/user_store');
 
 var App = React.createClass({
+	getInitialState: function() {
+		return { current_user: UserStore.getUser() };
+	},
+
 	componentDidMount: function() {
-		console.log("HERE")
+		UserStore.addListener(this._onChange);
 		ApiUtil.getCurrentUser();
+	},
+
+	_onChange: function() {
+		this.setState({ current_user: UserStore.getUser()})
 	},
 
 	render: function() {
 		return (
 			<div className="container-fluid">
-				<NavBar />
-				{this.props.children}
-			</div>		
+				<NavBar current_user={this.state.current_user}/>
+				{this.props.children && React.cloneElement(this.props.children, { 
+					current_user: this.state.current_user
+				})}
+			</div>	
 		)
 	}
 });

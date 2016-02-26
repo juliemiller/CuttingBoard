@@ -1,5 +1,6 @@
 var BoardActions = require('../actions/board_actions');
 var CategoryActions = require('../actions/category_actions');
+var UserActions = require('../actions/user_actions');
 
 var ApiUtil = {
 	fetchBoards: function() {
@@ -76,16 +77,14 @@ var ApiUtil = {
 	},
 
 	getCurrentUser: function() {
-		console.log("getting current User")
 		$.ajax({
 			url: '/users/show',
 			method: "GET",
 			dataType: 'text',
 			success: function(user) {
-				console.log(user);
+				UserActions.receiveCurrentUser(user);
 			},
 			error: function(data) {
-				console.log("ERROR")
 			}
 		})
 	}

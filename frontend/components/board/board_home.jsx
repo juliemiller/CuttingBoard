@@ -28,7 +28,7 @@ var BoardHome = React.createClass( {
 
 		return (
 			<div >
-				<BoardNavBar />
+				<BoardNavBar current_user={this.props.current_user}/>
 				<BoardNavBarTabs tabs={tabs}/>
 				
 			</div>

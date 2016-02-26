@@ -1,6 +1,8 @@
 var React = require('react');
 var History = require('react-router').History;
 var NavBarSearch = require('./navbar_search');
+var UserStore = require('../stores/user_store');
+var ApiUtil = require('../util/api_util');
 
 var NavBar = React.createClass({
 	mixins: [History],
@@ -14,6 +16,11 @@ var NavBar = React.createClass({
 	},
 
 	render: function() {
+		var email = "";
+		if (this.props.current_user) {
+			email = this.props.current_user.user;
+		}
+
 		return (
 			<div className="container-fluid">
 			 <nav className="navbar navbar-fixed-top navbar-default" role="navigation">
@@ -26,7 +33,7 @@ var NavBar = React.createClass({
 			        </div>
 			        <button type="submit" className="btn btn-default">Submit</button>
 			      </form>
-						<button className="btn navbar-btn pull-right" onClick={this.renderBoardsIndex}>Boards</button>
+						<button className="btn navbar-btn pull-right" onClick={this.renderBoardsIndex}>{email}</button>
 			      
 			    </div>
 			  </div>

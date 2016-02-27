@@ -43,4 +43,8 @@ RecipeStore.receiveSingleRecipe = function(recipe) {
 	RecipeStore.__emitChange();
 };
 
+RecipeStore.pinnedRecipes = function(recipes) {
+
+};
+
 module.exports = RecipeStore;

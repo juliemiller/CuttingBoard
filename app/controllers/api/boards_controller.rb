@@ -31,7 +31,7 @@ class Api::BoardsController < ApplicationController
 
 	def index 
 		if current_user
-			@boards = Board.getUsersBoards(current_user.id)
+			@boards = current_user.boards
 		else
 			redirect_to new_session_url
 		end

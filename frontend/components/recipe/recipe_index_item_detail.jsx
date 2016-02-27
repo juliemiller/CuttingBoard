@@ -5,7 +5,7 @@ var RecipeIndexItemDetail = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<RecipeDetailNavbar />
+				<RecipeDetailNavbar recipe={this.props.recipe}/>
 				<img className="image" src={this.props.recipe.image_url} />
 				<div>
 					<p>{this.props.recipe.description}</p>

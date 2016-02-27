@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   	resources :boards, only: [:create, :destroy, :update, :index, :show]
   	resources :categories, only: [:index]
   	resources :recipes, only: [:index, :create, :update, :show]
+  	resources :pins, only: [:create, :destroy]
   end
 end

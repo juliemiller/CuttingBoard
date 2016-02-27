@@ -5,6 +5,7 @@ var BoardForm = require('./board_form');
 var BoardNavBar = require('./board_navbar');
 var BoardNavBarTabs = require('./board_navbar_tabs');
 var BoardIndex = require('./board_index');
+var PinIndex = require('../pin/pin_index');
 
 var BoardHome = React.createClass( {
 	getInitialState: function() {
@@ -22,7 +23,7 @@ var BoardHome = React.createClass( {
 	render: function() {
 		var tabs = [
 			{title: "Boards", content: <BoardIndex />}, 
-			{title: "Pins",  content: ""}, 
+			{title: "Pins",  content: <PinIndex />}, 
 			{title: "Followed Topics", content:  ""}
 			];
 

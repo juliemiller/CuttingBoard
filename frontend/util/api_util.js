@@ -118,6 +118,28 @@ var ApiUtil = {
 					RecipeActions.receiveSingleRecipe(recipe);
 			}
 		});
+	},
+
+	createPin: function(board_id, recipe_id) {
+		$.ajax( {
+				url: 'api/pins/',
+				dataType: 'json',
+				method: 'POST',
+				success: function(pin) {
+					PinActions.receiveSinglePin(pin);
+			}
+		});
+	},
+
+	destroyPin: function(id) {
+		$.ajax( {
+				url: 'api/pins/' + id,
+				dataType: 'json',
+				method: 'DELETE',
+				success: function(pin) {
+					PinActions.removePin(id);
+			}
+		});
 	}
 
 };

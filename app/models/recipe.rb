@@ -13,7 +13,8 @@
 #
 
 class Recipe < ActiveRecord::Base
-	validates :title, :url, :image_url, :description, :category_id, null: false
+	validates :title, :url, :image_url, :description, :category_id, presence: true
 
 	belongs_to :category
+	has_many :pins
 end

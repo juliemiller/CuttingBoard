@@ -1,6 +1,7 @@
 var React = require('react');
 var Modal = require('react-bootstrap').Modal;
 var RecipeIndexItemDetail = require('./recipe_index_item_detail');
+var RecipeItem = require('./recipe_item');
 
 var RecipeIndexItem = React.createClass({
 	getInitialState: function() {
@@ -17,13 +18,8 @@ var RecipeIndexItem = React.createClass({
 
 	render: function() {
 		return (
-			<div className="container-fluid">
-				<div onClick={this.openRecipeDetail} className="col-md-3 recipeIndexItem">
-					<img className="image" src={this.props.recipe.image_url}/>
-					<h4> {this.props.recipe.title}</h4>
-					<div>{this.props.recipe.description}</div>
-					<div className="recipeCategory">{this.props.recipe.category.name}</div>
-				</div>
+			<div className="container-fluid" onClick={this.openRecipeDetail} >
+				<RecipeItem recipe={this.props.recipe} />
 				<Modal show={this.state.showModal} onHide={this.closeRecipeDetail} >
 					<Modal.Header closeButton>
 						<Modal.Title>{this.props.recipe.title}</Modal.Title>

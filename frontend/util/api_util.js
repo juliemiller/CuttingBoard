@@ -2,7 +2,7 @@ var BoardActions = require('../actions/board_actions');
 var CategoryActions = require('../actions/category_actions');
 var UserActions = require('../actions/user_actions');
 var RecipeActions = require('../actions/recipe_actions');
-
+var PinActions = require('../actions/pin_actions');
 var ApiUtil = {
 	fetchBoards: function() {
 		$.ajax( {
@@ -120,13 +120,19 @@ var ApiUtil = {
 		});
 	},
 
-	createPin: function(board_id, recipe_id) {
+	createPin: function(boardId, recipeId) {
+		var pin = { board_id: boardId, recipe_id: recipeId};
 		$.ajax( {
 				url: 'api/pins/',
 				dataType: 'json',
 				method: 'POST',
+				data: {pin: pin},
 				success: function(pin) {
+					console.log(pin);
 					PinActions.receiveSinglePin(pin);
+			},
+			error: function(pin) {
+				console.log("ERROR", pin)	
 			}
 		});
 	},

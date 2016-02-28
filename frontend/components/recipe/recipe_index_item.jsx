@@ -18,8 +18,10 @@ var RecipeIndexItem = React.createClass({
 
 	render: function() {
 		return (
-			<div className="container-fluid" onClick={this.openRecipeDetail} >
-				<RecipeItem recipe={this.props.recipe} />
+			<div className="container-fluid">
+				<div onClick={this.openRecipeDetail}>
+					<RecipeItem recipe={this.props.recipe} />
+				</div>
 				<Modal show={this.state.showModal} onHide={this.closeRecipeDetail} >
 					<Modal.Header closeButton>
 						<Modal.Title>{this.props.recipe.title}</Modal.Title>

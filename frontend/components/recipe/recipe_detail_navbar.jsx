@@ -3,7 +3,7 @@ var ApiUtil = require('../../util/api_util');
 var CreatePin = require('../pin/create_pin');
 var Modal = require('react-bootstrap').Modal;
 var RecipeItem = require('../recipe/recipe_item');
-
+var BoardList = require('../board/board_list');
 
 var RecipeDetailNavbar = React.createClass({
 	getInitialState: function() {
@@ -29,6 +29,7 @@ var RecipeDetailNavbar = React.createClass({
 					<Modal.Body>
 						<div>
 							<RecipeItem recipe={this.props.recipe} />
+							<BoardList recipe={this.props.recipe} modalCallback={this.closeCreatePinModal}/>
 						</div>
 					</Modal.Body>
 				</Modal>

@@ -146,6 +146,17 @@ var ApiUtil = {
 					PinActions.removePin(id);
 			}
 		});
+	},
+
+	getPinnedRecipes: function() {
+		$.ajax( {
+				url: 'api/pins/',
+				dataType: 'json',
+				method: 'GET',
+				success: function(pins) {
+					PinActions.receivePins(pins);
+			}
+		});
 	}
 
 };

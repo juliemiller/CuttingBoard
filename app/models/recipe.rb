@@ -17,4 +17,5 @@ class Recipe < ActiveRecord::Base
 
 	belongs_to :category
 	has_many :pins
+	has_many :boards, through: :pins
 end

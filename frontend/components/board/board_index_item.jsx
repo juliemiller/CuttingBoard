@@ -26,8 +26,12 @@ var BoardIndexItem = React.createClass({
 
 	render: function() {
 		var boardId = "";
+		var pictureUrls = [];
 		if (this.props.board) {
 			boardId = this.props.board.id;
+			for (var i = 0; i < this.props.board.recipes.length; i ++) {
+				pictureUrls[i] = this.props.board.recipes[i].image_url;
+			}
 		}
 
 		return (
@@ -35,11 +39,13 @@ var BoardIndexItem = React.createClass({
 				<section className="board">
 				<h5>{this.props.board.title}</h5>
 				<div className="pictures" >
-	 				<div className="biggerPicture">Picture 1 </div>
+	 				<div className="biggerPicture"> 
+	 					<img className="image" src={pictureUrls[0]}/>
+	 				</div>
 						<div className="container-float smallPictures">
-							<div className="smallPicture col-md-4">PIC1</div>
-							<div className="smallPicture col-md-4">PIC2</div>
-							<div className="smallPicture col-md-4">PIC3</div>
+							<div className="smallPicture col-md-4">{pictureUrls[1]}</div>
+							<div className="smallPicture col-md-4">{pictureUrls[2]}</div>
+							<div className="smallPicture col-md-4">{pictureUrls[3]}</div>
 						</div>
 						<button className="btn editButton" onClick={this.openEditBoardForm}>Edit</button>
 						<Modal show={this.state.showModal} onHide={this.closeEditBoardForm}>

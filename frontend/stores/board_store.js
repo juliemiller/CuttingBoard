@@ -52,7 +52,7 @@ BoardStore.receiveSingleBoard = function(board) {
 };
 
 BoardStore.removeBoard = function(id) {
-	delete _boards[id]
+	delete _boards[id];
 	BoardStore.__emitChange();
 }
 

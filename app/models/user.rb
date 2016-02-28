@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 	validates :email, :session_token, uniqueness: true
 
 	has_many :boards
+	has_many :pins, through: :boards
+	has_many :recipes, through: :boards
 
 	def self.find_by_credentials(email, password)
 		user = User.find_by(email: email)
@@ -45,5 +47,9 @@ class User < ActiveRecord::Base
 
 	def is_password?(password)
 		BCrypt::Password.new(self.password_digest).is_password?(password)
+	end
+
+	def unique_recipes
+		recipes.uniq
 	end
 end

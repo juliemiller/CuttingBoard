@@ -14,6 +14,11 @@ class Api::PinsController < ApplicationController
 		@pin.destroy
 	end
 
+	def index
+		@pins = current_user.pins
+	end
+
+
 	private
 	def pin_params
 		params.require(:pin).permit(:board_id, :recipe_id)

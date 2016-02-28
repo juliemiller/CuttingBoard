@@ -86,6 +86,7 @@
 .pictures {
 	height: 85%;
 	margin: 10px;
+
 }
 .biggerPicture {
 	border: 1px solid gray;
@@ -93,6 +94,8 @@
 	margin: 0 auto;
 	height: 55%;
 	border-radius: 3px;
+	overflow: hidden;
+
 }
 
 .smallPictures {

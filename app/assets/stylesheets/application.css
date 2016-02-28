@@ -108,6 +108,8 @@
 	border-radius: 3px;
 	border: 1px solid gray;
 	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -140,7 +142,6 @@ body {
 	color: #7DAFBA;
 	font-weight: bold;
 	border: 1px solid #CCCCCC;
-
 }
 
 .editButton:hover {
@@ -164,6 +165,7 @@ body {
 	border: 1px solid #EBEBEB;
 	border-radius: 10px;
 	padding: 0px;
+	display: inline-block;
 }
 
 .recipeIndexItem:hover {
@@ -179,5 +181,32 @@ body {
 }
 
 
+.recipeItem {
+	display: inline-block;
+}
 
+.boardList {
+	display: inline-block;
+	width: 50%;
+}
 
+.createPinRecipeItem {
+	width: 40%;
+	margin: 10px;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.pinBoardButton {
+	float: right;
+}
+
+.pinBoard {
+	width: 100%;
+	height: 50px;
+}
+
+.boardListItems {
+	position: relative;
+	top: -100px;
+}

@@ -8,6 +8,7 @@ var _pins = {};
 
 PinStore.all = function() {
 	var pins = []
+	console.log(_pins);
 	Object.keys(_pins).forEach(function(pinId) {
 		pins.push(_pins[pinId])
 	});
@@ -31,9 +32,12 @@ PinStore.__onDispatch = function(payload) {
 };
 
 PinStore.receivePins = function(pins) {
+	console.log("Store", pins);
+	_pins = {};
 	pins.forEach(function(pin) {
 		_pins[pin.id] = pin;
 	});
+	console.log(_pins);
 	PinStore.__emitChange();
 };
 

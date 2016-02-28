@@ -28,8 +28,7 @@ var RecipeDetailNavbar = React.createClass({
 					</Modal.Header>
 					<Modal.Body>
 						<div>
-							<RecipeItem recipe={this.props.recipe} />
-							<BoardList recipe={this.props.recipe} modalCallback={this.closeCreatePinModal}/>
+							<CreatePin recipe={this.props.recipe} modalCallback={this.closeCreatePinModal} />
 						</div>
 					</Modal.Body>
 				</Modal>

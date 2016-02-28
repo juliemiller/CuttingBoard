@@ -4,6 +4,7 @@ var BoardDetailNavBar = require('./board_detail_navbar');
 var ApiUtil = require('../../util/api_util');
 var Modal = require('react-bootstrap').Modal;
 var BoardForm = require('./board_form');
+var RecipeIndexItem = require('../recipe/recipe_index_item');
 
 var BoardIndexItemDetail = React.createClass({
 	getInitialState: function() {
@@ -43,14 +44,25 @@ var BoardIndexItemDetail = React.createClass({
 
 	render: function() {
 		var displayBoard = "";
+		var recipes = [];
 		if (this.state.board) {
 			displayBoard= this.state.board;
+			recipes = this.state.board.recipes;
 		}
 		return (
-			<div className="boardDetailTitle">
-				<h2>{displayBoard.title}</h2>
-				<p>{displayBoard.description}</p>
-				<BoardDetailNavBar board={this.state.board}/>
+			<div>
+				<div className="boardDetailTitle">
+					<h2>{displayBoard.title}</h2>
+					<p>{displayBoard.description}</p>
+					<BoardDetailNavBar board={this.state.board}/>
+				</div>
+				<div className="recipes">
+						{
+							recipes.map(function(recipe) {
+								return <RecipeIndexItem recipe={recipe} key={recipe.id} />
+							})
+						}
+				</div>
 			</div>
 		)
 	}

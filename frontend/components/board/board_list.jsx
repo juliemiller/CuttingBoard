@@ -34,15 +34,15 @@ var BoardList = React.createClass({
 	render: function() {
 		var that = this;
 		return (
-			<div>
-				<ul>
-					{
+			<div className="boardList">
+				<ul className="boardListItems">
+				{
 						this.state.boards.map(function(board) {
 							return (
-								<li key={board.id}>
-									{board.title}
-									<button onClick={function(){ that.pinToBoard(board.id)} }>Pin</button>
-								</li>
+								<li key={board.id} className="pinBoard">
+									 <span >{board.title}</span>
+									<button className="pinBoardButton" onClick={function(){ that.pinToBoard(board.id)} }>Pin</button>
+							</li>
 							)
 						})
 					}

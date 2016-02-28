@@ -43,9 +43,15 @@ var BoardIndexItem = React.createClass({
 	 					<img className="image" src={pictureUrls[0]}/>
 	 				</div>
 						<div className="container-float smallPictures">
-							<div className="smallPicture col-md-4">{pictureUrls[1]}</div>
-							<div className="smallPicture col-md-4">{pictureUrls[2]}</div>
-							<div className="smallPicture col-md-4">{pictureUrls[3]}</div>
+							<div className="smallPicture col-md-4">
+								<img className="image" src={pictureUrls[1]}/>
+							</div>
+							<div className="smallPicture col-md-4">
+								<img className="image" src={pictureUrls[2]}/>
+							</div>
+							<div className="smallPicture col-md-4">
+								<img className="image" src={pictureUrls[3]}/>
+							</div>
 						</div>
 						<button className="btn editButton" onClick={this.openEditBoardForm}>Edit</button>
 						<Modal show={this.state.showModal} onHide={this.closeEditBoardForm}>

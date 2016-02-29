@@ -18,7 +18,7 @@ var RecipeIndexItem = React.createClass({
 
 	render: function() {
 		return (
-			<div className="recipeItem col-md-3">
+			<div className="recipeItem col-md-3 col-xs-4">
 				<div onClick={this.openRecipeDetail} >
 					<RecipeItem recipe={this.props.recipe} />
 				</div>

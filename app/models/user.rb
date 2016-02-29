@@ -53,4 +53,6 @@ class User < ActiveRecord::Base
 	def unique_recipes
 		recipes.uniq
 	end
+
+	
 end

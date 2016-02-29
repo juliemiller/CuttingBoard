@@ -20,13 +20,13 @@ var RecipeDetailNavbar = React.createClass({
 
 	render: function() {
 		return (
-			<div className="btn-toolbar" >
-				<button className="btn" onClick={this.openCreatePinModal}>Pin</button>
+			<div className="btn-toolbar recipeNavBar" >
+				<button className="btn btn-primary" onClick={this.openCreatePinModal}>Pin</button>
 				<Modal show={this.state.showModal} onHide={this.closeCreatePinModal}>
 					<Modal.Header closeButton id="createPinModalHeader">
 					</Modal.Header>
-					<Modal.Body>
-						<div>
+					<Modal.Body id="createPinModalBody">
+						<div className="cretePinModalBody">
 							<CreatePin recipe={this.props.recipe} modalCallback={this.closeCreatePinModal} />
 						</div>
 					</Modal.Body>

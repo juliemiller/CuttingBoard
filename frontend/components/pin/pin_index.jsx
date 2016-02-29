@@ -26,7 +26,7 @@ var PinIndex = React.createClass({
 			<div>
 				{
 					this.state.pins.map(function(pin) {
-						return <RecipeIndexItem recipe={pin.recipe} key={pin.recipe.id}/>
+						return <RecipeIndexItem recipe={pin.recipe} key={pin.id}/>
 					})
 				}
 			</div>

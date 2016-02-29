@@ -80,41 +80,35 @@ var BoardForm = React.createClass({
 
 		return (
 			<form onSubmit={this.handleSubmit} className="boardForm">
-				<div className="form-group">
-					<label className="control-label">Title</label>
-					<input type="text" className="form-control required" value={this.state.title} onChange={this.handleTitleChange}/>
-				</div>
+					<label >Title</label>
+					<input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
 				<br/>
-				<div className="form-group">
-					<label className="control-label">Description</label>
-					<input type="text" className="form-control" value={this.state.description} onChange={this.handleDescriptionChange}/>
-				</div>
+					<label>Description</label>
+					<input type="text" value={this.state.description} onChange={this.handleDescriptionChange}/>
 				<br/>
-				<div className="form-group">
-					<label className="control-label">Category
-						<select className="form-control" value={this.state.category_id} onChange={this.handleCategoryChange}>
-							<option key=""></option>
-							{
-								this.state.categories.map(function(category) {
-									return <option key={category.id} value={category.id}>{category.name}</option>
-								})
-							}
-						</select>
-					</label>
-				</div>
+				<label>Category</label>
+					<select value={this.state.category_id} onChange={this.handleCategoryChange}>
+						<option key=""></option>
+						{
+							this.state.categories.map(function(category) {
+								return <option key={category.id} value={category.id}>{category.name}</option>
+							})
+						}
+					</select>
 				<br/>
-				<div className="form-group">
-					<label className="control-label">Private
-						<input type="checkbox" className="form-control" checked={this.state.private} onClick={this.handlePrivateChange}/>
-
-					</label>
-				</div>
+					<label>Private</label>
+					<div className="onoffswitch">
+					<input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox" id="myonoffswitch" checked={this.state.private} onClick={this.handlePrivateChange}/>
+						<label className="onoffswitch-label" htmlFor="myonoffswitch">
+							<span className="onoffswitch-inner"></span>
+							<span className="onoffswitch-switch"></span>
+						</label>
+					</div>
 				<br/>
-				<div className="btn-toolbar">
 					{this.editing ? <button className="btn" onClick={this.deleteBoard}>Delete</button> : ""}
 					<button className="btn" onClick={this.handleCancel}>Cancel</button>
 					<input className="btn btn-primary" type="submit" value="Submit"/>
-				</div>
+
 			</form>
 		)
 	}
@@ -122,3 +116,43 @@ var BoardForm = React.createClass({
 });
 
 module.exports = BoardForm;
+
+
+
+// <form onSubmit={this.handleSubmit} className="boardForm">
+// 				<div className="form-group row">
+// 					<label className="control-label col-md-3">Title</label>
+// 					<input type="text" className="form-control required col-md-9" value={this.state.title} onChange={this.handleTitleChange}/>
+// 				</div>
+// 				<br/>
+// 				<div className="form-group">
+// 					<label className="control-label">Description</label>
+// 					<input type="text" className="form-control" value={this.state.description} onChange={this.handleDescriptionChange}/>
+// 				</div>
+// 				<br/>
+// 				<div className="form-group">
+// 					<label className="control-label">Category
+// 						<select className="form-control" value={this.state.category_id} onChange={this.handleCategoryChange}>
+// 							<option key=""></option>
+// 							{
+// 								this.state.categories.map(function(category) {
+// 									return <option key={category.id} value={category.id}>{category.name}</option>
+// 								})
+// 							}
+// 						</select>
+// 					</label>
+// 				</div>
+// 				<br/>
+// 				<div className="form-group">
+// 					<label className="control-label">Private
+// 						<input type="checkbox" className="form-control" checked={this.state.private} onClick={this.handlePrivateChange}/>
+
+// 					</label>
+// 				</div>
+// 				<br/>
+// 				<div className="btn-toolbar">
+// 					{this.editing ? <button className="btn" onClick={this.deleteBoard}>Delete</button> : ""}
+// 					<button className="btn" onClick={this.handleCancel}>Cancel</button>
+// 					<input className="btn btn-primary" type="submit" value="Submit"/>
+// 				</div>
+// 			</form>

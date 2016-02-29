@@ -35,7 +35,7 @@ var BoardIndexItem = React.createClass({
 		}
 
 		return (
-			<div className="col-md-3" onClick={this.renderBoard}>
+			<div className="col-md-3 col-xs-4" onClick={this.renderBoard}>
 				<section className="board">
 				<h5>{this.props.board.title}</h5>
 				<div className="pictures" >

@@ -32,12 +32,10 @@ PinStore.__onDispatch = function(payload) {
 };
 
 PinStore.receivePins = function(pins) {
-	console.log("Store", pins);
 	_pins = {};
 	pins.forEach(function(pin) {
 		_pins[pin.id] = pin;
 	});
-	console.log(_pins);
 	PinStore.__emitChange();
 };
 
@@ -48,7 +46,7 @@ PinStore.receiveSinglePin = function(pin) {
 
 PinStore.removePin = function(pin) {
 	delete _pins[id];
-	PinStore.__emitChnage();
+	PinStore.__emitChange();
 };
 
 module.exports = PinStore;

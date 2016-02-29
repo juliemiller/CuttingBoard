@@ -26,7 +26,7 @@ BoardNavBar = React.createClass({
 					  Settings <span className="caret"></span>
 					  </button>
 					  <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-					    <li onClick={this.logOutUser}>Logout</li>
+					    <li onClick={this.logOutUser}><a>Logout</a></li>
 					  </ul>
 					</div>
 				</div>

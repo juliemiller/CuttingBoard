@@ -10,7 +10,7 @@ var CreatePin = React.createClass( {
 	render: function() {
 		
 		return (
-			<div>
+			<div className="createPin">
 				<div className="createPinRecipeItem">
 					<RecipeItem recipe={this.props.recipe} />
 				</div>

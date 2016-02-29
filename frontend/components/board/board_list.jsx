@@ -41,7 +41,7 @@ var BoardList = React.createClass({
 							return (
 								<li key={board.id} className="pinBoard">
 									 <span >{board.title}</span>
-									<button className="pinBoardButton" onClick={function(){ that.pinToBoard(board.id)} }>Pin</button>
+									<button className="pinBoardButton btn btn-primary" onClick={function(){ that.pinToBoard(board.id)} }>Pin</button>
 							</li>
 							)
 						})

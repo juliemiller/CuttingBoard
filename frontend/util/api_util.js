@@ -3,6 +3,7 @@ var CategoryActions = require('../actions/category_actions');
 var UserActions = require('../actions/user_actions');
 var RecipeActions = require('../actions/recipe_actions');
 var PinActions = require('../actions/pin_actions');
+
 var ApiUtil = {
 	fetchBoards: function() {
 		$.ajax( {

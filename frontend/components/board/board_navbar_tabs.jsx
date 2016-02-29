@@ -23,7 +23,7 @@ NavBarTabs = React.createClass({
             tabs={this.props.tabs}>
           </Headers>
         </div>
-        <div className="boards">
+        <div className="boards container-fluid">
         	{tab.content}
         </div>
       </div>

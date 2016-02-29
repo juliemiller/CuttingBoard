@@ -5,6 +5,7 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var RecipeStore = new Store(AppDispatcher);
 
 var _recipes = {};
+var _pinnedRecipes = {};
 
 RecipeStore.all = function() {
 	var recipes = [];
@@ -27,6 +28,9 @@ RecipeStore.__onDispatch = function(payload) {
 		case RecipeConstants.RECIPE_RECEIVED:
 			RecipeStore.receiveSingleRecipe(payload.recipe);
 			break;	
+		case RecipeConstants.PINNED_RECIPES_RECEIVED:
+			RecipeStore.recievePinnedRecipes(payload.recipes);
+			break;
 	}
 };
 
@@ -43,8 +47,20 @@ RecipeStore.receiveSingleRecipe = function(recipe) {
 	RecipeStore.__emitChange();
 };
 
-RecipeStore.pinnedRecipes = function(recipes) {
+RecipeStore.pinnedRecipes = function() {
+	var recipes = [];
+	Object.keys(_pinnedRecipes).forEach(function(recipeId) {
+		recipes.push(_pinnedRecipes[recipeId])
+	});
+	return recipes;
+}
 
+RecipeStore.receivePinnedRecipes = function(recipes) {
+	_pinnedRecipes = {};
+	recipes.forEach(function(recipe) {
+		_pinnedRecipes[recipe.id] = recipe;
+	});
+	RecipeStore.__emitChange();
 };
 
 module.exports = RecipeStore;

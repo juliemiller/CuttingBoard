@@ -13,5 +13,4 @@ class Api::RecipesController < ApplicationController
 
 	def update
 	end
-
 end

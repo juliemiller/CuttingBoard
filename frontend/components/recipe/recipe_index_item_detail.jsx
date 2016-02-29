@@ -7,9 +7,9 @@ var RecipeIndexItemDetail = React.createClass({
 			<div>
 				<RecipeDetailNavbar recipe={this.props.recipe}/>
 				<img className="image" src={this.props.recipe.image_url} />
-				<div>
+				<div className="recipeDetail">
 					<p>{this.props.recipe.description}</p>
-					<a href={this.props.recipe.url} target="_blank" className="btn">Read it</a>
+					<a href={this.props.recipe.url} target="_blank" className="btn btn-primary">Read it</a>
 				</div>
 
 			</div>

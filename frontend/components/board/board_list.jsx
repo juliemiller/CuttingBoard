@@ -25,8 +25,6 @@ var BoardList = React.createClass({
 	},
 
 	pinToBoard: function(boardId) {
-		console.log(boardId);
-		console.log(this.props.recipeId);
 		ApiUtil.createPin(boardId, this.props.recipe.id);
 		this.props.modalCallback();
 	},
@@ -35,6 +33,7 @@ var BoardList = React.createClass({
 		var that = this;
 		return (
 			<div className="boardList">
+				<h4>Pick a Board</h4>
 				<ul className="boardListItems">
 				{
 						this.state.boards.map(function(board) {

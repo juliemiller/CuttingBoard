@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 	attr_reader :password
 	after_initialize :ensure_session_token
 
-	validates :email, :password_digest, :session_token, presence: true
+	validates :email, :password_digest, :session_token, :firstname, :lastname, presence: true
 	validates :email, :session_token, uniqueness: true
 
 	has_many :boards

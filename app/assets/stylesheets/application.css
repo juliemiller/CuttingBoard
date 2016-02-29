@@ -102,6 +102,7 @@
 	margin: 0 auto;
 	text-align: center;
 	height: 25%;
+	overflow: hidden;
 }
 
 .smallPicture {
@@ -128,11 +129,12 @@ body {
 
 .boardNavBar {
 	height: 50px;
-	margin-bottom: 25px;
+	margin-bottom: 50px;
 }
 
 .boards {
 	background-color: #FAFAFA;
+	margin 0;
 }
 
 .editButton {
@@ -166,6 +168,7 @@ body {
 	border-radius: 10px;
 	padding: 0px;
 	display: inline-block;
+	background-color: white;
 }
 
 .recipeIndexItem:hover {
@@ -188,6 +191,8 @@ body {
 .boardList {
 	display: inline-block;
 	width: 50%;
+	overflow-y: scroll;
+	max-height: 400px;
 }
 
 .createPinRecipeItem {
@@ -209,4 +214,66 @@ body {
 .boardListItems {
 	position: relative;
 	top: -100px;
+}
+
+.signInForm {
+	padding: 20px;
+	width: 450px;
+	height: 400px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -175px;
+	margin-left: -225px;
+	border-radius: 5px;
+	background-color: white;
+	text-align: center;
+	background-image: url(http://res.cloudinary.com/dlz00ljl6/image/upload/v1456720103/pineapples_fodvqi.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: black;
+	opacity: 1;
+	z-index: 999;
+	box-shadow: 0px 0px 10px #888888;
+}
+
+.signInForm label {
+	width: 30%;
+	text-align: left;
+}
+
+.signInForm input {
+	width: 80%;
+	border-radius: 5px;
+	line-height: 32px;
+	margin: 5px;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.signInForm button {
+	width: 50px;
+}
+
+.signInPage {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	background-image: url(http://res.cloudinary.com/dlz00ljl6/image/upload/v1456717419/photo-1452251889946-8ff5ea7b27ab_sfbert.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	z-index: -1;
+}
+
+.blur {
+	background-color: black;
+	opacity: .3;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
 }

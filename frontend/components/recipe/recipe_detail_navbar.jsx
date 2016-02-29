@@ -24,7 +24,6 @@ var RecipeDetailNavbar = React.createClass({
 				<button className="btn" onClick={this.openCreatePinModal}>Pin</button>
 				<Modal show={this.state.showModal} onHide={this.closeCreatePinModal}>
 					<Modal.Header closeButton>
-						<Modal.Title>Pick a Board</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
 						<div>
@@ -38,4 +37,3 @@ var RecipeDetailNavbar = React.createClass({
 });
 
 module.exports = RecipeDetailNavbar;
-						// <CreatePin recipe={this.prop=s.recipe}/>

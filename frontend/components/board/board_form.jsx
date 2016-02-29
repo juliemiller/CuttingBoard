@@ -79,7 +79,7 @@ var BoardForm = React.createClass({
 	render: function() {
 
 		return (
-			<form onSubmit={this.handleSubmit} className="form-inline">
+			<form onSubmit={this.handleSubmit} className="boardForm">
 				<div className="form-group">
 					<label className="control-label">Title</label>
 					<input type="text" className="form-control required" value={this.state.title} onChange={this.handleTitleChange}/>

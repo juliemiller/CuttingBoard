@@ -28,7 +28,7 @@ var App = React.createClass({
 
 	render: function() {
 		return (
-			<div className="container-fluid">
+			<div className="container-fluid app">
 				<NavBar current_user={this.state.current_user}/>
 				{this.props.children && React.cloneElement(this.props.children, { 
 					current_user: this.state.current_user

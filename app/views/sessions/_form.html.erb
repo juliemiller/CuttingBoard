@@ -1,9 +1,5 @@
 <form action="<%= action_url %>" method="POST">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="text" name="user[firstname]" id="firstname" value="<%= user.firstname %>" placeholder="First Name">
-  <br>
-  <input type="text" name="user[lastname]" id="lastname" value="<%= user.lastname %>" placeholder="Last Name">
-  <br>
   <input type="text" name="user[email]" id="email" value="<%= user.email %>" placeholder="Email">
   <br>
   <input type="password" name="user[password]" id="password" placeholder="Password">

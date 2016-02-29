@@ -134,7 +134,7 @@ body {
 
 .boards {
 	background-color: #FAFAFA;
-	margin 0;
+	margin: 0;
 }
 
 .editButton {
@@ -276,4 +276,13 @@ body {
 	height: 100%;
 	width: 100%;
 	z-index: 0;
+}
+
+.button_to {
+	width: 100px;
+	float: right;
+}
+.button_to input {
+	background-color: gray;
+	color: white;
 }

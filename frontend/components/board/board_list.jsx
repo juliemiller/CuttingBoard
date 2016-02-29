@@ -16,6 +16,7 @@ var BoardList = React.createClass({
 
 	_onChange: function() {
 		var boardObject = BoardStore.all();
+		console.log(boardObject);
 		var boards = boardObject.public.concat(boardObject.private);
 		this.setState({ boards: boards });
 	},
@@ -33,7 +34,7 @@ var BoardList = React.createClass({
 		var that = this;
 		return (
 			<div className="boardList">
-				<h4>Pick a Board</h4>
+				<h4 className="text-center">Pick a Board</h4>
 				<ul className="boardListItems">
 				{
 						this.state.boards.map(function(board) {

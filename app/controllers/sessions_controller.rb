@@ -1,5 +1,4 @@
-class SessionsController < ApplicationController
-	
+class SessionsController < ApplicationController	
 	def new
 		@user = User.new
 	end
@@ -8,6 +7,7 @@ class SessionsController < ApplicationController
 		 @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
     if @user.nil?
     	@user = User.new
+    	flash.now[:errors] = ["Invalid username or password"]
       render :new
     else
       login_user!(@user)
@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
 
 	def destroy
 		logout!
-    redirect_to new_session_url
+		render json: {user: nil}
+    # redirect_to new_session_url
 	end
 
 	def show

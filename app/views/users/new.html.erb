@@ -6,6 +6,9 @@
 	<p class="loginButton">
 		<%= button_to("Log In", new_session_url, method: :get) %>
 	</p>
+	<% if flash.now[:errors] %>
+		<%= flash.now[:errors].join(", ") %>
+		<% end %>
 		<%= render "form", user: @user, action_url: users_url, submit_button: "Create Account" %>
 
 	

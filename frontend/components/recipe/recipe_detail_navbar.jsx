@@ -23,7 +23,7 @@ var RecipeDetailNavbar = React.createClass({
 			<div className="btn-toolbar" >
 				<button className="btn" onClick={this.openCreatePinModal}>Pin</button>
 				<Modal show={this.state.showModal} onHide={this.closeCreatePinModal}>
-					<Modal.Header closeButton>
+					<Modal.Header closeButton id="createPinModalHeader">
 					</Modal.Header>
 					<Modal.Body>
 						<div>

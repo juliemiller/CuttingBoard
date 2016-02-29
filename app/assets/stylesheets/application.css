@@ -77,6 +77,7 @@
 
 .modal-container {
   position: relative;
+  opacity: .75;
 }
 
 .modal-container .modal, .modal-container .modal-backdrop {
@@ -190,6 +191,8 @@ body {
 
 .boardList {
 	display: inline-block;
+	position: fixed;
+	top: 0;
 	width: 50%;
 	overflow-y: scroll;
 	max-height: 400px;
@@ -212,8 +215,17 @@ body {
 }
 
 .boardListItems {
+	border-left: 1px solid black;
 	position: relative;
-	top: -100px;
+	list-style: none;
+	margin: 10px;
+  padding: 0;
+}
+
+.boardListItems li{
+	line-height: 16px;
+  font-size: 16px;
+  padding: 5px;
 }
 
 .signInForm {
@@ -270,7 +282,7 @@ body {
 
 .blur {
 	background-color: black;
-	opacity: .3;
+	opacity: .5;
 	position: absolute;
 	top: 0;
 	height: 100%;
@@ -282,7 +294,20 @@ body {
 	width: 100px;
 	float: right;
 }
+
 .button_to input {
 	background-color: gray;
 	color: white;
 }
+
+.profileOptions {
+	float: right;
+	display: inline-flex;
+}
+
+#createPinModalHeader {
+	height: 0;
+	padding: 0;
+	border: 0px;
+}
+

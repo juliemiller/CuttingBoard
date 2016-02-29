@@ -16,9 +16,9 @@ var NavBar = React.createClass({
 	},
 
 	render: function() {
-		var email = "";
+		var name = "";
 		if (this.props.current_user) {
-			email = this.props.current_user.user;
+			name = this.props.current_user.firstname + " " + this.props.current_user.lastname;
 		}
 
 		return (
@@ -33,7 +33,7 @@ var NavBar = React.createClass({
 			        </div>
 			        <button type="submit" className="btn btn-default">Submit</button>
 			      </form>
-						<button className="btn navbar-btn pull-right" onClick={this.renderBoardsIndex}>{email}</button>
+						<button className="btn navbar-btn pull-right" onClick={this.renderBoardsIndex}>{name}</button>
 			      
 			    </div>
 			  </div>

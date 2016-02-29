@@ -24,7 +24,7 @@ var BoardHome = React.createClass( {
 		var tabs = [
 			{title: "Boards", content: <BoardIndex />}, 
 			{title: "Pins",  content: <PinIndex />}, 
-			{title: "Followed Topics", content:  ""}
+			{title: "Topics", content:  ""}
 			];
 
 		return (

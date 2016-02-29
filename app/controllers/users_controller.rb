@@ -13,13 +13,14 @@
 #
 
 class UsersController < ApplicationController
-
+	
 	def create
 		@user = User.new(user_params)
 		if @user.save
 			login_user!(@user)
 			redirect_to root_url
 		else
+			flash.now[:errors] = @user.errors.full_messages
 			render :new
 		end
 	end
@@ -30,12 +31,12 @@ class UsersController < ApplicationController
 
 	def show
 		user = current_user
-		render json: {user: user.email}
+		render json: {email: user.email, firstname: user.firstname, lastname: user.lastname}
 	end
 
 	private
 	def user_params
-		params.require(:user).permit(:email, :password)
+		params.require(:user).permit(:email, :password, :firstname, :lastname)
 	end
 
 end

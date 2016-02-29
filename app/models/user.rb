@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
 	validates :email, :password_digest, :session_token, :firstname, :lastname, presence: true
 	validates :email, :session_token, uniqueness: true
+	validates :password, length: { minimum: 6, allow_nil: true }
 
 	has_many :boards
 	has_many :pins, through: :boards
@@ -36,7 +37,7 @@ class User < ActiveRecord::Base
 		self.password_digest = BCrypt::Password.create(@password)
 	end
 
-	def reset_session_token
+	def reset_session_token!
 		self.session_token = SecureRandom.base64
 		self.save!
 	end

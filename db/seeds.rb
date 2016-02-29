@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Users
-User.create(email: "me@gmail.com", password: "password")
+User.create(firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, email: "me@gmail.com", password: "password")
 
 3.times do 
 	User.create({email: Faker::Internet.email, password: "password"})

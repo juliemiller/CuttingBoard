@@ -21,7 +21,12 @@ var CategoryForm = React.createClass({
 		this.setState({ categories: CategoryStore.all() });
 	},
 
+	updateSelectedItems: function(id) {
+		console.log("HERE")
+	},
+
 	render: function() {
+		
 		return (
 			<form>
 				<div className="container-fluid">
@@ -29,10 +34,10 @@ var CategoryForm = React.createClass({
 					this.state.categories.map(function(category) {
 						return (
 							<div className="col-md-4"  key={category.id}>
-								<CategoryIndexItem category={category} />
+								<CategoryIndexItem category={category} form={true} selectedCallback={function() {this.updateSelectedItems(category.id)}.bind(this) } />
 							</div>
 						)
-					})
+					}.bind(this))
 				}
 				</div>
 			</form>

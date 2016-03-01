@@ -2,6 +2,7 @@ var React = require('react');
 var PinStore = require('../../stores/pin_store');
 var ApiUtil = require('../../util/api_util');
 var RecipeIndexItem = require('../recipe/recipe_index_item');
+var Masonry = require('react-masonry-component');
 
 var PinIndex = React.createClass({
 	getInitialState: function() {
@@ -23,13 +24,13 @@ var PinIndex = React.createClass({
 	
 	render: function() {
 		return (
-			<div>
+			<Masonry >
 				{
 					this.state.pins.map(function(pin) {
 						return <RecipeIndexItem recipe={pin.recipe} key={pin.id}/>
 					})
 				}
-			</div>
+			</Masonry>
 		)
 	}
 });

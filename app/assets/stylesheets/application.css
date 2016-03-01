@@ -100,7 +100,8 @@
 }
 
 .smallPictures {
-	margin: 0 auto;
+	margin-top: 2px;
+	margin-right: 2px;
 	text-align: center;
 	height: 25%;
 	overflow: hidden;
@@ -172,7 +173,6 @@ body {
 	display: inline-block;
 	background-color: white;
 	box-shadow: 0px 0px 5px;
-	width: 200px;
 }
 
 .recipeIndexItem:hover {
@@ -189,13 +189,12 @@ body {
 	max-width: 100%;
 	height: 100%;
 	background-color: #D3E3E8;
-	display: inline-flex;
-	flex-wrap: wrap;
 }
 
 
 .recipeItem {
 	display: inline-block;
+	padding-bottom: 30px;
 }
 
 .boardList {
@@ -240,7 +239,7 @@ body {
 	list-style: none;
 	margin: 0px;
   padding: 0;
-  max-height: 350px;
+  max-height: 500px;
   overflow-y: scroll;
 }
 
@@ -349,9 +348,10 @@ body {
 	height: 400px;
 	padding-left: 20px;
 	margin: 10px;
+
 }
 
-.boardForm input, select {
+.boardForm input, select, textarea {
 	width: 60%;
 	border-radius: 5px;
 	line-height: 32px;
@@ -383,12 +383,13 @@ body {
 }
 
 .createPin {
-	height: 500px;
+	height: 750px;
 }
 
 #createPinModalBody {
 	margin: 0px;
 	padding: 0px;
+	height: 750px;
 }
 
 .recipeDetail {
@@ -450,4 +451,13 @@ body {
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
+}
+
+.formButtons input {
+
+}
+
+.boardList button {
+	margin: 5px;
+	padding-top: 10px;
 }

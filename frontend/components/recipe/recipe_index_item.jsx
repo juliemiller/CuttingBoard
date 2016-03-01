@@ -3,6 +3,7 @@ var Modal = require('react-bootstrap').Modal;
 var RecipeIndexItemDetail = require('./recipe_index_item_detail');
 var RecipeItem = require('./recipe_item');
 
+
 var RecipeIndexItem = React.createClass({
 	getInitialState: function() {
 		return { showModal: false };

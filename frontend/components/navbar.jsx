@@ -26,14 +26,14 @@ var NavBar = React.createClass({
 			 <nav className="navbar navbar-fixed-top navbar-default" role="navigation">
 			  <div className="container-fluid">
 			    <div className="collapse navbar-collapse">
-	 				<button className="btn navbar-btn pull-left" onClick={this.goToRoot}>Home</button> 
+	 				<button className="btn navbar-btn pull-left btn-primary" onClick={this.goToRoot}>Home</button> 
 			      <form className="navbar-form navbar-left" role="search">
 			        <div className="form-group">
 			          <input type="text" className="form-control" placeholder="Search"/>
 			        </div>
 			        <button type="submit" className="btn btn-default">Submit</button>
 			      </form>
-						<button className="btn navbar-btn pull-right" onClick={this.renderBoardsIndex}>{name}</button>
+						<button className="btn btn-primary navbar-btn pull-right" onClick={this.renderBoardsIndex}>{name}</button>
 			      
 			    </div>
 			  </div>

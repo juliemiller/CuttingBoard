@@ -84,7 +84,7 @@ var BoardForm = React.createClass({
 					<input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
 				<br/>
 					<label>Description</label>
-					<input type="text" value={this.state.description} onChange={this.handleDescriptionChange}/>
+					<textarea onChange={this.handleDescriptionChange} value={this.state.description}></textarea>
 				<br/>
 				<label>Category</label>
 					<select value={this.state.category_id} onChange={this.handleCategoryChange}>
@@ -105,10 +105,11 @@ var BoardForm = React.createClass({
 						</label>
 					</div>
 				<br/>
+					<div className="formButtons">
 					{this.editing ? <button className="btn" onClick={this.deleteBoard}>Delete</button> : ""}
-					<button className="btn" onClick={this.handleCancel}>Cancel</button>
+					<button className="btn btn-primary" onClick={this.handleCancel}>Cancel</button>
 					<input className="btn btn-primary" type="submit" value="Submit"/>
-
+					</div>
 			</form>
 		)
 	}
@@ -117,42 +118,4 @@ var BoardForm = React.createClass({
 
 module.exports = BoardForm;
 
-
-
-// <form onSubmit={this.handleSubmit} className="boardForm">
-// 				<div className="form-group row">
-// 					<label className="control-label col-md-3">Title</label>
-// 					<input type="text" className="form-control required col-md-9" value={this.state.title} onChange={this.handleTitleChange}/>
-// 				</div>
-// 				<br/>
-// 				<div className="form-group">
-// 					<label className="control-label">Description</label>
-// 					<input type="text" className="form-control" value={this.state.description} onChange={this.handleDescriptionChange}/>
-// 				</div>
-// 				<br/>
-// 				<div className="form-group">
-// 					<label className="control-label">Category
-// 						<select className="form-control" value={this.state.category_id} onChange={this.handleCategoryChange}>
-// 							<option key=""></option>
-// 							{
-// 								this.state.categories.map(function(category) {
-// 									return <option key={category.id} value={category.id}>{category.name}</option>
-// 								})
-// 							}
-// 						</select>
-// 					</label>
-// 				</div>
-// 				<br/>
-// 				<div className="form-group">
-// 					<label className="control-label">Private
-// 						<input type="checkbox" className="form-control" checked={this.state.private} onClick={this.handlePrivateChange}/>
-
-// 					</label>
-// 				</div>
-// 				<br/>
-// 				<div className="btn-toolbar">
-// 					{this.editing ? <button className="btn" onClick={this.deleteBoard}>Delete</button> : ""}
-// 					<button className="btn" onClick={this.handleCancel}>Cancel</button>
-// 					<input className="btn btn-primary" type="submit" value="Submit"/>
-// 				</div>
-// 			</form>
+// <input type="text" value={this.state.description} />

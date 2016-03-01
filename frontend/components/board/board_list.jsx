@@ -30,10 +30,15 @@ var BoardList = React.createClass({
 		this.props.modalCallback();
 	},
 
+	close: function() {
+		this.props.modalCallback();
+	},
+
 	render: function() {
 		var that = this;
 		return (
 			<div className="boardList">
+				<button onClick={this.close} className="close">x</button>
 				<h4 className="text-center">Pick a Board</h4>
 				<ul className="boardListItems">
 				{

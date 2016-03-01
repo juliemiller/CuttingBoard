@@ -3,6 +3,8 @@ var RecipeStore = require('../../stores/recipe_store');
 var ApiUtil = require('../../util/api_util');
 var RecipeIndexItem = require('./recipe_index_item');
 
+var Masonry = require('react-masonry-component');
+
 var RecipeIndex = React.createClass({
 
 	getInitialState: function() {
@@ -25,16 +27,25 @@ var RecipeIndex = React.createClass({
 	render: function() {
 
 		return (
-				<div className="allRecipes container-fluid">
+			<Masonry className="allRecipes">
 					{
 					this.state.recipes.map(function(recipe) {
 						return <RecipeIndexItem key={recipe.id} recipe={recipe} />
 					})
 					}
-				</div>
+				</Masonry>
 		)
 	}
 })
 
 module.exports = RecipeIndex;
 
+// <div className="allRecipes container-fluid">
+// 					<div className="masonry-container">
+// 					{
+// 					this.state.recipes.map(function(recipe) {
+// 						return <RecipeIndexItem key={recipe.id} recipe={recipe} />
+// 					})
+// 					}
+// 					</div>
+// 				</div>

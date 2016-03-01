@@ -39,7 +39,7 @@ var NavBar = React.createClass({
 			        <button type="submit" className="btn btn-default">Submit</button>
 			      </form>
 			      <div className="btn-group pull-right">
-							<button className="btn btn-primary navbar-btn" onClick={this.renderBoardsIndex}>{name}</button>
+							<button className="btn btn-primary navbar-btn" onClick={this.renderBoardsIndex}>My Boards</button>
 							<button className="btn btn-primary navbar-btn" onClick={this.logOutUser}>Logout</button>
 						</div>			      
 			    </div>

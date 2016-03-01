@@ -144,6 +144,7 @@ body {
 	background-color: #D3E3E8;
 	margin: 0px;
 	padding-top: 20px;
+	min-height: 1000px;
 }
 
 .editButton {
@@ -474,4 +475,8 @@ body {
 
 .searchBarGroup {
 	width: 50%;
+}
+
+.privateBoardsTitle {
+	font-weight: bold;
 }

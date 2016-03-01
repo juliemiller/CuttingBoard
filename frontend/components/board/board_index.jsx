@@ -39,6 +39,10 @@ var BoardIndex = React.createClass( {
 	},
 
 	render: function() {
+		var private_board_message = "";
+		if (this.state.private_boards.length === 0 ) {
+			var private_board_message = "Add a private board that only you can see";
+		}
 
 		return (
 			<div className="container">
@@ -63,7 +67,8 @@ var BoardIndex = React.createClass( {
 				</div>
 				<div className="privateBoards row">
 				<hr/>
-				<p>Private Boards</p> 
+				<p className="privateBoardsTitle">Private Boards</p>
+					<p>{private_board_message}</p>
 					{
 						this.state.private_boards.map(function(board) {
 							return <BoardIndexItem board={board} key={board.id} />

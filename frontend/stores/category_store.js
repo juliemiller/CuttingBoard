@@ -51,6 +51,11 @@ CategoryStore.removeFollowedCategory = function(category_id) {
 	})
 	_followedCategories.splice(category_index, 1);
 	CategoryStore.__emitChange();
-}
+};
+
+CategoryStore.receiveFollowedCategories = function(categories) {
+	_followedCategories = categories;
+	CategoryStore.__emitChange();
+};
 
 module.exports = CategoryStore;

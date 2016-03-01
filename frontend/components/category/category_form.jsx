@@ -22,20 +22,20 @@ var CategoryForm = React.createClass({
 		this.setState({ categories: CategoryStore.all(), followedCategories: CategoryStore.followedCategories() });
 	},
 
-	updateSelectedItems: function(id) {
-		if (this.state.followedCategories) {
-			this.state.followedCategories[id] = !this.state.followedCategories[id];
-		} else {
-			this.state.followedCategories[id] = true;
-		}
+	updateSelectedItems: function(category) {
+		// if (this.state.followedCategories.indexOf(category) === -1) {
+		// 	this.state.followedCategories = !this.state.followedCategories[id];
+		// } else {
+		// 	this.state.followedCategories = true;
+		// }
+		
 	},
 
 	submitForm: function(e) {
 		e.preventDefault();
-		this.state.followedCategories;
 	},
 
-	followedCategory: function() {
+	followedCategory: function(category) {
 		if(this.state.followedCategories.indexOf(category) === -1) {
 			return false;
 		} else {

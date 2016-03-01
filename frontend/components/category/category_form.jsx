@@ -28,7 +28,7 @@ var CategoryForm = React.createClass({
 		// } else {
 		// 	this.state.followedCategories = true;
 		// }
-		
+
 	},
 
 	submitForm: function(e) {
@@ -36,6 +36,7 @@ var CategoryForm = React.createClass({
 	},
 
 	followedCategory: function(category) {
+		
 		if(this.state.followedCategories.indexOf(category) === -1) {
 			return false;
 		} else {

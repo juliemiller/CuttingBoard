@@ -7,12 +7,12 @@ var CategoryForm = require('./category_form');
 
 var CategoryIndex = React.createClass({
 	getInitialState: function() {
-		return { categories: CategoryStore.all(), showModal: false }
+		return { categories: CategoryStore.followedCategories(), showModal: false }
 	},
 
 	componentDidMount: function() {
 		this.categoryListener = CategoryStore.addListener(this._onChange);
-		ApiUtil.fetchCategories();
+		ApiUtil.fetchFollowedCategories();
 	},
 
 	componentWillUnmount: function() {
@@ -20,7 +20,7 @@ var CategoryIndex = React.createClass({
 	},
 
 	_onChange: function() {
-		this.setState({ categories: CategoryStore.all() });
+		this.setState({ categories: CategoryStore.followedCategories() });
 	},
 
 	openCategoryForm: function() {

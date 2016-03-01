@@ -5,7 +5,7 @@ var CategoryIndexItem = React.createClass({
 	mixins: [History],
 
 	getInitialState: function() {
-		this.selected = false;
+		this.selected = this.props.selected;
 		return { classes: "categoryIndex" }
 	},
 

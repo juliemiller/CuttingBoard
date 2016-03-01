@@ -506,3 +506,17 @@ body {
 	box-shadow: 0px 0px 10px blue;
 }
 
+.categoryFormButton {
+	position: relative;
+	right: -85%;
+}
+
+.recipeCategoryImage {
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	border: 1px solid black;
+	margin-right: 10px;
+	border-radius: 2px;
+}
+

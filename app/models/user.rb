@@ -24,7 +24,9 @@ class User < ActiveRecord::Base
 	has_many :boards
 	has_many :pins, through: :boards
 	has_many :recipes, through: :boards
-
+	has_many :followed_categories
+	has_many :categories, through: :followed_categories
+	
 	def self.find_by_credentials(email, password)
 		user = User.find_by(email: email)
 		return nil if user.nil?

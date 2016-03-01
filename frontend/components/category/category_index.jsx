@@ -56,8 +56,6 @@ var CategoryIndex = React.createClass({
 				<Modal.Body>
 					<CategoryForm />
 				</Modal.Body>
-				<Modal.Footer>
-				</Modal.Footer>
 			</Modal>
 			</div>
 		)

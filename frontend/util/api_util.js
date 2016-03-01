@@ -158,6 +158,40 @@ var ApiUtil = {
 					RecipeActions.receivePinnedRecipes(recipes);
 			}
 		});
+	},
+
+	createCategoryFollow: function(category_ids) {
+		$.ajax( {
+			url: 'api/followed_categories',
+			dataType: 'json',
+			method: 'POST',
+			data: { follow_categories: category_ids },
+			success: function(category) {
+				CategoryActions.receiveCategoryFollow(category);
+			}
+		});
+	},
+		
+		deleteCategoryFollow: function(category_id) {
+		$.ajax( {
+			url: 'api/followed_categories/' + category_id,
+			dataType: 'json',
+			method: 'DELETE',
+			success: function(category_id) {
+				CategoryActions.removeCategoryFollow(category_id);
+			}
+		});
+	},
+
+	fetchFollowedCategories: function() {
+		$.ajax( {
+			url: 'api/followed_categories',
+			dataType: 'json',
+			method: 'GET',
+			success: function(categories) {
+				CategoryActions.receiveFollowedCategories(categories);
+			}
+		})
 	}
 
 };

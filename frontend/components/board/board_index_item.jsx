@@ -30,7 +30,7 @@ var BoardIndexItem = React.createClass({
 		if (this.props.board) {
 			boardId = this.props.board.id;
 			for (var i = 0; i < this.props.board.recipes.length; i ++) {
-				pictureUrls[i] = this.props.board.recipes[i].image_url;
+				pictureUrls[i] = {backgroundImage: 'url(' + this.props.board.recipes[i].image_url + ')'};
 			}
 		}
 
@@ -39,18 +39,14 @@ var BoardIndexItem = React.createClass({
 				<section className="board">
 				<h5>{this.props.board.title}</h5>
 				<div className="pictures" >
-	 				<div className="biggerPicture"> 
-	 					<img className="image" src={pictureUrls[0]}/>
+	 				<div className="biggerPicture" style={pictureUrls[0]}> 
 	 				</div>
 						<div className="container-float smallPictures">
-							<div className="smallPicture col-md-4">
-								<img className="image" src={pictureUrls[1]}/>
+							<div className="smallPicture col-md-4" style={pictureUrls[1]}>
 							</div>
-							<div className="smallPicture col-md-4">
-								<img className="image" src={pictureUrls[2]}/>
+							<div className="smallPicture col-md-4" style={pictureUrls[2]}>
 							</div>
-							<div className="smallPicture col-md-4">
-								<img className="image" src={pictureUrls[3]}/>
+							<div className="smallPicture col-md-4" style={pictureUrls[3]}>
 							</div>
 						</div>
 						<button className="btn editButton" onClick={this.openEditBoardForm}>Edit</button>
@@ -71,3 +67,4 @@ var BoardIndexItem = React.createClass({
 });
 
 module.exports = BoardIndexItem;
+

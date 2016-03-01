@@ -19,13 +19,14 @@
 .board {
 	height: 275px;
 	width: 100%;
-	border: solid black 1px;
+	border: 1px solid #EBEBEB;
 	margin: 5px;
 	margin-bottom: 20px;
 	display: inline-block;
 	border-radius: 5px;
 	text-align: center;
 	background-color: white;
+	box-shadow: 0px 0px 5px;
 }
 
 .create {
@@ -90,13 +91,15 @@
 
 }
 .biggerPicture {
-	border: 1px solid gray;
+	border: 1px solid #CCCCCC;
+	box-shadow: 0px 0px 1px #CCCCCC;
 	padding: 0 5px;
 	margin: 0 auto;
 	height: 55%;
 	border-radius: 3px;
 	overflow: hidden;
-
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .smallPictures {
@@ -109,10 +112,14 @@
 
 .smallPicture {
 	border-radius: 3px;
-	border: 1px solid gray;
+	border: 1px solid #CCCCCC;
+	box-shadow: 0px 0px 1px #CCCCCC;
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 body {
@@ -131,7 +138,6 @@ body {
 
 .boardNavBar {
 	height: 50px;
-	margin-bottom: 50px;
 }
 
 .boards {
@@ -460,4 +466,12 @@ body {
 .boardList button {
 	margin: 5px;
 	padding-top: 10px;
+}
+
+.searchBar {
+	width: 100%;
+}
+
+.searchBarGroup {
+	width: 50%;
 }

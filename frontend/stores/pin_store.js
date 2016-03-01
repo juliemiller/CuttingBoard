@@ -8,7 +8,6 @@ var _pins = {};
 
 PinStore.all = function() {
 	var pins = []
-	console.log(_pins);
 	Object.keys(_pins).forEach(function(pinId) {
 		pins.push(_pins[pinId])
 	});

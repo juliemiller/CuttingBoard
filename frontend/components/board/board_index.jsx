@@ -62,6 +62,7 @@ var BoardIndex = React.createClass( {
 				}
 				</div>
 				<div className="privateBoards row">
+				<hr/>
 				<p>Private Boards</p> 
 					{
 						this.state.private_boards.map(function(board) {

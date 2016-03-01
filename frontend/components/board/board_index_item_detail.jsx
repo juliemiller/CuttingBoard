@@ -5,6 +5,7 @@ var ApiUtil = require('../../util/api_util');
 var Modal = require('react-bootstrap').Modal;
 var BoardForm = require('./board_form');
 var RecipeIndexItem = require('../recipe/recipe_index_item');
+var Masonry = require('react-masonry-component');
 
 var BoardIndexItemDetail = React.createClass({
 	getInitialState: function() {
@@ -56,13 +57,13 @@ var BoardIndexItemDetail = React.createClass({
 					<p>{displayBoard.description}</p>
 					<BoardDetailNavBar board={this.state.board}/>
 				</div>
-				<div className="recipes">
+				<Masonry className="allRecipes">
 						{
 							recipes.map(function(recipe) {
 								return <RecipeIndexItem recipe={recipe} key={recipe.id} />
 							})
 						}
-				</div>
+				</Masonry>
 			</div>
 		)
 	}

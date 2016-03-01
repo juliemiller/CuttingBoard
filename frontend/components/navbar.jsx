@@ -15,6 +15,11 @@ var NavBar = React.createClass({
 		this.history.push("/");
 	},
 
+	logOutUser: function() {
+		ApiUtil.logoutUser();
+		window.location.reload();
+	},
+
 	render: function() {
 		var name = "";
 		if (this.props.current_user) {
@@ -28,13 +33,15 @@ var NavBar = React.createClass({
 			    <div className="collapse navbar-collapse">
 	 				<button className="btn navbar-btn pull-left btn-primary" onClick={this.goToRoot}>Home</button> 
 			      <form className="navbar-form navbar-left" role="search">
-			        <div className="form-group">
-			          <input type="text" className="form-control" placeholder="Search"/>
+			        <div className="form-group searchBarGroup">
+			          <input type="text" className="form-control searchBar" placeholder="Search"/>
 			        </div>
 			        <button type="submit" className="btn btn-default">Submit</button>
 			      </form>
-						<button className="btn btn-primary navbar-btn pull-right" onClick={this.renderBoardsIndex}>{name}</button>
-			      
+			      <div className="btn-group pull-right">
+							<button className="btn btn-primary navbar-btn" onClick={this.renderBoardsIndex}>{name}</button>
+							<button className="btn btn-primary navbar-btn" onClick={this.logOutUser}>Logout</button>
+						</div>			      
 			    </div>
 			  </div>
 			</nav>

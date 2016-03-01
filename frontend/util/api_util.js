@@ -154,8 +154,8 @@ var ApiUtil = {
 				url: 'api/pins/',
 				dataType: 'json',
 				method: 'GET',
-				success: function(pins) {
-					PinActions.receivePins(pins);
+				success: function(recipes) {
+					RecipeActions.receivePinnedRecipes(recipes);
 			}
 		});
 	}

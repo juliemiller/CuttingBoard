@@ -1,3 +1,3 @@
-json.array!(@pins) do |pin|
-	json.partial!('pin', pin: pin)
+json.array!(@recipes) do |recipe|
+	json.partial!('api/recipes/recipe', recipe: recipe)
 end

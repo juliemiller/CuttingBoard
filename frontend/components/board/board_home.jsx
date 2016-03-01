@@ -1,6 +1,7 @@
 var React = require('react');
 var Modal = require('react-bootstrap').Modal;
 
+var CategoryIndex = require('../category/category_index');
 var BoardForm = require('./board_form');
 var BoardNavBar = require('./board_navbar');
 var BoardNavBarTabs = require('./board_navbar_tabs');
@@ -24,7 +25,7 @@ var BoardHome = React.createClass( {
 		var tabs = [
 			{title: "Boards", content: <BoardIndex />}, 
 			{title: "Pins",  content: <PinIndex />}, 
-			{title: "Topics", content:  ""}
+			{title: "Topics", content:  <CategoryIndex />}
 			];
 
 		return (

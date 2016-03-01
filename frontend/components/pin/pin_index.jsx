@@ -1,33 +1,33 @@
 var React = require('react');
-var PinStore = require('../../stores/pin_store');
+var RecipeStore = require('../../stores/recipe_store');
 var ApiUtil = require('../../util/api_util');
 var RecipeIndexItem = require('../recipe/recipe_index_item');
 var Masonry = require('react-masonry-component');
 
 var PinIndex = React.createClass({
 	getInitialState: function() {
-		return { pins: PinStore.all() };
+		return { pins: RecipeStore.pinnedRecipes() };
 	},
 
 	componentDidMount: function() {
-		this.pinListener = PinStore.addListener(this._onChange);
+		this.recipeListener = RecipeStore.addListener(this._onChange);
 		ApiUtil.getPinnedRecipes();
 	},
 
 	_onChange: function() {
-		this.setState({ pins: PinStore.all() });
+		this.setState({ pins: RecipeStore.pinnedRecipes() });
 	},
 
 	componentWillUnmount: function() {
-		this.pinListener.remove();
+		this.recipeListener.remove();
 	},
 	
 	render: function() {
 		return (
 			<Masonry >
 				{
-					this.state.pins.map(function(pin) {
-						return <RecipeIndexItem recipe={pin.recipe} key={pin.id}/>
+					this.state.pins.map(function(recipe) {
+						return <RecipeIndexItem recipe={recipe} key={recipe.id}/>
 					})
 				}
 			</Masonry>

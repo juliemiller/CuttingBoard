@@ -14,6 +14,13 @@ var RecipeActions = {
 			actionType: RecipeConstants.RECIPES_RECEIVED,
 			recipes: recipes
 		});
+	},
+
+	receivePinnedRecipes: function(recipes) {
+		AppDispatcher.dispatch({
+			actionType: RecipeConstants.PINNED_RECIPES_RECEIVED,
+			recipes: recipes
+		});
 	}
 
 };

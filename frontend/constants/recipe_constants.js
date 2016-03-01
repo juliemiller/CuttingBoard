@@ -2,6 +2,7 @@
 var RecipeConstants = {
 	RECIPES_RECEIVED: "RECIPES_RECEIVED",
 	RECIPE_RECEIVED: "RECIPE_RECEIVED",
+	PINNED_RECIPEs_RECEIVED: "PINNED_RECIPES_RECEIVED",
 };
 
 module.exports = RecipeConstants;

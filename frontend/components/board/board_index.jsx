@@ -7,7 +7,7 @@ var BoardNavBar = require('./board_navbar');
 var BoardNavBarTabs = require('./board_navbar_tabs');
 var History = require('react-router').History;
 var Modal = require('react-bootstrap').Modal;
-
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var BoardIndex = React.createClass( {
 	mixins: [History],
@@ -46,9 +46,10 @@ var BoardIndex = React.createClass( {
 
 		return (
 			<div className="container">
+				<ReactCSSTransitionGroup transitionName="boardsTransition" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
 				<div className="publicBoards row">
 				<div className="col-md-3 col-xs-4" onClick={this.openNewBoardForm}>
-					<section className="board create">Create a Board <br/>
+					<section key="newBoard" className="board create">Create a Board <br/>
 					</section>
 					</div> 
 				<Modal show={this.state.showModal} onHide={this.closeNewBoardForm}>
@@ -75,6 +76,7 @@ var BoardIndex = React.createClass( {
 						})
 					}
 				</div>
+			</ReactCSSTransitionGroup>
 			{this.props.children}
 			</div>
 

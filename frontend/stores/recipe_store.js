@@ -29,7 +29,7 @@ RecipeStore.__onDispatch = function(payload) {
 			RecipeStore.receiveSingleRecipe(payload.recipe);
 			break;	
 		case RecipeConstants.PINNED_RECIPES_RECEIVED:
-			RecipeStore.recievePinnedRecipes(payload.recipes);
+			RecipeStore.receivePinnedRecipes(payload.recipes);
 			break;
 	}
 };

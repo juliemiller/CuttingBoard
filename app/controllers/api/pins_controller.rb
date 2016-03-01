@@ -15,7 +15,7 @@ class Api::PinsController < ApplicationController
 	end
 
 	def index
-		@pins = current_user.pins
+		@recipes = current_user.unique_recipes
 	end
 
 

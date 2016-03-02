@@ -24,24 +24,28 @@ var RecipeIndex = React.createClass({
 	},
 
 	loadFunc: function(pageNum) {
-		this.setState( { shownRecipes: this.state.recipes.slice(0, (pageNum+1) *10) });
+		console.log("LOAD FUNCTION: RECIPES", this.state.recipes);
+		console.log("LOAD FUNCTION: SHOWNRECIPES", this.state.shownRecipes);
+		console.log("PAGENUM:", pageNum);
+		var allRecipes = RecipeStore.homeRecipes();
+		// this.setState( { shownRecipes: allRecipes.slice(0, 10 * (pageNum + 1)) });
 	},
 
 	hasMore: function() {
-		(this.state.recipes.length > this.state.shownRecipes.length);
+		// (this.state.recipes.length > this.state.shownRecipes.length);
+		true;
 	},
 
 	render: function() {
 
 		return (
-				<Masonry className="allRecipes">
+				<Masonry className="allRecipes" elementType={'div'} >
 						{
 						this.state.shownRecipes.map(function(recipe) {
 							return <RecipeIndexItem key={recipe.id} recipe={recipe} />
 						})
 						}
 				</Masonry>
-
 		)
 	}
 })

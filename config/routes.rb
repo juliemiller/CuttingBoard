@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   	resources :categories, only: [:index]
   	resources :recipes, only: [:index, :create, :update, :show, :pinned_recipes]
   	resources :pins, only: [:create, :destroy, :index]
-  	resources :followed_categories, only: [:create, :destroy, :index]
+  	resources :followed_categories, only: [:create, :index]
+    post 'followed_categories/delete', to: 'followed_categories#destroy'
   end
 end

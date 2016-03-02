@@ -23,11 +23,11 @@ CategoryStore.__onDispatch = function(payload) {
 		case CategoryConstants.FOLLOWED_CATEGORIES_RECEIVED:
 			CategoryStore.receiveFollowedCategories(payload.categories);
 			break;
-		case CategoryConstants.REMOVE_FOLLOWED_CATEGORY:
-			CategoryStore.removeFollowedCategory(payload.category_id);
+		case CategoryConstants.REMOVE_FOLLOWED_CATEGORIES:
+			CategoryStore.removeFollowedCategories(payload.categoryIds);
 			break;
-		case CategoryConstants.FOLLOWED_CATEGORY_RECEIVED:
-			CategoryStore.addFollowedCategory(payload.category);
+		case CategoryConstants.NEW_FOLLOWED_CATEGORIES_RECEIVED:
+			CategoryStore.addFollowedCategories(payload.categories);
 			break;
 	}
 };
@@ -37,19 +37,28 @@ CategoryStore.receiveCategories = function(categories) {
 	CategoryStore.__emitChange();
 };
 
-CategoryStore.addFollowedCategory = function(category) {
-	_followedCategories.concat(category);
+CategoryStore.addFollowedCategories = function(categories) {
+	_followedCategories = _followedCategories.concat(categories);
+
 	CategoryStore.__emitChange();
 };
 
-CategoryStore.removeFollowedCategory = function(category_id) {
-	var category_index;
-	_followedCategories.forEach(function(category, idx) {
-		if (category.id === category_id) {
-			var category_index = idx;
-		}
+CategoryStore.removeFollowedCategories = function(categoryIds) {
+	var category_index = [];
+	
+	categoryIds.forEach(function(categoryId) {
+		_followedCategories.forEach(function(category, idx) {
+			if (category.id === parseInt(categoryId)) {
+				category_index.push(idx);
+			}
+		})
 	})
-	_followedCategories.splice(category_index, 1);
+
+	for (var i = category_index.length; i >= 0; i --) {
+		var idx = category_index[i];
+		_followedCategories.splice(idx, 1);
+	}
+
 	CategoryStore.__emitChange();
 };
 

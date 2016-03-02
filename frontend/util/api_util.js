@@ -160,25 +160,33 @@ var ApiUtil = {
 		});
 	},
 
-	createCategoryFollow: function(category_ids) {
+	createCategoryFollows: function(categoryIds) {
 		$.ajax( {
 			url: 'api/followed_categories',
 			dataType: 'json',
 			method: 'POST',
-			data: { follow_categories: category_ids },
-			success: function(category) {
-				CategoryActions.receiveCategoryFollow(category);
+			data: { followed_category: categoryIds },
+			success: function(categories) {
+				CategoryActions.receiveNewFollowedCategories(categories);
+			},
+			error: function(data) {
+				console.log("ERROR:", data);
 			}
 		});
 	},
 		
-		deleteCategoryFollow: function(category_id) {
+		deleteCategoryFollows: function(categoryIds) {
+			console.log(categoryIds);
 		$.ajax( {
-			url: 'api/followed_categories/' + category_id,
+			url: 'api/followed_categories/delete',
 			dataType: 'json',
-			method: 'DELETE',
-			success: function(category_id) {
-				CategoryActions.removeCategoryFollow(category_id);
+			method: 'POST',
+			data: { categoryIds: categoryIds },
+			success: function() {
+				CategoryActions.removeCategoryFollows(categoryIds.split(", "));
+			},
+			error: function(data) {
+				console.log("ERROR:", data);
 			}
 		});
 	},

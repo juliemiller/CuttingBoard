@@ -54,7 +54,7 @@ var CategoryIndex = React.createClass({
 					<Modal.Title>Select Topics to Follow</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<CategoryForm />
+					<CategoryForm modalCallback={this.closeCategoryForm}/>
 				</Modal.Body>
 			</Modal>
 			</div>

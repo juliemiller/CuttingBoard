@@ -9,6 +9,13 @@ var CategoryIndexItem = React.createClass({
 		return { classes: "categoryIndex" }
 	},
 
+	componentDidMount: function() {
+		this.selected = this.props.selected;
+		if (this.selected) {
+			this.setState({ classes: "categoryIndex selectedCategory"})
+		}
+	},
+
 	handleClick: function() {
 		if (this.props.form === true) {
 			this.toggleSelect();

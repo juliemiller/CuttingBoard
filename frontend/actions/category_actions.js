@@ -17,17 +17,17 @@ var CategoryActions = {
 		});
 	},
 
-	receiveFollowedCategory: function(category) {
+	receiveNewFollowedCategories: function(categories) {
 		AppDispatcher.dispatch({
-			actionType: CategoryConstants.FOLLOWED_CATEGORY_RECEIVED,
-			category: category
+			actionType: CategoryConstants.NEW_FOLLOWED_CATEGORIES_RECEIVED,
+			categories: categories
 		});
 	},
 
-	removeFollowedCategory: function(category_id) {
+	removeCategoryFollows: function(categoryIds) {
 		AppDispatcher.dispatch({
-			actionType: CategoryConstants.REMOVE_FOLLOWED_CATEGORY,
-			category_id: category_id
+			actionType: CategoryConstants.REMOVE_FOLLOWED_CATEGORIES,
+			categoryIds: categoryIds
 		});
 	},
 

@@ -9,6 +9,7 @@ var CategoryForm = React.createClass({
 	},
 
 	componentDidMount: function() {
+		this.followedDif = [];
 		this.categoryListener = CategoryStore.addListener(this._onChange);
 		ApiUtil.fetchCategories();
 		ApiUtil.fetchFollowedCategories();
@@ -22,30 +23,53 @@ var CategoryForm = React.createClass({
 		this.setState({ categories: CategoryStore.all(), followedCategories: CategoryStore.followedCategories() });
 	},
 
-	updateSelectedItems: function(category) {
-		// if (this.state.followedCategories.indexOf(category) === -1) {
-		// 	this.state.followedCategories = !this.state.followedCategories[id];
-		// } else {
-		// 	this.state.followedCategories = true;
-		// }
-
+	updateSelectedItems: function(categoryId) {
+		var idx = this.followedDif.indexOf(categoryId);
+		if ( idx === -1) {
+			this.followedDif.push(categoryId);
+		} else {
+			this.followedDif.splice(idx, 1);
+		}
 	},
 
 	submitForm: function(e) {
 		e.preventDefault();
+		var toDelete = [];
+		var toCreate = [];
+		var that = this;
+		this.followedDif.forEach(function(id) {
+			that.state.followedCategories.forEach(function(category) {
+				if( category.id === id) {
+					toDelete.push(id);
+				} 
+			})
+			if (toDelete.indexOf(id) === -1) {
+				toCreate.push(id);
+			}
+		});
+
+		if (toCreate.length > 0) {
+			ApiUtil.createCategoryFollows(toCreate.join(", "));
+		}
+		if (toDelete.length > 0) {
+			ApiUtil.deleteCategoryFollows(toDelete.join(", "));
+		}
+		this.props.modalCallback();
 	},
 
 	followedCategory: function(category) {
-		
-		if(this.state.followedCategories.indexOf(category) === -1) {
-			return false;
-		} else {
-			return true;
-		}
+		var followed = false;
+
+		this.state.followedCategories.forEach(function(followedCategory) {
+			if(followedCategory.id === category.id) {
+				followed = true;
+			} 
+		});
+		return followed;
 	},
 
 	render: function() {
-		
+
 		return (
 			<form onSubmit={this.submitForm}>
 				<div className="container-fluid">
@@ -53,7 +77,7 @@ var CategoryForm = React.createClass({
 					this.state.categories.map(function(category) {
 						return (
 							<div className="col-md-4"  key={category.id}>
-								<CategoryIndexItem category={category} selected={this.followedCategory(category)} form={true} selectedCallback={function() {this.updateSelectedItems(category)}.bind(this) } />
+								<CategoryIndexItem category={category} selected={this.followedCategory(category)} form={true} selectedCallback={function() {this.updateSelectedItems(category.id)}.bind(this) } />
 							</div>
 						)
 					}.bind(this))

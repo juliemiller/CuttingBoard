@@ -4,16 +4,15 @@ var ApiUtil = require('../../util/api_util');
 var RecipeIndexItem = require('./recipe_index_item');
 
 var Masonry = require('react-masonry-component');
-
+var InfiniteScroll = require('react-infinite-scroll')(React);
 var RecipeIndex = React.createClass({
 
 	getInitialState: function() {
-		return { recipes: RecipeStore.all() };
+		return { recipes: RecipeStore.homeRecipes(), shownRecipes: RecipeStore.homeRecipes().slice(0,10) };
 	},
 
 	componentDidMount: function() {
 		this.recipeListener = RecipeStore.addListener(this._onChange);
-		ApiUtil.fetchRecipes();
 	},
 
 	componentWillUnmount: function() {
@@ -21,31 +20,34 @@ var RecipeIndex = React.createClass({
 	},
 
 	_onChange: function() {
-		this.setState({ recipes: RecipeStore.all() });
+		this.setState({ recipes: RecipeStore.homeRecipes(), shownRecipes: RecipeStore.homeRecipes().slice(0,10) });
+	},
+
+	loadFunc: function(pageNum) {
+		this.setState( { shownRecipes: this.state.recipes.slice(0, (pageNum+1) *10) });
+	},
+
+	hasMore: function() {
+		(this.state.recipes.length > this.state.shownRecipes.length);
 	},
 
 	render: function() {
 
 		return (
-			<Masonry className="allRecipes">
-					{
-					this.state.recipes.map(function(recipe) {
-						return <RecipeIndexItem key={recipe.id} recipe={recipe} />
-					})
-					}
+				<Masonry className="allRecipes">
+						{
+						this.state.shownRecipes.map(function(recipe) {
+							return <RecipeIndexItem key={recipe.id} recipe={recipe} />
+						})
+						}
 				</Masonry>
+
 		)
 	}
 })
 
 module.exports = RecipeIndex;
 
-// <div className="allRecipes container-fluid">
-// 					<div className="masonry-container">
-// 					{
-// 					this.state.recipes.map(function(recipe) {
-// 						return <RecipeIndexItem key={recipe.id} recipe={recipe} />
-// 					})
-// 					}
-// 					</div>
-// 				</div>
+
+			// <InfiniteScroll pageStart={0} loadMore={this.loadFunc} hasMore={this.hasMore}>
+			// </InfiniteScroll>	

@@ -1,5 +1,6 @@
 var React = require('react');
 var History = require('react-router').History;
+var ApiUtil = require('../../util/api_util');
 
 var CategoryIndexItem = React.createClass({
 	mixins: [History],
@@ -16,7 +17,8 @@ var CategoryIndexItem = React.createClass({
 		}
 	},
 
-	handleClick: function() {
+	handleClick: function(e) {
+		e.preventDefault();
 		if (this.props.form === true) {
 			this.toggleSelect();
 		} else {
@@ -38,7 +40,8 @@ var CategoryIndexItem = React.createClass({
 	},
 
 	openCategoryPages: function() {
-		this.history.push("/")
+		ApiUtil.fetchFilteredRecipes(this.props.category.id);
+		this.history.push("/");
 	},
 
 	render: function() {

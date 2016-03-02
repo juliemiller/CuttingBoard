@@ -20,6 +20,7 @@ var App = React.createClass({
 	componentDidMount: function() {
 		UserStore.addListener(this._onChange);
 		ApiUtil.getCurrentUser();
+		ApiUtil.fetchFilteredRecipes("all");
 	},
 
 	_onChange: function() {

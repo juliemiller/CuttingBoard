@@ -8,6 +8,16 @@ class Api::RecipesController < ApplicationController
 		@recipes = Recipe.all()
 	end
 
+	def filtered
+		if params[:filter] == "all"
+			@recipes = Recipe.all()
+		elsif params[:filter]
+			@recipes = Recipe.where(category_id: params[:filter])
+		else
+			@recipes = []
+		end
+	end
+
 	def create
 	end
 

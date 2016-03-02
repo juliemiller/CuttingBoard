@@ -3,12 +3,13 @@ var ApiUtil = require('../../util/api_util');
 var CategoryStore = require('../../stores/category_store');
 var BoardStore = require('../../stores/board_store');
 var History = require('react-router').History;
+var Alert = require('react-bootstrap').Alert;
 
 var BoardForm = React.createClass({
 	mixins: [History],
 
 	getInitialState: function() {
-		return { title: "", description: "", private: false, category_id: null, categories: CategoryStore.all() };
+		return { title: "", description: "", private: false, category_id: null, categories: CategoryStore.all(), alertVisible: false };
 	},
 
 	componentDidMount: function() {
@@ -33,10 +34,17 @@ var BoardForm = React.createClass({
 
 	handleSubmit: function(e) {
 		e.preventDefault();
+		var successCallback = function() {
+			this.props.modalCallback();
+		}.bind(this);
+
+		var errorCallback = function(data) {
+			var messages = JSON.parse(data);
+			this.setState({ errorMessages: messages, alertVisible: true  });
+		}.bind(this);
 
 		if (this.editing) {
-			ApiUtil.editBoard(this.state);
-			this.props.modalCallback();
+			ApiUtil.editBoard(this.state, successCallback, errorCallback);
 		} else {
 			ApiUtil.createBoard(this.state, function(id) {
 				this.history.push("/boards/" + id)
@@ -76,10 +84,27 @@ var BoardForm = React.createClass({
 		this.history.push("/boards");
 	},
 
+	showAlert: function() {
+		if (this.state.alertVisible) {
+			return (
+				<Alert className="alertMessages" bsStyle="danger" onDismiss={this.handleAlertDismiss} dismissAfter={4000}>
+					<h4>{this.state.errorMessages}</h4>
+				</Alert>
+			)
+		} else {
+			return "";
+		}
+	},
+
+	handleAlertDismiss: function() {
+		this.setState({ alertVisible: false });
+	},
+
 	render: function() {
 
 		return (
 			<form onSubmit={this.handleSubmit} className="boardForm">
+					{this.showAlert()}
 					<label >Title</label>
 					<input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
 				<br/>
@@ -118,4 +143,3 @@ var BoardForm = React.createClass({
 
 module.exports = BoardForm;
 
-// <input type="text" value={this.state.description} />

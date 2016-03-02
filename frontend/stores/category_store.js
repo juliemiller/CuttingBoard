@@ -29,6 +29,9 @@ CategoryStore.__onDispatch = function(payload) {
 		case CategoryConstants.NEW_FOLLOWED_CATEGORIES_RECEIVED:
 			CategoryStore.addFollowedCategories(payload.categories);
 			break;
+		case CategoryStore.RECEIVE_FILTERED_RECIPES:
+			CategoryStore.receiveFilteredRecipes;
+			break;
 	}
 };
 
@@ -66,5 +69,6 @@ CategoryStore.receiveFollowedCategories = function(categories) {
 	_followedCategories = categories;
 	CategoryStore.__emitChange();
 };
+
 
 module.exports = CategoryStore;

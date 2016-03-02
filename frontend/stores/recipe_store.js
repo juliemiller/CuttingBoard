@@ -6,6 +6,7 @@ var RecipeStore = new Store(AppDispatcher);
 
 var _recipes = {};
 var _pinnedRecipes = {};
+var _recipeHome = {};
 
 RecipeStore.all = function() {
 	var recipes = [];
@@ -20,6 +21,15 @@ RecipeStore.find = function(id) {
 	return _recipes[id];
 };
 
+RecipeStore.homeRecipes = function() {
+	var recipes = [];
+
+	Object.keys(_recipeHome).forEach(function(recipeId) {
+		recipes.push(_recipeHome[recipeId]);
+	})
+	return recipes;
+};
+
 RecipeStore.__onDispatch = function(payload) {
 	switch (payload.actionType) {
 		case RecipeConstants.RECIPES_RECEIVED:
@@ -30,6 +40,9 @@ RecipeStore.__onDispatch = function(payload) {
 			break;	
 		case RecipeConstants.PINNED_RECIPES_RECEIVED:
 			RecipeStore.receivePinnedRecipes(payload.recipes);
+			break;
+		case RecipeConstants.RECEIVE_FILTERED_RECIPES:
+			RecipeStore.receiveFilteredRecipes(payload.recipes);
 			break;
 	}
 };
@@ -59,6 +72,14 @@ RecipeStore.receivePinnedRecipes = function(recipes) {
 	_pinnedRecipes = {};
 	recipes.forEach(function(recipe) {
 		_pinnedRecipes[recipe.id] = recipe;
+	});
+	RecipeStore.__emitChange();
+};
+
+RecipeStore.receiveFilteredRecipes = function(recipes) {
+	_recipeHome = {};
+	recipes.forEach(function(recipe) {
+		_recipeHome[recipe.id] = recipe;
 	});
 	RecipeStore.__emitChange();
 };

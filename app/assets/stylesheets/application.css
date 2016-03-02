@@ -520,3 +520,39 @@ body {
 	border-radius: 2px;
 }
 
+.searchResults {
+	position: absolute;
+	background-color: white;
+	width: 500px;
+	list-style: none;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding-left: 0px;
+}
+
+.alertMessages {
+	text-align: center;
+}
+
+.searchInput {
+	width:  500px;
+  height: 34px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.searchForm: {
+	width: 550px;
+}
+
+.searchResultsItem {
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+
+.searchResultsItem:first-child {
+	padding-top: 5px;
+}
+.searchResultsItem:hover {
+	background-color: #e7e7e7;
+}

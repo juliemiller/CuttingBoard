@@ -3,15 +3,34 @@ var History = require('react-router').History;
 var NavBarSearch = require('./navbar_search');
 var UserStore = require('../stores/user_store');
 var ApiUtil = require('../util/api_util');
+var CategoryStore = require('../stores/category_store');
 
 var NavBar = React.createClass({
 	mixins: [History],
+
+	getInitialState: function() {
+		return { categories: CategoryStore.all() }
+	},
+
+	componentDidMount: function() {
+		this.categoryListener = CategoryStore.addListener(this._onChange);
+		ApiUtil.fetchCategories();
+	},
+
+	componentWillUnmount: function() {
+		this.categoryListener.remove();
+	},
+
+	_onChange: function() {
+		this.setState( { categories: CategoryStore.all() })
+	},
 
 	renderBoardsIndex: function() {
 		this.history.push("/boards");
 	},
 
 	goToRoot: function() {
+		ApiUtil.fetchFilteredRecipes("all");
 		this.history.push("/");
 	},
 
@@ -32,12 +51,7 @@ var NavBar = React.createClass({
 			  <div className="container-fluid">
 			    <div className="collapse navbar-collapse">
 	 				<button className="btn navbar-btn pull-left btn-primary" onClick={this.goToRoot}>Home</button> 
-			      <form className="navbar-form navbar-left" role="search">
-			        <div className="form-group searchBarGroup">
-			          <input type="text" className="form-control searchBar" placeholder="Search"/>
-			        </div>
-			        <button type="submit" className="btn btn-default">Submit</button>
-			      </form>
+			        <NavBarSearch categories={this.state.categories} />
 			      <div className="btn-group pull-right">
 							<button className="btn btn-primary navbar-btn" onClick={this.renderBoardsIndex}>My Boards</button>
 							<button className="btn btn-primary navbar-btn" onClick={this.logOutUser}>Logout</button>

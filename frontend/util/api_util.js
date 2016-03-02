@@ -51,19 +51,19 @@ var ApiUtil = {
 		})
 	},
 
-	editBoard: function(board) {
+	editBoard: function(board, successCallback, errorCallback) {
 		$.ajax( {
 			url: 'api/boards/' + board.boardId,
 			dataType: 'json',
 			method: 'PATCH',
 			data: {board: board},
 			success: function(board) {
+				successCallback();
 				BoardActions.receiveSingleBoard(board);
+			},
+			error: function(errors) {
+				errorCallback(errors.responseText);
 			}
-			// error: function(errors) {
-			// 	// BoardActions.receiveErrors(errors);
-			// 	console.log(errors);
-			// }
 		})
 	},
 
@@ -108,6 +108,20 @@ var ApiUtil = {
 				RecipeActions.receiveRecipes(recipes)
 			}
 		});	
+	},
+
+	fetchFilteredRecipes: function(filter) {
+		console.log("AJAX REQUEST:", filter);
+		$.ajax( {
+			url: 'api/filtered_recipes',
+			dataType: 'json',
+			method: 'GET',
+			data: { filter: filter },
+			success: function(recipes) {
+				console.log("UTIL:", recipes);
+				RecipeActions.receiveFilteredRecipes(recipes);
+			}
+		})
 	},
 
 	fetchSingleRecipe: function(id) {
@@ -167,7 +181,7 @@ var ApiUtil = {
 			method: 'POST',
 			data: { followed_category: categoryIds },
 			success: function(categories) {
-				CategoryActions.receiveNewFollowedCategories(categories);
+				ApiUtil.fetchFollowedCategories();
 			},
 			error: function(data) {
 				console.log("ERROR:", data);
@@ -183,7 +197,7 @@ var ApiUtil = {
 			method: 'POST',
 			data: { categoryIds: categoryIds },
 			success: function() {
-				CategoryActions.removeCategoryFollows(categoryIds.split(", "));
+				ApiUtil.fetchFollowedCategories();
 			},
 			error: function(data) {
 				console.log("ERROR:", data);

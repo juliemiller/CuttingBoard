@@ -33,7 +33,6 @@ var CategoryIndex = React.createClass({
 
 
 	render: function() {
-		console.log(this.state.categories);
 		
 		return (
 			<div className="container-fluid">

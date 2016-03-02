@@ -30,7 +30,7 @@ var NavBar = React.createClass({
 	},
 
 	goToRoot: function() {
-		ApiUtil.fetchFilteredRecipes("all");
+		ApiUtil.fetchFilteredRecipes();
 		this.history.push("/");
 	},
 

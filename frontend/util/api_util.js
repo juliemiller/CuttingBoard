@@ -111,14 +111,12 @@ var ApiUtil = {
 	},
 
 	fetchFilteredRecipes: function(filter) {
-		console.log("AJAX REQUEST:", filter);
 		$.ajax( {
 			url: 'api/filtered_recipes',
 			dataType: 'json',
 			method: 'GET',
 			data: { filter: filter },
 			success: function(recipes) {
-				console.log("UTIL:", recipes);
 				RecipeActions.receiveFilteredRecipes(recipes);
 			}
 		})
@@ -143,7 +141,6 @@ var ApiUtil = {
 				method: 'POST',
 				data: {pin: pin},
 				success: function(pin) {
-					console.log(pin);
 					PinActions.receiveSinglePin(pin);
 			},
 			error: function(pin) {
@@ -182,6 +179,7 @@ var ApiUtil = {
 			data: { followed_category: categoryIds },
 			success: function(categories) {
 				ApiUtil.fetchFollowedCategories();
+				ApiUtil.fetchFilteredRecipes();
 			},
 			error: function(data) {
 				console.log("ERROR:", data);
@@ -198,6 +196,7 @@ var ApiUtil = {
 			data: { categoryIds: categoryIds },
 			success: function() {
 				ApiUtil.fetchFollowedCategories();
+				ApiUtil.fetchFilteredRecipes();
 			},
 			error: function(data) {
 				console.log("ERROR:", data);

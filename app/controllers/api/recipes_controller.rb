@@ -14,7 +14,7 @@ class Api::RecipesController < ApplicationController
 		elsif params[:filter]
 			@recipes = Recipe.where(category_id: params[:filter])
 		else
-			@recipes = []
+			@recipes = Recipe.where(category_id: current_user.categories)
 		end
 	end
 

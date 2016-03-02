@@ -24,21 +24,15 @@ var RecipeIndex = React.createClass({
 	},
 
 	loadFunc: function(pageNum) {
-		console.log("LOAD FUNCTION: RECIPES", this.state.recipes);
-		console.log("LOAD FUNCTION: SHOWNRECIPES", this.state.shownRecipes);
-		console.log("PAGENUM:", pageNum);
 		var allRecipes = RecipeStore.homeRecipes();
-		// this.setState( { shownRecipes: allRecipes.slice(0, 10 * (pageNum + 1)) });
-	},
-
-	hasMore: function() {
-		// (this.state.recipes.length > this.state.shownRecipes.length);
-		true;
+		this.setState( { shownRecipes: allRecipes.slice(0, 10 * (pageNum + 1)) });
 	},
 
 	render: function() {
-
-		return (
+		var infiniteScroll = "";
+		if (this.state.recipes.length > 0) {
+			infiniteScroll = (
+				<InfiniteScroll pageStart={0} loadMore={this.loadFunc} hasMore={this.state.recipes.length > this.state.shownRecipes.length} >
 				<Masonry className="allRecipes" elementType={'div'} >
 						{
 						this.state.shownRecipes.map(function(recipe) {
@@ -46,12 +40,16 @@ var RecipeIndex = React.createClass({
 						})
 						}
 				</Masonry>
+			</InfiniteScroll>
+			)
+		}
+
+		return (
+			<div>
+			{infiniteScroll}	
+			</div>
 		)
 	}
 })
 
 module.exports = RecipeIndex;
-
-
-			// <InfiniteScroll pageStart={0} loadMore={this.loadFunc} hasMore={this.hasMore}>
-			// </InfiniteScroll>	

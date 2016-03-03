@@ -45,8 +45,9 @@ var CategoryIndexItem = React.createClass({
 	},
 
 	render: function() {
+		var pic_url= {backgroundImage: 'url(' + this.props.category.image_url + ')'};
 		return (
-				<div className={this.state.classes} onClick={this.handleClick}>
+				<div className={this.state.classes} onClick={this.handleClick} style={pic_url}>
 				{this.props.category.name}		
 				</div>
 		)
@@ -54,3 +55,5 @@ var CategoryIndexItem = React.createClass({
 });
 
 module.exports = CategoryIndexItem;
+
+// {this.props.category.image_url}

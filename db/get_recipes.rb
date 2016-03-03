@@ -42,7 +42,22 @@ keywords = [
 	"bacon",
 	"kale",
 	"lettuce",
-	"cobb"
+	"cobb",
+	"tortilla",
+	"bean",
+	"carrots",
+	"teriyaki",
+	"yogurt",
+	"bread",
+	"pumpkin",
+	"pot pie",
+	"avocado",
+	"candy",
+	"apple",
+	"orange",
+	"italian",
+	"cookies",
+	"blueberry"
 ]
 
 recipe_ids = []
@@ -81,14 +96,6 @@ recipe_ids.each do |id|
 	recipes[id] = new_recipe
 end
 
-
-recipes.each do |recipe, value|
-	r = Recipe.new(value)
-	if (r.save)
-		puts r
-	else
-	end
-end
 
 categories = []
 recipes.each do |k, v|

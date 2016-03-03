@@ -39,7 +39,11 @@ var BoardForm = React.createClass({
 		}.bind(this);
 
 		var createSuccessCallback = function(id) {
-			this.history.push("/boards/" + id)
+			if (this.props.pinning) {
+				this.props.modalCallback();
+			} else {
+				this.history.push("/boards/" + id)
+			}
 		}.bind(this);
 
 		var errorCallback = function(data) {

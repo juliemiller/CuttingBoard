@@ -284,7 +284,7 @@ body {
 	border-radius: 5px;
 	background-color: white;
 	text-align: center;
-	background-image: url(http://res.cloudinary.com/dlz00ljl6/image/upload/v1456720103/pineapples_fodvqi.jpg);
+	background-image: url(http://res.cloudinary.com/dlz00ljl6/image/upload/q_28/v1456720103/pineapples_fodvqi.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	color: black;
@@ -318,7 +318,7 @@ body {
 	height: 100%;
 	position: fixed;
 	top: 0;
-	background-image: url(http://res.cloudinary.com/dlz00ljl6/image/upload/v1456717419/photo-1452251889946-8ff5ea7b27ab_sfbert.jpg);
+	background-image: url(http://res.cloudinary.com/dlz00ljl6/image/upload/q_31/v1456717419/photo-1452251889946-8ff5ea7b27ab_sfbert.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	z-index: -1;
@@ -494,8 +494,12 @@ body {
 	display: inline-block;
 	border-radius: 5px;
 	text-align: center;
-	background-color: white;
 	box-shadow: 0px 0px 5px;
+	background-color: white;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
 }
 
 .categoryIndex:hover {

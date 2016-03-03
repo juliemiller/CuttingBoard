@@ -35,8 +35,9 @@ var NavBar = React.createClass({
 	},
 
 	logOutUser: function() {
-		ApiUtil.logoutUser();
-		window.location.reload();
+		ApiUtil.logoutUser(function() {
+			window.location.reload();
+		});
 	},
 
 	render: function() {

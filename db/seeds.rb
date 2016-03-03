@@ -25,9 +25,23 @@ categories =
  "Breads",
  "Soups"]
 
+
 #Categories:
-categories.each do |category|
-	Category.create({ name: category })
+categories.each_with_index do |category, idx|
+	category_pics = [
+		"https://s-media-cache-ak0.pinimg.com/736x/6e/6c/f2/6e6cf2c244fa37ca843a1285a19d338c.jpg",
+		"http://www.happypartyidea.com/wp-content/uploads/2012/01/Appetizer-Ideas-For-Party.jpg",
+		"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRw7551WBFdTj5n3_ga2Ai-6YIf1sS1VLBai6uS40rRg6n-Zsap",
+		"http://bakersabode.com/wp-content/uploads/2015/02/Desserts_Brownie_Bite.jpg",
+		"https://www.azamaraclubcruises.com/sites/default/files/heros/beverage-packages_12.jpg",
+		"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQVctA3_TS0DNdWCd9BlfNJnnY4LPtyoYEXWxwd8osza_L77Rl0",
+		"http://images.fineartamerica.com/images-medium-large/sandwich-and-fries-multi-bits.jpg",
+		"http://opc2.dev1.bloomspin.com/wp-content/uploads/sites/19/2014/02/Tea-Camomiles-Breakfast.jpg",
+		"http://images3.wikia.nocookie.net/__cb20120128045061/thehungergames/images/6/67/Bread.jpg",
+		"https://janetching.files.wordpress.com/2008/10/img_0159-jc.jpg"
+	]
+	image = category_pics[idx]
+	Category.create({ name: category, image_url: image })
 end
 
 #Create demo account Boards

@@ -1,28 +1,33 @@
 var React = require('react');
 var ApiUtil = require('../util/api_util');
 var History = require('react-router').History;
+var OutsideClick = require('react-onclickoutside');
 
 NavBarSearch = React.createClass({
-	mixins: [History],
+	mixins: [History, OutsideClick],
 
 	getInitialState: function() {
-		return { inputVal: "" };
+		return { inputVal: "", showList: false };
 	},
 
 	handleInput: function(e) {
-		this.setState({ inputVal: e.currentTarget.value });
+		this.setState({ inputVal: e.currentTarget.value});
 	},
 
 	selectCategory: function(category) {
 		this.setState({ inputVal: category.name, selectedCategory: category.id });
 		ApiUtil.fetchFilteredRecipes(category.id);
-		this.setState({ inputVal: "", selectedCategory: null })
+		this.setState({ inputVal: "", selectedCategory: null, showList: false })
 		this.history.push("/");
+	},
+
+	handleClickOutside: function() {
+		this.setState({ showList: false })
 	},
 
 	matches: function() {
 		var matches = [];
-		if(this.state.inputVal.length === 0) {
+		if(this.state.inputVal.length === 0 && this.state.showList === false) {
 			return [];
 		}
 
@@ -41,7 +46,11 @@ NavBarSearch = React.createClass({
 		e.preventDefault();	
 		ApiUtil.fetchFilteredRecipes(matches[0].id);
 		this.history.push("/");
-		this.setState({ inputVal: "", selectedCategory: null });
+		this.setState({ inputVal: "", selectedCategory: null, showList: false });
+	},
+
+	updateShowState: function() {
+		this.setState({ showList: true });
 	},
 
 	render: function() {
@@ -54,7 +63,7 @@ NavBarSearch = React.createClass({
 
 		return (
 			<form className="navbar-form navbar-left searchForm" role="search" onSubmit={function() { this.handleSubmit(event, matches) }.bind(this) }>
-				<input onChange={this.handleInput} type="text" value={this.state.inputVal} className="searchInput"/>
+				<input onClick={this.updateShowState} onChange={this.handleInput} type="text" value={this.state.inputVal} className="searchInput"/>
 				<button type="submit" className="btn btn-default">Submit</button>
 				<ul className="searchResults">
 					{categories}

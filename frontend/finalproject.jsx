@@ -52,8 +52,8 @@ var App = React.createClass({
 				{this.props.children && React.cloneElement(this.props.children, { 
 					current_user: this.state.current_user
 				})}
-				<Modal show={this.state.showModal} onHide={this.closeCategoryForm}>
-				<Modal.Header closeButton>
+				<Modal show={this.state.showModal}>
+				<Modal.Header>
 					<Modal.Title>Select Topics to Follow</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>

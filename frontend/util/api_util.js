@@ -93,11 +93,14 @@ var ApiUtil = {
 		})
 	},
 
-	logoutUser: function() {
+	logoutUser: function(callback) {
 		$.ajax({
 			url: '/session',
 			method: "DELETE",
 			dataType: "json",
+			success: function() {
+				callback();
+			}
 		})
 	},
 
@@ -144,7 +147,10 @@ var ApiUtil = {
 				data: {pin: pin},
 				success: function(pin) {
 					PinActions.receiveSinglePin(pin);
-			}
+				},
+				error: function(data) {
+					console.log(data);
+				}
 		});
 	},
 

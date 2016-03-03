@@ -38,7 +38,7 @@ var CategoryIndex = React.createClass({
 			<div className="container-fluid">
 				<div className="col-md-2">
 					<div className="categoryIndex" onClick={this.openCategoryForm}>
-						Follow more topics
+						Update Followed Topics
 					</div>
 				</div>
 				{

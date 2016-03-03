@@ -22,8 +22,8 @@ Category.create({ name: 'Breakfast' })
 Category.create({ name: 'Dessert' })
 
 #Boards
-30.times do 
-	user_id = (1..4).to_a.sample
+5.times do 
+	user_id = 1
 	category_id = (1..3).to_a.sample
 	Board.create({ title: Faker::App.name, description: Faker::Hipster.sentence, user_id: user_id, category_id: category_id})
 end

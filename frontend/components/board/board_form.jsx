@@ -34,8 +34,12 @@ var BoardForm = React.createClass({
 
 	handleSubmit: function(e) {
 		e.preventDefault();
-		var successCallback = function() {
+		var editSuccessCallback = function() {
 			this.props.modalCallback();
+		}.bind(this);
+
+		var createSuccessCallback = function(id) {
+			this.history.push("/boards/" + id)
 		}.bind(this);
 
 		var errorCallback = function(data) {
@@ -44,11 +48,9 @@ var BoardForm = React.createClass({
 		}.bind(this);
 
 		if (this.editing) {
-			ApiUtil.editBoard(this.state, successCallback, errorCallback);
+			ApiUtil.editBoard(this.state, editSuccessCallback, errorCallback);
 		} else {
-			ApiUtil.createBoard(this.state, function(id) {
-				this.history.push("/boards/" + id)
-			}.bind(this));
+			ApiUtil.createBoard(this.state, createSuccessCallback, errorCallback);
 		}
 	},
 

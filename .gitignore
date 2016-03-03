@@ -15,3 +15,5 @@
 node_modules
 
 /app/assets/javascripts/bundle.*
+
+/config/initializers/yummly.rb

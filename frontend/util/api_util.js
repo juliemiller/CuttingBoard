@@ -27,16 +27,18 @@ var ApiUtil = {
 		});
 	},
 
-	createBoard: function(board, callback) {
+	createBoard: function(board, successCallback, errorCallback) {
 		$.ajax({
 			url: 'api/boards',
 			method: 'POST',
 			data: {board: board},
 			success: function(board) {
 				BoardActions.receiveSingleBoard(board);
-				callback && callback(board.id);
+				successCallback(board.id);
+			},
+			error: function(errors) {
+				errorCallback(errors.responseText);
 			}
-
 		});
 	},
 
@@ -142,9 +144,6 @@ var ApiUtil = {
 				data: {pin: pin},
 				success: function(pin) {
 					PinActions.receiveSinglePin(pin);
-			},
-			error: function(pin) {
-				console.log("ERROR", pin)	
 			}
 		});
 	},
@@ -180,9 +179,6 @@ var ApiUtil = {
 			success: function(categories) {
 				ApiUtil.fetchFollowedCategories();
 				ApiUtil.fetchFilteredRecipes();
-			},
-			error: function(data) {
-				console.log("ERROR:", data);
 			}
 		});
 	},
@@ -197,9 +193,6 @@ var ApiUtil = {
 			success: function() {
 				ApiUtil.fetchFollowedCategories();
 				ApiUtil.fetchFilteredRecipes();
-			},
-			error: function(data) {
-				console.log("ERROR:", data);
 			}
 		});
 	},

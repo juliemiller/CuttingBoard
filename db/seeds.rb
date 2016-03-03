@@ -13,15 +13,24 @@ User.create(firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, 
 	User.create({email: Faker::Internet.email, password: "password"})
 end
 
+categories = 
+["Main Dishes",
+ "Appetizers",
+ "Side Dishes",
+ "Desserts",
+ "Beverages",
+ "Salads",
+ "Lunch and Snacks",
+ "Breakfast and Brunch",
+ "Breads",
+ "Soups"]
 
 #Categories:
-Category.create({ name: 'Drinks' })
-Category.create({ name: 'Dinner' })
-Category.create({ name: 'Soups' })
-Category.create({ name: 'Breakfast' })
-Category.create({ name: 'Dessert' })
+categories.each do |category|
+	Category.create({ name: category })
+end
 
-#Boards
+#Create demo account Boards
 5.times do 
 	user_id = 1
 	category_id = (1..3).to_a.sample
@@ -31,1422 +40,3693 @@ end
 #Recipes
 Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
 	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
+	description: "Strawberry lemonade", category_id: 5})
 
 Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
 	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
 	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
+	category_id: 1})
 
 Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
 	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
 	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
+	category_id: 8})
 
 Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
 	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
 	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
+	category_id: 1})
 
 Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
 	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
 	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
+	category_id: 10})
 
 Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
 	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
 	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
+	category_id: 8})
 
 Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
 image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
 description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
+category_id: 4 })
 
 Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
 	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
 	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
+	category_id: 5})
 
 Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
 	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
 	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
+	category_id: 1 })
 
 Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
 	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
+	category_id: 3 })	
+
+recipes = {"Pork-Tenderloin-with-Apples-and-Onions-1529983"=>
+  {:title=>"Pork Tenderloin with Apples and Onions",
+   :url=>"http://www.aboutamom.com/pork-tenderloin-with-apples-and-onions/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/92Zgnz6pxdtpjq4FfMJbCmr8no5Xopjp5TmR9QL3sRlc3bjmyWpc66o4r83ZCsVfCi-_zGGOBVS3UZdZTG_bOwE=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Pork Tenderloin with Apples and Onions"},
+ "Chicken-Pot-Pie-1505683"=>
+  {:title=>"Chicken Pot Pie",
+   :url=>"http://unlimited-recipes.com/recipe/chicken-pot-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/FJM1Gdf0fRVf96UunY4KfsVaUjB6FEFaSmAZSOkAWr2IwuwzmI9kOdMjKOrDfHklhm7aT84jYcdjh6jQAUOJvw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Pot Pie"},
+ "Crispy-Grilled-Cheese-1529460"=>
+  {:title=>"Crispy Grilled Cheese",
+   :url=>"http://thepioneerwoman.com/cooking/crispy-grilled-cheese/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/5iL8VWtapJ1F64YWmvzsTkBRq_X1nPibFtbMkZy58TOw9MS3haTvPF0pQuzKpRy6ffDmVJii5Runx5eG1EL0Hw=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Crispy Grilled Cheese"},
+ "Za_atar-Hummus-1530194"=>
+  {:title=>"Za'atar Hummus",
+   :url=>"http://www.whitbitskitchen.com/2015/12/16/sager-creek-zaatar-hummus/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OCcf2e6-3wf-8BSyOxiLNnooOKtvpFuvrr_3HJt_doRGhW0cNimXjhvr2PExIvL2F29iuEWPN8KzvQ34PLKK=s360",
+   :category_id=>"Appetizers",
+   :description=>"Za'atar Hummus"},
+ "Bourbon-Chicken-1510900"=>
+  {:title=>"Bourbon Chicken",
+   :url=>"http://allfood.recipes/bourbon-chicken/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Sqy-js0PQcJ_sVd3z19lQlvpkXyxFt87IRadO46RPpNpzq2mTRzUU6eY6G4AfWcvEQHEVm1uwwDRg6Qyx7EYMA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Bourbon Chicken"},
+ "Pumpkin-Roll-1516009"=>
+  {:title=>"Pumpkin Roll",
+   :url=>"http://www.centercutcook.com/pumpkin-roll/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/vGUsQQK1VcnpiPX2X07fTc-IIBkzwLKU5TrecRHOKNkvC5B7-w8ASgfzQAIiWAUBgapntJoBqMmRsvQV3D5W=s360",
+   :category_id=>"Desserts",
+   :description=>"Pumpkin Roll"},
+ "Fish-Fry-1511689"=>
+  {:title=>"Fish Fry",
+   :url=>"http://cookmealss.com/fish-fry-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/mcdJyB1CqOKJJn2sR4xJ-jrH9cHqqzjDWojtM44hTG27kITaEIIR4PiAQ8N93BRYXJa-B5EvgWXwt6GP8MlQ_w=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Fish Fry"},
+ "Smothered-Green-Beans-1524840"=>
+  {:title=>"Smothered Green Beans",
+   :url=>"http://www.plainchicken.com/2016/02/smothered-green-beans.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/uNhsAKzDDkOblkFZlQg-jUqnuxBOPO18gR5wUWJRaOUo7_MuOqFJ5zsRIO4sKiySK3Yc3cXYdjZTuQpJvZZZ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Smothered Green Beans"},
+ "Cauliflower-Tortillas-570106"=>
+  {:title=>"Cauliflower Tortillas",
+   :url=>"http://www.recipegirl.com/2014/05/05/cauliflower-tortillas/",
+   :image_url=>
+    "http://lh3.ggpht.com/PTQ1ipIHn6O5G5v85rJRnMu7ts5DFhMaTFhWsFY4X3CPzwhFNgXGfPFD7NnywmbQ9xoX1g0q5PfwEQGIyIiC=s360",
+   :category_id=>nil,
+   :description=>"Cauliflower Tortillas"},
+ "Islands-Hawaiian-Burger-1530321"=>
+  {:title=>"Island’s Hawaiian Burger",
+   :url=>"http://lajollamom.com/recipe-islands-hawaiian-burger/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/GrWiG0vbqiI9MzSXYeS4vBTGis-UkfqAKsTIpLdUb61sm9YWLpYRx_L0csvyBkIf-QvdLevMsWkqbHQnNPv9iQ=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Island’s Hawaiian Burger"},
+ "Asian-Turkey-Lettuce-Wraps-1519253"=>
+  {:title=>"Asian Turkey Lettuce Wraps",
+   :url=>"http://www.eat-yourself-skinny.com/2016/02/healthy-turkey-lettuce-wraps.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/DQDXaAMOa02V3YivemyEAZBmduW51HyZWCrbtb4S2aazoHVlvmT7FjAYqdDGgJFAZ8RHtYkVYR-KFKfQfpvV9w=s360",
+   :category_id=>"Appetizers",
+   :description=>"Asian Turkey Lettuce Wraps"},
+ "Chili-1311923"=>
+  {:title=>"Chili",
+   :url=>"http://www.thefreshmarket.com/recipes/details/chili-112/#.VgKXVCM8LCR",
+   :image_url=>
+    "http://lh3.googleusercontent.com/7gK-iRieuydRxV-nxZgrKTbDGl7t6T9oHuQtx6qwtlP-50Ot_ZBpKx3bQW-uyrsFo7vW9vzQl9rP8-Ig_P_MkNw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chili"},
+ "Buffalo-Popcorn-Chicken-Bites-1534402"=>
+  {:title=>"Buffalo Popcorn Chicken Bites",
+   :url=>"http://www.tasteandtellblog.com/cookbook-of-the-month-recipe-buffalo-popcorn-chicken-bites/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/m63KUcsZVTrMxFqdepIztPIa87TxzYHUtXEeDYJnjNQnjdBMQMNFE7mmMgt_8xve4NVvThJ-Dk7AfzXozPYK=s360",
+   :category_id=>"Appetizers",
+   :description=>"Buffalo Popcorn Chicken Bites"},
+ "Breakfast-Wrap-1232803"=>
+  {:title=>"Breakfast Wrap",
+   :url=>"http://www.annabelkarmel.com/recipes/breakfast-wrap",
+   :image_url=>
+    "http://lh3.googleusercontent.com/Y3iW58ilfCYcT6NtmgGz9ChFHOyweGY98ndhYexqOMwKBUC0Ad2dNCKUM6qo_RfrsYJmNVGdoN7IpCpLohOcuA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Breakfast Wrap"},
+ "Honey-Garlic-Salmon-1512517"=>
+  {:title=>"Honey Garlic Salmon",
+   :url=>"http://rantsfrommycrazykitchen.com/2016/02/17/honey-garlic-salmon/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/r_JcUBneM_9nSGnOgyV12gcUVYW4eLAHnq2KWvBY-K31yC-bqSVQPwD4k8miBxTqmm_3hkdI48n6GMRDjrqlwA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Honey Garlic Salmon"},
+ "Lasagna-997918"=>
+  {:title=>"Lasagna",
+   :url=>"http://www.recipe.com/lasagna/",
+   :image_url=>
+    "http://lh4.ggpht.com/ucF6mlUZegNy8-AqEhNqYJukY6DEPYht78CVLG1JZ2sU4irb1CZnVUv0kxNRzuhEOhy0KXf6WJdoo0LPik9RsQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lasagna"},
+ "Blackened-Fish-1458233"=>
+  {:title=>"Blackened Fish",
+   :url=>"http://unlimited-recipes.com/recipe/blackened-fish/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/8vgRQHDQ6sgjAXGrgusI5am_NKuqsdhT7QaQTdmQ3Rhdmn8iNCUDPsq3QdWRxJszma1FeLyoVAyYxfGj9BEBnQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Blackened Fish"},
+ "Green-Tomato-Fritters-1515083"=>
+  {:title=>"Green Tomato Fritters",
+   :url=>
+    "http://www.twolazygourmets.com/2014/01/green-tomato-fritters/?utm_campaign=shareaholic&utm_medium=yummly&utm_source=socialnetwork",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OhET6Ue9KeljKoC5LV3Bn_OiyTbSgS8tV2hAGjiumvWwgqXS4AK5umigqZ7oOqnNtp9yGtCwaPGoNj8-KBK6=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Green Tomato Fritters"},
+ "Country-Breakfast-Skillet-1525944"=>
+  {:title=>"Country Breakfast Skillet",
+   :url=>"http://allfood.recipes/country-breakfast-skillet/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/6HYoNZd5jW7roqhj1sN5eI5_l_jyt7aq6NQBOyyPUHjIqJ7zkiAygwqtqa6pafKYCwwoZyxI7pGjppumbnNh1vY=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Country Breakfast Skillet"},
+ "Microwave-Peanut-Brittle-1529511"=>
+  {:title=>"Microwave Peanut Brittle",
+   :url=>"http://www.julieseatsandtreats.com/microwave-peanut-brittle-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/kIG48RvlDtRvrzIxsYYQBd55m28grmDd_T-kiDYxA_vfrl9a31OyL8ak-Tv0VHyts6pUBrjhQNWgLbdHETYHaQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Microwave Peanut Brittle"},
+ "Citrus-Infused-Rice-with-Cilantro-1523102"=>
+  {:title=>"Citrus Infused Rice with Cilantro",
+   :url=>"http://homemakinghacks.com/2016/02/citrus-infused-rice-with-cilantro.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/uEJOz7UuF21s59y_zJHpMRopyToa5d1d6u8HSswMkVtBQdaXhtDQRjNbezQrXEiGoc06MFkBXd-yf3jOlIwc4g=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Citrus Infused Rice with Cilantro"},
+ "Chicken-Curry-Salad-With-Brown-Rice-1530082"=>
+  {:title=>"Chicken Curry Salad With Brown Rice",
+   :url=>"http://www.foodlovinfamily.com/chicken-curry-salad-brown-rice/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/JGpM5VxEMucAVrj60BMJXMjZbelEEJTyRnq3WYZCFvdWSpi4XKWrRZQL3HyXwrg9-MyUTzJPCSvn-je8l8BwIOo=s360",
+   :category_id=>"Salads",
+   :description=>"Chicken Curry Salad With Brown Rice"},
+ "Avocado-Enchiladas-1514293"=>
+  {:title=>"Avocado Enchiladas",
+   :url=>"http://kristineskitchenblog.com/avocado-enchiladas/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/_ycSP3a9pLipWFCP9b2FuQOCHihoniYp5QD5TyIcSmRbTcylpccY72ykhlK3_3C5WlGU_6sOhvBq_OZ9nDpgW1c=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Avocado Enchiladas"},
+ "Cumin-Rice-and-Beans-1525352"=>
+  {:title=>"Cumin Rice and Beans",
+   :url=>"https://washu.spoonuniversity.com/recipe/cumin-rice-beans/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/UezR9bThHyNBWfROBoOtuDHfBwavoNU5D_I-pIr7LcEWjlremaKz0Q5YpnTY3ZNXJluIPeerezWhgOdP-NWr=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Cumin Rice and Beans"},
+   "Painless One Pot Pasta"=>
+   {:title=>"Painless One Pot Pasta",
+   :url=>"http://keepitsimplesweetieblog.com/3134-2/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/sYg5ithV-U8S48jhkgTCLwWTXZReK6z24__cZeQ1jMxpg_rnUQ8dYkwg72IYbvEH658eR6abHPri4bqvGuHbqw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Painless One Pot Pasta"},
+ "Greek-Quinoa-Salad-with-Cucumbers_-Tomatoes_-and-Feta-1534582"=>
+  {:title=>"Greek Quinoa Salad with Cucumbers, Tomatoes, and Feta",
+   :url=>"http://bitesofbri.com/2014/05/greek-quinoa-salad-cucumbers-tomatoes-feta/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/e-ZfXr_4ooyi1jQ85Sw7-rjsTtzCco52o71I4myrQNcypx0iIJXXS_lnLP7sGcHGe5nNzFYPLIlse39TvBg-mf8=s360",
+   :category_id=>"Salads",
+   :description=>"Greek Quinoa Salad with Cucumbers, Tomatoes, and Feta"},
+ "Scotch-Cobbler-drink-1525045"=>
+  {:title=>"Scotch Cobbler drink",
+   :url=>"http://mixthatdrink.com/scotch-cobbler/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/zN7MmQUf5VciB7sqi6Kd552jxw-1KkJP7rVpsfvbmuVNPcc26SzpwKXYVVuTk2zu5tQJQUO3ilNx1nzVDdQWDg=s360",
+   :category_id=>"Beverages",
+   :description=>"Scotch Cobbler drink"},
+ "Pizza-1106814"=>
+  {:title=>"Pizza",
+   :url=>"http://anitalianinmykitchen.com/pizza/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/410HWUmNxHOKKPHavSM_vMHGL0iXlWs8VHXIefQd8bHSi2j35RUud7OBQgjnnGNo5-KCYyrTS39ni2CqEi1P=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Pizza"},
+ "Baked-Apple-Pie-Roll-Ups-1495722"=>
+  {:title=>"Baked Apple Pie Roll Ups",
+   :url=>"http://www.spendwithpennies.com/easyrecipe-print/62790-0/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/SWjDfJeali6KagnB6oaZ58jlWnuDmigpc1TWj7AtDaJE2wbhVrqDmXyM_P92kUMjiBHDt1E32tCUjnhTDu70rA=s360",
+   :category_id=>"Desserts",
+   :description=>"Baked Apple Pie Roll Ups"},
+ "5-Minute-Pesto-1190492"=>
+  {:title=>"5 Minute Pesto",
+   :url=>"http://fitfoodiefinds.com/2014/04/5-minute-pesto/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/xrBlFl0AD_HLj8-09B7mxxrYnn2WjACwP5e9cXgmLlttZYnCEdOqn9HjP4vUjnPOQH_nZFp2aoGfYuXdiNmQ8A=s360",
+   :category_id=>"Condiments and Sauces",
+   :description=>"5 Minute Pesto"},
+ "Basic-Homemade-Flour-Tortillas-1218935"=>
+  {:title=>"Basic Homemade Flour Tortillas",
+   :url=>"http://m.giverecipe.com/iuhhs0s/articles/26804/Basic-Homemade-Flour-Tortillas",
+   :image_url=>
+    "http://lh3.googleusercontent.com/offy9JCn7m3tJbCJO7g2vAjtfc9RS4P1gIMo_p6EkhGH2264abx2PehGsK4NHs45SLzkSbQzrWEYhqUWYOB82PU=s360",
+   :category_id=>"Breads",
+   :description=>"Basic Homemade Flour Tortillas"},
+ "Potato-Bacon-Casserole-1513458"=>
+  {:title=>"Potato Bacon Casserole",
+   :url=>"http://recipes-all.com/potato-bacon-casserole/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/y5mgaYB5KSTStXg10v5UEtd-knoRuqbJheegzkGhsxYavkHw14zP9WwFLORD55QjJcyRNald3_bu8ZBX_OcVew=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Potato Bacon Casserole"},
+ "Duchess-Potatoes-1518071"=>
+  {:title=>"Duchess Potatoes",
+   :url=>"http://www.thepetitecook.com/easy-duchess-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/6PMlTj7mQZGu_2CX8Jg8xgf-wBBP_9oxsipfeUeLFJLRHBgXul0179PlgOEHuGj12nHI5KIcXpNn-AiuKHiPK88=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Duchess Potatoes"},
+ "Bourbon-Burger-1303425"=>
+  {:title=>"Bourbon Burger",
+   :url=>"http://www.grit.com/departments/bourbon-burger-recipe.aspx",
+   :image_url=>
+    "http://lh3.googleusercontent.com/G75dx3olpZ73CsYWjHgpVu0twHo62CriNioIT01GvdtmLYUrnEXP0-MVjG5BypehOFRx4v0qTNTYGH_C24usxzA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Bourbon Burger"},
+ "Thai-Coconut-Soup-1532054"=>
+  {:title=>"Thai Coconut Soup",
+   :url=>"http://www.crumbsandchaos.net/2014/01/thai-coconut-soup/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/SLt7R4kP-nIr_5FaK33t84snVBXSqh_e4wMsw14ybGTgDX93yF-8G27ThtvVFYVt3SkWsBsw1Bi_oxUoUsCvjI4=s360",
+   :category_id=>"Soups",
+   :description=>"Thai Coconut Soup"},
+ "Lasagna-1477320"=>
+  {:title=>"Lasagna",
+   :url=>"http://www.lanascooking.com/lasagna/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/lGVlLbAmN99Tvp80dmDSkxc3KDXTpf7K929ePnpgUgMjr9pcN_0mKvH-Hnt9xe505eUiFIhRqOcXGixxCAEOrQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lasagna"},
+ "Tropical-Smoothie-1530347"=>
+  {:title=>"Tropical Smoothie",
+   :url=>"http://www.fivelittlechefs.com/recipe/tropical-smoothie.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/NlpwJy9lfrrQZ5nKRHd5oIuFi_qRqSWPSemnPZiTGMKJn9qal1mW0j4IoIVOdGsktQ0GukUYQ_qOczBEPv6KlAQ=s360",
+   :category_id=>"Beverages",
+   :description=>"Tropical Smoothie"},
+ "Cajun-Blackened-Salmon-1510942"=>
+  {:title=>"Cajun Blackened Salmon",
+   :url=>"http://flavormosaic.com/cajun-blackened-salmon/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Mc7LaAJi5JL2n87Ab99P_E6GTXaQfx28q0Z9CY-TiW4Ucc7UBhcrRBfFz-X1YhY1E2Av3XRIdjKbHdjw8ZcBRg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Cajun Blackened Salmon"},
+ "Turkey_-Chestnut_-Bacon-_-Prosecco-Oven-Baked-Risotto-1528998"=>
+  {:title=>"Turkey, Chestnut, Bacon & Prosecco Oven-Baked Risotto",
+   :url=>"http://casacostello.com/2013/12/27/turkey-chestnut-bacon-prosecco-oven-baked-risotto/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/bdViBSjwuF_tfAIDvY6WucHJ2t2p4NnUYn27DrQfQ8aCIAZqkddENYJCdHCOVrYv2whkHFrT5V2SYAHYT2LqPg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Turkey, Chestnut, Bacon & Prosecco Oven-Baked Risotto"},
+ "Drinking-Caramel-1503178"=>
+  {:title=>"Drinking Caramel",
+   :url=>"http://www.aspicyperspective.com/drinking-caramel-recipe/2/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/STIynvjpWNQCv0HRmLuFiJRF-fI8V2EEiwSNzOdxtdIJIlo4Sf2qPnCZExzyiAKtKwc4qp6nHlrm3cqbzedPaQ=s360",
+   :category_id=>"Beverages",
+   :description=>"Drinking Caramel"},
+ "Chinese-Tortillas-With-Meat-1530676"=>
+  {:title=>"Chinese Tortillas With Meat",
+   :url=>"http://cookmealss.com/chinese-tortillas-with-meat/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/4VCF-3Dvk_dTWJaDj7g_j8sSi15C28IsVT7oo8bohgAOI04nWIRzm2o9-ASdJxEmP5lJ4rYk24IYleDEEG4L=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chinese Tortillas With Meat"},
+ "Tofu-Ricotta-Ravioli-with-Sun-Dried-Tomato-Basil-Pesto-1531330"=>
+  {:title=>"Tofu Ricotta Ravioli with Sun-Dried Tomato Basil Pesto",
+   :url=>"http://createmindfully.com/tofu-ricotta-ravioli-with-sun-dried-tomato-basil-pesto/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/V2Yrp58asKETqxEGOrMRIvJjq0_xiC06mpXuySZsQawrc_xcNVCXT8KeAmFzTTmagYO_Z0ky0fp6U-tu2vSs3w=s360",
+   :category_id=>"Desserts",
+   :description=>"Tofu Ricotta Ravioli with Sun-Dried Tomato Basil Pesto"},
+   "Skillet-Sweet-Potatoes-1440543"=>
+  {:title=>"Skillet Sweet Potatoes",
+   :url=>"http://www.healthyhappysmart.com/blog/skillet-sweet-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/E8SC6pXJr4YqlJ9THIKigP_WNVxcBwOukS886YtUEnq2mrNWkT1UZqywaSz6TJECF2JI5PIRJUqm3fb9qCkpOxo=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Skillet Sweet Potatoes"},
+ "Sausage-Buffalo-Mac-and-Cheese-1528493"=>
+  {:title=>"Sausage Buffalo Mac and Cheese",
+   :url=>"http://foodyschmoodyblog.com/sausage-buffalo-mac-cheese/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/05WqI7T3HyzbllOAuZ3Io5WL-BmbxtpOLK8g4x2KpmDItGgoUQDEgNT9hlGmAIf2SPe9zC5pei-uQioRAv3pRw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Sausage Buffalo Mac and Cheese"},
+ "Irish-Soda-Bread-1531840"=>
+  {:title=>"Irish Soda Bread",
+   :url=>"http://fakeginger.com/irish-soda-bread/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/vBX9rFDgc6ZZdNMiRiY4X9g6M3vSmVH8pZieYPqL-V28V3EJm1_aOfzOHEjTIi6hxUgXb6926ojDIDCt6Brzaw=s360",
+   :category_id=>"Breads",
+   :description=>"Irish Soda Bread"},
+ "Shoyu-Ramen-1128852"=>
+  {:title=>"Shoyu Ramen",
+   :url=>"http://www.whitbitskitchen.com/2014/11/24/shoyu-ramen/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/ZmITbcx2VJ5EV3TxPfMqu9b5qNbzY-sl9BPePJqjAvuXi6RPP4KvEOmuRPKGDriR7Cs5RfDeOPJ-4U8gvb7VKA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Shoyu Ramen"},
+ "Lasagna-761901"=>
+  {:title=>"Lasagna",
+   :url=>"http://www.simplyrecipes.com/recipes/lasagna/",
+   :image_url=>
+    "http://lh6.ggpht.com/x8e7cSBqqAu8eaFrDpGgfdrGLVQGOdq9eVJ2orQ_4IP2g6wCG5WTLwOgby90hfCMdW5rj5fYu8XhiwoLTiKwPuU=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lasagna"},
+ "Carrot-Fries-1503921"=>
+  {:title=>"Carrot Fries",
+   :url=>"http://memeinge.com/blog/carrot-fries/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/-69NJmUDVkATQWkFJwvG_l8TQQMIlJrCUKa6AkcnbHOkbIktZ8P5Di20EiUd_asqiPL0JtfVim0lL1RiW3mRCRc=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Carrot Fries"},
+ "Pretzel-Candies-1082972"=>
+  {:title=>"Pretzel Candies",
+   :url=>"http://www.fromvalerieskitchen.com/2013/12/pretzel-candies/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/JPVcuGM2U2EJ5VpUrVLeHYFv1dNE5e5t9mORPUAwfqCqL6-8n_uRdGyAKR6GSUgPd0X_aPPdOzeuaJvIxZuZ=s360",
+   :category_id=>"Desserts",
+   :description=>"Pretzel Candies"},
+ "Lasagna-494544"=>
+  {:title=>"Lasagna",
+   :url=>"http://www.jasonandshawnda.com/foodiebride/archives/408/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/jr7LgxdgwS-138dHfoBOR9zGATnjKLKxEXo839V1LCImKeUlTsM2r7pMDLBEEi8IfMfoOuiLvS6eayRkjQfs=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lasagna"},
+ "Shortcut-Crumb-Cake-1532804"=>
+  {:title=>"Shortcut Crumb Cake",
+   :url=>"http://hugsandcookiesxoxo.com/2015/10/shortcut-crumb-cake.html#",
+   :image_url=>
+    "https://lh3.googleusercontent.com/0YNOJ1Rpj1i3DiIIS0O3qMBVQwUOYb8kSepzddmqcqx3wTsL95_LR_rle-sF-gs-WNaB77HicUhDdyS9c6nj=s360",
+   :category_id=>"Desserts",
+   :description=>"Shortcut Crumb Cake"},
+ "Homemade-Yogurt-1522606"=>
+  {:title=>"Homemade Yogurt",
+   :url=>"http://unlimited-recipes.com/recipes/homemade-yogurt-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/A5TisM4vx3in06IXp10WupRL0cxwrn3vZM_GRAYSUfe2C3pXEo8dVLOA5TRsMO6kzIwrjKdfxhs5DBxdVRIWbPw=s360",
+   :category_id=>"Beverages",
+   :description=>"Homemade Yogurt"},
+ "Flaky-Turkey-Pot-Pie-1532503"=>
+  {:title=>"Flaky Turkey Pot Pie",
+   :url=>"http://www.mannaandspice.com/flaky-turkey-pot-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/E4JlkMES4cSGRQqcbu1C9xlZsjtsp6bJWl7T6GJPzsB9kljClBdiPoXlQzN8Nnz4Nd9GhHapH0aSeu2LJDyN9Q=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Flaky Turkey Pot Pie"},
+ "Mudslide-Pie-1519807"=>
+  {:title=>"Mudslide Pie",
+   :url=>"http://thehillhangout.com/2014/04/mudslide-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/MJv40Dgz4fZ3HA6VOVl-4aNw5MaVzflSt_PhSuen37XMZfX4ogjW7Gly7nk3E3RwN6DQL64hfGP4J5kMBzyHnA=s360",
+   :category_id=>"Desserts",
+   :description=>"Mudslide Pie"},
+ "Smoked-Eggs-1497211"=>
+  {:title=>"Smoked Eggs",
+   :url=>"http://unlimited-recipes.com/recipes/smoked-eggs-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/69-i3Trhq-MpiphU3TPPAKtKds8Cti_TNCHUzq42cOlcjAKfwvL29BAK5dFqeNmPwgpn0h65EtIJKJB76wMHlbY=s360",
+   :category_id=>nil,
+   :description=>"Smoked Eggs"},
+ "Perfect-Pancakes-The-Pioneer-Woman-Cooks-_-Ree-Drummond-41350"=>
+  {:title=>"Perfect Pancakes",
+   :url=>"http://thepioneerwoman.com/cooking/perfect-pancakes/",
+   :image_url=>
+    "http://lh5.ggpht.com/arFDpeSGAcZ-LE_t2PS2izmmdf4RHX_Ra0PCSRDmynmXW8n7EuajFBrmAm0ND-EuhfInwe-Btbpo_vwBqIAxzA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Perfect Pancakes"},
+ "Easy-Honey-Glazed-Salmon-1521263"=>
+  {:title=>"Easy Honey Glazed Salmon",
+   :url=>"https://centercutcook.global.ssl.fastly.net/easy-honey-glazed-salmon/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/DjyaFE5bpj6IVlj_cM2zMsgNZtl2S67tuxkZHFbJY-kuHywAEqG-38B303W4kz3cA24Nw3fGTZavCJi7iXAQRw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Easy Honey Glazed Salmon"},
+ "Smoked-Salmon-on-Ciabatta-1531869"=>
+  {:title=>"Smoked Salmon on Ciabatta",
+   :url=>"http://www.cookingwithfreckkkkkles.com/2015/06/smoked-salmon-on-ciabatta.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/5WcKH5D4GUtDdf8GXawCv8VIzD5qaxX1cWgLUbFnZe6bfGQ_bHJpnKftDnjttiXnyswrleZLpHbXYh7L9UVR8Q=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Smoked Salmon on Ciabatta"},
+ "Meat-Kefta-631816"=>
+  {:title=>"Meat Kefta",
+   :url=>"http://www.aishakandisha.com/2012/05/kefta-de-carne.html",
+   :image_url=>
+    "http://lh5.ggpht.com/a3ku9O9hK4ybx4va1yAQq8cZuAayNfDRS5xDL3lD-FtyYkWGrUCYKmeLppiCpqu9kuMKv88V7-n1CaD1I9e5LgE=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Meat Kefta"},
+ "Roasted-Rainbow-Carrots-with-Ginger-1533949"=>
+  {:title=>"Roasted Rainbow Carrots with Ginger",
+   :url=>"http://recipes-all.com/roasted-rainbow-carrots-ginger/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/YSrkONrqnOzEY0uVBQ_m9knxMRIpjXyh4ogCSjrCyTBcNuWmGIoWFHErGZI0PtLB9AmgP2DFPRk39LuyhVMA=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Rainbow Carrots with Ginger"},
+   "Blueberry-Shortcake-1531705"=>
+  {:title=>"Blueberry Shortcake",
+   :url=>"http://www.dinneratthezoo.com/blueberry-shortcake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/38YmQ54BGSH8tV7ZbOmq3Nj0TR4CNrZsArTsq4Ht8g1_O6euVXJiQoiKn5bBQCmtG_69WJo1PfgGZy-Srm6G=s360",
+   :category_id=>"Desserts",
+   :description=>"Blueberry Shortcake"},
+ "Pesto-Martha-Stewart_4"=>
+  {:title=>"Pesto",
+   :url=>"http://www.marthastewart.com/341411/pesto",
+   :image_url=>
+    "http://lh3.ggpht.com/YRyDbRnP8K6ywhdl7AoOv6Dju9LBn9YVGPdufcWiFVJqoyEw2f4WLA8JSOSZPxZw6PUrW4tLepuzNlAH-baI9hs=s360",
+   :category_id=>"Condiments and Sauces",
+   :description=>"Pesto"},
+ "Derby-Pie-1515893"=>
+  {:title=>"Derby Pie",
+   :url=>"http://www.theseasonedmom.com/derby-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/X-4YMIYLrAsWCGLtFHyojc2riqYY4lkx6EQn5F9CPxLv5y59RnKjgIgHlaDeRHoE91n4NEH0fgBUDACQkM0=s360",
+   :category_id=>"Desserts",
+   :description=>"Derby Pie"},
+ "Great-White-Pizza-1525694"=>
+  {:title=>"Great White Pizza",
+   :url=>"http://www.todaysparent.com/recipe/lunch/great-white-pizza/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/WfDEacN1DFb7qZo4KPaFXkhMJYpwKP2bnWjqso5Xyfqov1NGlSrUHXDsmGn_c6hrnx-mstxVMxpeHXYALAXT=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Great White Pizza"},
+ "Smoked-Salmon-Deviled-Eggs-1532935"=>
+  {:title=>"Smoked Salmon Deviled Eggs",
+   :url=>"http://www.sweetandsavorybyshinee.com/smoked-salmon-deviled-eggs/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/6inFIpD3Ewapr4crxPSdNsMtoTAs_udxgFWRBgqGlblTQ2TokjoW3Akk9RJgqXFQBMKlRafMK7L0MqpIPlDIAQ=s360",
+   :category_id=>"Appetizers",
+   :description=>"Smoked Salmon Deviled Eggs"},
+ "Chicken-Pot-Pie-1511766"=>
+  {:title=>"Chicken Pot Pie",
+   :url=>"http://eatsimplefood.com/chicken-pot-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/0stAJA9bOkpF53uZ9SlTe7uIJnqNxZLrKCein8e45ZsCzgx2yOmhdY2liDGQUgAaMetoOgC22a8YzGlgN2NDrQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Pot Pie"},
+ "Pumpkin-cheesecake-1531690"=>
+  {:title=>"Pumpkin-cheesecake",
+   :url=>"http://ladiesboxx.com/pumpkin-cheesecake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/JnZpI_jmYOGAKAFxEJzS0ZygrYM2MourWOWylEf-s37Dz3yVIuEZaX0ojSvUk0VDKTRs-M6WqqH-XKtYARaoQA=s360",
+   :category_id=>"Desserts",
+   :description=>"Pumpkin-cheesecake"},
+ "Homemade-Flour-Tortillas-1534575"=>
+  {:title=>"Homemade Flour Tortillas",
+   :url=>"http://thepioneerwoman.com/cooking/homemade-flour-tortillas/?printable_recipe=8916",
+   :image_url=>
+    "https://lh3.googleusercontent.com/VE9qL-vaCXj7M6OEfkxjdOzw1TY6inb5nkH6nKBtvnD7boJ_M84jyHYkop4lMrrkavDedfNWeGHfYJuHonOKuw=s360",
+   :category_id=>"Breads",
+   :description=>"Homemade Flour Tortillas"},
+ "Baby-Artichoke-Recipe-over-Linguine-with-Sun-dried-Tomatoes_-Garlic_-and-Lemon-1531052"=>
+  {:title=>"Baby Artichoke Recipe over Linguine with Sun-dried Tomatoes, Garlic, and Lemon",
+   :url=>"http://blommi.com/baby-artichoke-recipe-garlic-lemon/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/IVTCzxG7-J2eXzorH0YhBRP5AW0d4GmxqG05Dq-FKlldmdaoFFdJfQWKrFMaRNOIx4A7YIVuudsiVTkeWR4HVZE=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Baby Artichoke Recipe over Linguine with Sun-dried Tomatoes, Garlic, and Lemon"},
+ "Chili-1332837"=>
+  {:title=>"Chili",
+   :url=>"http://www.recipe.com/chili/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/9HLvEvLPsnKFbm8HNAOXNzTDE7q56p81KHqRUNt8eYXqtsJQc8PMDRlBo5Hxa4OVQububNgQSkXovf8OscPa=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chili"},
+ "Oreo-Holiday-Candy-Bark-_-_HeftyHoliday-1531162"=>
+  {:title=>"Oreo Holiday Candy Bark | #HeftyHoliday",
+   :url=>"http://blog.nataliemadeit.com/oreo-holiday-candy-bark/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/KkjBm9xcQftcvHC1t9s5w7QqINhSwxnaqIomepd9854AYbGwSewPJOUW5qto0HmR8VyANE0ABmJSHB2n7O4yuFg=s360",
+   :category_id=>"Desserts",
+   :description=>"Oreo Holiday Candy Bark | #HeftyHoliday"},
+ "Honey-Mustard-Chicken-1526254"=>
+  {:title=>"Honey Mustard Chicken",
+   :url=>"http://www.serenabakessimplyfromscratch.com/2016/02/honey-mustard-chicken.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/rbSNQiCE2qeUQpXTaW2rAGpQ-c6xXwyIO5PPY8CNmIHPyvkLVB2IQ5PM41CuhtGODca16VoTD1R0LSvCgnA4=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Honey Mustard Chicken"},
+ "Orange-Mocktail-1529630"=>
+  {:title=>"Orange Mocktail",
+   :url=>"http://ladieslounge.co.in/recipe/orange-mocktail/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/4sDjpkuFSxAEsTFY4TIY9nFDETBu2Ku8esUE3oNlpuiJKEXLjv9TQENyohNZDgW_vwWzVVu-mPfR8rYapVOP=s360",
+   :category_id=>"Beverages",
+   :description=>"Orange Mocktail"},
+ "Cheesy-Chicken-Pot-Pie-1524046"=>
+  {:title=>"Cheesy Chicken Pot Pie",
+   :url=>
+    "http://www.kraftrecipes.com/recipes/cheesy-chicken-pot-pie-114144.aspx?cm_mmc=eml-_-thmcrstyfvs-_-20160225-_-1006&cm_lm=5B9C37521CB576D9A84949614A4ABB47&bt_he=0D77D86FE2AFBCCAE3D75C4DB4B0D3A00AC62B91B097E75F88159C5101CA3CA2",
+   :image_url=>
+    "https://lh3.googleusercontent.com/NVD7uvn1OyqOjYH34YqHtQcUh6ETkkDPD2XMZNIKW91GGOq_1ZK8m5qmdLGFzK4zkxKNMV6VTM050OvqLmnR8ic=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Cheesy Chicken Pot Pie"},
+ "Quick-_-Easy-Burger-1530438"=>
+  {:title=>"Quick & Easy Burger",
+   :url=>"http://www.leaperrins.com/Recipes/Quick%20%20Easy%20Burger",
+   :image_url=>
+    "https://lh3.googleusercontent.com/p8bKF9MIYubl33pLs0-hXj5SCdDpwGl-wIRixBpBl0PFdn9YclmAHvh37-VBaaFKRq97FZc7eer3UKmLix5M2g=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Quick & Easy Burger"},
+ "Fruit-Pops-1276581"=>
+  {:title=>"Fruit Pops",
+   :url=>"http://onesweetappetite.com/2015/06/fruit-pops/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/V2Rs7VTBAala5JNi4Fj1WHHPfYSjYdp6ViEa7WJ74b1jDsiSQZ_jd40ae9rqM961mleLXTVFX4TEC_zWm8jjSPA=s360",
+   :category_id=>"Desserts",
+   :description=>"Fruit Pops"},
+ "Kale-Pesto-1525902"=>
+  {:title=>"Kale Pesto",
+   :url=>"http://www.eatwell101.com/kale-pesto-recipe",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Wooj1lGz7CL4o20Goi7-AFB8Ska6qb8aI42rllwPxxncOk96-5k8Id0C14u5zbiAj7oJmNmKkxQ0r-Z4nrbK=s360",
+   :category_id=>nil,
+   :description=>"Kale Pesto"},
+ "Sauteed-Fish-With-Sesame-1514758"=>
+  {:title=>"Sautéed Fish With Sesame",
+   :url=>"https://experiencelife.com/recipe/sauteed-fish-with-sesame/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/3XMXAaBrvDRLHpgU7dsUz3jQ18BNNgM9ZNAgvj_Pami_KwQcn-jspNHMqkrkMKHzLKMO4KXnkMHBj6GVE2ET8Ac=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Sautéed Fish With Sesame"},
+ "Italian-Hand-pies-_SundaySupper-1528574"=>
+  {:title=>"Italian Hand pies #SundaySupper",
+   :url=>"http://www.brunchnbites.com/italian-hand-pies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Bdt0ffJopm6hGMvCWUUIXs5OPVwzgc2-jT4qSxuwKmQKLAaX0CQNm-Sk9lsXbq0D_eFtBBeWeUc0gqLRwkwivQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Italian Hand pies #SundaySupper"},
+ "Hearty-Chili-1515146"=>
+  {:title=>"Hearty Chili",
+   :url=>"http://www.pauladeen.com/hearty-chili",
+   :image_url=>
+    "https://lh3.googleusercontent.com/HazIB5Wci1KZzMrfeTEWA6LkOzXAr0eU2qOtQwr-7JICb1Q1EN_otuyejMIaLI3iD1jwixL0Ljz2rrQfbuBo=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Hearty Chili"},
+ "Roasted-Green-Beans-with-Mushrooms_-Balsamic_-and-Parmesan-1531747"=>
+  {:title=>"Roasted Green Beans with Mushrooms, Balsamic, and Parmesan",
+   :url=>"http://www.ez-fast-weightloss.com/blog/roasted-green-beans-with-mushrooms-balsamic-and-parmesan/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/h8XpCRrZjgG5XEKY3OotLgJHC7_4iqYEsNyeGdQyeGxCPYrbIgMY-I0BHY_VWTFRyUNcy5xQHrq3ni2kIWXW7Xc=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Green Beans with Mushrooms, Balsamic, and Parmesan"},
+ "Everyday-Pancakes-1526377"=>
+  {:title=>"Everyday Pancakes",
+   :url=>
+    "http://cooking.nytimes.com/recipes/1893-everyday-pancakes?em_pos=medium&emc=edit_ck_20160226&nl=cooking&nlid=70206243",
+   :image_url=>
+    "https://lh3.googleusercontent.com/MGp_8IzJhJsHFS7mvqpKAB4TwkObgkNNC10uumoljGNxfGvzPs_IY2m2QPWvvnKQ_A9zAePuuopr91S8AX19AQ=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Everyday Pancakes"},
+ "Lemon-Blueberry-Bundt-Cake-1533092"=>
+  {:title=>"Lemon Blueberry Bundt Cake",
+   :url=>"http://www.savvysavingcouple.net/2015/05/19/lemon-blueberry-bundt-cake-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/_xjnD7QIBxK5z0b7J2ZVxj3iMfmvpEOF4nen6Ha4lLSMdmbZ2-TkSyw6VN4i6x1ZnJ4qCTqW_12FfPRsVnyW=s360",
+   :category_id=>"Afternoon Tea",
+   :description=>"Lemon Blueberry Bundt Cake"},
+ "Candy-Drizzled-Easter-Popcorn-1518659"=>
+  {:title=>"Candy Drizzled Easter Popcorn",
+   :url=>"http://www.sizzlingeats.com/candy-drizzled-easter-popcorn/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/RYQ982qGvscSpEJTl8QY28EzeGgurM0O53C26aWz8tcrSDja-yZpMomBsDfbPdkcyjz9rK3AywIkJrL1AfGV=s360",
+   :category_id=>"Desserts",
+   :description=>"Candy Drizzled Easter Popcorn"},
+ "How-to-Cook-Beans-on-the-Stove-1533751"=>
+  {:title=>"How to Cook Beans on the Stove",
+   :url=>"http://www.thekitchn.com/how-to-cook-beans-on-the-stove-182717",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Nf2rvPLDblcQp29mBuKhv5QwWKNdNV0MGz5EsP5eFaWPBZhDWs3Bo5Y0UbD9lnXuabN9AIaU9QwFgIOmaElzXw=s360",
+   :category_id=>nil,
+   :description=>"How to Cook Beans on the Stove"},
+ "Sweet-Potato-1523523"=>
+  {:title=>"Sweet Potato",
+   :url=>"http://thefrugalfairy.com/2016/02/25/spinach-stuffed-sweet-potato/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/SNw0C60ggsbJgpFz74PXffb5VVixJZuPYmw5yMfMTtrq1bsindVndFdSHkAlAtSoTrRmdP2pLU295ukeYCLj7g=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Sweet Potato"},
+ "Lasagna-Martha-Stewart-195398"=>
+  {:title=>"Lasagna",
+   :url=>"http://www.marthastewart.com/343399/lasagna",
+   :image_url=>
+    "http://lh3.ggpht.com/6_ernrGMfqQhTse6mpTlNZgyXub7Wq4etlHaPbvsftU5b7M9bJ_7y7tW9NM99VM1_EGMeVPXcAywJrSkCtlxXg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lasagna"},
+ "Pea-Puree-1079330"=>
+  {:title=>"Pea Puree",
+   :url=>"http://agirlandherhome.com/food/pea-puree/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/vLVCRWuIAb0OfmYqMYc-kZxJDtvPWJ_JFzgChqhh7wzinJ1qUvmvbkoWgQA2tZSV63VbtVT1Vsx4NAY84XCCMoE=s360",
+   :category_id=>nil,
+   :description=>"Pea Puree"},
+ "Saffron-Salmon-1525301"=>
+  {:title=>"Saffron Salmon",
+   :url=>"http://littlelightsofmine.com/little-light-lunch-saffron-salmon/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/XkE3iNZ2TcpjZx0FRZdKiuqd_UV_qWpnu2W_XTRx4AOhupR0CrAy9fwRjJeBzz0IlQeuPHWsw6TyRJnjDT_0=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Saffron Salmon"},
+ "Zucchini-Walnut-Fried-Rice-1532755"=>
+  {:title=>"Zucchini Walnut Fried Rice",
+   :url=>"http://www.dizzybusyandhungry.com/zucchini-walnut-fried-rice/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/pR_aFWjhWp0LlgsolQClqVbWMhwTOmqA404EQCp4MH9gFA88tkrhHzJX7p-Ba15-S083VJkTqCPFAcCd19EOCg=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Zucchini Walnut Fried Rice"},
+ "Citrus-Pancakes-with-Honey-Butter-1527415"=>
+  {:title=>"Citrus Pancakes with Honey “Butter”",
+   :url=>"http://www.godairyfree.org/recipes/citrus-pancakes-honey-butter",
+   :image_url=>
+    "https://lh3.googleusercontent.com/-uE4-6z7A7MKr6OfTlfdB9LiyAVPdGyUZ1F_byPwwiPPHv9f6Ja0jRUtVnLE6gBj560SDDzTE4Gg9mdWYy2eZeM=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Citrus Pancakes with Honey “Butter”"},
+ "Cheesesteak-Sandwiches-1514292"=>
+  {:title=>"Cheesesteak Sandwiches",
+   :url=>"http://life-in-the-lofthouse.com/cheesesteak-sandwiches/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/3Ov0WE-9id8Cy7n2VRkaGHO0DumUVtQMH8abz_OAOCnWkBZSbD9mvsJebixaHHkitu87-iWZApM1ke-FaSDeSQ=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Cheesesteak Sandwiches"},
+"Diet-Hot-Sandwiches-With-Mushrooms-1513629"=>
+  {:title=>"Diet Hot Sandwiches With Mushrooms",
+   :url=>"http://www.our-meals.com/2016/02/diet-hot-sandwiches-with-mushrooms.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/p3Ukie2fYrJwV4Ex-CuNAQGmF8ogCBNlm6iTt0jy8Ua0PPZqlDJbOurKH6nzc8jPiTR4QxkIozotJ3otlcuXzQ=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Diet Hot Sandwiches With Mushrooms"},
+ "Quinoa-Burrito-Bowls-1071123"=>
+  {:title=>"Quinoa Burrito Bowls",
+   :url=>"http://weelicious.com/2015/04/10/slow-cooker-chicken-burrito-bowls-recipe/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/vTo796fQVRcuq11KaVwrnHJxBKf8h2bNZo1t3wQ5_EGAYnn4UGJ18TH3EiDJ6YAvLnS8E9E5cEYjYmPavs2taew=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Quinoa Burrito Bowls"},
+ "Savory-Snack-Crackers-1530262"=>
+  {:title=>"Savory Snack Crackers",
+   :url=>"http://www.cookingwithmaryandfriends.com/2015/12/savory-snack-crackers.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/CeZGqSSrlAOlW9h0PMTwerllKzZ_Z68nHeOt0Uk6URNBUlX28hvWpa9eGTx6J5sO3qsdiHWFbId0ofP39Rfq9g=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Savory Snack Crackers"},
+ "Blueberry-Muffin-Bread-1528337"=>
+  {:title=>"Blueberry Muffin Bread",
+   :url=>"http://couking123.blogspot.com/2015/10/blueberry-muffin-bread.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OeW792UiscNZS_jwaAch5zEeSA5P547eIw8ZLRmNMZeNbvRxHNpdgzj15RGHv0BgNtLvRzZgcvf169boy4LS5Yg=s360",
+   :category_id=>"Breads",
+   :description=>"Blueberry Muffin Bread"},
+ "Glazed-Spring-Vegetables-1527617"=>
+  {:title=>"Glazed Spring Vegetables",
+   :url=>"http://www.kraftrecipes.com/recipes/glazed-spring-vegetables-191172.aspx?kraftcustom=true",
+   :image_url=>
+    "https://lh3.googleusercontent.com/AuBmOtHKmUHW4NuLKr01KjYJW4Jndg9T_tFZIXca2z1rVhtEnyTPs5Zh0ofauQt7ErbPXGjRtf8_ct-d-UaifQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Glazed Spring Vegetables"},
+ "Italian-Panini-1512752"=>
+  {:title=>"Italian Panini",
+   :url=>"http://playzwithfood.com/home/italian-panini/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/tSYTUgDuZUpX5KuDomHXJHFWNSPZu9_GA8_f3GkeCAthsnix4zgUioaLTBqP82IlOY-747lgFXDpXNQzZN6ffGY=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Italian Panini"},
+ "Taco-Cobb-Salad-1514466"=>
+  {:title=>"Taco Cobb Salad",
+   :url=>"http://www.laurenslatest.com/taco-cobb-salad/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/J2MIEb-nDgk9sKOjem7c1jxW82P1oQ6Mm0DadZJFs-leUHv82Q5mgIGhu5g2sY0zVUltaCao8KxlWZdHeQuSAw=s360",
+   :category_id=>"Salads",
+   :description=>"Taco Cobb Salad"},
+ "Simple-Spinach-Cobb-Salad-With-Lardons-_SundaySupper-1516690"=>
+  {:title=>"Simple Spinach Cobb Salad With Lardons #SundaySupper",
+   :url=>"http://www.erinbrighton.com/simple-spinach-cobb-salad-with-lardons-sundaysupper/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/67P01IBFQz9j0oxCvDnyQ2P3-McXmf5utbkbpdfts-wQY5MnZLCc-HkVfpnK04qcpsl58JOr-zIqKFI9ai79HA=s360",
+   :category_id=>"Salads",
+   :description=>"Simple Spinach Cobb Salad With Lardons #SundaySupper"},
+ "Hearty-Meat-Marinara-1508715"=>
+  {:title=>"Hearty Meat Marinara",
+   :url=>"http://carrotsandcake.ca/hearty-meat-marinara/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/moZ0e8F8Z4M1nyU-584jC5-4sGGoU-T85gAP59yjFCe59v4ybnM0sZHAZN1Yks3mrHSp3SF3RWLXDIteu45OOw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Hearty Meat Marinara"},
+ "Danish-Salted-Butter-Cookies-1528959"=>
+  {:title=>"Danish Salted-Butter Cookies",
+   :url=>
+    "http://www.bonappetit.com/recipe/danish-salted-butter-cookies?mbid=nl_12092015_Daily&CNDID=35888294&spMailingID=12505674&spUserID=MTA1OTA2Mzk2MDExS0&spJobID=643419409&spReportId=NjQzNDE5NDA5S0",
+   :image_url=>
+    "https://lh3.googleusercontent.com/YD7Y_T9jDNOBCAa3nCacs3E9Scx9piQte34_uKobEVnfg8jbHN0cytxA397HtV19Wd3EPKPAeAzTYt8q_crxFQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Danish Salted-Butter Cookies"},
+ "Baked-Sweet-Potato-Fries-1511684"=>
+  {:title=>"Baked Sweet Potato Fries",
+   :url=>"http://unlimited-recipes.com/recipes/baked-sweet-potato-fries-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OnYEIonWy_Uv7aRe03_Laf83dR13oblZ7WbNfWgcb6ouYV2wz7mfGCKgBa3sHmYNyw6ALIEIlAL4bdM7oHMILRk=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Baked Sweet Potato Fries"},
+ "Quesadilla-Burgers-1113408"=>
+  {:title=>"Quesadilla Burgers",
+   :url=>"http://www.mostlyhomemademom.com/2014/05/quesadilla-burgers.html",
+   :image_url=>
+    "http://lh3.googleusercontent.com/2Pl54BvkcYWd_jmOgUwgnUg34nfnme9mX8spdhArJqae06_SNNMhdc5tRzpsHZ3x8C4OknEtbqcFXL9jzpd9=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Quesadilla Burgers"},
+ "Salmon-Teriyaki-1319902"=>
+  {:title=>"Salmon Teriyaki",
+   :url=>"http://www.closetcooking.com/2007/07/salmon-teriyaki.html?m=1",
+   :image_url=>
+    "https://lh3.googleusercontent.com/84G8REQuhLhljWAw5KLLuK0Vo6xQMHfWfSVCfP8WPZJ8e-xpXzYnfOAgy-b3kR4u4Yfi_GQ5qSSn6Ju6BnJQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Salmon Teriyaki"},
+ "Thai-Turkey-Lettuce-Wraps-761815"=>
+  {:title=>"Thai Turkey Lettuce Wraps",
+   :url=>"http://www.yummly.com/recipe/Thai-Turkey-Lettuce-Wraps-761815",
+   :image_url=>
+    "http://lh4.ggpht.com/XWvDKW96Rpa52yB0jVK_qWuDMWhyYnQLYkIkhTBKHzcA3VF56Mh2IfV63yhoqEUThl2wv3FZqc9fhqyxAySEFQ=s360",
+   :category_id=>nil,
+   :description=>"Thai Turkey Lettuce Wraps"},
+ "Berries-and-Hemp-Smoothie-Bowl-1517894"=>
+  {:title=>"Berries and Hemp Smoothie Bowl",
+   :url=>"http://www.chocolateslopes.com/berries-and-hemp-smoothie-bowl/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/4LjoXhX9saPgUd_yzdwDzokPrvg_xyLD11TEtRPjMWk0BfPJOK48bqYh6UJ_Q8eviUk9snp7i1FEUjQXThAj=s360",
+   :category_id=>"Beverages",
+   :description=>"Berries and Hemp Smoothie Bowl"},
+ "Rainbow-Smoothie-1528596"=>
+  {:title=>"Rainbow Smoothie",
+   :url=>"http://thefirstyearblog.com/rainbow-smoothie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Z9pAk17SjREvsrv53eacUZ0-8PhjE39T1CaAsCg3-FmH1BZECREZ15Dw4z7Az56hUhdRMp0dLqejl48OjredCQ=s360",
+   :category_id=>"Beverages",
+   :description=>"Rainbow Smoothie"},
+ "Italian-Panini-1515494"=>
+  {:title=>"Italian Panini",
+   :url=>"http://www.pillsbury.com/recipes/italian-panini/0deb2c05-9f47-4366-860b-b9b04a026d08",
+   :image_url=>
+    "https://lh3.googleusercontent.com/LO9Kf8Wkj-gqygUBSX-m25wCYLQ1cMQu3GRB8LLjaw3Hi2z0HF9xAp8b1bPpX9w4tfClqjfOqrWZYOteAvwsSfE=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Italian Panini"},
+ "The-Anti-Bloat-Smoothie-1507443"=>
+  {:title=>"The Anti-Bloat Smoothie",
+   :url=>"http://www.prolineorganic.com/anti-bloat-smoothie-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/GmaxYVjqwfAUNyU4OkMC75W_PhYqTXp5kI01DffqnDqp_YSxKhFel_aiXKgFRKbuJDNdWThh5F_g1uIzTz8oCQ=s360",
+   :category_id=>"Beverages",
+   :description=>"The Anti-Bloat Smoothie"},
+ "Revolutionary-Mac-_-Cheese-1048867"=>
+  {:title=>"Revolutionary Mac & Cheese",
+   :url=>"http://www.bigrigsnlilcookies.com/2014/04/revolutionary-mac-cheese.html",
+   :image_url=>
+    "http://lh3.googleusercontent.com/4Z3KUHaSjqBTc5qQAK4XwuvJaRo18FuLhZq334GefsHqs-VGJOCOPCgTYkH2d1LR_QgWLFaKxIiIM5rfgTRKQxQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Revolutionary Mac & Cheese"},
+ "Mint-Chocolate-Chip-Cheesecake-Bars-1531855"=>
+  {:title=>"Mint Chocolate Chip Cheesecake Bars",
+   :url=>"http://bakingwithmom.com/mint-chocolate-chip-cheesecake-bars/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/4pZJLdcajVu6bi83MP0n500_s6yE8pv13IE3fB7l1a1_9d7aoypbxSsdPK6PWR-S6PtE1eh3vkL_pDf2YkaTvg=s360",
+   :category_id=>"Desserts",
+   :description=>"Mint Chocolate Chip Cheesecake Bars"},
+ "Easter-Snack-Mix-1522535"=>
+  {:title=>"Easter Snack Mix",
+   :url=>"http://www.reviewzandnewz.com/2016/02/easter-snack-mix.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/mFSuhOIWLDwkygySq1yORjBWXgKbyeE3VT1s1MXauhdKS3mXqRd7n4OE_wn_OYL_cnPrF3hfYQ6dbY8-ur3V=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Easter Snack Mix"},
+ "Cheesy-Peas-AllRecipes-39349"=>
+  {:title=>"Cheesy Peas",
+   :url=>"http://allrecipes.com/Recipe/cheesy-peas/detail.aspx",
+   :image_url=>
+    "http://lh6.ggpht.com/WiHiZEF0HroPiCZDIlTXCt4cTh4xGyVs8yaXIT7MNyFXW-oQW0Bl4yam61JiTkb5TfCfW8fnaMVSTNpq8inmHQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Cheesy Peas"},
+ "Instant-Pot-Broccoli-_-Cheddar-Pasta-1526761"=>
+  {:title=>"Instant Pot Broccoli & Cheddar Pasta",
+   :url=>"http://www.adventuresofanurse.com/2016/02/27/instant-pot-broccoli-cheddar-pasta/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/g5Q8l_G-cmn4DalCt9saD4BU_U4m25-Q3qwOh183WBh4FWeHKhMb64SVnl8pktoKOdsfTMXmUrjvNtPZXN5Mmg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Instant Pot Broccoli & Cheddar Pasta"},
+ "Chicken-Enchilada-Sweet-Potato-Noodles-1531947"=>
+  {:title=>"Chicken Enchilada Sweet Potato Noodles",
+   :url=>"http://www.healthy-delicious.com/chicken-enchilada-sweet-potato-noodles/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/6uholMoP4PDfGmeoU7OCSYSuoTZZ1oGkuvrq49vj6-w-D2y_JuLJZTS0iQWxRY76B-aR_Kc6pCBv9qk11TBi=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Enchilada Sweet Potato Noodles"},
+ "Roasted-Beets-And-Carrots-1509275"=>
+  {:title=>"Roasted Beets And Carrots",
+   :url=>"https://eatgreens.wordpress.com/2016/01/24/roasted-beets-and-carrots/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ekByeOgzZGN3XYO-SYpwCllNYh1MzsssMjnlN5iXexEhi6izP_uwJ-hpfcglOSeo5AkWkCCG3IfynlQzsRRKWQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Beets And Carrots"},
+ "Caprese-Pesto-Penne-1363790"=>
+  {:title=>"Caprese Pesto Penne",
+   :url=>"http://camillestyles.com/food-and-drink/from-camilles-kitchen/easy-caprese-pesto-penne",
+   :image_url=>
+    "https://lh3.googleusercontent.com/nFDOWwXCZuQlyxiLOh7YgDldKwWm7vBaUhckR_LHNERksvwnQeb-VPCmZj0lF8aDOL7ZqZKvKeoUYr0Qk4hE7Q=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Caprese Pesto Penne"},
+   "Spicy-4-Cheese-Crab-Pasta-1528612"=>
+  {:title=>"Spicy 4-Cheese Crab Pasta",
+   :url=>"http://www.thatsquareplate.com/spicy-4-cheese-crab-pasta/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/HTz1mCx8uuVltXizbaU5iN7XIP2_jXHd1cpy3HDy2E8x90NAg1nHj2xs6KWKuJ9ZUEGBPOODvwwhuEn3_REX=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Spicy 4-Cheese Crab Pasta"},
+ "Bistro-Breakfast-1522799"=>
+  {:title=>"Bistro Breakfast",
+   :url=>"http://www.culinaryenvy.com/bistro-breakfast/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/m-kImui4imsKi10iaNjj9puRGrD2gNK2TEn5DVLRGtyQc64Toh6c1XIr5iGPuzFD9qsG1YgMyTuEpJ9lZgHf=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Bistro Breakfast"},
+ "Make-Ahead-BBQ-Chicken-Bowls-1531808"=>
+  {:title=>"Make-Ahead BBQ Chicken Bowls",
+   :url=>"http://momtomomnutrition.com/food-and-recipes/make-ahead-bbq-chicken-bowls/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/6wRsuotaZiRDKZf_nIyWoQiiZn2RR7D8tX_4pVrqpULmAdwTJw9Aw0daxUK-nhmBSZr1PaczgzoFIPz27L1GfA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Make-Ahead BBQ Chicken Bowls"},
+ "Tequila-Sunrise-Drink-1481903"=>
+  {:title=>"Tequila Sunrise Drink",
+   :url=>"http://drinkologia.com/tequila-sunrise-drink/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/sU86DX13kvpo5eFptHXue-2no1ozqzp7lXQ76yfmqKtAa9xQlkw3zLrMu3Q-bv5NNWGKW909TSkolDri-88cfw=s360",
+   :category_id=>"Beverages",
+   :description=>"Tequila Sunrise Drink"},
+ "Apple-Brown-Betty-1525583"=>
+  {:title=>"Apple Brown Betty",
+   :url=>"http://www.annsentitledlife.com/recipes/apple-brown-betty-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/DgJlyy6SS2Cd2DM8yHCVofMPltcEY3FWViS4fIYjoFg9RLgiST0UYfdblpoaTiMiOhcXKGAaqrsC-DDPaoyn=s360",
+   :category_id=>"Desserts",
+   :description=>"Apple Brown Betty"},
+ "Meat-With-Plums-1522851"=>
+  {:title=>"Meat With Plums",
+   :url=>
+    "http://ladiesboxx.com/meat-with-plums/?utm_campaign=shareaholic&utm_medium=yummly&utm_source=socialnetwork",
+   :image_url=>
+    "https://lh3.googleusercontent.com/RnTuxkP_cv4c_8jT_JoLOHj5PxeyrjPbcY54ynyIyXH7joShIptRXHIm2BA7-D63QlEqCBNhKjOKYXRSYppMSAU=s360",
+   :category_id=>nil,
+   :description=>"Meat With Plums"},
+ "Tabbouleh-Salad-Recipe-with-Freekeh-and-Feta-1531623"=>
+  {:title=>"Tabbouleh Salad Recipe with Freekeh and Feta",
+   :url=>
+    "http://www.rachelcooks.com/2016/02/29/tabbouleh-salad-recipe-freekeh-feta/?utm_source=Rachel+Cooks+Newsletter&utm_campaign=cfb3ac4e3f-RSS_EMAIL_CAMPAIGN&utm_medium=email&utm_term=0_e26311cf42-cfb3ac4e3f-98269741",
+   :image_url=>
+    "https://lh3.googleusercontent.com/uufPcz0pJGnFLFfQHW1a2KFX1GVe0c8iQtCV7KW-CNOqpVi4r7gYikakAOZfQEaRqvhS8Ms0wJXH3tacHiLJjA=s360",
+   :category_id=>"Salads",
+   :description=>"Tabbouleh Salad Recipe with Freekeh and Feta"},
+ "Overnight-Oatmeal-1514920"=>
+  {:title=>"Overnight Oatmeal",
+   :url=>"http://www.greenplaterule.com/recipes/overnight-oatmeal/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/chk6KxU4T1IPRBYqAGu1CWtUngtwkMKumavJtHc48qJLxmnVvT39fLWk3ynPxC3Od46AC7yGwyof1b235QTq=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Overnight Oatmeal"},
+ "Creamy-Curry-Cauliflower-Soup-1534620"=>
+  {:title=>"Creamy Curry Cauliflower Soup",
+   :url=>"http://www.popsugar.com/fitness/Creamy-Vegan-Cauliflower-Soup-27865094",
+   :image_url=>
+    "https://lh3.googleusercontent.com/dO1xNv8MdZ5sPdhr0wpjWdE4piEb1OAS_4cFisYwR9dmi6N2dswdnXzfMM-s7bLZ5g7IN-feOngJpJExanK-HzM=s360",
+   :category_id=>"Soups",
+   :description=>"Creamy Curry Cauliflower Soup"},
+ "Grilled-Maple-Basil-Cherry-Tomatoes-1534063"=>
+  {:title=>"Grilled Maple Basil Cherry Tomatoes",
+   :url=>"http://ifoodreal.com/grilled-maple-basil-cherry-tomatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/9mDQLlS0fngR2mmj30FMKxT-MKGPIYJvXUCTTAJk-dd3Gwo9JtA1YX9hpKjPWrVYhCJSZj4qiq0CDxgZgMBbDQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Grilled Maple Basil Cherry Tomatoes"},
+ "Oven-Roasted-Vegetables-483595"=>
+  {:title=>"Oven Roasted Vegetables",
+   :url=>"http://www.yummly.com/recipe/Oven-Roasted-Vegetables-483595",
+   :image_url=>
+    "http://lh3.ggpht.com/Ji6G1_JPv4F7pk2P3btOdYtZd5ccFI3VnFaumVbChjHgCpCbn8T5FFWerrG6QVS9emOXBnP3W8G2Q26AmrJlHQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Oven Roasted Vegetables"},
+ "Bacon-Moonshine-Pulled-Pork-1521943"=>
+  {:title=>"Bacon Moonshine Pulled Pork",
+   :url=>"http://www.savoringthegood.com/2016/01/bacon-moonshine-pulled-pork/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/YkZGjdvOVJi3wxa49nqi_NXBOn4jdNBUGbmOIVRKnB4tn4GwH10oaEAvaeI7k197LwYbJlRjtHXvmQLxFFbzZFQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Bacon Moonshine Pulled Pork"},
+ "Curried-ChickPea-1531146"=>
+  {:title=>"Curried ChickPea",
+   :url=>"http://blog.20dishes.com/curried-chickpeas/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/TmvNLmlvo1suIfWqYlQCSElT4t53RATKK7J64n4Jbljq6tIG66fWVwMbrrnJpOYt23XUB74pxA6Syr2qaHdXSXw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Curried ChickPea"},
+ "Light-_-Fluffy-Banana-Protein-Pancakes-1528860"=>
+  {:title=>"Light & Fluffy Banana Protein Pancakes",
+   :url=>"http://www.thecreativebite.com/light-fluffy-banana-protein-pancakes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/eBqUFX-4i6mOHFi0eq7FFU-eDRkKkek8yvlxINc91D8XGvdEf0cfENSZOW8v6OW7tdCfrB9zRw0uRLbnO7_Q=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Light & Fluffy Banana Protein Pancakes"},
+ "Lawnmower-Taco-1532892"=>
+  {:title=>"Lawnmower Taco",
+   :url=>"https://cookingwithtraci.com/2016/02/27/lawnmower-tacos/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/kyHU5GK2VHfUuzVBOePkhfitbUPgGf8udC79RlcJ_ALLXiWRP-59Tw8OmPLm93mfeVnQG-CrUviCi0EeDiN5mw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lawnmower Taco"},
+ "Baked-Pancakes-1509176"=>
+  {:title=>"Baked Pancakes",
+   :url=>"http://www.momonthemove35.com/baked-pancakes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ikK4mGIbTyTJZbXuZpWcFHWrVfBpNM-cp-xR5h5kHkNOnVpqt2gnQlXausnQJ_8IJTA8JIqG5dYQ-4czYim0IA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Baked Pancakes"},
+ "Homemade-Flour-Tortillas-1526960"=>
+  {:title=>"Homemade Flour Tortillas",
+   :url=>"http://www.anexpatcooks.com/recipe/homemade-flour-tortillas",
+   :image_url=>
+    "https://lh3.googleusercontent.com/hXxLUDB83jQseBE3U99_HGpB3sc4sRWon1uEa2sbIbiZXXyXMi85BzzPaxNzMdyxxGUGb9n2UDqSqHi19-WzARA=s360",
+   :category_id=>"Breads",
+   :description=>"Homemade Flour Tortillas"},
+ "The-BEST-Mac-_-Cheese-1533793"=>
+  {:title=>"The BEST Mac & Cheese",
+   :url=>"https://thegreenandblinglife.wordpress.com/2016/01/30/the-best-mac-cheese/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/4OdIEqWMuL3X6hf9YNBA3DT2LmaaQIc4TwO86-kZHwiIQP_-UL31G4VHXqnmkZGwYM9DKYAADLx_v-qkSYYm=s360",
+   :category_id=>"Main Dishes",
+   :description=>"The BEST Mac & Cheese"},
+ "Molten-Chocolate-Lava-Cake-1530448"=>
+  {:title=>"Molten Chocolate Lava Cake",
+   :url=>"http://www.unicornsinthekitchen.com/molten-chocolate-lava-cake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/mDq6L_c6K-9O6K_432t1J9acCb0XazbAms2OGvFB1BwrmCALOb6rBlLJ2QOD0x8JTGRpgf7i2mAEXQQJcbeWDg=s360",
+   :category_id=>"Desserts",
+   :description=>"Molten Chocolate Lava Cake"},
+ "Roasted-Vegetables-1528851"=>
+  {:title=>"Roasted Vegetables",
+   :url=>"http://damndelicious.net/2014/10/04/roasted-vegetables/?m",
+   :image_url=>
+    "https://lh3.googleusercontent.com/gkzQjSKMEITiN2hC07D5Rxz84EJfxQQZREdi-yfCJnSNF9pnBXlubXbTIxYfo4DwWayRodtDu1d4kmjA8FeY8eU=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Vegetables"},
+ "An-Easy-Fish-1506841"=>
+  {:title=>"An Easy Fish",
+   :url=>"http://www.itisakeeper.com/3496/soy-ginger-garlic-fish-an-easy-fish-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ou6tUvs9-8FeFGw3poS2S4iG31t1A_l2GT9xaqTDdCyFwzFSmXfa2d78zV3B1RpREXjfJRD1jQk0Ypvird_Fkw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"An Easy Fish"},
+ "Chili-1368417"=>
+  {:title=>"Chili",
+   :url=>"http://www.iamthatlady.com/easy-recipes-chili/?fb_ref=9a10bc061e1f4af4a207c345a44cfa57-Yummly",
+   :image_url=>
+    "https://lh3.googleusercontent.com/lW80d5WztIL8yB3Tr3DPbJAchZYG3snkqSJGYenCBFWwPR7lXrU4erfVr3ob1N_ICt_wfCq_AqNSTk3ABj_z8Q=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chili"},
+ "Beastly-Black-Bean-Burger-1532990"=>
+  {:title=>"Beastly Black Bean Burger",
+   :url=>"http://looseleafvegan.blogspot.com/2015/08/beastly-black-bean-burger.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/2L9ZlwQYDz9a8pPlFQMENY4c1Pa4lXy3i8zseNhP0b6o5A49lYi08-cl0WB6IaSxlkKsBNeoXd7HEJtQTXInhw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Beastly Black Bean Burger"},
+ "Curry-Rice-1527622"=>
+  {:title=>"Curry Rice",
+   :url=>"http://www.pinkiesoinkments.com/curry-rice/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/bhzVTZXXhvCE0tywKHOzqgmctV7d3hji7e35B2GXAlP51JRSJ1lzf0s9Do_rpNeywyqZKaowd0Vmq7wdlwp_=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Curry Rice"},
+ "Honey-Butter-Rolls-1528925"=>
+  {:title=>"Honey Butter Rolls",
+   :url=>"http://sallysbakingaddiction.com/2015/11/13/tried-true-honey-butter-rolls/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/XBUFIKYmRIMdkgRdRFk481ugEdEa3RmtKSiQFCIEomPl7Egatyc58cTfvZ00ToqepCeSyeeOjgV5Fl84tJc_=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Honey Butter Rolls"},
+ "Better-than-Brownies-Chocolate-Cookies-1512657"=>
+  {:title=>"Better-than-Brownies Chocolate Cookies",
+   :url=>"http://familyspice.com/recipes/recipe/?recipe_id=398",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Hvi-VquhJX5WP3xO33vuyQGuFeJoMGm9kxdidqKjYhQmPOG9hWHhNZ-23e-VEc3eF7y90BqVpwsQuCzYVNyGaYg=s360",
+   :category_id=>"Desserts",
+   :description=>"Better-than-Brownies Chocolate Cookies"},
+ "Ham-and-Havarti-Wrap-1532062"=>
+  {:title=>"Ham and Havarti Wrap",
+   :url=>"http://realmomkitchen.com/21067/ham-and-havarti-wraps/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/g7F4_F2i03J8dZ5ZPsMxhwM3EYMemveImcBZK_OQCYygazU9chqjh2OQ8urj6guW9fs1mOWzyiXVEuvcCUHiTg=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Ham and Havarti Wrap"},
+ "Farro-and-Peas-_-Risi-e-Bisi_-1522534"=>
+  {:title=>"Farro and Peas ( Risi e Bisi)",
+   :url=>"http://allourway.com/2016/02/23/farro-and-peas-risi-e-bisi/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/eRyOuSEkdpGctLWMAcG0Rzqi77zK8OKxH62TZxoICjIkv6egP1dkZ8FmnQK8EJjtEybn_ebAWGkClbg_iMi_lA=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Farro and Peas ( Risi e Bisi)"},
+ "Best-Ever-Juicy-Burgers-551596"=>
+  {:title=>"Best Ever Juicy Burgers",
+   :url=>"http://www.yummly.com/recipe/Best-Ever-Juicy-Burgers-551596",
+   :image_url=>
+    "http://lh6.ggpht.com/TQVW_TgIFoWkexiUIiSO5q72qE3vdv0DITIECMIBUSFE3vKfITfn2FztoCqMvAgOWv7pR9m7LdVh5ngZiRsPYg=s360",
+   :category_id=>nil,
+   :description=>"Best Ever Juicy Burgers"},
+ "Blueberry-Peach-Crisp-1526700"=>
+  {:title=>"Blueberry Peach Crisp",
+   :url=>"http://www.artfrommytable.com/blueberry-peach-crisp/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/zVN25gMqVKQ-XzPLUFqadfttMPPob3w5oAgBhci5ueoUX-L45KxLFBlmp5QEWRHvWHFWHxLpbugsnKlfbFIJ4Q=s360",
+   :category_id=>"Desserts",
+   :description=>"Blueberry Peach Crisp"},
+ "Paleo-Sweet-Potato-Bread-1470186"=>
+  {:title=>"Paleo Sweet Potato Bread",
+   :url=>"http://madeleineshaw.com/recipes/paleo-sweet-potato-bread/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ygXJnyG6xEhJY3fqGy7M7WLJqKlDmd6ppdgq1JckXUAwt0rmahWv3A3zS47UOKNmK8AeoLv80002pOVNFn3n=s360",
+   :category_id=>"Breads",
+   :description=>"Paleo Sweet Potato Bread"},
+ "How-to-Make-Pancakes-1504478"=>
+  {:title=>"How to Make Pancakes",
+   :url=>"http://nishkitchen.com/2016/02/07/basic-pancake-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/XwbCzOleCVSF3U2ts9q4viOxWkdTF9BaWIJovl_ObZuvqaWaa4F-aJK863Qf0LiBxwRXOAVNlbdBw5Tzuzvyhpc=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"How to Make Pancakes"},
+ "Strawberry-Banana-Oat-Smoothie-1514243"=>
+  {:title=>"Strawberry Banana Oat Smoothie",
+   :url=>"http://www.cookingclassy.com/2016/02/strawberry-banana-oat-smoothie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/LZ2hOAD5DBeBJTk4WlqxLl3dh6qRIUm1WOeCEq5eKznDi6-xu4tVuPeMN1Rgz4liS8lp9zdhsRaP2XqBJAGVog=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Strawberry Banana Oat Smoothie"},
+ "Kale-1337262"=>
+  {:title=>"Kale",
+   :url=>"http://bestblenders.reviews/tropical-kale-smoothie.html",
+   :image_url=>
+    "http://lh3.googleusercontent.com/RLbD9MVJ4wl5K7V7w68wGyLDjZ3I6DHbxg30n79A32Wsd_la93dWTRTgfKMViE5yng9BUixClgbx_zdkYucWiFs=s360",
+   :category_id=>"Beverages",
+   :description=>"Kale"},
+ "Accordion-Potatoes-1529610"=>
+  {:title=>"Accordion Potatoes",
+   :url=>"http://magicskillet.com/recipe/potato-recipes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/qazKT-FZ1o2ymwpRTrXcUSJGQlCRxKS7s_okWN_uMyDYXLCCKdaUm8vvDVq0yqKm_KVgGrOPKVbEZZbiB6a5=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Accordion Potatoes"},
+ "One-Pot-Garlic-Shrimp-and-Pasta-1523415"=>
+  {:title=>"One Pot Garlic Shrimp and Pasta",
+   :url=>"http://www.wordsofdeliciousness.com/2016/02/one-pot-garlic-shrimp-and-pasta.html/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/phkgOSR0Q52ibO-bwksPISognnBz8dXibXE9liKg9oweRz4x3YNu5e5KobjgjcueQDow1n6ZJ86HLO9YwR9Y=s360",
+   :category_id=>"Main Dishes",
+   :description=>"One Pot Garlic Shrimp and Pasta"},
+ "Tiny-Taco-Bites-1319033"=>
+  {:title=>"Tiny Taco Bites",
+   :url=>"http://craftycoin.com/tiny-taco-bites/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/sAwkoBOdYBftCvnHfvkME9NAJ6DVHvgkUGZXc3aoHhxHJT8RoI52AFknc5RH_gR2VogVmnenPEQhKzmAR1ttag=s360",
+   :category_id=>"Appetizers",
+   :description=>"Tiny Taco Bites"},
+   "Strawberries-and-Cream-Oatmeal-1513981"=>
+  {:title=>"Strawberries and Cream Oatmeal",
+   :url=>"http://fitfoodiefinds.com/2016/02/strawberries-cream-oatmeal/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/VPWyp4jixf4iLCWlDOupD7lJBKSA7eLVF6lfKXzyARc1PogS8zeZJpyUrrj7OsKqDbXIzI3BI_H99Bs0dqRcWA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Strawberries and Cream Oatmeal"},
+ "Oven-roasted-root-vegetables-298346"=>
+  {:title=>"Oven-roasted Root Vegetables",
+   :url=>"http://www.yummly.com/recipe/Oven-roasted-root-vegetables-298346",
+   :image_url=>
+    "http://lh6.ggpht.com/3gMffMiEva2ziSnGwH4lJl_9Vmb9iAzKJMidzOtIBqmA50YQVIJziMI2e1M18m_fajq09NjHtTKx3INuq7basw=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Oven-roasted Root Vegetables"},
+ "Roasted-Vegetables-with-Apples-1522557"=>
+  {:title=>"Roasted Vegetables with Apples",
+   :url=>"http://www.chocolateslopes.com/roasted-vegetables-with-apples/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/M14f_4P0JLJVnMZgHI89eZYE-_bofVDojZ-0l9YsXSszSkNgDe3pFwNWk9N6vxgHCJtguMoUo5Q2NrevIL0RujM=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Vegetables with Apples"},
+ "Superfood-Breakfast-Tacos-1446055"=>
+  {:title=>"Superfood Breakfast Tacos",
+   :url=>"http://www.theroastedroot.net/superfood-breakfast-tacos-2/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/K-mVKgacC6VrbOySir78aoWQ4C1UN-WFEd6bEwBJxUwGpS3k5Mwi_harXR61RFcFjBNEJ9UQsl1rQjWse5nGKw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Superfood Breakfast Tacos"},
+ "Sweet-and-Chile-Green-Beans-1522729"=>
+  {:title=>"Sweet and Chile Green Beans",
+   :url=>"http://www.mysweetzepol.com/2016/01/sweet-and-chile-green-beans.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/sim_FWjty2jR9s3fq2r8Y4A9Fkjwl4pPt8beckkNA40A0z_WtQFvNFyTGPBH4M8TFM8Zrr-FbPnaqucffI55=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Sweet and Chile Green Beans"},
+ "Cobb-Salad-Frittata-1520905"=>
+  {:title=>"Cobb Salad Frittata",
+   :url=>"http://www.framedcooks.com/2016/02/cobb-salad-frittata.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/10s9USQPWO9TjgqH_2Ik1LKeRb_sIwuAXrkH6oNDlz_4I3kPjq3RTjEXAdQ1PUt11OfXSdMEfsnONa9bLdOqkg=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Cobb Salad Frittata"},
+ "The-Most-Awesome-Raw-Apple-Snack-1528465"=>
+  {:title=>"The Most Awesome Raw Apple Snack",
+   :url=>"http://www.letstalkfitness.com.s3-website-us-east-1.amazonaws.com/raw-apple-snack.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/dll19HvAMtbuV_RMZAFO7Bi3LqaGW_JlqNpRLZlmStVxgVy6Mzl5BlF255lWl3VlaJZI_9dWjeUNxadcXxdzbAg=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"The Most Awesome Raw Apple Snack"},
+ "Cobb-Salad-1516610"=>
+  {:title=>"Cobb Salad",
+   :url=>"https://palatablepastime.com/2016/02/21/cobb-salad-for-sundaysupper/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/9px0RaXtw-3wI4dFk1dcOR1PTC17cfMbVuv45iufaoaGyPNsYT5lZA-P-EEUmxWmFbvGE__nYIR8KKXX7LMzcg=s360",
+   :category_id=>"Salads",
+   :description=>"Cobb Salad"},
+ "Black-Bean-Fajita-Tacos-1533460"=>
+  {:title=>"Black Bean Fajita Tacos",
+   :url=>"http://rabbitfoodformybunnyteeth.com/black-bean-fajita-tacos/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/hkm87VIwJ2LDBTCpBa9_JHY27g49ue8ErGI0KQPWNudQeIifc4jBHUkRVWW3HyUQ8usj6QsnDduIheJxX3ax=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Black Bean Fajita Tacos"},
+ "Mint-Chocolate-Cupcakes-1531748"=>
+  {:title=>"Mint Chocolate Cupcakes",
+   :url=>"http://www.justsotasty.com/mint-chocolate-cupcakes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/rUApwtDLt4WeOyypASixCFpv9xmEvWhc_4RZV3YypoFk7RMe1enmZE_XcuAI5GPo2b5ZIetuRlF1LrPQytiXdA=s360",
+   :category_id=>"Desserts",
+   :description=>"Mint Chocolate Cupcakes"},
+ "Fried-Green-Tomatoes-1531054"=>
+  {:title=>"Fried Green Tomatoes",
+   :url=>"http://thesouthernweekend.com/fried-green-tomatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/mDLMXj-1Kgv14fFjvOkarjEQVvZNyyRdyblQHrpdaQInq25ktang43ybAw7aqWgGQxFyD61AAdb0LzkGFrP0=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Fried Green Tomatoes"},
+ "Apple-Crisp-1527582"=>
+  {:title=>"Apple Crisp",
+   :url=>"http://www.anexpatcooks.com/recipe/apple-crisp",
+   :image_url=>
+    "https://lh3.googleusercontent.com/GSo0LG2n81ZsvQdw9rwX0HVJyK9yv7e8h8ZtAfbpfQyrP8962-XZ_zSX0MNABIOJ35IgSevJ4KWHDF9VHaH_=s360",
+   :category_id=>"Desserts",
+   :description=>"Apple Crisp"},
+ "Pesto-347711"=>
+  {:title=>"Pesto",
+   :url=>"http://www.rachaelraymag.com/Recipes/rachael-ray-magazine-recipe-search/dinner-recipes/pesto-2",
+   :image_url=>
+    "http://lh6.ggpht.com/TyqkK8WR9ZUyCZuueRSLMlHN5MKeNrYLds1RXVbxm4L6lIYEkY2v6LDDcUiQ9uZZ0OIV0YUH3QxwXIP5lpDK=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Pesto"},
+ "Vegan-Ramen-1369408"=>
+  {:title=>"Vegan Ramen",
+   :url=>"https://myvega.com/recipes/vegan-ramen-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/pFSXyWoEUq4zckRWwMYnmOckMWopX8AE8FELdyZfFDJv024wGOhtToWYGdHDt2VF-SdmDBl7Zcp0vjovFMpsnQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Vegan Ramen"},
+ "Onion-Roasted-Chicken-1526681"=>
+  {:title=>"Onion Roasted Chicken",
+   :url=>"http://www.passthechallah.com/onion-roasted-chicken/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/6C0aXuSTFqqhYGOgcmxObOsm2p2DxEmxTT2XCWaM7NVoD6hn4Mq3jdpLyUFyy561UD3YnSdnMqNGmy0RHD95EQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Onion Roasted Chicken"},
+ "Loaded-Chocolate-Chip-Cookies-1529353"=>
+  {:title=>"Loaded Chocolate Chip Cookies",
+   :url=>"http://roxanashomebaking.com/loaded-chocolate-chip-cookies-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Xhvd92cjD1zZyPRwYE0F4qe1qB9-c5YrybV2eJTr38NEVFS91SV1PioN-H4LBs1YKcg0BMn3_l33cCiG79uktA=s360",
+   :category_id=>"Desserts",
+   :description=>"Loaded Chocolate Chip Cookies"},
+ "Cucumber-Tea-Sandwiches-1505417"=>
+  {:title=>"Cucumber Tea Sandwiches",
+   :url=>"http://thetravelbite.com/recipes/appetizers/cucumber-tea-sandwiches/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/NYX7PnJJHr-l486Dfi9tsZFDxaBHogWM75y_PU1xeFSXOS7Bh6y0wJGVNzlHYTS5wNuYuoTWJ6UrtYi5VYRW7A=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Cucumber Tea Sandwiches"},
+ "Pizza-Pot-Pie-1522808"=>
+  {:title=>"Pizza Pot Pie",
+   :url=>"http://www.popsugar.com/food/Pizza-Pot-Pie-Food-Video-40288395",
+   :image_url=>
+    "https://lh3.googleusercontent.com/2rybStxbUPvaD6UyrGs3EjlDXVX0lahhVhnuTP0ZGe-JKz4mnGiX1HE-DnVTqXnxUcHqfRrFFVSh4tBGBH38-eM=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Pizza Pot Pie"},
+ "Oregano-Carrots-1518126"=>
+  {:title=>"Oregano Carrots",
+   :url=>"http://www.foodhuntersguide.com/2016/02/oregano-carrots.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/SCZgY4lyZ_rcYD8D_0FeHMCmLgnCMju5VMpdHN3oy1ANJt2mKDc8la49KGhqDF3ZdTKzKtmW4VD_VKDVnhxpSA=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Oregano Carrots"},
+ "Traditional-Lasagna-1532790"=>
+  {:title=>"Traditional Lasagna",
+   :url=>"http://www.tasteofhome.com/recipes/traditional-lasagna?trkid=FBPAGE_TOH_20160301_Dinner_DetailPage",
+   :image_url=>
+    "https://lh3.googleusercontent.com/3x36q6drrTpLkwQpdKn1KBYSPI05-NgOiedHJtR4YGvK-5qdEQ3tuHRzOBb-ClU8Qc8cOQEh8eOjSsxlYVmRwg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Traditional Lasagna"},
+ "Braised-Leeks-and-Peas-1533760"=>
+  {:title=>"Braised Leeks and Peas",
+   :url=>"http://plantplate.com/Recipe/Detail?recipeID=17074",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ryBN-3dr04P0X4eVOpiiJXpz3NcLxHxPl3XdR2Q_e9n3bhtGjGYWPSQEb9xxK_J4NvEHng0wH9w9v2WwBB6B=s360",
+   :category_id=>nil,
+   :description=>"Braised Leeks and Peas"},
+ "Honey-Mustard-Vegetables-1530566"=>
+  {:title=>"Honey Mustard Vegetables",
+   :url=>"http://www.fivelittlechefs.com/recipe/honey-mustard-vegetables.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/dA3lpiw-qK2ERbtkX60hMB9DE83ZgtoQTws5dLji8jM8uKjPwwqrUAQH8KWyPgceVdOyzH1JGnHrdVIchthB=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Honey Mustard Vegetables"},
+ "Island-Pork-Tenderloin-1511400"=>
+  {:title=>"Island Pork Tenderloin",
+   :url=>"http://littlebcooks.blogspot.com/2012/04/island-pork-tenderloin.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/jKUnZcDYNx0dwMRm33e8aVgzY0JWsud_YmUuhR6PgPbLwDq6UWdJ42ZGrsWLeYU-PUCvGkvS1UwIVWnqp_n8x7c=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Island Pork Tenderloin"},
+ "Blood-Orange-Bourbon-Smash-1528676"=>
+  {:title=>"Blood Orange Bourbon Smash",
+   :url=>"http://thegingeredwhisk.yummly.com/2016/02/blood-orange-bourbon-smash-with-spicy.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/9bSvH9pRx-cffEqKBFLI0Mdk1y04HldSsFolD_XWSBT4-4AxokXnrLhGVHsgsy16lzS_B_Ik60TPa_vL4M9u=s360",
+   :category_id=>nil,
+   :description=>"Blood Orange Bourbon Smash"},
+ "Slow-Cooker-Caramel-Apple-Crumble-1528226"=>
+  {:title=>"Slow Cooker Caramel Apple Crumble",
+   :url=>"http://fakeginger.com/slow-cooker-caramel-apple-crumble/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/yxkj_8A5jKqbJY3znCAbhODBb47GifAuJChkKM9Fk5i1HvD_If8OF9hGMiv7w_nLDe569mrSHe40mxxz7haQDQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Slow Cooker Caramel Apple Crumble"},
+ "Easy-Cacciatore-Chicken-Breasts-1532114"=>
+  {:title=>"Easy Cacciatore Chicken Breasts",
+   :url=>"http://mommyhoodsdiary.com/easy-cacciatore-chicken-breasts/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/lQWiKWW_iRasNxki3JWPcoJ9bPFRHazDXw2RRZR6klchOXj7GfwE-9JZEcJen_XvYocgv_aBjtt1LoKGKTp2fQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Easy Cacciatore Chicken Breasts"},
+ "Pesto-Burger-1060292"=>
+  {:title=>"Pesto Burger",
+   :url=>"http://ourlifetastesgood.blogspot.com/2014/10/pesto-burger-recipe.html",
+   :image_url=>
+    "http://lh3.googleusercontent.com/BZiWXEFmX2p6wkoCJDhSd6rNlI30WHRRHxuX31i-c7DtgPpP4BuGjJV8_vkVuVx59UWvEhGB6LHyDmVJJYzH=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Pesto Burger"},
+   "Skinny-Taco-Dip-1447336"=>
+  {:title=>"Skinny Taco Dip",
+   :url=>
+    "http://www.yellowblissroad.com/skinny-taco-dip/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+yellowblissroad+%28Yellow+Bliss+Road%29",
+   :image_url=>
+    "https://lh3.googleusercontent.com/O5Oy0fam6zRPrhF4gd0qZ-I3P80E2cr1Yg3ZZ09EndR-L59pnGELenIx7YP9VxavIGSPwaLEcSldc4LFBTBXThc=s360",
+   :category_id=>"Appetizers",
+   :description=>"Skinny Taco Dip"},
+ "The-Tastiest-Veggie-Pot-Pie-1521998"=>
+  {:title=>"The Tastiest Veggie Pot Pie",
+   :url=>"http://whattheheckdoieatnow.com/2015/11/25/the-tastiest-veggie-pot-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/fQk9ApVDfoJ9XaXBSJD1GoEgJNqVAYrV91KqqukOpQqY_U38aTqSkpfG5k_FH66DAxsoFy_eRqbwb9HMIXRotE0=s360",
+   :category_id=>"Main Dishes",
+   :description=>"The Tastiest Veggie Pot Pie"},
+ "Chicken-Teriyaki-1458265"=>
+  {:title=>"Chicken Teriyaki",
+   :url=>"http://unlimited-recipes.com/recipe/chicken-teriyaki/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/z_BxyvgUaePT1K7Lq4q371wZIFcgrGOwenkbMk-h2fRLtaZJcl6fQxGxK49vttgr16CgopzaBRVopkbB2mcuEA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Teriyaki"},
+ "Baileys-Chocolate-Brown-Butter-Cookies-1528995"=>
+  {:title=>"Baileys Chocolate Brown Butter Cookies",
+   :url=>"http://peasandpeonies.com/2016/02/baileys-chocolate-brown-butter-cookies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/QpwUWrCpi-eipvRtHlw1A9KW0CwjH8UBlHB4pdN6vcf7lkoiRNOD8t-UkJRBwlqSlxbEtyJEtE_uml8aIB9bdQ=s360",
+   :category_id=>"Afternoon Tea",
+   :description=>"Baileys Chocolate Brown Butter Cookies"},
+ "Orange-and-Ricotta-Pancakes-1528255"=>
+  {:title=>"Orange and Ricotta Pancakes",
+   :url=>"http://www.theworktop.com/breakfast-brunch-recipes/orange-and-ricotta-pancakes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/feQLaUZlt__P3iMF4xjey8ULYluyosxX3me_WsSLaUdGkgKYoKRvKw5VTTYtoMTf4RUfycRMafjo-ToS_h22KQ=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Orange and Ricotta Pancakes"},
+ "Overnight-Apple-Pie-Oatmeal-1519806"=>
+  {:title=>"Overnight Apple Pie Oatmeal",
+   :url=>"http://www.ingredientsinc.net/2016/02/overnight-apple-pie-oatmeal/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Bv8azi9kGRZsj2SIipcvlxC-GqZGMjmHgDdVPFFN916moCuoG9MY5vpQQP2l1L8ESCmazghfpem5TYo0xVGBfiA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Overnight Apple Pie Oatmeal"},
+ "Pesto-1230800"=>
+  {:title=>"Pesto",
+   :url=>"http://savorthebest.com/pesto/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/_mrW9oOVVMwKHiLmaEYzOOurD3uYn2-k4rO3jNFjIIq4vDL-vBs76pMPVovcu9VLcQwFROXIFIoYVXIPySSnWA=s360",
+   :category_id=>nil,
+   :description=>"Pesto"},
+ "Smashed-Potatoes-with-Cheese-1515670"=>
+  {:title=>"Smashed Potatoes with Cheese",
+   :url=>"http://www.centercutcook.com/smashed-potatoes-with-cheese/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/A8ViI6I4e6DaukwGXptfKe-5yCWGOeSR51Xa-eGmt5EPY7QOFr2L_5Uwwo2YJZ5-XY1tk7bGEULABbekE8TiTA=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Smashed Potatoes with Cheese"},
+ "Pesto-1534007"=>
+  {:title=>"Pesto",
+   :url=>"http://www.doitallworkingmom.com/2016/02/pesto-recipe-ready-in-5-minutes.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/rvFN1YhaMzcwe5UtL3BD9SH_ZV4ATzniqWJgoHQNm3gCN5bsjDXi2gRDyVJyx8n0rIqdAgKv6_Vg_r5_jNku_w=s360",
+   :category_id=>nil,
+   :description=>"Pesto"},
+ "Honey-sweetened-Lemonade-1531250"=>
+  {:title=>"Honey-sweetened Lemonade",
+   :url=>"http://www.mygorgeousrecipes.com/2016/02/09/honey-sweetened-lemonade/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/N-Tz-tyBGKG37wtoiGGoDAM3hPHR1dFAbkxkjvttfGjnJACtKk1NRPlMUl3-7Z9TrCPqM3tOWXnPn4PGcy-Pfw=s360",
+   :category_id=>"Beverages",
+   :description=>"Honey-sweetened Lemonade"},
+ "Basic-Overnight-Oatmeal-1514644"=>
+  {:title=>"Basic Overnight Oatmeal",
+   :url=>"http://jeanetteshealthyliving.com/healthy-overnight-oatmeal-recipes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OU3qBuI04xrZa7lkiWClmD93mfPLnO01ypoF9ZYOIZ19KncM4T2byWGKsGzYwQb0bQ0TqiCCroxNfdD0dRbOWKc=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Basic Overnight Oatmeal"},
+ "Quick-Minestrone-Soup-1528140"=>
+  {:title=>"Quick Minestrone Soup",
+   :url=>"http://www.thecompletesavorist.com/daily-savorings-blog/quick-minestrone-soup",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Rna3zHuhl3QZCMorD2amk31QMxrYSQlVuwruEZlKXCQ2Q-o34J2FYb_yvvVf3Zzzred17GYb-d7o88hasQKQ=s360",
+   :category_id=>"Soups",
+   :description=>"Quick Minestrone Soup"},
+ "Honey-Balls-_1911_--1528061"=>
+  {:title=>"Honey Balls (1911) ★★★★★",
+   :url=>"http://kitchenhistoric.blogspot.com/2012/09/honey-balls-1911.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/eRlTlxsih4HzsTVZirfE3DVQVzDYInyshp1amiWYuo8C6rzSN2pTME-LTdfo-6qxcJGEzs3_DpwMOCi1IAnI3g=s360",
+   :category_id=>"Desserts",
+   :description=>"Honey Balls (1911) ★★★★★"},
+ "Cute-Homemade-Valentine_s-Day-Candy-1521129"=>
+  {:title=>"Cute Homemade Valentine's Day Candy",
+   :url=>"http://livelovetexas.com/cute-homemade-valentines-day-candy/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/dQsA2-SL_iuZD-LSvsK8qP02c-cOYnWc7IHaun6TxPpJtS7i2ftwTMprtziI6sYgQQ6VjnCPiTc7Q5_kfsBViQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Cute Homemade Valentine's Day Candy"},
+ "Baked-Blueberry-Oatmeal-Cups-1508593"=>
+  {:title=>"Baked Blueberry Oatmeal Cups",
+   :url=>"http://www.livewellbakeoften.com/2016/02/15/baked-blueberry-oatmeal-cups/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/d1_IMxVRJQzSGjztzM3KPJC3A6Jqx421QOwJZkoZzo_bn07Ru3tIKkyVD4M-mzdhIA1iG27q93-M9ragsqmtsRw=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Baked Blueberry Oatmeal Cups"},
+ "Mediterranean-Eggs-1507832"=>
+  {:title=>"Mediterranean Eggs",
+   :url=>"http://theliveinkitchen.com/2014/02/18/mediterranean-eggs/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/4PJIn7rMvZ2Vg3G5NZ6PdMUr_Bt0dhyYEt2EYLgGczSP4oyi35nQfQqwjCl7vrnStcy4wOv2iM0or6FCCr-t=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Mediterranean Eggs"},
+ "Ultimate-Twice-Baked-Potatoes-1517309"=>
+  {:title=>"Ultimate Twice Baked Potatoes",
+   :url=>"http://www.centercutcook.com/ultimate-twice-baked-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/TJXOclB-Nr_QS3oC9yQ6PZkuNmWWJAH0GSA-Fa4jzf7EC3RcOi5ABn7ivSZ0c_Yu-1mRqTQEzudWm0W_r_OFLY4=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Ultimate Twice Baked Potatoes"},
+ "Salmon-Lettuce-Tacos-1528577"=>
+  {:title=>"Salmon Lettuce Tacos",
+   :url=>"http://www.dianarambles.com/2016/02/salmon-lettuce-tacos.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/xwNjcyj7y0iIc5BtRePqMdVlzT-4xleRQ9v4bem59jk1iBWuWwfeLNx459neHa9qGKpE2pAIlf3Jr6lvwH9nOg=s360",
+   :category_id=>nil,
+   :description=>"Salmon Lettuce Tacos"},
+ "Kale-Slaw-1512742"=>
+  {:title=>"Kale Slaw",
+   :url=>"http://lifeloveandgoodfood.com/kale-slaw/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/nZFEog10IGUOAQ4YXk_WOvKhDczLukoOK_daaAgoxKPMGPbkLndYvbzNe5kyVOH5H91GW1kplQeQEySfEJoHnw=s360",
+   :category_id=>"Salads",
+   :description=>"Kale Slaw"},
+ "Homemade-Yogurt-1004866"=>
+  {:title=>"Homemade Yogurt",
+   :url=>"http://melissaknorris.com/2015/02/make-yogurt-home/",
+   :image_url=>
+    "http://lh6.ggpht.com/906_JlrL-rCbStyNL6FaVj3Paz0Qb2iZn_O3mP8ENNVbuqFfgld9fkuB61_gIkSe9tFv4iub0fzvF1Se6oHC5g=s360",
+   :category_id=>"Beverages",
+   :description=>"Homemade Yogurt"},
+ "Tuna-Bacon-Crostini-1533209"=>
+  {:title=>"Tuna Bacon Crostini",
+   :url=>"http://www.honeyandbirch.com/tuna-bacon-crostini/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/UICh6JXfCMSAdXTQ2lbeV-DVV_lj1tL6dnKiVHd1ethbGdOaYZAQTs0Nbo-qawd8ibaC1zwP2MislQ5KFWC7VQ=s360",
+   :category_id=>"Appetizers",
+   :description=>"Tuna Bacon Crostini"},
+ "Dilly-Bread-1534448"=>
+  {:title=>"Dilly Bread",
+   :url=>"http://www.grit.com/food/dilly-bread-recipe-ze0z1212zgar.aspx",
+   :image_url=>
+    "https://lh3.googleusercontent.com/bqrlv-j77Y4OdNPKJEa0ToFI64U2DD_Gh8gSdpsx5eo-e28xBNU7KoHfi8WMbxEfWVMKCOMzp4o24o3KucOgWQ=s360",
+   :category_id=>"Breads",
+   :description=>"Dilly Bread"},
+ "Pumpkin-Cobbler-1520382"=>
+  {:title=>"Pumpkin Cobbler",
+   :url=>"http://kandyskitchenkreations.blogspot.com/2015/11/pumpkin-cobbler.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/dZ3Oba3K_OevW6UaGc-JP1uiJAQOvNT1YWYOhuw6yOK-sLvHPFPOE4P49Ghf9Yo0o94BV0aSIYbcpNZd4cS1=s360",
+   :category_id=>"Desserts",
+   :description=>"Pumpkin Cobbler"},
+ "Orange-Milkshake-1527821"=>
+  {:title=>"Orange Milkshake",
+   :url=>"http://www.legenrecipes.com/recipe/orange-milkshake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/nIa1QYA8j43hLdgp8Kk6ak8lBzL6rFEWd51gQxemKKx6LtvzyRFAp1QAMgTM5GNs_SVoxdKuWYAJRouEUDn1L2M=s360",
+   :category_id=>"Beverages",
+   :description=>"Orange Milkshake"},
+ "Pasta-With-Shrimp-And-Cheese-1531709"=>
+  {:title=>"Pasta With Shrimp And Cheese",
+   :url=>"http://ladiesboxx.com/pasta-with-shrimp-and-cheese/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/_cniDXiKUjaEF_jA1tENj7kv44vitQbhSZ6nlubfJNAln82p8yzb6-4KgGlMyh6aNonNfnKQUJ-cqI1uaPIulbg=s360",
+   :category_id=>nil,
+   :description=>"Pasta With Shrimp And Cheese"},
+ "Comfort-Macaroni-and-Cheese-1532505"=>
+  {:title=>"Comfort Macaroni and Cheese",
+   :url=>"http://www.mannaandspice.com/comfort-macaroni-and-cheese/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/b8oWi9csxQp4ZNJbC0ki_Jh4O5isxLBGG4LflC7wmb4Q-C9OftIJ3yWkImmuEpwr6hn83Hmk8EHaljk5oWpg7w=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Comfort Macaroni and Cheese"},
+ "Oreo-Chocolate-Mint-Candy-1524019"=>
+  {:title=>"Oreo Chocolate Mint Candy",
+   :url=>"http://lilluna.com/oreo-chocolate-mint-candy-cups/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/nFq72yNk-jxgpVUtqmYIm0nMWYu1U0ymGUmp9QW3B4nRrBblezY8K0og3uQEVk-R__O4oG_ZyLou1Qys7-fdGw=s360",
+   :category_id=>"Desserts",
+   :description=>"Oreo Chocolate Mint Candy"},
+ "Gluten-Free-Pork-Ramen-1532274"=>
+  {:title=>"Gluten Free Pork Ramen",
+   :url=>"http://www.kidsaregrown.com/2016/03/gluten-free-pork-ramen.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/7uwy6wSJoHkb37ycfND1lfuTd2N_w1tdpuUC3oVXZwYLWgZ7pnijd7cTBhKnLcOeUg7ODUyFeHt3eZa8KABIXA=s360",
+   :category_id=>"Soups",
+   :description=>"Gluten Free Pork Ramen"},
+ "The-Lazy-Ass-Cake-1532635"=>
+  {:title=>"The Lazy Ass Cake",
+   :url=>"http://www.jocooks.com/bakery/cakes/the-lazy-ass-cake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/iJHjAoPeL6iH5V_nZxaqwsYaY7zE4ycwX5wHEGze-VOByLXH8k_PkFf4h0_hdRSBVaPU-IUb4El1YQQLLBEt=s360",
+   :category_id=>"Desserts",
+   :description=>"The Lazy Ass Cake"},
+   "Enemy-Pie-1499625"=>
+  {:title=>"Enemy Pie",
+   :url=>"http://www.iheartnaptime.net/enemy-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/yndO6VubiQCik4EQjC_NPh9gcZT1xe92IQujnXdwzQCk3AJ5SGgKoyamWd6rj82y6MVz3x4buANeixqs0doh33I=s360",
+   :category_id=>"Desserts",
+   :description=>"Enemy Pie"},
+ "Detox-Diet-Soup-1517293"=>
+  {:title=>"Detox Diet Soup",
+   :url=>"https://palatablepastime.com/2016/01/01/detox-diet-soup/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/jTneKlLo4fzsyCBoXqTPF-sElIn3Pe6iWy6fjVSHMoBMP9xcjmv4cXH07IOjTZ69k6iVl_afvrv1chBeLAzR2p4=s360",
+   :category_id=>"Soups",
+   :description=>"Detox Diet Soup"},
+ "Easy-Peasant-Soup-1530908"=>
+  {:title=>"Easy Peasant Soup",
+   :url=>"http://bakingmischief.com/2015/12/03/easy-peasant-soup/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/j_ljpgyucSgLE8joymF8MoEvxLpVeMd4hRbytyiDQ0ZpqDC8dpmFEMQtH12_XzKKlWV9XUVxwtCDWeL3nyS_Ow=s360",
+   :category_id=>"Soups",
+   :description=>"Easy Peasant Soup"},
+ "Skinny-Bite-Sized-Pies-1534592"=>
+  {:title=>"Skinny Bite Sized Pies",
+   :url=>"http://www.crazyforcrust.com/2015/02/4-ingredient-skinny-bite-sized-pies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/c9QTOpicdULs383Jy_2DkFx2blUZtTn_Fl54pUeVV7xQCH7hyw-YB5B-FgqN6xROyhOp2jzOhNzBV-RKO9H7eQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Skinny Bite Sized Pies"},
+ "Breakfast-Burritos-1527546"=>
+  {:title=>"Breakfast Burritos",
+   :url=>"http://www.anexpatcooks.com/recipe/breakfast-burritos",
+   :image_url=>
+    "https://lh3.googleusercontent.com/TVAB5bMusrZtVHwMwPo6U0BjsCuSwHizQCCxFGEZKjBMVozBKYqnB9xXmQVPLfgGG0nmgHBHAwOXq9E33VoQow=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Breakfast Burritos"},
+ "Meat-Loaf-1531037"=>
+  {:title=>"Meat Loaf",
+   :url=>"http://barefootcontessa.com/recipes.aspx?RecipeID=423&S=0",
+   :image_url=>
+    "https://lh3.googleusercontent.com/gi0myav8_xYCBHIamMPQnx5ouvknOm_96LmmmdlUF8_FC-V1zsVEWa0jwnWCb4NRlzDDZUhhi-YoYKM1mcHFog=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Meat Loaf"},
+ "Pasta-Mama-1511079"=>
+  {:title=>"Pasta Mama",
+   :url=>"http://www.thanksforcookin.com/pasta-mama/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/zV-fVp5hk4b8RS_JIyWgObPuUjRrAS1IsdWr9ORGd0L2Jhjz2y5ZWpb2X5oUT1trCCcPlnHokjLZ2LHvWGzdeg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Pasta Mama"},
+ "Quinoa-_-Beet-Kale-Dolmades-1533643"=>
+  {:title=>"Quinoa & Beet Kale Dolmades",
+   :url=>"http://rabbitfoodformybunnyteeth.com/quinoa-beet-kale-dolmades/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OHFiBsya7Sc0uXpyUcIjKqPEoXu6sa36ZlYx3TSU1ZlyN37kf5bxdRQ3-2EOusaIltJgkKUlBjpV9rEVonoK=s360",
+   :category_id=>nil,
+   :description=>"Quinoa & Beet Kale Dolmades"},
+ "Fish-and-Chips-1533739"=>
+  {:title=>"Fish and Chips",
+   :url=>"http://splendidtable.org/recipes/fish-and-chips",
+   :image_url=>
+    "https://lh3.googleusercontent.com/TGzSMtL6O2nqTukv91JS6_lSpqUo8kzHLb2CUe8Kgm0W7nj_oYuX7jdDBfwXm3zMSIXcGVBF0VdNAbHhuHeaiw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Fish and Chips"},
+ "Fruit-Tacos-With-Chocolate-Tortillas-1183755"=>
+  {:title=>"Fruit Tacos With Chocolate Tortillas",
+   :url=>"http://www.sheknows.com/food-and-recipes/articles/961851/fruit-tacos-with-chocolate-tortillas-recipe",
+   :image_url=>
+    "http://lh3.googleusercontent.com/Hf2ZXPLqmqhZXsc_h8sTf-8CjHiyS7TcqsMPg0HK5Wdidw6qtbBa65vygRrwwIDVC-Ga1rC9VTuFcgsL8MTKRlA=s360",
+   :category_id=>"Desserts",
+   :description=>"Fruit Tacos With Chocolate Tortillas"},
+ "Lemony-Spring-Cookie-Press-Cookies-1527834"=>
+  {:title=>"Lemony Spring Cookie Press Cookies",
+   :url=>"http://alwayzbakin.com/lemony-spring-cookie-press-cookies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/-VqSP2naEMqJaXZ0jn8J3NRWB4SJr7V-xPyeEljSfI_A888z0Pk4heCF3IC0zwXZdKBSLX9J0cFfFoNoqTzYwQ=s360",
+   :category_id=>"Afternoon Tea",
+   :description=>"Lemony Spring Cookie Press Cookies"},
+ "Lasagna-1466439"=>
+  {:title=>"Lasagna",
+   :url=>"http://cooking.nytimes.com/recipes/9530-lasagna",
+   :image_url=>
+    "https://lh3.googleusercontent.com/6uqiBdxwTx8BIQc6iH906BK9jQuiuavr2xbPWhpDxDxh71DQMttRwB0hio8Zfq7AjsRQRh1So59JAJFqHZJAAg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lasagna"},
+ "Forking-Easy-Classic-Boule-Bread-1524828"=>
+  {:title=>"Forking Easy Classic Boule Bread",
+   :url=>"http://theforkingtruth.com/?p=6186",
+   :image_url=>
+    "https://lh3.googleusercontent.com/oWRoGiR_b-K8l8HwMshd90VU9T4icubTWlzdwCPsvO-_9s_nT0f7OxGykc9-3ve5Vm4iDYbkWh2BqV7SCAxNnQ=s360",
+   :category_id=>"Breads",
+   :description=>"Forking Easy Classic Boule Bread"},
+ "Creamy-Mixed-Mushroom-Soup-1531372"=>
+  {:title=>"Creamy Mixed Mushroom Soup",
+   :url=>"http://laurenkellynutrition.com/creamy-mixed-mushroom-soup/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/gidz4UhTfyoxYb5yWA20R3jXaUjd02emraqXTfyKneiSmJuT6Pnk8e39RYKcO8-9Kg9AhtZcUtTlS5Fp1qHqFQ=s360",
+   :category_id=>"Soups",
+   :description=>"Creamy Mixed Mushroom Soup"},
+ "Salmon-1523678"=>
+  {:title=>"Salmon",
+   :url=>"http://www.copperchef.com/recipes_details.php?rpid=151",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ywpgj5xZ3KB6I6uFJtV39d0lvcLXM4Tl5hfiRZDw5QGeArqF6Z_EJj51IZOFi_e9v4F_MvA-OhwrqsbZ6YAwMg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Salmon"},
+ "Chunky-Monkey-Snack-Bites-1518369"=>
+  {:title=>"Chunky Monkey Snack Bites",
+   :url=>"http://www.runningwithspoons.com/2014/03/17/chunky-monkey-snack-bites/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/F1kgNfGzMgBlHvThk23EN8r-T43i31kp0G1IjpTpBuewp6SkmJIHImB8NZpCt_Y-b2xPPlXkGwrYOktTPqoqKLM=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Chunky Monkey Snack Bites"},
+ "Avocado-Brownies-1508271"=>
+  {:title=>"Avocado Brownies",
+   :url=>"http://fakeginger.com/avocado-brownies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OgC6DVa2tkMS_Y1YqC_mkLO5AMIsYhSKkfWBN1CMv_NFLAPRDIa88ObLz0TY8WgsFbp8FEatGnbXC4Jrhd8w=s360",
+   :category_id=>"Desserts",
+   :description=>"Avocado Brownies"},
+ "Banana-Bread-1511426"=>
+  {:title=>"Banana Bread",
+   :url=>"http://www.fifteenspatulas.com/banana-bread-a-tip/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/F76gmFF1g0c7v7EzDTHOAItNCPc_8bCMerfG_83PHVCwyX9XJUgBxgLkA-dAGxEXVcfndJMDyTVMSjpD_RyGvw=s360",
+   :category_id=>"Breads",
+   :description=>"Banana Bread"},
+ "Spring-Funfetti-Cake-1528727"=>
+  {:title=>"Spring Funfetti® Cake",
+   :url=>"http://www.kleinworthco.com/2016/02/spring-funfetti-cake.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/jmk-CAEBLbcB-eEJkWyj-_a7yzq8NcG9fcbullwDqiZCKg4xDuYUHKnb607Ju7F1gqtXcYrg-7YgwHs5gHq7pA=s360",
+   :category_id=>"Desserts",
+   :description=>"Spring Funfetti® Cake"},
+ "Rapo_s-Quinoa-Cobb-1164532"=>
+  {:title=>"Rapo's Quinoa Cobb",
+   :url=>"http://www.bonappetit.com/recipe/rapos-quinoa-cobb",
+   :image_url=>
+    "http://lh3.googleusercontent.com/4siYYbwF08g4-rV40D1X8iuq75o1-BHjfa0xeBxHYHOm-YeqtkTYT2pf0SLIxH6Htm92hYBskrloerG5x6kR_go=s360",
+   :category_id=>nil,
+   :description=>"Rapo's Quinoa Cobb"},
+ "Parsley-Rice-1534574"=>
+  {:title=>"Parsley Rice",
+   :url=>"http://natashaskitchen.com/2012/12/04/parsley-rice-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/tmUcZ9vCUFhSsKYagdTNl8xwC4DO_OyQtRr2bqrJK64NXis9xn5YV8cPCyLOV4ZoKRgy_JovBt6Tq3wXL0nXYKU=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Parsley Rice"},
+ "Praline-Bacon-1511284"=>
+  {:title=>"Praline Bacon",
+   :url=>"http://www.fifteenspatulas.com/praline-bacon/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/RQtafbNeX5o7vq4ITaG7SlRE9c9OwOZiFFZCiRo19zeEyvezfbgJEwXiPMc08nZrk5oJ6k1kiBa4WWdqh-A0Xw=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Praline Bacon"},
+ "Yogurt-Parfaits-1524785"=>
+  {:title=>"Yogurt Parfaits",
+   :url=>"http://www.cravingsofalunatic.com/2016/02/yogurt-parfaits.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/I7TjmG0-YzR8SkbB97Y924_FHftSXbrjRNuWc1cvJboa-FSyNfhF9fATFTjSmTDGI0DRFjuAILYnmarZ4lGkaA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Yogurt Parfaits"},
+ "Chili-1015922"=>
+  {:title=>"Chili",
+   :url=>"http://www.iamthatlady.com/easy-recipes-chili/",
+   :image_url=>
+    "http://lh4.ggpht.com/2PoOVEjltG1yysmdz-XkorgSFhHPmULt9nYWmasKgTR-jxwF7482mn-wM95IRUdxEn3AY4wXOX6IrdieB35P=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chili"},
+ "Fluffy-Breakfast-Pancakes-1521874"=>
+  {:title=>"Fluffy Breakfast Pancakes",
+   :url=>"http://cookiesforengland.com/2015/11/fluffy-breakfast-pancakes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/aLng3vGVlLYjo6iHec52CuJhSEXMyiAadSSJ-UiZ4Xte_YUk_WHyJvtnaZkyi5TA01dt-A_4faOjWKmahYdAE68=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Fluffy Breakfast Pancakes"},
+ "The-Best-Homemade-Chili-1498154"=>
+  {:title=>"The Best Homemade Chili",
+   :url=>"http://hangryfork.com/recipes/the-best-homemade-chili-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/SJ5ST5XCWaPosHKLIqFK2iWj1cLKMfKUe0ll8NIr6Dc8RBEE2Ps-Hx8sGac5fI3k_PrYwHxf20TPciHUe_3siA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"The Best Homemade Chili"},
+   "Coconut-Rice-1499389"=>
+  {:title=>"Coconut Rice",
+   :url=>"http://www.savoryexperiments.com/cilantro-lime-coconut-rice/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/o36lfYiBBJATOocaJZuLv90eN75ixXWEDsMqiC7AKkZdhwWd63vyZgXOL2Q-QTjEjMP5aUPBz1NQH1xjOrtBBA=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Coconut Rice"},
+ "Green-Smoothie-Bowl-1528411"=>
+  {:title=>"Green Smoothie Bowl",
+   :url=>"http://thelemonbowl.com/2016/02/green-smoothie-bowl.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/QxcqOCszn_Z8OqnsKFW4OlIFr9_3KwjNy3hqA2xuKAqlhrCLOWj6kvjuvpI1BuFoDNTsqif6BDvBKyJNIMx2F3Q=s360",
+   :category_id=>"Beverages",
+   :description=>"Green Smoothie Bowl"},
+ "Whiskey-Glazed-Carrots-1520360"=>
+  {:title=>"Whiskey Glazed Carrots",
+   :url=>"http://www.thetasteplace.com/2010/01/02/the-pioneer-womans-whiskey-glazed-carrots/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/f7oHZ607R6TpJs9pwY-_EXmXUF0Sg6oZCli9lCrwsBWCmKe5NOALu6PApqXVWhoqGq7jwpeh6dS6jDs24nNiYg=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Whiskey Glazed Carrots"},
+ "Thai-Meatball-Lettuce-Wraps-1529628"=>
+  {:title=>"Thai Meatball Lettuce Wraps",
+   :url=>"http://playzwithfood.com/home/thai-meatball-lettuce-wraps/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/kKCiafiDTHUQgURMGlIb1dTYCFAqmx7Ssa1sAUnchUBhkzoiiHvVZFtUfIA-_ktZtjmi84avFNNWfEA7YIMe_DQ=s360",
+   :category_id=>"Appetizers",
+   :description=>"Thai Meatball Lettuce Wraps"},
+ "Pressed-Picnic-Sandwiches-1195184"=>
+  {:title=>"Pressed Picnic Sandwiches",
+   :url=>"http://www.thecrepesofwrath.com/2011/03/07/pressed-picnic-sandwiches/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/doYaJeawh70Kr_riZaIf2-mH5cjd_XWvlcFV5S68nkpvYwnN9pZ3MGHQGqI84NWrbDcgpSqqH7Jktvq2eKY7SHs=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Pressed Picnic Sandwiches"},
+ "Salmon-Patties-1517185"=>
+  {:title=>"Salmon Patties",
+   :url=>"http://www.jennycancook.com/recipes/salmon-patties/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/lZjOuX5z03dyY8GiOFxAQSi1S-etLT9Ea1Un3MWcu3SRztN4VMqaar59MjJLF3_1OAc_kkS6ekvEQTbfWFQxkg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Salmon Patties"},
+ "Healthy-Green-Coconut-Smoothie-1532434"=>
+  {:title=>"Healthy Green Coconut Smoothie",
+   :url=>"http://www.smoothieweb.com/healthy-green-coconut-smoothie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/JrRyar9samjqSq8d7eoIjdEbnhh2BFVGNONcvjVmoufmNLYLGMNPGWVtn1aoztvyxKO0BmD7Co_f-kcQTBtr5FU=s360",
+   :category_id=>"Beverages",
+   :description=>"Healthy Green Coconut Smoothie"},
+ "Teriyaki-Tofu-Bowl-1518935"=>
+  {:title=>"Teriyaki Tofu Bowl",
+   :url=>"http://www.familyfreshmeals.com/2016/02/teriyaki-tofu-bowl.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ELlXwGQ4K5Ehg4CKokuNfgSa2amio1CXCJ4_9eWryrCbiHtEBqn_bK4f_rnCG_54LeCvPp9SWxKgwnGvjcnH=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Teriyaki Tofu Bowl"},
+ "Beer-Rice-1513186"=>
+  {:title=>"Beer Rice",
+   :url=>"http://www.plainchicken.com/2016/02/beer-rice.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/zBwvvLqbVvNPkW4XB6mh_2tykWjRt_6XqdIkyC3cqCCAnRW3JQuGJVAfWlrSVLIgFlcqtFvVJ0BSHmQV9apLMKA=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Beer Rice"},
+ "Country-Breakfast-1533018"=>
+  {:title=>"Country Breakfast",
+   :url=>
+    "http://gorving.com/what-to-do/recipes-for-the-road/recipe-detail?rid=6&utm_source=MarchNewsletter&utm_medium=email&utm_campaign=GoRVingEmailProgram",
+   :image_url=>
+    "https://lh3.googleusercontent.com/FiB823VL_I9nZd74kG5g1qOKYBAgietwc31zSCYFL68meqzDP0wDzboklh3Jdca9fI7yV0ZH_Yf2PIrdf3dYSg=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Country Breakfast"},
+ "Pumpkin-Milkshake-1518768"=>
+  {:title=>"Pumpkin Milkshake",
+   :url=>"http://peacebutnotquiet.com/pumpkin-shake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/nVQyuD89BoXHbR2m3VSRsLQQcfW5BkA3-Jt98zvxvEnOfePGG3jXpNzETBRVM_97KbCE_w_ZPM--uOcFej95lw=s360",
+   :category_id=>"Beverages",
+   :description=>"Pumpkin Milkshake"},
+ "Broiled-Sweet-Potatoes-1513934"=>
+  {:title=>"Broiled Sweet Potatoes",
+   :url=>"http://www.deepsouthdish.com/2016/02/broiled-sweet-potatoes.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/nPRti2O0IiLytD6c6atC2IcZQm3TcyMZkuEBZpqk4Sip0p8cTNVR9i0prIhxbVZ9y59LjnAfPHbl4vytrHsF=s360",
+   :category_id=>nil,
+   :description=>"Broiled Sweet Potatoes"},
+ "Ultimate-Clean-_-Lean-Lettuce-Wrap-975218"=>
+  {:title=>"Ultimate Clean & Lean Lettuce Wrap",
+   :url=>"http://sheerluxe.com/2012/02/10/ultimate-clean-lean-lettuce-wrap",
+   :image_url=>
+    "http://lh3.googleusercontent.com/fT14qYm8Qf9cXFrTJdXDCzZKX0aIMQSXAYiauL0f-wxH3xTh6MExjS3sDCuWWCBbXrHqMHU2YEQc5cjn0zSjtw=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Ultimate Clean & Lean Lettuce Wrap"},
+ "Bacon-Cheeseburger-Rice-1520882"=>
+  {:title=>"Bacon Cheeseburger Rice",
+   :url=>"http://fakeginger.com/bacon-cheeseburger-rice/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/C4L-EbI2eLUyCNq8dtZ4ycIm_1NZ_427BgiZtR4cPmPu6NXLBb3VDzi_AekD0GF80EpaGvH3L2fhuk5Lksjk=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Bacon Cheeseburger Rice"},
+ "Fruit-Jellies-Martha-Stewart-193236"=>
+  {:title=>"Fruit Jellies",
+   :url=>"http://www.marthastewart.com/326899/fruit-jellies",
+   :image_url=>
+    "http://lh6.ggpht.com/ZosKueZxW2nfIx6HJ2QGZ_MsDFdUEDBchaVmqlKlRCuCBfiuyhqlIyTnKAKZZHk79jUpReAboxzE889ysrCz=s360",
+   :category_id=>"Desserts",
+   :description=>"Fruit Jellies"},
+ "Breakfast-Sliders-1508784"=>
+  {:title=>"Breakfast Sliders",
+   :url=>"http://www.wineandglue.com/2016/02/breakfast-sliders.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ow1CZeNgCUkXSyx-GlJ4tTjQ8Rl-x7GtiU3yP-yoSZ1t_CRDaKbg7OwSE4dAgHsZD2JRKCWDe04cqpI0vTMN5g=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Breakfast Sliders"},
+ "Garlic-Herb-Hasselback-Potatoes-1519910"=>
+  {:title=>"Garlic Herb Hasselback Potatoes",
+   :url=>"http://www.centercutcook.com/garlic-herb-hasselback-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/E6CAUTfSttqYXAH4sUW0oohW2zjJEnVTStTvEr7tuCLQW0-Rj2rBvRlMQglbxoCqNLSY2lytdiM0r_xlwinVgw=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Garlic Herb Hasselback Potatoes"},
+ "Steakhouse-Style-Baked-Potato-1529845"=>
+  {:title=>"Steakhouse Style Baked Potato",
+   :url=>"http://www.tasteslovely.com/steakhouse-style-baked-potato/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Gsz1QGLQpRm24SoAhI60qp1jIiYNALTMFY9afvRlP4h7c-dN6I72n_DSJD_qc4czDnIR3TXRMZP6-3fu0Q7F=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Steakhouse Style Baked Potato"},
+ "Best-Meatloaf-On-The-Planet-1532575"=>
+  {:title=>"Best Meatloaf On The Planet",
+   :url=>"http://www.kickingitwithkelly.com/food/best-meatloaf-on-the-planet-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/jO23iffIo7ttb3MPc0gCwp4jiO3KdDjaAbECyhp9lvAgMtWv2D__rCTVKWnUsJgpVrQ4vgun2xGqmwy0Q4oA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Best Meatloaf On The Planet"},
+ "Classic-Cobb-Salad-1524068"=>
+  {:title=>"Classic Cobb Salad",
+   :url=>"http://www.melaniecooks.com/classic-cobb-salad-recipe-ingredients-list-acronym/8262/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/oa5Bn5gPvMLG-jQkhB23AvkyAnJv5YWSTIM0AUmJx5z8EnmmnOP5yRaxINc_gd21qUyyjmgUBy4aHlSu5OA0i4c=s360",
+   :category_id=>"Salads",
+   :description=>"Classic Cobb Salad"},
+ "The-Juiciest-Turkey-Burger-1529130"=>
+  {:title=>"The Juiciest Turkey Burger",
+   :url=>"http://www.laurenslatest.com/the-juiciest-turkey-burger/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OxaJCAgiWrm4Vn5luiZohbCJPiWCaBgYZDf-BFGa80fzO6xIoNFhROv1m3jOANyfVgbC7yjElXIp_BZbIbyJjec=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"The Juiciest Turkey Burger"},
+ "Pork-Dumplings-1471074"=>
+  {:title=>"Pork Dumplings",
+   :url=>"http://www.sprinkleofhappiness.com/blog/pork-dumplings",
+   :image_url=>
+    "https://lh3.googleusercontent.com/PHK2qlTkEfjgBHOXR_KzZUgOy20VQ5G4GxQ6_W3yWgJS-lIBKmLC6C_84z42Rm9EBG-XMwmpxj68OvykZk-b0Q=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Pork Dumplings"},
+ "Creamy-Pesto-Alfredo-1528539"=>
+  {:title=>"Creamy Pesto Alfredo",
+   :url=>"http://www.adashofsanity.com/2016/02/creamy-pesto-alfredo/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/hu_TgGu5fRXXSdYjTJeJ4aBn_NffmejgK6-dOZ3yXVwh9-3z4kVERisDkLqx_IwDwotqPJAe5EhQ4qkpoLre1g=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Creamy Pesto Alfredo"},
+ "Toilet-Water-Drink-1507302"=>
+  {:title=>"Toilet Water Drink",
+   :url=>"http://www.cravingsofalunatic.com/2016/02/toilet-water-drink-recipe.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/EQ0S2f6Fs9H1Zy2Efo1wuo2zy2vfHYr0jGxolYxeFhC5_Pz553Oz9qtuOG1dPLbo6Z_DgG5FkiWO0jGyyl0ZLQ=s360",
+   :category_id=>"Beverages",
+   :description=>"Toilet Water Drink"},
+ "15-Minute-Dinner-Hash-1525420"=>
+  {:title=>"15-Minute Dinner Hash",
+   :url=>"http://www.glutenfreefrenzy.com/2016/02/15-minute-dinner-hash.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/e5wzWvA-aDDvV3qQ12n46KtHRwD9NDIp_9N9P6oCUS1wDUCJN4H1VY551e_jMdMmjYVvdMHuTPGlyWgCuKdyVA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"15-Minute Dinner Hash"},
+ "Salmon-Teriyaki-578996"=>
+  {:title=>"Salmon Teriyaki",
+   :url=>"http://www.closetcooking.com/2007/07/salmon-teriyaki.html",
+   :image_url=>
+    "http://lh6.ggpht.com/n-XnYlLE6aCAI4d1za-UyMmo7mWGV9iaDiCgDTUhazYyosgU3eezD5h0yyqixBHE9FjiW8Y1z0BheVa8pl--7A=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Salmon Teriyaki"},
+ "Vegan-French-Dip-Sandwiches-1532249"=>
+  {:title=>"Vegan French Dip Sandwiches",
+   :url=>"http://www.connoisseurusveg.com/2016/02/vegan-french-dip-sandwiches.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/pZnnxcG5oSUufYe9-HcMVOqdqWEYOX2PLFHej76WxlWiIDZKP-UGXLBnt_FwH0ggeNt1ao16E_hnglNZ0YQY=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Vegan French Dip Sandwiches"},
+ "Teriyaki-chicken-310788"=>
+  {:title=>"Teriyaki Chicken",
+   :url=>"http://www.davidlebovitz.com/2012/12/chicken-teriyaki-recipe-japanese-farm-food/",
+   :image_url=>
+    "http://lh4.ggpht.com/b7BDnNmMkUAdOmIvIAM4QR2IwY6ZxtGgWDuFPpz1EPsiGMR6HEEV5g0IQ8z9Iy47G31nBglE4GhBpR_vMkbFQ4Q=s360",
+   :category_id=>nil,
+   :description=>"Teriyaki Chicken"},
+ "Cobb-Salad-1089066"=>
+  {:title=>"Cobb Salad",
+   :url=>"http://soufflebombay.com/2014/06/cobb-salad-with-homemade-sriracha-ranch.html",
+   :image_url=>
+    "http://lh3.googleusercontent.com/7T7KoTdHgonvUuJi5CoUVtx3JgXyuqeabZKYb1nsmRZsXfjxYicO3C_rpN-sOrzLCbzM2V2suIErn-y7iJcw=s360",
+   :category_id=>"Salads",
+   :description=>"Cobb Salad"},
+ "Mint-Chocolate-Frozen-Yogurt-S_mores-1528540"=>
+  {:title=>"Mint Chocolate Frozen Yogurt S'mores",
+   :url=>"http://www.thebittersideofsweet.com/2016/02/29/mint-chocolate-frozen-yogurt-smores/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ORfs1M6yrCgcKPSxO5iGpAIhpw7VCtMGAYOM1v1_Fr_gbvF5RlklQ9t2wrVmwpcICNoVBxA0mGuduWtqbUVrPw=s360",
+   :category_id=>"Desserts",
+   :description=>"Mint Chocolate Frozen Yogurt S'mores"},
+ "Pork-Ramen-1436555"=>
+  {:title=>"Pork Ramen",
+   :url=>"http://abc.go.com/shows/the-chew/recipes/pork-ramen-michael-symon",
+   :image_url=>
+    "https://lh3.googleusercontent.com/xwcvtvvQ1JxVI0xtGy9iVwfeQWms_mB6is1Uolwkfg5HJogj1M_CmlXp3WnXJW9TUD8ClvKe-KjR4BwYTudfhe8=s360",
+   :category_id=>"Soups",
+   :description=>"Pork Ramen"},
+ "French-Bread-1525870"=>
+  {:title=>"French Bread",
+   :url=>"http://holycowvegan.net/2009/07/french-bread-easy-but-delicious-recipe.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/qflb2oLWEXTKNoLbXwwBptQnhysKD60UnVt_Kp7tIu1ps0cRkxq11fFwyBPAQnkQeUBTyIUBxXYks05XB6bo9w=s360",
+   :category_id=>"Breads",
+   :description=>"French Bread"},
+ "Honey-Coconut-Tangerine-Sorbet-1520053"=>
+  {:title=>"Honey Coconut Tangerine Sorbet",
+   :url=>
+    "http://magnoliadays.com/2016/honey-coconut-tangerine-sorbet/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+MagnoliaDays+%28Magnolia+Days%29",
+   :image_url=>
+    "https://lh3.googleusercontent.com/QkxQK8H92hvvilr6Pxgt679pevL4oIPvhu7VF8z6cxfzoIjq2uFBiCbWBOHEbPWhMG1SZaORs_r5Po3Asn8U8w=s360",
+   :category_id=>"Desserts",
+   :description=>"Honey Coconut Tangerine Sorbet"},
+ "Glazed-Mini-Carrots-1500046"=>
+  {:title=>"Glazed Mini Carrots",
+   :url=>"http://www.eatingwell.com/recipes/glazed_mini_carrots.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/_4WUqj9Jqu3cfI0mu3ovdFEibkNCp8EMgJdzejQlCQBql2SvoWRnYpmuQL2D9KoVh32TQrN3zOh9Nt_wTKrt7hk=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Glazed Mini Carrots"},
+ "Frozen-Kit-Kat-Pudding-Pie-1530965"=>
+  {:title=>"Frozen Kit Kat Pudding Pie",
+   :url=>"http://www.kleinworthco.com/2013/07/frozen-kit-kat-pudding-pie.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/K2VawV-tbcJvfsgUjp5_qyEGvH4oAA2oBvdcJXY_B_5UHEksOJsacuLryOYLaxyFXgxNSpZN-Qb15bI9NbEndg=s360",
+   :category_id=>"Desserts",
+   :description=>"Frozen Kit Kat Pudding Pie"},
+ "Juicy-Turkey-Tacos-1448602"=>
+  {:title=>"Juicy Turkey Tacos",
+   :url=>"http://www.chilipeppermadness.com/chili-pepper-recipes/tacos/juicy-turkey-tacos",
+   :image_url=>
+    "https://lh3.googleusercontent.com/0LT23tj3xVDeSrbwUYelqaQOX_LkyIUvt4Jgyk0YsTqAHsbWQjvPOs1qMOeFyqvpIog3JwmnKzbLqcl_jScDQA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Juicy Turkey Tacos"},
+ "Garlic-POTATOES-1508761"=>
+  {:title=>"Garlic POTATOES",
+   :url=>"http://ladiesboxx.com/garlic-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/WRkuJAyC1Shgt_Rz4niODKWHruNaU67QDYx2WXOxW5sB70JKcvC6VCxQ_jY1LSK3VuX3vRDyb6isATd31Opf1g=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Garlic POTATOES"},
+ "Simply-Lasagna-1440191"=>
+  {:title=>"Simply Lasagna",
+   :url=>"http://www.kraftrecipes.com/recipes/simply-lasagna-69196.aspx?kraftcustom=true",
+   :image_url=>
+    "https://lh3.googleusercontent.com/7YTKdHWLjTcmjfucMy7ZOdYvDRMIZVsGnSwYU8pp9BPuubqRioQ3sq-zWgP8ZjGxAqaovDxMNttCJDohvUIo=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Simply Lasagna"},
+   "Fully-Loaded-Sweet-Potatoes-1523047"=>
+  {:title=>"Fully Loaded Sweet Potatoes",
+   :url=>"http://www.thenovicechefblog.com/2016/02/fully-loaded-sweet-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/WTbaf3dWGK90QXAqxQeLLAMiEMnQzgVOzF7oVNeP2ZFVKuN-tpSFYNpfCVzSSUSDrAx6D_v0xUv9AoNpWL5EfNI=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Fully Loaded Sweet Potatoes"},
+ "Easy-Mexican-Tortilla-Soup-1336714"=>
+  {:title=>"Easy Mexican Tortilla Soup",
+   :url=>"http://www.thebusybaker.ca/2015/10/easy-mexican-tortilla-soup.html",
+   :image_url=>
+    "http://lh3.googleusercontent.com/ogsStVD-aGCEpLPooiXrC3DgMbuylecQcn4LHalCpK06dZljElkzw-5lW7rQ4OkJJIU8i_WAJAK_jK6zcJsp=s360",
+   :category_id=>"Soups",
+   :description=>"Easy Mexican Tortilla Soup"},
+ "Crock-Pot-Teriyaki-Chicken-1511703"=>
+  {:title=>"Crock Pot Teriyaki Chicken",
+   :url=>"http://www.wellplated.com/crock-pot-teriyaki-chicken/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/YrIl9bQfnFoE1q0q7p95DtF9qHlhb0N5_lxf220NQfzL2u7kW4Ycu3cWPcbLhAXfWmUkB2PQ1uwRolurtRUm=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Crock Pot Teriyaki Chicken"},
+ "Triple-Meat-985955"=>
+  {:title=>"Triple Meat",
+   :url=>"http://www.ehksearch.com/2015/01/triple-meat.html",
+   :image_url=>
+    "http://lh3.ggpht.com/Ws2qGSy06Z669bPSJWL28ksRUTPUp6l9-sWtccgNJWlYfz7iCM1GwZyYvTt1vI3u204dp4HZjrGgwUcW8YWindQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Triple Meat"},
+ "Tomatoes-Provencal-1514740"=>
+  {:title=>"Tomatoes Provencal",
+   :url=>"http://www.lanascooking.com/tomatoes-provencal/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/_K0aoj8WpfI621RjAhPb8NXV9KCT3JrKUFGm3BrZc_hsBrRquvfiPM8_4yOgZ2pyWQ_u5kl2N-_nGrycJR2Z=s360",
+   :category_id=>nil,
+   :description=>"Tomatoes Provencal"},
+ "Crazy-Crust-Pizza-1532272"=>
+  {:title=>"Crazy Crust Pizza",
+   :url=>"http://77wwrecipes.blogspot.com/2016/02/crazy-crust-pizza.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/s-WQ1ZJ01cjrj66_-bu4Zvk43rqFD_Myl9QpIkB8X0jDQ4AP-WswszMM62hS-qOmXnYfrghAjqaE1u8Q4rtHsg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Crazy Crust Pizza"},
+ "Slimming-Detox-Smoothie-1530184"=>
+  {:title=>"Slimming Detox Smoothie",
+   :url=>"http://makefruitsmoothies.com/slimming-detox-smoothies2",
+   :image_url=>
+    "https://lh3.googleusercontent.com/JkK51P91eEFYIGQNECv5Sw5zX5Lzc-kFh7hbAUTjwSXtv9xHaVhZOlbojiaCEksexPBffrf6szR01AmGqPU6aQ=s360",
+   :category_id=>"Beverages",
+   :description=>"Slimming Detox Smoothie"},
+ "Grilled-Shrimp-and-Pineapple-Tacos-1461663"=>
+  {:title=>"Grilled Shrimp and Pineapple Tacos",
+   :url=>"http://www.forkknifeswoon.com/food-drink/main-dishes/2013/04/grilled-shrimp-and-pineapple-tacos/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/4iwxvrtojR7FD6Bc63PIL8UqQADae8geYnZYaOLbLWB9jwC3GUaoFts9eAHfgD6J9UnG25fleEZ6Dvy0TXYKTw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Grilled Shrimp and Pineapple Tacos"},
+ "Avocado-Fettuccine-1505437"=>
+  {:title=>"Avocado Fettuccine",
+   :url=>"http://zenandspice.com/avocado-fettuccine/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/U-bkMNMKTOJP_Ezq6UXEGMjJB-Vi6021OGS9T7KF7jXHMNkVjBiPb8d6vb1vK2G2fKyeO3H2k-u2KILs-PSa=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Avocado Fettuccine"},
+ "Spinach-Pancakes-1533026"=>
+  {:title=>"Spinach Pancakes",
+   :url=>"http://www.kitchenjs.com/2016/03/02/spinach-pancakes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Mp9g4_hbjIpeh3SOY7NUsm9guR3HcwSHTWuLVTKo40alH5YkRFCPMlLPyW_CGmlLKPe-O1nM14AM680OLKav=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Spinach Pancakes"},
+ "Simply-Lasagna-1533852"=>
+  {:title=>"Simply Lasagna",
+   :url=>
+    "http://www.kraftrecipes.com/recipes/simply-lasagna-69196.aspx?cm_mmc=eml-_-fceree1-_-20160229-_-1008&cm_lm=A370B46B262135B463866EF99BB1F5A6&bt_he=20119E6228F1F2385733C76A3DE9F1DD8FA72C7F122989E17FC52FC674B64379?kraftcustom=true",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Rf7FfK9GZOTN67o5ewr6PvRWDt2TvEgwy6b_ST6B4eNF7WM85hjSTtJiQaxY9-7lqsXVB-7gJyx5np1EJLQ-=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Simply Lasagna"},
+ "Canning-Dried-Beans-1529438"=>
+  {:title=>"Canning Dried Beans",
+   :url=>"http://www.simplycanning.com/canning-dried-beans.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/o59zUnoTHmMGP6uP4jBbCW49PpABtpn-cQoQ3RiaVQKHizP7tiD0VirKPCbC-whbTIsdkCDXDSaLpnoySHA7=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Canning Dried Beans"},
+ "Crock-Pot-Bacon-Green-Beans-1527809"=>
+  {:title=>"Crock Pot Bacon Green Beans",
+   :url=>"http://www.julieseatsandtreats.com/crock-pot-bacon-green-beans/#_a5y_p=5026250",
+   :image_url=>
+    "https://lh3.googleusercontent.com/z6JvHDQXf6loEPhvLY_dM1HUVdS4ppfO8gzSH43E_VsHl6EMtmq9KHnrocpsLWGlfjsfrlrQvvQfX5YHIYMyiD0=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Crock Pot Bacon Green Beans"},
+ "Tuna-Wraps-1411044"=>
+  {:title=>"Tuna Wraps",
+   :url=>"http://recipes-plus.com/recipe/tuna-wraps-17997",
+   :image_url=>
+    "https://lh3.googleusercontent.com/HtzcrnUGB5Tp6bWOHffMVDXgbwp9TPzwhDrLLHkSDTNdXRNJDvyL1J4lHbjt8mLukVq6ohydLvuV8UvA1gr71w=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Tuna Wraps"},
+ "Garlic-Brown-Sugar-Chicken-1516656"=>
+  {:title=>"Garlic Brown Sugar Chicken",
+   :url=>"http://01recipes.com/garlic-brown-sugar-chicken-ww-smartpoints-5/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/bqnPwVKmmCzYryRA08iaPXdspwbMmCVdZvzxHhBpY6oeQ27C0WnZUscvsv5YqePITPuxIJiHKGBYGFtfBHB5cw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Garlic Brown Sugar Chicken"},
+ "Homemade-Flour-Tortillas-1039803"=>
+  {:title=>"Homemade Flour Tortillas",
+   :url=>"http://www.tablefortwoblog.com/homemade-flour-tortillas/",
+   :image_url=>
+    "http://lh3.ggpht.com/BQRJ4n5MuRQq3IuJcUL9a6HKLSebCLiDxYD4WPd4XWu7lqUnM5HKeUI78fjjQ2cl_DrUdPFbR0KUDdJjTkaW=s360",
+   :category_id=>"Breads",
+   :description=>"Homemade Flour Tortillas"},
+ "Stuffed-Meat-Shells-1528229"=>
+  {:title=>"Stuffed Meat Shells",
+   :url=>"http://2kidsandtiredcooks.blogspot.com/2016/01/stuffed-meat-shells.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/SoT837q5czmlwA4iG3VkbytgX20mTuz53eikqSdEI64M02NGI3YuXOyMpwC5tM3j2HGCoco_ozlz0GPiqEYM=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Stuffed Meat Shells"},
+ "Simple-Salmon-1451121"=>
+  {:title=>"Simple Salmon",
+   :url=>"http://www.greatfoodlifestyle.com/recipe/simple-salmon-dinner/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/S8RhlW4lnK9CbYC9CB5LsoxmFo4wzonPqdo0yqzSI5-1k4SJZOSGxFL3v-GyXEN6tSV3vy5nG8xhw5_EpRST=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Simple Salmon"},
+ "Quinoa-and-Hummus-Stuffed-Wraps-1519041"=>
+  {:title=>"Quinoa and Hummus Stuffed Wraps",
+   :url=>"http://www.youngandraw.com/quinoa-hummus-stuffed-wraps-sugar-free-detox/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/EAntFKenlrMemi-A9GA3qhTkvjjX7AOl7GawUOK2HUnUBlf6gvKruSTbOk7SEu_FqkS1yd-kabz9uiOee9UJWWE=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Quinoa and Hummus Stuffed Wraps"},
+ "Butter-Lettuce-Salad-with-Bacon_-Dried-Cherries_-and-Roquefort-Vinaigrette-1533738"=>
+  {:title=>"Butter Lettuce Salad with Bacon, Dried Cherries, and Roquefort Vinaigrette",
+   :url=>
+    "http://www.bonappetit.com/recipe/butter-lettuce-salad-with-bacon-dried-cherries-and-roquefort-vinaigrette",
+   :image_url=>
+    "https://lh3.googleusercontent.com/sIidRDAbf3e4tCDtFrKjibmhD2YWELqIwV9zGIMLUl96ZzhX7FmWPvdwKrX1eAFKY7aIOkOIh3eyje1oUuoY-Q=s360",
+   :category_id=>"Salads",
+   :description=>"Butter Lettuce Salad with Bacon, Dried Cherries, and Roquefort Vinaigrette"},
+ "Roasted-Balsamic-Carrots-1507717"=>
+  {:title=>"Roasted Balsamic Carrots",
+   :url=>"http://www.castironcookie.com/roasted-balsamic-carrots/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Tf0nhETDAp_VnPoMMqqKV-_vBOBppPV8PUmYkykjELxdgEEQEceYN_NxBMwnGCHSNCPqvQNZC2QsKFZcwH6W=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Balsamic Carrots"},
+ "Classic-Miso-Soup-1522547"=>
+  {:title=>"Classic Miso Soup",
+   :url=>"http://www.mountaincravings.com/classic-miso-soup/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/cHqg02q4VO9BPs6BA7LUAqfodgbji5B-hCaZELszyER8RPl26RQD0-HfNo5lbKs97XntKJgoMbPWCswb950V=s360",
+   :category_id=>"Soups",
+   :description=>"Classic Miso Soup"},
+ "Buckeye-Bundt-Cake-1532070"=>
+  {:title=>"Buckeye Bundt Cake",
+   :url=>"http://tiphero.com/buckeye-bundt-cake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Me-ofvRtz1By9kwctgTVVxJq-H3bymbNggdz6WwfBFV3ql8Qi-Jiiq6j5yPVbdK9uyQZBqWbj-lYOAY8ZtgfLA=s360",
+   :category_id=>"Afternoon Tea",
+   :description=>"Buckeye Bundt Cake"},
+ "Teriyaki-Tofu-Bowl-1519002"=>
+  {:title=>"Teriyaki Tofu Bowl",
+   :url=>"http://familyfreshmeals.com/2016/02/teriyaki-tofu-bowl.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/KEwjQ6rMS6nfBKtm5zXVv_ExBoU4OQOoSvV4hivlxRnvelYR1G_n9K3dweoZo6B8kARv6vQyIhZAwYajtNPdJw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Teriyaki Tofu Bowl"},
+ "Strawberry-Mascarpone-Yogurt-Pie-1532838"=>
+  {:title=>"Strawberry Mascarpone Yogurt Pie",
+   :url=>"http://www.dessertfortwo.com/2014/04/strawberry-mascarpone-yogurt-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ZHNSRI31K9lEUIRq6czMHmHQAemLLhSiSuHYTrTu99TrxjWothi6VatXgTIWdnBNGWf1WNJIQ424pXQqEu5FJg=s360",
+   :category_id=>"Desserts",
+   :description=>"Strawberry Mascarpone Yogurt Pie"},
+ "Tortilla-Lasagna-1531860"=>
+  {:title=>"Tortilla Lasagna",
+   :url=>"http://blog.ashleypichea.com/tortilla-lasagna/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/WQ7U8fWnkAUDtzeWhjyMP1bI7IvPVVgV2GqIAv93tj80TjZYcA7y711-IjGVm5NeZPinwJNQnAF7xQ3JDZKBTA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Tortilla Lasagna"},
+   "Italian-Pasta-Salad-1534391"=>
+  {:title=>"Italian Pasta Salad",
+   :url=>
+    "http://www.kraftrecipes.com/recipes/italian-pasta-salad-50983.aspx?cm_mmc=eml-_-crmpasta-_-20150623-_-1006&cm_lm=A370B46B262135B463866EF99BB1F5A6&bt_he=?kraftcustom=true",
+   :image_url=>
+    "https://lh3.googleusercontent.com/EptXWK6bNQUus5p1cU7wB7d4nTNcuYoN9jDNigpu1oc8r8bi8o2wKCo1JdWzLVkefSnJh4OosgRTBZEPWV9s=s360",
+   :category_id=>"Salads",
+   :description=>"Italian Pasta Salad"},
+ "Honey-Teriyaki-Chicken-1038563"=>
+  {:title=>"Honey Teriyaki Chicken",
+   :url=>"http://www.modernhousewife.ca/2015/01/honey-teriyaki-chicken.html",
+   :image_url=>
+    "http://lh6.ggpht.com/7z8dzM1cXYhlmVveVunWpHxoyEhtGJY-NrKrY1V8qeuTJIT5arFwBHdiiaFyhmIBbqY3I5qBrWhi554zpdHW=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Honey Teriyaki Chicken"},
+ "Crockpot-Candy-633513"=>
+  {:title=>"Crockpot Candy",
+   :url=>"http://fakeginger.com/2009/12/18/crockpot-candy/",
+   :image_url=>
+    "http://lh3.ggpht.com/RmgKy0lvDrjQkQ2i6NuhPzN678EPACO70REgDEMvNTTYcji0JwKIxhImxm68k0yoN40FVzu51rdXgc5VN4xlCw0=s360",
+   :category_id=>"Desserts",
+   :description=>"Crockpot Candy"},
+ "Avocado-Hummus-1521654"=>
+  {:title=>"Avocado Hummus",
+   :url=>"https://healthymealsinminutes.wordpress.com/2012/12/22/avocado-hummus/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/PIDaG7LEHO60r_qxhi94nvS5hXXdyvFPxtrm2GN4AOn8jkJH0HTQ4-D6TxLXLwoP4WWyfcxPVpKtwzFVyqzs-g=s360",
+   :category_id=>"Appetizers",
+   :description=>"Avocado Hummus"},
+ "Provencal-Salmon-1510802"=>
+  {:title=>"Provençal Salmon",
+   :url=>"http://cooking.nytimes.com/recipes/7368-provencal-salmon",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ETSynH8iH4TZ12HOIflGdjePY2nDCp-Tm_dTFT26wEniYS2gpeKWqS7cZ4f3W0T6KfI9nLcbWXEG6qijakMPNg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Provençal Salmon"},
+ "Avocado-Butter-1530232"=>
+  {:title=>"Avocado Butter",
+   :url=>"http://www.fivelittlechefs.com/recipe/side-dishes-and-vegetables/avocado-butter.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/kMjf7ucaVYQAIQGhpMfDzU9MpmSWkUzcjskCxV5JHYNaq2fFWHHC2nIDuGJ_tG9VVl3kRgRqvU1GqPmYHDyceQ=s360",
+   :category_id=>"Appetizers",
+   :description=>"Avocado Butter"},
+ "Gumdrop-Candy-Peacocks-1528685"=>
+  {:title=>"Gumdrop Candy Peacocks",
+   :url=>"http://www.yummly.com/recipe/Gumdrop-Candy-Peacocks-1528685",
+   :image_url=>
+    "https://lh3.googleusercontent.com/B1KHvQZUzjpUPCcs-WgNcix5a3GKitc4Gv7pwSsFbAki7wznzfsbJxx0-jU8n44wJJb99uKfPz281PkW2jZU=s360",
+   :category_id=>"Desserts",
+   :description=>"Gumdrop Candy Peacocks"},
+ "Pomegranate-Breakfast-Parfait-1442692"=>
+  {:title=>"Pomegranate Breakfast Parfait",
+   :url=>"http://www.jaroflemons.com/pomegranate-breakfast-parfait/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/gFWfpd22s_hLFSZuNaBCFo5pChvj6VWyYNgAMvnklyQpwG0p_XkemJZncGJ91upGiSuWeBfh4v0B1ZdLe2MIxA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Pomegranate Breakfast Parfait"},
+ "Italian-Sausage-Bow-Tie-Pasta-1531970"=>
+  {:title=>"Italian Sausage Bow Tie Pasta",
+   :url=>"http://www.adishofdailylife.com/2016/03/italian-sausage-pasta-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/IOZUfpij9KhJX9ecWiOn-u-m10NwFyTUePEexkdDymw7AyL32AZmNaoH2wW3qGpejoutSQjLeHTT4i4hqN6nYA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Italian Sausage Bow Tie Pasta"},
+ "Roasted-Maple-Peas-1522817"=>
+  {:title=>"Roasted Maple Peas",
+   :url=>"http://www.independent.co.uk/life-style/food-and-drink/recipes/roasted-maple-peas-2149691.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/NBNrE1EYLmn_TKAPRCATpIanpNPAopYdyZwlFD2kDxC75jM3nqa7se2RXXMBEl_ITcgpcUmFQjCTWVQfOOtp=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Maple Peas"},
+ "Chicken-Pot-Pie-1510905"=>
+  {:title=>"Chicken Pot Pie",
+   :url=>"http://dishesanddustbunnies.com/chicken-pot-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/RAlnZ4xBo37KCOhWiJmeCZ1oGt-wEzbfwggjxX2wFUh5M5k4-yxEzymivLdbXHTVCii7rzdeMWFX2pJ0HmA2I58=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Pot Pie"},
+ "Pesto-1506368"=>
+  {:title=>"Pesto",
+   :url=>"http://unlimited-recipes.com/recipes/pesto-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/u1KasbzRbnK2O4AEIV8hgztnq08aQ508BI8QvJ3u8oxMX8KEDxutt5flSgq2Ut2m6W6kLLIZMD-VauyKODRS=s360",
+   :category_id=>nil,
+   :description=>"Pesto"},
+ "Burger-Chili-1531103"=>
+  {:title=>"Burger Chili",
+   :url=>"https://palatablepastime.com/2013/07/06/burger-chili/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/P7oS6OKw9mM9b9jUz3Rw9EDKudSLLcmKOsHm4F5lyYF-G8XjnZgq7cqvKP_2cadP2iQkXXxnZRadcR7dns62G6c=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Burger Chili"},
+ "Ramen-Egg-1534683"=>
+  {:title=>"Ramen Egg",
+   :url=>"http://www.justonecookbook.com/ramen-egg/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/vSmb4JtoLCiC0Fp_9LO0_S1qB6QxJAp82XgyhvbgS8e_DzU9yWFhW4wgZoOm7-0UpIVdVknRwtaBnKD9B6irRg=s360",
+   :category_id=>nil,
+   :description=>"Ramen Egg"},
+ "Vegetable-Muffins-1527682"=>
+  {:title=>"Vegetable Muffins",
+   :url=>"http://www.bakingwithnyssaeda.com/2016/02/vegetable-muffins.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Iu3Hmh1EGGEhLHnkv5_xwkoobCflrZTO6JsryQVP9xLoEB-y9y8g2S22bA83EhEbMTx9LszdlpSLwLSJGOPl=s360",
+   :category_id=>"Breads",
+   :description=>"Vegetable Muffins"},
+ "Lasagna-Soup-1517550"=>
+  {:title=>"Lasagna Soup",
+   :url=>"http://www.countrysidecravings.com/lasagna-soup/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/VRxGMSazc6qx1khsYT8AsCV52Bp8LWeL0TBJtJG5cGNQw5oKCxXe0VNH7h0VfXg7REg1AxJBT-_oOq-ktC0sVA=s360",
+   :category_id=>"Soups",
+   :description=>"Lasagna Soup"},
+ "Birthday-Cake-Pancakes-1515205"=>
+  {:title=>"Birthday Cake Pancakes",
+   :url=>"http://dinnersdishesanddesserts.com/birthday-cake-pancakes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/N9mctl_qqjbOTznF2iHGzfaQR4y4GACmjAd0zgeu6ugh6Ua_NQCn8HD_arq6HX06eQKOOzzUffO5ihZVi-hU=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Birthday Cake Pancakes"},
+ "Crockpot-Carrots-1490519"=>
+  {:title=>"Crockpot Carrots",
+   :url=>"http://hungryhobby.net/2016/01/31/crockpot-carrots/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/MqiE9UddfAzIKsBF-GEhY4JN8byA9T3J49nshw35H7DJ0vSE9gt_lbJTZ6qKOCC1gJzRM_Qvq8NveZ-1T98M2zM=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Crockpot Carrots"},
+ "Shoyu-Ramen-1495711"=>
+  {:title=>"Shoyu Ramen",
+   :url=>"http://www.chopstickchronicles.com/shoyu-ramen/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Al1kVnwUjXGVivPlOSinyUFnsp0bep7AP5mJr7BVHq2FBuScLPee9HE6MIegb_KHECZKuGXCG-9CByAbN8MP9w=s360",
+   :category_id=>"Soups",
+   :description=>"Shoyu Ramen"},
+ "Millet-Crepes-With-Pumpkin-Spice-Fromage-And-Caramelized-Apples-1530112"=>
+  {:title=>"Millet Crepes With Pumpkin Spice Fromage And Caramelized Apples",
+   :url=>"http://dooseet.com/en/millet-crepes-with-pumpkin-spice-fromage-and-caramelized-apples/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/kFZviObMYhvOn-ZDm41hw4U1TPHt1hkwUfdjHc8vsXAS4bdcSTPU3OqTlCsQRiYnCJtoDRhhKhSLUNU_9zou9w=s360",
+   :category_id=>"Desserts",
+   :description=>"Millet Crepes With Pumpkin Spice Fromage And Caramelized Apples"},
+ "Homemade-Fish-and-Chips-1509154"=>
+  {:title=>"Homemade Fish and Chips",
+   :url=>"http://flavorite.net/2016/02/12/homemade-fish-and-chips/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/dEC3pJiwmkY_SvUixRNux34UBdOVQSf1rGMniytbZ7MnxjTSW1Guo2G292mLqXCpAFmelz26-0Ar2LJz5MhdKdU=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Homemade Fish and Chips"},
+ "Tomato-_-Avocado-Caprese-1525365"=>
+  {:title=>"Tomato + Avocado Caprese",
+   :url=>"http://www.mindbodygreen.com/0-20783/super-simple-salad-recipe-tomato-avocado-caprese.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/R14fh9jl4tZcWmIkVoZT0YTeoX6CeqwzYhBgenkfJrYIfZrUp1JdM02YqZx63ORENqCweIrTo5l4TsdnqTWkEi8=s360",
+   :category_id=>nil,
+   :description=>"Tomato + Avocado Caprese"},
+ "Pumpkin-Chocolate-Chip-Bars-1529825"=>
+  {:title=>"Pumpkin Chocolate Chip Bars",
+   :url=>"http://www.nutritiouseats.com/pumpkin-chocolate-chip-oatmeal-bars/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/fiNxQ2MbVoC_XsBjrf44pOmIRqzdvKJ7SbRqSTytHDhQSsr2H1hXIKOQtV2RCsA2ENT4o1mJHiLrprlNecfzRg=s360",
+   :category_id=>"Desserts",
+   :description=>"Pumpkin Chocolate Chip Bars"},
+ "Tabbouleh-Salad-Recipe-with-Freekeh-and-Feta-1528413"=>
+  {:title=>"Tabbouleh Salad Recipe with Freekeh and Feta",
+   :url=>"http://www.rachelcooks.com/2016/02/29/tabbouleh-salad-recipe-freekeh-feta/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/MqWfV7vq1PxhAURbnnzkVVFdALJjnxygcSswy1EZgmEsANwqYU_qbjCD9IhyPKxac6ONTFgSxEQUZ-Zh_Cha=s360",
+   :category_id=>"Salads",
+   :description=>"Tabbouleh Salad Recipe with Freekeh and Feta"},
+ "Yogurt-Breakfast-Bowl-1521229"=>
+  {:title=>"Yogurt Breakfast Bowl",
+   :url=>"http://healthywomensblog.com/yogurt-breakfast-bowl.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/qfvhR4V2ZdSs3ZhTbAdp82WFVfPhKM0Vy7Ez4bWMDBah2DRi3bg9zEtx6TpbJgDsT5655_TXZalLSxUSoVAH=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Yogurt Breakfast Bowl"},
+ "Morning-Detox-Smoothie-1530161"=>
+  {:title=>"Morning Detox Smoothie",
+   :url=>"http://makefruitsmoothies.com/morning-detox-smoothie",
+   :image_url=>
+    "https://lh3.googleusercontent.com/iVM7maXC4bKTrsP9MMCnCio7x_DfUlbch3Rv1Ji0DBuNz-uoEcGW-x5V4v56BqlAfI6zT9CROLGrWh6k2IXO4uU=s360",
+   :category_id=>"Beverages",
+   :description=>"Morning Detox Smoothie"},
+ "Salted-Date-Oatmeal-1524372"=>
+  {:title=>"Salted Date Oatmeal",
+   :url=>"http://www.eatingbirdfood.com/salted-date-oatmeal/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/U_U8Oz2SIpc7bq6ktIxtonAjMfX31WoG33FbL0ZM237JU7Jpf53YiaIAr-zFUlCehkhKJH7vQelGAgyWfam6hw=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Salted Date Oatmeal"},
+ "Our-Favorite-Pancake-1523872"=>
+  {:title=>"Our Favorite Pancake",
+   :url=>"http://doingsplendid.com/2015/03/09/our-favorite-pancake-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/IYy-yzK4Q4WA92ulf2Ch_77Dg5i-G-tbQ23U1tIOFic8LGNlmu4UAmbH8K3QBw4B_6ibiB2sS89IbOuSYWjMX1w=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Our Favorite Pancake"},
+ "Bacon-Wrapped-Hot-Dogs-1525779"=>
+  {:title=>"Bacon Wrapped Hot Dogs",
+   :url=>"http://www.centercutcook.com/bacon-wrapped-hot-dogs/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/HsfbYZ5dNMJQ0oKsi08Fk2VDaRaPBsajiu-3ZO8cxBqZyAtDXinH64qjo45mizYASl5WmQfdfvpgvq6Hg-lEzxI=s360",
+   :category_id=>nil,
+   :description=>"Bacon Wrapped Hot Dogs"},
+ "Fruity-Pebbles-Cookies-1524345"=>
+  {:title=>"Fruity Pebbles Cookies",
+   :url=>"http://afewshortcuts.com/2016/02/fruity-pebbles-cookies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/SiJ-C4yvwzWKmu1lt6IG3i6CZNazPZ0oxnTXURZ4jdPr8OrKg3v4VLx6MnTRo6ef9g894y0iTe1BP9-7V2Uz=s360",
+   :category_id=>"Desserts",
+   :description=>"Fruity Pebbles Cookies"},
+ "Confetti-Rice-1525368"=>
+  {:title=>"Confetti Rice",
+   :url=>"http://www.bettycrocker.com/recipes/confetti-rice/09d2e2e1-3459-4e5e-ac40-defac5bc9dab",
+   :image_url=>
+    "https://lh3.googleusercontent.com/2Te7u-dpdqNgYQi9M0_xgYfqfdvbsd7ADWfKHtFCmzAnh_Zf9UmMpPb-rfV4ckiSK5DElr7Lc70LPQYC7yH2=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Confetti Rice"},
+ "Pumpkin-Pancake-1531729"=>
+  {:title=>"Pumpkin Pancake",
+   :url=>"http://ladiesboxx.com/pumpkin-pancake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/7nzVNHn3QsYOuq6oPy8QDgQjBtU8mjCrgriy28BXVxgg5K5r2GD6IKErML56TP6lpNJoflR_K24Pf_7tNl9O4mM=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Pumpkin Pancake"},
+ "Reuben-Wraps-1509327"=>
+  {:title=>"Reuben Wraps",
+   :url=>"http://www.sweetandsavoryfood.com/2015/04/reuben-wraps.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/jZqHh_nL9n1fNVYsdpQvVSLoBvZZAyzfie5LVZo1E2AqWVaOAoMfdrT7AlX522L_rOs8tP8KIO-ZCG7ww1YBCcw=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Reuben Wraps"},
+ "Chicken-and-Vegetable-Potstickers-1532120"=>
+  {:title=>"Chicken and Vegetable Potstickers",
+   :url=>"http://stripedspatula.com/2016/03/01/chicken-and-vegetable-potstickers/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/-6VClR2sWx-tl2Dr_BFcSJwwmPMRoTDoVwUufHDz8nZrMnctEsB-at2VU_sd8xhZgeOvkePfylIH8xlnDQqp1A=s360",
+   :category_id=>nil,
+   :description=>"Chicken and Vegetable Potstickers"},
+   "Smoked-Turkey-Wraps-1527760"=>
+  {:title=>"Smoked Turkey Wraps",
+   :url=>"http://www.anexpatcooks.com/recipe/smoked-turkey-wraps",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ovpiDEa4qSnwL4I-qIc8dL9cgqyRRZA-4AWH0qJ9giRb3pDEhpHzEy33hUj7vMPZlfbA7rx0_FZOjCvk7UhSQg=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Smoked Turkey Wraps"},
+ "Easy-Balsamic-Glazed-Carrots-1528824"=>
+  {:title=>"Easy Balsamic Glazed Carrots",
+   :url=>"http://realhousemoms.com/easy-balsamic-glazed-carrots/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/C0kJDtaCjQNr2jSzgyMa5QWiM4ORvCDylQBjm3z4BvHqtXcjw5CQxpdEgmaly_wU-Gro5L-bCbtomedG7iuzIg=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Easy Balsamic Glazed Carrots"},
+ "Cadbury-Egg-Brownies-1528720"=>
+  {:title=>"Cadbury Egg Brownies",
+   :url=>"http://www.iheartnaptime.net/cadbury-egg-brownie-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ds7-3we8osusA_zx2npBI8Iy_xM1LFlxdplWA66sCMXs19B6k9r2mNCNYuQqpmttUPXuDHergi9qYCKyS6X5oQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Cadbury Egg Brownies"},
+ "Cheese-Carrots-1532585"=>
+  {:title=>"Cheese Carrots",
+   :url=>"http://shewearsmanyhats.com/cheese-carrots/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/i8CikDZSdpGORkT0hUCPyPzICtORT3BEzG0KemcKBrE0DWuqRbbuTO2sZvY5w8v8FyX5777_lbdktl12iVAEwA=s360",
+   :category_id=>"Appetizers",
+   :description=>"Cheese Carrots"},
+ "Turkey-Caprese-Sandwich-1529796"=>
+  {:title=>"Turkey Caprese Sandwich",
+   :url=>"https://www.panerabread.com/en-us/recipes/turkey-caprese-sandwich-cpg.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/rr9OB0xtYkOz70preraEvDjd2QVa5S2KW6kjdWBol1FONlnol3LmMXjlku1P4cEjbRCJRpHGcnMUQBxYb7XWhA=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Turkey Caprese Sandwich"},
+ "Yogurt-Scones-1531192"=>
+  {:title=>"Yogurt Scones",
+   :url=>"http://domesticrevolt.blogspot.com/2012/02/yogurt-scones.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/RlS3zbVYJArwmb0RnhKNDkqQqe4wI_2YlQ5eE9H12OzXuDHcf7WlYN5ejR0qaBMeYuwMuWiNVfwudybhA1ZRS8M=s360",
+   :category_id=>"Breads",
+   :description=>"Yogurt Scones"},
+ "Blueberry-Buckle-1521227"=>
+  {:title=>"Blueberry Buckle",
+   :url=>"http://www.cupcakesandhammers.com/blueberry-buckle/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/k0k0g-FF5bkaJGgSTuBpNnMdho5HG7pQSmzKROIsNvMfT07nxKP_egkSgRP3-PR7fRUMttukF_QvbuZQRmwB=s360",
+   :category_id=>"Desserts",
+   :description=>"Blueberry Buckle"},
+ "Potato-Bundles-1527101"=>
+  {:title=>"Potato Bundles",
+   :url=>"http://thepioneerwoman.com/cooking/potato-bundles/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/MQZ-D71HoTqTaSJh9r12hQlalTge4RqZifJk98zyULoX-8QJuTKlcti6CJ526X46-xU2EEzCoS-StxUn3j5n=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Potato Bundles"},
+ "Pumpkin-Mousse-1531364"=>
+  {:title=>"Pumpkin Mousse",
+   :url=>"http://everydaydishes.com/simple-food-recipes/pumpkin-mousse/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/mrSoDDDeBF6EL_-dcvbpdSeTGnu1F64MZ4g9vNMXZCb_8himpLck-HM_Q4ixJ2Tio6SyblvNHIW5Gq4xlSPBHvE=s360",
+   :category_id=>"Desserts",
+   :description=>"Pumpkin Mousse"},
+ "Carrot-And-Cheddar-Bites-1533821"=>
+  {:title=>"Carrot And Cheddar Bites",
+   :url=>"http://www.amuse-your-bouche.com/carrot-cheddar-bites/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/DDXeGE1RHaAk9IocV5Zh599lHqfE4ADw_I3V-AFflrLVBduLbjn9R77Qi7T5tXYkxHRMfX8FU8d5auXwusP6jUI=s360",
+   :category_id=>"Appetizers",
+   :description=>"Carrot And Cheddar Bites"},
+ "Eggless-Peanut-Butter-Cup-Cookie-Dough-1530351"=>
+  {:title=>"Eggless Peanut Butter Cup Cookie Dough",
+   :url=>"http://momentswithmandi.com/eggless-peanut-butter-cup-cookie-dough/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/NQCYr4_gJGZy3nV_p2xJzpqFFpTwdX4cYuL3RuM5vqpon2wLKwrFn4qORxQ1lHT5vWOXEnT0q6ahmrO3ZwusNYQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Eggless Peanut Butter Cup Cookie Dough"},
+ "Blueberry-Bagels-1531619"=>
+  {:title=>"Blueberry Bagels",
+   :url=>"http://desiretoeat.com/blueberry-bagels/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/AZY_lHFES7eW2WgkF3BrED2emS5htwUSsnNre_A4xZP5jcMXK8RxoNb1aLMQPfIBRWfditg523ovDveNhR7XUg=s360",
+   :category_id=>"Breads",
+   :description=>"Blueberry Bagels"},
+ "Roasted-Winter-Root-Vegetables-1512325"=>
+  {:title=>"Roasted Winter Root Vegetables",
+   :url=>"http://www.plymouthfarmersmarket.org/roasted-winter-root-vegetables/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/L0FdxjOLQUoayP8m-3y6T1bCKfV3u0juKUCzHTNBSUV7Fm-4B_j9cnUeEqradXbW_UYqUKlE_5uO8DO9rvLD7w=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Winter Root Vegetables"},
+ "2-Ingredient-Fluff-Cake-1525062"=>
+  {:title=>"2 Ingredient Fluff Cake",
+   :url=>"http://www.yummyhealthyeasy.com/2016/02/2-ingredient-fluff-cake.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/IHy5YBeWZbY88iDXdppJN6PznYuRSDX6pcLa5SUyD7sWkN_1o6H9Lrdi3MSnMJtSjBGWM8eluK9d20-pM1BD_w=s360",
+   :category_id=>"Desserts",
+   :description=>"2 Ingredient Fluff Cake"},
+ "Avocado-Egg-Salad-Sandwich-1518540"=>
+  {:title=>"Avocado Egg Salad Sandwich",
+   :url=>"http://skinnyms.com/avocado-egg-salad-sandwich/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/UCHoQ0t8tlXntzuroRetln7nBlNNhISheRqlpNYQ0UlEtU-S0dXbi9MPVjuTJdjrH5m0ei-kpoC-uTe9_O7gvA=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Avocado Egg Salad Sandwich"},
+ "Bang-Bang-Shrimp-1518117"=>
+  {:title=>"Bang Bang Shrimp",
+   :url=>"http://fakeginger.com/bang-bang-shrimp/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/yJWg8zcSET_hvI7L2e3FbYJTzmhMYw0LdjKPGeFBPl7J-binL6ch651egamdXz4TlETgeQYA_mdqqbT5SyIWuw=s360",
+   :category_id=>"Appetizers",
+   :description=>"Bang Bang Shrimp"},
+ "Chili-1499188"=>
+  {:title=>"Chili",
+   :url=>"http://www.whiskeyandsoba.com/chili/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/jl6cjZt7C9uLEhexSSKGNuPW1qXfoolV0ml0CDW9K4IPepSPfjJeuEp7qq1WyOrTf3G8q58KWSbu9PmaFZ5i=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chili"},
+ "German-Chocolate-Pizza-1531900"=>
+  {:title=>"German Chocolate Pizza",
+   :url=>"http://www.rhodesbread.com/recipes/view/german-chocolate-pizza",
+   :image_url=>
+    "https://lh3.googleusercontent.com/fGBl5e3sGVLOthD9oiO2_U3yZMTpAAubBLNca8tq7Bw99NpXL2aWL7UJgcmvU_9TCRQVmdDiPXbaJ5gWPLnV=s360",
+   :category_id=>"Desserts",
+   :description=>"German Chocolate Pizza"},
+ "General-Tso_s-Chicken-1531697"=>
+  {:title=>"General Tso's Chicken",
+   :url=>"http://teaspoonofgoodness.com/general-tsos-chicken-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/PZUIQIee2_bvSywa2g8LCi-4vrQtEosvS9a_jMoP4d8vYex9mMrJuVz1WtTSJe8fDUJooRUsbf-Fnx2sxWsTKQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"General Tso's Chicken"},
+ "Best-Ever-Skillet-Lasagna-1528570"=>
+  {:title=>"Best Ever Skillet Lasagna",
+   :url=>"http://www.thelifejolie.com/best-ever-skillet-lasagna/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/vq6-OconcaLeFhhlt8lLuQ-rxOI-_ZzJffMfqLnQvrQgV7WrXeca3rI7wELPjXLvM8DQNd0oKaA0_1_QZNgt=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Best Ever Skillet Lasagna"},
+ "Orange-Curd-1519479"=>
+  {:title=>"Orange Curd",
+   :url=>"https://inksugarspice.wordpress.com/2016/02/10/orange-curd/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/me7DevjRzQvYztH2FBLO6iOPxbl4J_rjGkokmFK1TqqVyjrhIGzpORlUMET8FFeLpslPniXxQDqDhqGLdxX0Cgk=s360",
+   :category_id=>"Desserts",
+   :description=>"Orange Curd"},
+ "Bacon-Avocado-Grilled-Cheese-_SundaySupper-1517530"=>
+  {:title=>"Bacon Avocado Grilled Cheese #SundaySupper",
+   :url=>"http://dinnersdishesanddesserts.com/bacon-avocado-grilled-cheese-sundaysupper/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/uKiQVliPxFITqCUif1JDJ_PvxoO2xNNVWXUV_2dwQkMWq1huHCKJzV3AnOpF0HHhMawDuL8nLRsJ1UIrfVci=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Bacon Avocado Grilled Cheese #SundaySupper"},
+ "Unholy-Eggs-1529598"=>
+  {:title=>"Unholy Eggs",
+   :url=>"https://palatablepastime.com/2014/12/20/unholy-eggs/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/KVQeqx9NUvR4K_AgwaAaBhsyOvCKnyR1RTkWJmhx-kWre7Al0-YKTrnTQJI_tQRgvjhLe5XS_uSIaFtOpP3ySC8=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Unholy Eggs"},
+ "Low-Carb-Strawberry-Cheesecake-Smoothie-1532211"=>
+  {:title=>"Low Carb Strawberry Cheesecake Smoothie",
+   :url=>"http://thriftydiydiva.com/low-carb-strawberry-cheesecake-smoothie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/wEY2KwUWkV5Z7L-CLLDI-Le6sjOD0-z2jpWNxLskcjZoPOQC-sil-5gwDCHbmqZdbI2djZDCKQs4h-AkdZAmlNg=s360",
+   :category_id=>"Beverages",
+   :description=>"Low Carb Strawberry Cheesecake Smoothie"},
+ "Chicken-And-Chorizo-Pasta-1526006"=>
+  {:title=>"Chicken And Chorizo Pasta",
+   :url=>"http://www.goodtoknow.co.uk/recipes/536822/chicken-and-chorizo-pasta",
+   :image_url=>
+    "https://lh3.googleusercontent.com/qIUalVcE2x4v-1dWRQ2X_eJJ15p-CSF-TUOp_AvQjwk6DqO0A3pcWl_tD6gMJE_DsBTYmCgyt6mm6wOu-tZlQQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken And Chorizo Pasta"},
+ "Snickers-Cake-1533666"=>
+  {:title=>"Snickers Cake",
+   :url=>"http://flavorite.net/2016/03/01/snickers-cake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/jh4Wq7iQo41ZgCje9ITnHC8zGLPZtlyvyxqMrxTYpDsTrd3r_EOSjaC27ycPOUMWSAscR15Wi1xM8LQ-VcQ0Eg=s360",
+   :category_id=>"Desserts",
+   :description=>"Snickers Cake"},
+ "Chai-Sugar-Cookies-with-Eggnog-Glaze-1531136"=>
+  {:title=>"Chai Sugar Cookies with Eggnog Glaze",
+   :url=>"http://bakingmischief.com/2015/12/08/chai-sugar-cookies-with-eggnog-glaze/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/8Kx1Jyb7GQnOJxs2BS2oc_iQyq1AvHKSbEJIdWZNn2GdvhTOzpChariBaSXWQbtEe4sTnzTXfSYskZ45d1zYBQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Chai Sugar Cookies with Eggnog Glaze"},
+   "Easy-Goldfish-Crackers-Snack-1531913"=>
+  {:title=>"Easy Goldfish® Crackers Snack",
+   :url=>"http://www.lifealittlebrighter.com/2016/03/easy-goldfish-crackers-snack/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/BQcnFRDdBeEvEYyrWY_SZr24EQA9uMnEepUGo3AS86Hj_rxLjCIQwHmzTn0P-BMeLUx9NinF17IymhfVRAMm=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Easy Goldfish® Crackers Snack"},
+ "Vegetarian-Lettuce-Wraps-1520814"=>
+  {:title=>"Vegetarian Lettuce Wraps",
+   :url=>"http://www.wellplated.com/vegetarian-lettuce-wraps/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/oakaGc89_vMo-UI-f_SBAXjmV7i8c31y7BLwBFOMQo6SZWKJazTl94WHxS7bojVxn6IS-3SqeuxSEvYedykOUQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Vegetarian Lettuce Wraps"},
+ "Berry-Banana-Greek-Yogurt-Smoothie-1514039"=>
+  {:title=>"Berry Banana Greek Yogurt Smoothie",
+   :url=>"http://www.centercutcook.com/berry-banana-greek-yogurt-smoothie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/lxgyIRJimiKIqI6ivWomqrGPxG-YThRhRB8OQ21mMPYUJBZ2t0smrjKUDZlYGlNIs636jA-tJ_9m1XyDE1IpoA=s360",
+   :category_id=>"Beverages",
+   :description=>"Berry Banana Greek Yogurt Smoothie"},
+ "Pimento-Cheese-1527002"=>
+  {:title=>"Pimento Cheese",
+   :url=>"http://www.anexpatcooks.com/recipe/pimento-cheese",
+   :image_url=>
+    "https://lh3.googleusercontent.com/d6BfAjI5UQwsV2Q0_3jB7cmYH_uSrFZ_vRo6J_lKujeMLtGXkfGJAIgjLwK35QyxWk33BopNUePbpPNA1kf4tg=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Pimento Cheese"},
+ "Quinoa-Spinach-Power-Salad-with-Lemon-Vinaigrette-1526895"=>
+  {:title=>"Quinoa Spinach Power Salad with Lemon Vinaigrette",
+   :url=>"http://www.aheadofthyme.com/2016/02/quinoa-spinach-power-salad-with-lemon-vinaigrette/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/xMNg7Vxv1n3QwH0YZKxM2FmLgvfnzzih9md30BkLSplsegTv6qBovD-H_CYt63Gu752x6PXE57BoXI_CqfP3Rg=s360",
+   :category_id=>"Salads",
+   :description=>"Quinoa Spinach Power Salad with Lemon Vinaigrette"},
+ "Cobb-Salad-in-a-Jar-1097604"=>
+  {:title=>"Cobb Salad in a Jar",
+   :url=>"http://weelicious.com/2013/09/17/easy-cobb-salad-in-a-jar/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/sZCEYOrRS0oJ8x7DkXx-wvhi_ZGECG7OdYonpqpVU9OR9WhJIkBKTLbvol5mTkSnK6ckSLhV5W_YXLlGgNYY=s360",
+   :category_id=>"Salads",
+   :description=>"Cobb Salad in a Jar"},
+ "Pumpkin-Mousse-1529585"=>
+  {:title=>"Pumpkin Mousse",
+   :url=>"http://www.dessertnowdinnerlater.com/2015/11/pumpkin-mousse/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Y2qesDFXMwZoyUJPvpZ_y-OmRtXvIbKmxinBLJUWzWOjzo7emfx8FrEi_I6O4RoVlOCC2vIOCGYhlpwogdiP=s360",
+   :category_id=>"Desserts",
+   :description=>"Pumpkin Mousse"},
+ "Panfried-kale-367099"=>
+  {:title=>"Panfried Kale",
+   :url=>"http://thepioneerwoman.com/cooking/panfried-kale/",
+   :image_url=>
+    "http://lh4.ggpht.com/2JF9BKkPnBXLXVNtNDFFFTSqdc9hXemOgAdL1QUIyyDddD_c0pv6XxvhA3cB_xvKeZ8a_kZcl4FAuDg9GzVnNw=s360",
+   :category_id=>nil,
+   :description=>"Panfried Kale"},
+ "Cobb-salad-345552"=>
+  {:title=>"Cobb Salad",
+   :url=>"http://www.elanaspantry.com/cobb-salad/",
+   :image_url=>
+    "http://lh4.ggpht.com/QVm3D-_ZbOdVnNYPlnf0HRKOfI1WTJxoFAx1x-uRIHvE2OqS6D9cmy-vjMN-q6JSQxcMopZ9VyLXAlSy8RzpwJY=s360",
+   :category_id=>"Salads",
+   :description=>"Cobb Salad"},
+ "Bihari-Rice-1518854"=>
+  {:title=>"Bihari Rice",
+   :url=>"http://www.therecipespk.com/bihari-rice/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/XzrGEv6K_EbbBmB-m40_oPHOU0qD1pGzfCBCNBpD3qgN4jr315cpu7B9fRRTjzjuOPXVeSPx-jlyfGUmcNhOwg=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Bihari Rice"},
+ "Fruit-Cream-1089156"=>
+  {:title=>"Fruit Cream",
+   :url=>"http://www.feedyourtemptations.com/fruit-cream-recipe/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/UUiWK8SY557Hw8mMKtgyUz6mk5ljXL5e1mQ_H5n5oKAocF_0Gyag71v2svOvwJ3_fWvIiL9uHZB4tRoJ--QHAyc=s360",
+   :category_id=>"Desserts",
+   :description=>"Fruit Cream"},
+ "Southwest-Hummus-Wraps-625360"=>
+  {:title=>"Southwest Hummus Wraps",
+   :url=>"http://www.chef-in-training.com/2014/07/southwest-hummus-wraps/",
+   :image_url=>
+    "http://lh5.ggpht.com/3afMdn-m1kPIQ4oXS7CzM7qk384gN58uAKXci3up-aPC3JN81Zngb0bpsYtNKFc64BxWD2Yv9tPaMgZqWRWUXw=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Southwest Hummus Wraps"},
+ "Basic-Pesto-1190165"=>
+  {:title=>"Basic Pesto",
+   :url=>"http://cooking.nytimes.com/recipes/2653-basic-pesto",
+   :image_url=>
+    "http://lh3.googleusercontent.com/PRYXEM5nGAFnbu2tvw7U-DSXW65YAWzcGDJuWL5yHq_2hHgRWrukxyOsgFXWmWZRK09O_czikn9YAW7HqAjoMA=s360",
+   :category_id=>"Condiments and Sauces",
+   :description=>"Basic Pesto"},
+ "Appetizer-Ideas-Parmesan-Bites-1514515"=>
+  {:title=>"Appetizer Ideas Parmesan Bites",
+   :url=>"http://christyrobbins.blogspot.com/2010/12/new-year-appetizer-ideas-parmesan-bites.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/kYKjipE1AmlkZS2C5cnDEPHIF8lmfr3i7HqEdyQJCsfjAlxd94O3Ehf5P6vsXxclxDAbtH5e7aPBiAnDoOEGGw=s360",
+   :category_id=>"Appetizers",
+   :description=>"Appetizer Ideas Parmesan Bites"},
+ "Mom_s-Famous-Crockpot-Baked-Beans-1509511"=>
+  {:title=>"Mom's Famous Crockpot Baked Beans",
+   :url=>"http://familyfreshmeals.com/2013/07/moms-famous-crockpot-baked-beans.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/dVHcPk9oVa-vL0AzZg2D4PZJkGvowoUwwsBaHfgvcf7R6phJAXYBdoq2he2kcckIS8SRVdvukuzUkAeyRVmRg-E=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Mom's Famous Crockpot Baked Beans"},
+ "Old-Fashioned-Custard-Pie-1509264"=>
+  {:title=>"Old Fashioned Custard Pie",
+   :url=>"http://recipes-all.com/old-fashioned-custard-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/tJ94tsK7IDTJcfp3hol7XMEDKxxsxyPDeYBSSzHezycfMbpv0Id4nNX2_O950RISGPbponOQyI8oAtbVDlNkxMA=s360",
+   :category_id=>"Desserts",
+   :description=>"Old Fashioned Custard Pie"},
+ "Parmesan-Pesto-Tilapia-1532825"=>
+  {:title=>"Parmesan Pesto Tilapia",
+   :url=>"http://pinchofyum.com/easyrecipe-print/12139-0/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/L_NJzYclSgmyXCBdgruR00fARaLK_N56AyBvSg_KGvtA9MT8DfmUGOYmJN9Y6bqiU6O-GVxH0Z536oEWsXEO7w=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Parmesan Pesto Tilapia"},
+ "Parmesan-Peas-1010871"=>
+  {:title=>"Parmesan Peas",
+   :url=>"http://tastykitchen.com/recipes/sidedishes/parmesan-peas/",
+   :image_url=>
+    "http://lh4.ggpht.com/V-uYZkFOAPSEglU6F-hJjfeuTnth7O7K_p3J9P4up22bvA0ek2VyRTWjacil7krpx7E2UxPTN094-jAbOr4nvg=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Parmesan Peas"},
+ "Skinny-Italian-Sodas-1533461"=>
+  {:title=>"Skinny Italian Sodas",
+   :url=>"http://www.wineandglue.com/2016/03/skinny-italian-sodas.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/YBBW6zV4oroboa09U04KJZhrE2L3zj1F_FtZQRvFS4C3llh-kpsPhUKk2oh0398VidkYd43wgL9Ba7v7v5yC=s360",
+   :category_id=>"Beverages",
+   :description=>"Skinny Italian Sodas"},
+ "Orange-Blast-Hydration-Slushie-1530912"=>
+  {:title=>"Orange Blast Hydration Slushie",
+   :url=>"http://thekitchengirl.com/orange-blast-hydration-slushie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/HS8-YufRRPJBzho9rf4U-xPTc_hU6UqEaxIRqE9nK2fuEpyl84QinWa0rMOcy7JuYPe4S9SPk8ov2eP5nLEg=s360",
+   :category_id=>"Beverages",
+   :description=>"Orange Blast Hydration Slushie"},
+ "Healthy-10-Minute-Vegetarian-Taco-Salad-1479829"=>
+  {:title=>"Healthy 10 Minute Vegetarian Taco Salad",
+   :url=>"http://delightfulmomfood.com/healthy-10-minute-vegetarian-taco-salad/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/epsuX5vuazy64zCIvJppS8xgBBSc8ekCku58-O_Xd8Gi1rGPEtizyPUzJx_pRB1IRz9kXfrNLkUTE9VnJepk=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Healthy 10 Minute Vegetarian Taco Salad"},
+ "Tropical-Breakfast-Smoothie-1521163"=>
+  {:title=>"Tropical Breakfast Smoothie",
+   :url=>"http://www.jaroflemons.com/tropical-breakfast-smoothie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/RUqdS2ghXWP7mOU7CC6zNvcgdF1qAQlShqdqpY_9T8oIg4GrKNSReublsuHhfNph4u8wOZ3Yz2omj94Vfp7F=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Tropical Breakfast Smoothie"},
+ "Greek-Yogurt-Brownies-1529762"=>
+  {:title=>"Greek Yogurt Brownies",
+   :url=>"http://www.hungryhappens.com/recipes/dessert/greek-yogurt-brownies.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/8LuItVXWGjRT5-Ii4QjXXpdBrh9qqDPq2Ro4wCz4fNJ4zCONUNtmh8l1sS8cuTDjB-flkA6M_Pu-DL-_aosSbA=s360",
+   :category_id=>"Desserts",
+   :description=>"Greek Yogurt Brownies"},
+ "Meat-Thai-1531752"=>
+  {:title=>"Meat Thai",
+   :url=>"http://ladiesboxx.com/meat-thai/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/dJmNSUiki0FlxuS7HLMR6CjHOo6s9A7hPvgHIVg9cgkLTswu_DvqLLfaLX150reneSHj29Mxhi19mVApYfzftQ=s360",
+   :category_id=>nil,
+   :description=>"Meat Thai"},
+ "Easy-Microwave-Apple-Crisp-1528488"=>
+  {:title=>"Easy Microwave Apple Crisp",
+   :url=>"http://thewellnessscientist.com/meatless-monday-recipe-easy-microwave-apple-crisp/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/8FMuqRYV-tVhUcWNbXlUVsUfwyR_05IaoWIG7Emq4sQcipL88BTRvIu38ewJvVY_rYgX4VF-dqH2dnfDj_jN=s360",
+   :category_id=>"Desserts",
+   :description=>"Easy Microwave Apple Crisp"},
+ "Easy-Crockpot-Potato-Soup-1533794"=>
+  {:title=>"Easy Crockpot Potato Soup",
+   :url=>"https://thegreenandblinglife.wordpress.com/2016/02/12/easy-crockpot-potato-soup/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/tKcTjKaznrav1iEUQ7XbB4hJ4I83CwX7Rf4jYiS7ut7xz_UwWjSSlXryAcHxz4H10QCCRnQXTxJLIRWnM0CnaWQ=s360",
+   :category_id=>"Soups",
+   :description=>"Easy Crockpot Potato Soup"},
+ "Red-Energy-Drink-1527556"=>
+  {:title=>"Red Energy Drink",
+   :url=>"http://www.legenrecipes.com/recipe/red-energy-drink/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/VRIgO35vbmUCqC-phceU4Gi9l7RcZTCIdLEdV9ZIRXJAWygJMu7sVuJlIzX1td5_wtl7mZ3JkR7QAbALVTZETA=s360",
+   :category_id=>"Beverages",
+   :description=>"Red Energy Drink"},
+ "Creamy-Overnight-Oatmeal-1526278"=>
+  {:title=>"Creamy Overnight Oatmeal",
+   :url=>"http://saucepots.net/creamy-overnight-oatmeal/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/_fQaXKv5fhXHVZKFTL8EDOn5IfBfez5zb6rqkbkG2FbeJDSHe8GMuWVyaA0bx0GG0-29DYL79shECU6-YmIMgw=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Creamy Overnight Oatmeal"},
+ "Braised-Pork-in-Sweet-Soy-Sauce-1524712"=>
+  {:title=>"Braised Pork in Sweet Soy Sauce",
+   :url=>"http://www.smokywok.com/2010/09/braised-pork-in-sweet-soy-sauce-recipe.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/FGPoASZdZacVSDpgu5AwHEeve3hUvC3JTustM6pVLLz7HerB8QC3jnGTMrNcQ7uM5orRNNXbiNox_9j3smR5bw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Braised Pork in Sweet Soy Sauce"},
+ "Drink-And-Grow-Thin_-1504280"=>
+  {:title=>"Drink And Grow Thin!",
+   :url=>"http://ladiesboxx.com/sassi-water-drink-and-grow-thin/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/0PPtM02F8NbciYrskjyikIv1xY7J2REQzfOiVIsY_r2ECuBFvEbtzrPOH64VUKiLabPxYi-3f6AOJc3g_oamzw=s360",
+   :category_id=>"Beverages",
+   :description=>"Drink And Grow Thin!"},
+ "German-Chocolate-Scotcharoos-1531889"=>
+  {:title=>"German Chocolate Scotcharoos",
+   :url=>
+    "http://www.lemonsforlulu.com/german-chocolate-schotcharoos/?utm_campaign=coschedule&utm_source=facebook_page&utm_medium=Lemons%20For%20Lulu&utm_content=German%20Chocolate%20Scotcharoos",
+   :image_url=>
+    "https://lh3.googleusercontent.com/UP6ujhvnQNugG77gl-k31Emiudsw6Sk1fYKPckYUiOqT64gDje2HDG7Q34ahI8TCQGotQH50xwZU2odaxdIckA=s360",
+   :category_id=>"Desserts",
+   :description=>"German Chocolate Scotcharoos"},
+"Taco-Tortilla-Bowl-1531842"=>
+  {:title=>"Taco Tortilla Bowl",
+   :url=>"http://www.mccormick.com/Lawrys/Recipes/Main-Dishes/Taco-Tortilla-Bowl",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Mh-f4s7NwgcTyuWoUuGAB1PYnHvZ6EZ9HHiclSUdrzlqADsWP5PS5nS8iRL-jBA4KJP5SzQLAypgyH4fUNE9=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Taco Tortilla Bowl"},
+ "Korean-BBQ-Tofu-Bowl-1531805"=>
+  {:title=>"Korean BBQ Tofu Bowl",
+   :url=>"http://www.hezzi-dsbooksandcooks.com/2016/03/korean-bbq-tofu-bowl.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/siDTZ9W9fQISNmhJB4a7UIotP3k6ATl0ERS2vWgRb5jbEaNPSWZLFku1Wj3vYN8xQA0KagFjvMmGoqPub5xOBg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Korean BBQ Tofu Bowl"},
+ "Simple-Amish-White-Bread-1523876"=>
+  {:title=>"Simple Amish White Bread",
+   :url=>
+    "http://www.theslowroasteditalian.com/2013/06/simple-amish-white-bread-recipe.html?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+TheSlowRoastedItalian+%28The+Slow+Roasted+Italian%29",
+   :image_url=>
+    "https://lh3.googleusercontent.com/GElBRZ581v2maR57CQxihlFn3fp_JSj0iZJjH6yW0TtIORGU_XycfeQYzGDtiFRWTRd8AJw_z6AUPrROVIjh=s360",
+   :category_id=>"Breads",
+   :description=>"Simple Amish White Bread"},
+ "Egg-Drop-Ramen-Microwave-1522104"=>
+  {:title=>"Egg Drop Ramen Microwave",
+   :url=>"http://speedyrecipe.com/2016/01/14/egg-drop-ramen-microwave/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OQHTG0TBGH88_zz3no5l_vAzDlJbfS3UX2bLqr4yIqRl700YqAdBg6cbM0SCsqhRV-zOEdCUEWo6oYms6a8aZr8=s360",
+   :category_id=>nil,
+   :description=>"Egg Drop Ramen Microwave"},
+ "Mini-Pizza-1530357"=>
+  {:title=>"Mini Pizza",
+   :url=>"http://unlimited-recipes.com/recipe/mini-pizza/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/CW_K6uLecJpjAVDStXZW0ZxV8KEv7Mm6DsNR0tOlzvZa0PlwaxFUM-kQ6jA-qqtDh8prF3dwDqjRqbtu0hBZ=s360",
+   :category_id=>nil,
+   :description=>"Mini Pizza"},
+ "Easy-Classic-Tira-mi-su-Cake-1529748"=>
+  {:title=>"Easy Classic Tira mi su Cake",
+   :url=>"http://anitalianinmykitchen.com/tira-mi-su/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/5LwKXmKqYy0gH-QH5JGMN8JW9JXexZYZiXXy6SjGpJnfa6U9ekv3RBeLDK_IEXkJphBZeSQrpSgOxNMiEl-9=s360",
+   :category_id=>"Desserts",
+   :description=>"Easy Classic Tira mi su Cake"},
+ "Cinnamon-Apple-Quinoa-Breakfast-1532337"=>
+  {:title=>"Cinnamon Apple Quinoa Breakfast",
+   :url=>"http://www.simplyquinoa.com/cinnamon-apple-breakfast-quinoa/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/7WJbq-VWGgaOct6RA7tZJXvhL24Chm2dCIrIiTbgOS2NNcwYx8EkXniE5Piu-A0iwNTWecPkw8Q8qVh3PiWXRg=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Cinnamon Apple Quinoa Breakfast"},
+ "Chocolate-Crunch-1532636"=>
+  {:title=>"Chocolate Crunch",
+   :url=>"http://www.webmd.com/food-recipes/chocolate-crunch",
+   :image_url=>
+    "https://lh3.googleusercontent.com/FELtzygrJ54qplyAGkWzPmTbjHZB04JP2grehN0jsNhS3kp8BH406-YVKnUlYmfdiFduZbnVo54XdW9I9cJFtg=s360",
+   :category_id=>"Desserts",
+   :description=>"Chocolate Crunch"},
+ "Chili-982683"=>
+  {:title=>"Chili",
+   :url=>"http://sanpasqualskitchen.com/chili/",
+   :image_url=>
+    "http://lh5.ggpht.com/VPo1VmbHuOc0Nar5cm_t7GNDg589X8jkEqm2YhfVOwOq7SvDqkirUw6rd1rflx9ghQJKPy6CWBAJ9PI49Zurpg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chili"},
+ "Vegan-Detox-Smoothie-1532803"=>
+  {:title=>"Vegan Detox Smoothie",
+   :url=>"http://www.popsugar.com.au/fitness/Vegetable-Vegan-Smoothie-Recipe-Avocado-Spinach-30659355",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OdfxuRhxyLOqLKZtamZ8f026Og0gZCURxmTOlJKC2SdxRzs4sQ7f8XWwgCQwJHiw6nwufXZkAwXRJs_eupx5JQ=s360",
+   :category_id=>"Beverages",
+   :description=>"Vegan Detox Smoothie"},
+ "Oatmeal-Energy-Balls-1525782"=>
+  {:title=>"Oatmeal Energy Balls",
+   :url=>"http://01recipes.com/oatmeal-energy-balls/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/GL2tMc_0VhN7vJ5pfMXLHclKbxKZBNLI3colDa2772nNtKOQqvbIRfP3VPqXQ_FtyjO3oPH2wb0ePVbuEdoQiA=s360",
+   :category_id=>"Desserts",
+   :description=>"Oatmeal Energy Balls"},
+ "Tropical-Heat-Drink-1481908"=>
+  {:title=>"Tropical Heat Drink",
+   :url=>"http://drinkologia.com/tropical-heat-drink/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/OC8x0zKpSH8l2BW-diSbKsSNw0vZ0IMu-yWg3x5ylQsoeNfwikKCB_rjLlx6akzrSbWyGzAA5MDvFRjtbcbv=s360",
+   :category_id=>"Beverages",
+   :description=>"Tropical Heat Drink"},
+ "Chicken-and-Asparagus-Teriyaki-Stir-Fry-1532223"=>
+  {:title=>"Chicken and Asparagus Teriyaki Stir-Fry",
+   :url=>"http://www.skinnytaste.com/2016/03/chicken-and-asparagus-teriyaki-stir-fry.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/IjJ51UzbhBsYdZM9oYjaIpSzDr0zcMZBZ08yCkGNaW8RNyDmc3XcYwKytfIH3voXDg_PK9CCksAHIESLx0vO-A=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken and Asparagus Teriyaki Stir-Fry"},
+ "Italian-1085080"=>
+  {:title=>"Italian",
+   :url=>"http://www.myrecipes.com/recipe/herb-olive-oils-italian",
+   :image_url=>
+    "http://lh3.googleusercontent.com/aBdf3lDuU2pnE2LIuw9vVRHYDB6DQBAXKYEox8r1vNBatpooU5_KX58C4JfoLe7gLkd96jU18di6_JStwwjUTQ=s360",
+   :category_id=>nil,
+   :description=>"Italian"},
+ "Breakfast-Skillet-with-Diced-Red-Potatoes-1513835"=>
+  {:title=>"Breakfast Skillet with Diced Red Potatoes",
+   :url=>"http://12tomatoes.com/recipe-breakfast-skillet-with-diced-red-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Bhoq9vayXbGfsZbBdUnic7X7z9nR4_NQ7XYA-HUzNpfWOAB3Lw3ejwz1yBvF5gHcRSHtUDR6T8EEtQ1G-dLLZA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Breakfast Skillet with Diced Red Potatoes"},
+ "Grain-Free-Blueberry-Muffins-1524424"=>
+  {:title=>"Grain Free Blueberry Muffins",
+   :url=>"http://www.whattheforkfoodblog.com/2016/02/25/grain-free-blueberry-muffins/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/O9jgdF3HIO7aIa1OQUJYXS2h8BNBIEvNFb2jzKw42nNmjjhi922xG9Xi3ReXpLbXdmIoKtntRfr-tmGjMAZy=s360",
+   :category_id=>"Breads",
+   :description=>"Grain Free Blueberry Muffins"},
+ "Crock-Pot-Candy-1249011"=>
+  {:title=>"Crock Pot Candy",
+   :url=>"http://www.theslowroasteditalian.com/2014/12/crockpot-candy-recipe.html#more",
+   :image_url=>
+    "http://lh3.googleusercontent.com/ViSiuvcBhObv9t4c-d_NhM8Tq6Vo9y7qWD_iPg-H-eBaev13RxSux8IPrWYVi9KIMVf309CWjkl10S9igXk-Fg=s360",
+   :category_id=>"Desserts",
+   :description=>"Crock Pot Candy"},
+ "Grilled-Cheese-Sandwich-with-a-secret-ingredient_-1529703"=>
+  {:title=>"Grilled Cheese Sandwich with a secret ingredient!",
+   :url=>"http://www.isavea2z.com/grilled-cheese-sandwich-with-a-secret-ingredient/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/GpBGKTiCs4WcbeFe9tpa-sLDdNdOPJZfKtg-X0b01Hl2Ryi6TW75oVnSXeE5sWZqvqk46RfVzGTSCKTAQpE7nUo=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Grilled Cheese Sandwich with a secret ingredient!"},
+ "Kale-Caesar-Salad-with-Bacon-and-Homemade-Croutons-1529547"=>
+  {:title=>"Kale Caesar Salad with Bacon and Homemade Croutons",
+   :url=>"http://www.thebusybaker.ca/2016/02/kale-caesar-salad-homemade-croutons.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Yy4ShOI5Wj6hvdAJcDBBSvNO9Aw70sJ5zeuQv5ZG2mKt0wGzDtCNTEygtEIroyI5iM2uilVdYm0udxMqY7yu=s360",
+   :category_id=>"Salads",
+   :description=>"Kale Caesar Salad with Bacon and Homemade Croutons"},
+ "Cream-Peas-Allrecipes"=>
+  {:title=>"Cream Peas",
+   :url=>"http://allrecipes.com/recipe/cream-peas/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/K63-ys67jrFN-mwPDcA5gg25i7d83djt9U2J4IbdcQ3B-NoLd5RuQa80GzE8LNrB_2Rz-pn5cPQvZsw3cU6PrQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Cream Peas"},
+ "A-Lemony-Hazelnut-_-Blueberry-Cake-from-Amber-Rose_s-_Love_-Bake_-Nourish_-1526085"=>
+  {:title=>"A Lemony Hazelnut & Blueberry Cake from Amber Rose's 'Love, Bake, Nourish'",
+   :url=>
+    "http://www.sweetpaulmag.com/food/a-lemony-hazelnut-amp-blueberry-cake-from-amber-roses-love-bake-nourish",
+   :image_url=>
+    "https://lh3.googleusercontent.com/yluzGY_hE_1QCqE1NIFU8QeJDKd0zElDj86qFJ1D9jqsl8TB-FsHIIRUBjLPuO_s_58OMIenhvBs9nHiRy0Chg=s360",
+   :category_id=>"Desserts",
+   :description=>"A Lemony Hazelnut & Blueberry Cake from Amber Rose's 'Love, Bake, Nourish'"},
+ "Brown-Sugar-Pie-_SundaySupper-1527022"=>
+  {:title=>"Brown Sugar Pie #SundaySupper",
+   :url=>"http://www.hezzi-dsbooksandcooks.com/2016/02/brown-sugar-pie-sundaysupper.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/9wcBBQXaAQkKD9VzSIj4BRSwAScInjcqkYtlLAy3zuVPL6mBbuexdMrrqvJ5szu2VxQZ7-ktDHKKxIIoOxnsNA=s360",
+   :category_id=>"Desserts",
+   :description=>"Brown Sugar Pie #SundaySupper"},
+ "Sparkling-Grapefruit-and-Orange-Sangria-1533962"=>
+  {:title=>"Sparkling Grapefruit and Orange Sangria",
+   :url=>"http://www.casadecrews.com/2016/03/sparkling-grapefruit-orange-sangria.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/BhMQtDExCteXhddztI-F_JGGDbF-rUx3IfG-rIKhmJqvXD3ePYt1cVGWMhxmGZqxk9VgM85V3xHFw1awS77GnYo=s360",
+   :category_id=>"Beverages",
+   :description=>"Sparkling Grapefruit and Orange Sangria"},
+ "Vegetarian-Ramen-1493260"=>
+  {:title=>"Vegetarian Ramen",
+   :url=>"http://endurancezone.com/vegetarian-ramen/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/UIg4PTHq-GxMrQ_iOm8UaTfk0d3MvKcsnA0ct5S7G63CkK_81ORELXp28KtOTQYOqpl-mVEj9gckhTooH_JJ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Vegetarian Ramen"},
+ "Banana-Oat-Greek-Yogurt-Muffins-1507865"=>
+  {:title=>"Banana Oat Greek Yogurt Muffins",
+   :url=>"http://www.runningwithspoons.com/2014/06/24/banana-oat-greek-yogurt-muffins/#_a5y_p=4656359",
+   :image_url=>
+    "https://lh3.googleusercontent.com/SQIBRqdZARfN5xjf98v6oBO3HybMO_98vfba2PbUhmoOymqjPmPzr4APjTzXRlBo_GK5wipMUYhz0qwP1v3UmX8=s360",
+   :category_id=>"Breads",
+   :description=>"Banana Oat Greek Yogurt Muffins"},
+ "Mexicali-Appetizer-Meatballs-1532168"=>
+  {:title=>"Mexicali Appetizer Meatballs",
+   :url=>"http://www.kraftrecipes.com/recipes/mexicali-appetizer-meatballs-54373.aspx?kraftcustom=true",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ETvwN3CIBAXPrDpSmlomXK2AuFFEanhIF2LYsoYtuOUmcN7HybMiBQJTXezGjR7cbtHVlpGTZwDqcuRqoUAC_GY=s360",
+   :category_id=>"Appetizers",
+   :description=>"Mexicali Appetizer Meatballs"},
+ "Mean-Green-Pesto-Pasta-1525976"=>
+  {:title=>"Mean Green Pesto Pasta",
+   :url=>"http://www.nomingthrulife.com/mean-green-pesto-pasta/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/RFF-ZPzCDx5tBgCZzYyQBBL9cYgBtHo8WuUvnTK2hqe7Dvrxjxiwdg3-u0asd2SdHD5GeF-uap81sc68n-KFQ9I=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Mean Green Pesto Pasta"},
+ "Crab-Pot-Pie-1521886"=>
+  {:title=>"Crab Pot Pie",
+   :url=>"http://seafoodandshellfish.blackjava-coffee.com/maryland-crab-pot-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ZSRUGXyXZLUbBPGxGlteYs89K1CBglNKtsVTwmwMY_S74HSb-x-3V4UoK4os8H4LzIHddErmYOb4eZTJFJerzQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Crab Pot Pie"},
+ "Chicken-Pot-Pie-1530827"=>
+  {:title=>"Chicken Pot Pie",
+   :url=>"http://www.sandersonfarms.com/recipes/chicken-pot-pie/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/nE4eebNEffoI-vPAwxp3V1xQvPXZOMMkasKUFTB1bfVJdWiqYkS4VWpX5k_c1BcYt5tDxpYvp1XpkDaCRg9mmBs=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Pot Pie"},
+ "Hummus-and-Laffa-Bread-1529393"=>
+  {:title=>"Hummus and Laffa Bread",
+   :url=>"http://theviewfromgreatisland.com/hummus-and-laffa-bread/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/f8w8cocJ1bTCNjWhlpJNFUPb8aRwZ0I9Mef61gB2tJcKgOAJYpbpFtUX3pVwR6VwUzk2ExukMMLenLB_iS55=s360",
+   :category_id=>"Breads",
+   :description=>"Hummus and Laffa Bread"},
+ "Honey-Mustard-Beer-Batter-Fillet-Sandwich-1501621"=>
+  {:title=>"Honey Mustard Beer Batter Fillet Sandwich",
+   :url=>"http://www.yummly.com/recipe/Honey-Mustard-Beer-Batter-Fillet-Sandwich-1501621",
+   :image_url=>
+    "https://lh3.googleusercontent.com/LhtsRTDD5wx1Np3cBlFdJKtPmSMRDtZSUzpsmtcjNKvqKhiu8lzB-Xa8qjDDBlhj_YJEoPE2tlPzMHRCfsnP2g=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Honey Mustard Beer Batter Fillet Sandwich"},
+ "Fruit-Cobbler-1525288"=>
+  {:title=>"Fruit Cobbler",
+   :url=>"http://longbournfarm.com/2016/02/25/fruit-cobbler/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/PgZiynDcGzTsEFMUTnL-4amNtxXILKEbjZw5Y4-10pos45pkZwBeJHmFnAX1HI6kQDk0IxNN-kEttgv7b3XXx-A=s360",
+   :category_id=>"Desserts",
+   :description=>"Fruit Cobbler"},
+ "Garlic-Kale-1095275"=>
+  {:title=>"Garlic Kale",
+   :url=>"http://www.servedfromscratch.com/?p=4384",
+   :image_url=>
+    "http://lh3.googleusercontent.com/as3xddEh3xAJir0bjzZHV4Ubfvn9LDY7IKtyFFwE_TqrXT6ZUpo-siGZLiHSt2mXDkW1F8vjnL0iIG62w2nbbQ=s360",
+   :category_id=>nil,
+   :description=>"Garlic Kale"},
+ "Honey-Soy-Sticky-Chicken-Wings-1530211"=>
+  {:title=>"Honey Soy Sticky Chicken Wings",
+   :url=>"http://www.familyfreshmeals.com/2016/02/honey-soy-sticky-chicken-wings.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/IO9wSwfu0DOsWnsFTAK3mAcroRo2HWNth9mds6N4a6ktt8ZlfZNGS-h-9lvBR9sKygy5H68oJ0k9lA6mNDTV_g=s360",
+   :category_id=>"Appetizers",
+   :description=>"Honey Soy Sticky Chicken Wings"},
+ "Smores-Popcorn-Recipe-for-Movie-Night-1528783"=>
+  {:title=>"Smores Popcorn Recipe for Movie Night",
+   :url=>"http://thriftydiydiva.com/perfect-smores-popcorn-recipe-for-movie-night/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/0YVuaaODiOk3CCAXX6l7A_I04LehMOZdnnmsdH9NtLUXtyHXBlRXi4PSOrHA5Hjq5d6kIuosGa1UCrVuQ1Rp=s360",
+   :category_id=>"Desserts",
+   :description=>"Smores Popcorn Recipe for Movie Night"},
+ "Turkey-Avocado-Melt-1510820"=>
+  {:title=>"Turkey Avocado Melt",
+   :url=>"http://www.thecountrychiccottage.net/2016/02/turkey-avocado-melt.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/IDH1RQx3aRKsZq-wZbhVyONueT6l6C4AHvOAq3EMm9m_MKmTaxobFSmwkmXpkf-aPNzeW7TeRcMRr1TmWBjEtQ=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Turkey Avocado Melt"},
+ "Lasagna-1422375"=>
+  {:title=>"Lasagna",
+   :url=>"http://www.havingfunsaving.com/2015/12/traditional-lasagna-recipe.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/--XnirZ4NQoiUVtNEu47tWO-kLcObDEwPDJnQ4RjAvNJgFw2OpkPQ97MulJoEl8RIaeHyabWnqUyg6PejboAww=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lasagna"},
+ "Idaho-Sunrise-a-Breakfast-1523410"=>
+  {:title=>"Idaho Sunrise-a Breakfast",
+   :url=>"http://thevillagecook.com/idaho-sunrise-a-breakfast/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/1KCbx9Cf5fbEvnaKdU-IVWp8PTxzxMN-RJgvVOa82jvZuTfmXegQc5oGSIjJJkyxpwB3HZwlXJdx8hqmG84v=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Idaho Sunrise-a Breakfast"},
+   "Roasted-Chili-Chick-Peas-1518756"=>
+  {:title=>"Roasted Chili Chick Peas",
+   :url=>"http://swirlsofflavor.com/roasted-chili-chick-peas/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/2Pnr2t_33AK7NgZcm74hgzFRD2jOqk3SAGcxm7oDxqV1LQOGtV1lyBWLApliVTc67AOmE5HHrSuWGQlG2WHv3g=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Chili Chick Peas"},
+ "Football-Foodie-Snack-1496788"=>
+  {:title=>"Football Foodie Snack",
+   :url=>
+    "http://sarahsprague.com/2011/11/02/seared-queso-blanco-football-foodie-snack-served-with-feigned-fan-humility-and-salsa/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/HNscejCdxA2mLVPjZ1kdkzr5aVHxexn0bUAq8bZBwI6AvPQsM2h7iw6qUboE4mi88TEyUdek-7kMMvIewGIHtLw=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Football Foodie Snack"},
+ "Chicken-Burrito-Bowls-1530246"=>
+  {:title=>"Chicken Burrito Bowls",
+   :url=>"http://www.foodiegirlchicago.com/chicken-burrito-bowl/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/PrLvHSeqSJ8TVufKEvGFai0VPwwcJAllzzF-vM_Y0bmkJZnoFRRlGTknEFFHedfFNf9pya_APmjUl48mNyL0Gg=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Burrito Bowls"},
+ "Orange-Pound-Cake-1526276"=>
+  {:title=>"Orange Pound Cake",
+   :url=>"http://www.delscookingtwist.com/2016/02/27/orange-pound-cake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/7Q0dCQemimkciOlc4CrY72lfJmFr4q-d11xQjVBp8SnY6jEw2eo8XMtrYDhhGwqKWJeeb9AxViUNKbnBGHTTVw=s360",
+   :category_id=>"Afternoon Tea",
+   :description=>"Orange Pound Cake"},
+ "Candied-Bacon-1531520"=>
+  {:title=>"Candied Bacon",
+   :url=>"http://kyleekitchen.blogspot.com/2016/02/candied-bacon.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/oVqkkh7vHpLnMIBe0kEeKJfMWwG-I6-iEeqZOTqaaVDvf9niQ_rqCl6WC7XlM4ZyAROzjxgsMvJEVUQzCIhtZA=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Candied Bacon"},
+ "Princess-Bread-1533516"=>
+  {:title=>"Princess Bread",
+   :url=>"http://frugalnovice.com/2016/02/princess-bread/comment-page-1/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/m5XMroDsOJewKGK6MaecvK2gs7HLhE5vsQ20KdcDDF4weRu9mlVQS8yJULvm4drv0TmN_SbNqIC-hURQU1-4zQ=s360",
+   :category_id=>"Breads",
+   :description=>"Princess Bread"},
+ "Chicken-Pot-Pie-_2-Ways_-1532368"=>
+  {:title=>"Chicken Pot Pie {2 Ways}",
+   :url=>"http://www.thekitchenismyplayground.com/2016/02/chicken-pot-pie-2-ways-pie-crust-or.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/peSPKSC5upVjC0gLIkYXrFL8Dii3n2ON2PLsFiyQqHQNJ5hx6RESatH3DsG7QKAcSqAsCnWPGOLkZlzyqgH0bw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Pot Pie {2 Ways}"},
+ "Southwestern-Turkey-Wraps-1527577"=>
+  {:title=>"Southwestern Turkey Wraps",
+   :url=>"http://www.centercutcook.com/southwestern-turkey-wraps/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/VYx41ekEb_WhAkbub_sa5nERxH4DEg__BvT6vmH-pOGU5A5dWKpOBcsDNYlUN7GyL-agg1v0R8-Ci_65fi7-7Q=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Southwestern Turkey Wraps"},
+ "ORANGE-FLAPJACK-1521297"=>
+  {:title=>"ORANGE FLAPJACK",
+   :url=>"http://www.lifewithoutlemons.com/2014/05/orange-flapjack.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/zEyWmsgPWFhbroxSzb3fT7jki9EzLngIpLSgbg7jwpREtne6HldL8v45gBgSUbV-P4yGZ50bnFMsu1JzVPyy=s360",
+   :category_id=>"Desserts",
+   :description=>"ORANGE FLAPJACK"},
+ "Mexican-Rice-1526287"=>
+  {:title=>"Mexican Rice",
+   :url=>"http://togetherasfamily.com/2016/02/mexican-rice/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/N7Dx20OW2KPUpMMRd5HNmEMm8cICnr_yM7fJoVd7nYxRmrdx6Qw5EBOmFoNOYVzVwIAibJcnlBIiQn8i4AUm4Q=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Mexican Rice"},
+ "The-Best-Bean-Salad-1526286"=>
+  {:title=>"The Best Bean Salad",
+   :url=>"http://togetherasfamily.com/2015/04/the-best-bean-salad/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/QVvJj550-X70G0rOVuNwD6qkqolbpOYn33NV6yIige7japB2LHIRZx3YJq5-sNDq2CLDCXMjzr6CY90hYhFCoA=s360",
+   :category_id=>"Salads",
+   :description=>"The Best Bean Salad"},
+ "Vegan-Meringue-Cookies-1531911"=>
+  {:title=>"Vegan Meringue Cookies",
+   :url=>"http://livingsweetmoments.com/vegan-meringue-cookies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/KaSC1RSuNHAwGfg_iWuQmzTO__yyh_N1mYZK4Jp6t0xkOpsmv6LklOjvfhoq9rjYp6swZaRx761dowT3Yv9swRE=s360",
+   :category_id=>"Desserts",
+   :description=>"Vegan Meringue Cookies"},
+ "Eggs-Benedict-1526357"=>
+  {:title=>"Eggs Benedict",
+   :url=>"http://thepioneerwoman.com/cooking/its-eggs-benedict-day/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/pzSftNHTRoi1DGDv4BlJ7c5vYuN7FnCLD_nhaD-4lIaYK9UnDBKQiMI6uzPNhqiMyAz-zxBsWrl62YLZV54yOxo=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Eggs Benedict"},
+ "Italian-Pasta-Salad-1529857"=>
+  {:title=>"Italian Pasta Salad",
+   :url=>"http://www.kraftrecipes.com/recipes/italian-pasta-salad-50983.aspx?kraftcustom=true",
+   :image_url=>
+    "https://lh3.googleusercontent.com/zKORV4UWlUcuoVGmav1X13okiMxZMgK3vsS5KKud8wZTKgfUa2ZhuuzrT8l2joSWWfQcghhIFeenyMKlzI0IZw=s360",
+   :category_id=>"Salads",
+   :description=>"Italian Pasta Salad"},
+ "Honey-Citrus-Glazed-Pork-Loin-1532843"=>
+  {:title=>"Honey Citrus Glazed Pork Loin",
+   :url=>"http://whoneedsacape.com/2014/04/honey-citrus-glazed-pork-loin/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/EmSnc2Nmy4UiX029sovb2zVPBtRM13cXhrVHzJTXAk-_8JXHXJlupYG7vRiQUGcmzhwlhC9v-37pHXdUzW37_w=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Honey Citrus Glazed Pork Loin"},
+ "Sesame-Garlic-Snap-Peas-1522999"=>
+  {:title=>"Sesame Garlic Snap Peas",
+   :url=>"http://www.spendwithpennies.com/sesame-ginger-snap-peas/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/9kcUgUnxcug-IklWu6ryxaDQXAd1wJKeIEm_bo_QxYQHQk5U0RTS4g3tPlZr8QEvLNc7pKd1_aeKXPdhgxUWQQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Sesame Garlic Snap Peas"},
+ "Slow-Roasted-Pork-Shoulder-1531460"=>
+  {:title=>"Slow Roasted Pork Shoulder",
+   :url=>"http://www.justalittlebitofbacon.com/slow-roasted-pork-shoulder/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/eKVmj9HJ-OHhdknZp_f9KTOUjkkMP2LvHynnuza9CR3oLv0W13dWZmSkfhJyAuajtMd9OipZi5ffZ6xU2HM9=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Slow Roasted Pork Shoulder"},
+ "Easy-Breakfast-Grilled-Cheese-1516188"=>
+  {:title=>"Easy Breakfast Grilled Cheese",
+   :url=>"http://www.smalltownwoman.com/easy-breakfast-grilled-cheese/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/HI6ef_qn_DaEkqjgV3ZVWoh9SSPDZsZ7x6OIyZHxuANWbE9dHfAbw-EpqIdVAf4pP5vmsZspYfPTlejHfvQh6I4=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Easy Breakfast Grilled Cheese"},
+ "_One-Pot_-Fish-Paella-1527417"=>
+  {:title=>"{One Pot} Fish Paella",
+   :url=>"http://www.naivecookcooks.com/one-pot-fish-paella/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/lZTfKDdLm082h2aYhMP0c9jwddM4TuSkifhkBOFpw5WbSOeL1LaVb8YxTKNhN752Qvk39ODuFm0wTa5VW-cgPKw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"{One Pot} Fish Paella"},
+ "Lemon-Bread-1525250"=>
+  {:title=>"Lemon Bread",
+   :url=>"http://diethood.com/lemon-bread-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/0jinBk9nqFj6NNFALmOa8C0B96e5dxrpRIjNJEhOft30PcJ0ov7AIB3z2i1NpFIstmhptogTh5SIHU6wYStfmSY=s360",
+   :category_id=>"Afternoon Tea",
+   :description=>"Lemon Bread"},
+ "Blueberry-Cake-1524032"=>
+  {:title=>"Blueberry Cake",
+   :url=>"http://www.aspicyperspective.com/blueberry-cake/2/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/k3IlSU16L58SbJr63V20rEoTXr5nuldVequ1IWOHr8Bcnwdr0Ftn6ASoqd2J-eDGm9jhAHlTL8AxhQzXJr99=s360",
+   :category_id=>"Afternoon Tea",
+   :description=>"Blueberry Cake"},
+ "Mexican-Tuna-Salad-with-Avocado-_GF_-DF_-1524202"=>
+  {:title=>"Mexican Tuna Salad with Avocado {GF, DF}",
+   :url=>"http://avocadopesto.com/2016/02/25/mexican-tuna-salad-with-avocado/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/uH_FPT_UgGVXaMFTeocKtrJMgCfbIGn9riQpPRQ4IYh9hRqMkR8BI3A7L0DoNi5b1UXAl5m3DqDhxPf0D-5v2z8=s360",
+   :category_id=>"Salads",
+   :description=>"Mexican Tuna Salad with Avocado {GF, DF}"},
+ "Pumpkin-Overnight-Oats-1531200"=>
+  {:title=>"Pumpkin Overnight Oats",
+   :url=>"http://www.tovitanutrition.com/blog/2015/12/7/pumpkin-overnight-oats",
+   :image_url=>
+    "https://lh3.googleusercontent.com/-Lyg8LTodpA627lLWh3lau65EizS2rS-cXJUJmGBjweKn_6kHTi2JdTUhOi_NPCU3xdFa3vuvDxvXth98zJ96mo=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Pumpkin Overnight Oats"},
+ "Irish-Brown-Soda-Bread-1529400"=>
+  {:title=>"Irish Brown Soda Bread",
+   :url=>"http://www.thefoodieaffair.com/2016/02/29/irish-brown-soda-bread/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/f7ZpPEPCyo5MP0DWHEi4dMUFdqtSd8-X_Dd7ynzWtjLLn9x2Xv8TGx8IrnhZm3rxR7bs31zkPYgD8I7nuC2m6Q=s360",
+   :category_id=>"Breads",
+   :description=>"Irish Brown Soda Bread"},
+ "Banana-Pudding-Poke-Cake-1532066"=>
+  {:title=>"Banana Pudding Poke Cake",
+   :url=>"http://tidymom.net/2016/banana-pudding-poke-cake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ustTU-LLtNIGIgf1NbdMc-Njk_nVcunuuM8DzULAxJURc8fywvnfouZQ71MCBybA-slFGFJw8X2DIYMatB2_EQ=s360",
+   :category_id=>"Desserts",
+   :description=>"Banana Pudding Poke Cake"},
+ "Fruit-Pizza-1512905"=>
+  {:title=>"Fruit Pizza",
+   :url=>"http://www.cupcakediariesblog.com/2012/07/fruit-pizza.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/IkP5uQtsf551MXx7QP4rGstzmSZkG1PimU0oFcE5TN7JupP8FAX6f8bHBlPo-cvW_eQ0fiUMVmdu_J1dHs-JZRw=s360",
+   :category_id=>"Desserts",
+   :description=>"Fruit Pizza"},
+ "Blueberry-Cottage-Cheese-Oatmeal-1523707"=>
+  {:title=>"Blueberry Cottage Cheese Oatmeal",
+   :url=>"http://hungryhobby.net/2016/02/25/blueberry-cottage-cheese-oatmeal/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/4yb8b4e9LrH82uTxC2DucPWiEI4P5FTFsDuKzzWX4aemAY4PlTBBCCQyipKeVyXwfr_kiIu6X_AtH5NNggkI=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Blueberry Cottage Cheese Oatmeal"},
+ "Italian-Halibut-1290339"=>
+  {:title=>"Italian Halibut",
+   :url=>"http://easyitalianrecipes.org/main-dish-recipes/italian-halibut-recipe/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/WNrD_Y-pRFe7s4z4WLgIAJ1aodB443-68Y-_On7Jeqo5Ud1ilqIrgKliTnC3E4t4qgEOiKkAA_UKtWlIVLYs-Q=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Italian Halibut"},
+ "Meat-Puffs-1125129"=>
+  {:title=>"Meat Puffs",
+   :url=>"http://www.foodfromportugal.com/recipe/meat-puffs/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/3CM3gTGO8LLicMlEvDMjKdT6z4W6ADNinHbo174zrdVFB2ek2GA9EyD9-VD2S6-ev6PpVlJnuuV9cZUk5Dutu_o=s360",
+   :category_id=>nil,
+   :description=>"Meat Puffs"},
+ "Meat-Cannelloni-980096"=>
+  {:title=>"Meat Cannelloni",
+   :url=>"http://www.foodfromportugal.com/recipe/meat-cannelloni/",
+   :image_url=>
+    "http://lh6.ggpht.com/uv1ZxoDh-yMFUmaJBjsIN-ez_JMBdVegUk0NdfPJ5wQ_IM8_uG1DtMsXtw-CWlmHCEV1EbU_dWzgFvDDI0O86Q=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Meat Cannelloni"},
+ "Kale-Veggie-Mini-Frittata-1415403"=>
+  {:title=>"Kale Veggie Mini Frittata",
+   :url=>"http://www.twopurplefigs.com/kale-veggie-mini-frittata/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/ELpLXlQ1rLg9e8Sd4WeJTQWFpkRWqtssne1Vt4T3ZDS9lWeI7iH-ByXZ06mrRP4UierZowUFqLbbIfCX-R2SDw=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Kale Veggie Mini Frittata"},
+ "Cobb-Salad-Dip-1534425"=>
+  {:title=>"Cobb Salad Dip",
+   :url=>
+    "http://www.kraftrecipes.com/recipes/cobb-salad-dip-126856.aspx?cm_mmc=eml-_-saedesk-_-20141204-_-1034&cm_lm=A370B46B262135B463866EF99BB1F5A6&bt_he=?kraftcustom=true",
+   :image_url=>
+    "https://lh3.googleusercontent.com/2ov8zxFtoZxylWnQ9Xim-WOwNm6Ig6BfA3c1tTpzm_zigJRThilnX9Qiu2nHsziTrGXzG3rMdrk2fnLxtnuS=s360",
+   :category_id=>"Appetizers",
+   :description=>"Cobb Salad Dip"},
+ "Moroccan-Rice-stuffed-Tomatoes-1530694"=>
+  {:title=>"Moroccan Rice-stuffed Tomatoes",
+   :url=>"http://www.goodtoknow.co.uk/recipes/542661/moroccan-rice-stuffed-tomatoes",
+   :image_url=>
+    "https://lh3.googleusercontent.com/REOGqdfWbaKBYbofxN6CbdfnpXbYHxrF1KL2mAfZ6o-w4MgQL3syZdTUeTKA04MgNB_Zz5HKylpXO1lu6x-wbyo=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Moroccan Rice-stuffed Tomatoes"},
+ "Italian-Vinaigrette-1286980"=>
+  {:title=>"Italian Vinaigrette",
+   :url=>"http://therecipeforhealing.com/italian-vinegarette/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/hnKcpYJsl2ZjjP9yRGzRo6rncrlg9Cib8Zq45wsVe3bnf1TII5gb03VxbOJoDmjlKkwCLQkxhZpjleytG1TSGQ=s360",
+   :category_id=>"Salads",
+   :description=>"Italian Vinaigrette"},
+ "Homemade-Ramen-1321174"=>
+  {:title=>"Homemade Ramen",
+   :url=>"http://simplemedicine.co/2015/02/16/top-ramen/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/zDeG6H-SWYrgchKqIveZ1Bhkd4RcP4OjxHPvuCQVhHRhxmAIFKZnru160ll7ANlAgoqdWtm8e9TkEGiM3diKSlA=s360",
+   :category_id=>"Soups",
+   :description=>"Homemade Ramen"},
+ "Oatmeal-1081536"=>
+  {:title=>"Oatmeal",
+   :url=>"http://www.100daysofrealfood.com/2011/12/14/recipe-oatmeal/",
+   :image_url=>
+    "http://lh3.googleusercontent.com/GsIiKTcpllUwi2K3fcu5XI4JK1uhen3U5AgkxoRNVDb7OEKf0JVpNGIXHsFHrBdF8_hRGWa2s_9Fo4GFYYYcDdg=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Oatmeal"},
+ "Apple-_bagel_-snacks-300143"=>
+  {:title=>"Apple ''bagel'' Snacks",
+   :url=>"http://www.yummly.com/recipe/Apple-_bagel_-snacks-300143",
+   :image_url=>
+    "http://lh6.ggpht.com/mPC3p5wqWXQC5uMXKIpUIBQgICfwyjuXDPP2NEf1abc0m428RGa4oHkSQeYFfVh2WbQHlXz1OuX8uOsCYsrchg=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Apple ''bagel'' Snacks"},
+ "Vegan-Hummus-Wrap-1477717"=>
+  {:title=>"Vegan Hummus Wrap",
+   :url=>"http://www.aheadofthyme.com/2016/01/vegan-hummus-wrap/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/gtUcMF4I4BdEuo_Qnek75-iHq4ZiRwCD4kBTkRpA7eK3HEtZHGrZu9IniOK9rPczh-BXm7QQjSxSDXPbbBHY=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Vegan Hummus Wrap"},
+ "Spicy-and-Sweet-Smoked-Sausage-Appetizer-1526604"=>
+  {:title=>"Spicy and Sweet Smoked Sausage Appetizer",
+   :url=>"http://www.bos-bowl.com/2012/01/spicy-and-sweet-smoked-sausage.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/LGqZ17w9BRqTvsSGutFN2PZeqyhO4f7txeVubNV8Ilw3Zt-dMKqxp6rw_hdxIw8s5iASWG3_VIghSCW44nKpFw0=s360",
+   :category_id=>"Appetizers",
+   :description=>"Spicy and Sweet Smoked Sausage Appetizer"},
+ "20-minute-Chicken-And-Tortellini-Soup-With-Kale-1531801"=>
+  {:title=>"20-minute Chicken And Tortellini Soup With Kale",
+   :url=>"http://www.familyfoodonthetable.com/20-minute-chicken-and-tortellini-soup-with-kale/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/v9JWXht6fAzLbJoA-Xr0T5QXK-8Z_NRbs9kxvrIksC9bsf2RJQl9HPdT-e5hHXUdIJz5QnufdTou8Nl49BPL=s360",
+   :category_id=>"Soups",
+   :description=>"20-minute Chicken And Tortellini Soup With Kale"},
+ "Fish-Masala-1510547"=>
+  {:title=>"Fish Masala",
+   :url=>"http://www.kitchenjs.com/2016/02/16/fish-masala-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/v36QR30kqFD0pXnkxKmop1KfFnAhFm4DBaUXPpfbTkWpKFglbVqIjhJEyIBjLNsD4OGK9P_hVMDbRQ_nYWTaCHI=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Fish Masala"},
+ "Caprese-Pizza-1511742"=>
+  {:title=>"Caprese Pizza",
+   :url=>"http://bitzngiggles.com/caprese-pizza/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/zuCP25MwCvrDa3r9Q-VpuWybDz0IvzDv1FqSJEppkXOXSFVgb2zITmDQf2YaqHKWBRADb3XLkbIt6qm6f5V-=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Caprese Pizza"},
+   "Bacon-Ramen-1474832"=>
+  {:title=>"Bacon Ramen",
+   :url=>"http://40aprons.com/bacon-ramen/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/9_4dekAExQv9D6MtmCt46I2tpACxR67eb9fraqmkRbQlRVLjBqS33DeYn_omdfKfG8Qe-N1OMWiGANwa-EEA=s360",
+   :category_id=>"Soups",
+   :description=>"Bacon Ramen"},
+ "Eggs-In-Tomatoes-Excellent-Breakfast_-1531961"=>
+  {:title=>"Eggs In Tomatoes – Excellent Breakfast!",
+   :url=>
+    "http://ladiesboxx.com/eggs-in-tomatoes-excellent-breakfast/?utm_campaign=shareaholic&utm_medium=yummly&utm_source=socialnetwork",
+   :image_url=>
+    "https://lh3.googleusercontent.com/xXVmMzXxzNPwUF5184gMVmfiGhtW1RclvMAZASNTYxBPMHH6wnEPRLMLJ0ZPX3iTSGiUoGCWxfKNVg7kUbek_A=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Eggs In Tomatoes – Excellent Breakfast!"},
+ "Homemade-Doggie-Cake-1529800"=>
+  {:title=>"Homemade Doggie Cake",
+   :url=>"http://thecozycook.com/homemade-doggie-cake/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/CHlrw9lTudgqJ6Qrzub5x9inpUqjFJewoSuJ2CYNrtJ021D5-ZcZM8OswaCyhnpc34wqw7XWwsecvilcrQ9hFA=s360",
+   :category_id=>"Desserts",
+   :description=>"Homemade Doggie Cake"},
+ "Salted-Brown-Butter-Chocolate-Chunk-Cookies-1526875"=>
+  {:title=>"Salted Brown Butter Chocolate Chunk Cookies",
+   :url=>"http://www.centercutcook.com/salted-brown-butter-chocolate-chunk-cookies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/5kf1diEgq1ZJ-mNg28_qaqIIdxviyDyCj69krAAnfBGw9-78D8tS8vHKU1uVmohCiCHqphir5lDDHXf60jnuRA=s360",
+   :category_id=>"Desserts",
+   :description=>"Salted Brown Butter Chocolate Chunk Cookies"},
+ "_5_-Shredded-Chicken-Tacos-1506516"=>
+  {:title=>"#5. Shredded Chicken Tacos",
+   :url=>"http://www.weekendcollective.com/20-delicious-easy-crockpot-dishes-for-less-than-15/6/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/-GzpUcgMwtCC1pDF0QZ4N-_hMu-BkeePBC-L9ab5c-YjKGKJM6kD4DsoUziqvri8YJNMpAPM9aLdCuyDSWO0lQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"#5. Shredded Chicken Tacos"},
+ "Peaches-n_-Cream-Oatmeal-1523480"=>
+  {:title=>"Peaches n' Cream Oatmeal",
+   :url=>"http://lovepastatoolbelt.com/2016/02/peaches-n-cream-oatmeal/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Q_spAJa0_kvLjl8j6UD2fsQmqP6roHlbABkav1PkhT2OlrynNUUBD85fWJTdWyujmSXXHsd1v3IxaMprujcXVqk=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Peaches n' Cream Oatmeal"},
+ "Pork-Chop-Skillet-Dinner-1511994"=>
+  {:title=>"Pork Chop Skillet Dinner",
+   :url=>"http://www.lifemadedelicious.ca/recipes/pork-chop-skillet-dinner/60250223-af9b-4921-be72-35b5f3a5250f",
+   :image_url=>
+    "https://lh3.googleusercontent.com/PeenARoRIZnmKp3dvKk3HvBWxssSTcNGsgrKLhV-DaqlBIuYn3AGo7QpmGb8tjwo-UnYTvEsw4KhokcU7ZRc=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Pork Chop Skillet Dinner"},
+ "Brown-Butter-Sweet-Potatoes-with-Maple-_-Pecans-1529816"=>
+  {:title=>"Brown Butter Sweet Potatoes with Maple & Pecans",
+   :url=>"http://www.cookwithmanali.com/brown-butter-sweet-potatoes-with-maple-pecans/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/tNsK5JhnIgiBCi1-Cys_vOX0Uy7WIVpZzpwc7VuSvbyxT1zByr8P-dTn60GetCoKkS_9lIFebjuX7-ih_xwnyA=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Brown Butter Sweet Potatoes with Maple & Pecans"},
+ "4-INGREDIENT-SOUTHWESTERN-LETTUCE-WRAPS-1529334"=>
+  {:title=>"4-INGREDIENT SOUTHWESTERN LETTUCE WRAPS",
+   :url=>"http://realhousemoms.com/4-ingredient-southwestern-lettuce-wraps/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/z3qRIIaWalRoiTiRhQcwASyyAfFCD5vMXfxq2EdEG2t6h2t4CuTSd7WyBrRcFmV2bjh-gxGPMOWQSh83yKrCAmw=s360",
+   :category_id=>"Appetizers",
+   :description=>"4-INGREDIENT SOUTHWESTERN LETTUCE WRAPS"},
+ "Apple-Bacon-Breakfast-Flatbread-1533065"=>
+  {:title=>"Apple Bacon Breakfast Flatbread",
+   :url=>"http://www.pillsbury.com/recipes/apple-bacon-breakfast-flatbread/2be39c78-dd56-4760-aad4-8742a1ac1aa1",
+   :image_url=>
+    "https://lh3.googleusercontent.com/-a_92a_9sEgCbGTQ4meFkODHq1Wh1Ae2XJdpuyTEo0KfBoLz79poKayAqeFZ41TftuWSsV7UAL8cboL1gt01Bw=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Apple Bacon Breakfast Flatbread"},
+ "Crispy-Baked-Teriyaki-Drumsticks-1534410"=>
+  {:title=>"Crispy Baked Teriyaki Drumsticks",
+   :url=>"http://www.spoonforkbacon.com/2016/02/crispy-baked-teriyaki-drumsticks/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/u10MVMB5mfTDPvD84vN8NbYxqJWYfkmoAUJaeyn723Ertfdw7jqt5dS5H24S6GPVbM1OCR4nFSRS0nuO8B3iPA=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Crispy Baked Teriyaki Drumsticks"},
+ "Cheese-Baked-Potatoes-1506411"=>
+  {:title=>"Cheese Baked Potatoes",
+   :url=>"http://cookmealss.com/cheese-baked-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/WTexSzRUudbTGZpFe5fCZn200JH8Ld09ZmTGlOz4I5wJmkitHAs0yXOzDBSJKfOJ3LsuJCi_p8cXj4u1SaA8QFQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Cheese Baked Potatoes"},
+ "Sauteed-Kale-1469720"=>
+  {:title=>"Sauteed Kale",
+   :url=>"http://dontsweattherecipe.com/sauteed-kale/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/fDAm3xProTYIFANCY8z7NR_Snc5rhXjYl4neIdB51ekIsF4lDRQOo-czBdjAvYmNoZz0vcxVaU5Y4pYXuIHWXQ=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Sauteed Kale"},
+ "Shrimp-And-Prosciutto-Pasta-For-One-1531937"=>
+  {:title=>"Shrimp And Prosciutto Pasta For One",
+   :url=>"http://zagleft.com/food/shrimp-and-prosciutto-pasta-for-one/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/YwxOZEGzF1rqSVVvFzFJlpLrV74UbvsWqQJtMfiqc19WKOhb3YAo8H1IChdN7A-JgVf1kPEXyJ1haDqJ3IYXjYE=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Shrimp And Prosciutto Pasta For One"},
+ "Stuffed-Crust-Pizza-Snacks-1527000"=>
+  {:title=>"Stuffed Crust Pizza Snacks",
+   :url=>"http://www.anexpatcooks.com/recipe/stuffed-crust-pizza-snacks",
+   :image_url=>
+    "https://lh3.googleusercontent.com/rLPA9go2mcZ9NX7V_Od7Ay5NS1cSqGTL8km6LUnvzT_jSC80qGu-OUW_hbLe-eq5WLcT5bWQqO39Md8JD49tDg=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Stuffed Crust Pizza Snacks"},
+ "Valentines-Day-Marshmallow-Pops-_-Candies-1529658"=>
+  {:title=>"Valentine’s Day Marshmallow Pops & Candies",
+   :url=>"http://www.savvysavingcouple.net/2014/01/14/valentines-day-marshmallow-pops-candies/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/3gQ4dDEh-Ab_ev-uneDOYqlL5v-8b6E77DLBGgRqBgYSy4aPRcUpDa92Lewyb22y16XxnfcPhqnnpUwZvDdq9Q=s360",
+   :category_id=>"Desserts",
+   :description=>"Valentine’s Day Marshmallow Pops & Candies"},
+ "Asian-Lettuce-Wraps-1518525"=>
+  {:title=>"Asian Lettuce Wraps",
+   :url=>"http://thiswifecooks.com/2012/11/asian-lettuce-wraps/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/MR2Nc-rn-HsA44WKxyJ9Hn6iOBVPePme5nLmkVI9SU8QqprrST_ubfYw0jqnl9r574oH8o5QMQRY3pwF0UVkrA=s360",
+   :category_id=>"Appetizers",
+   :description=>"Asian Lettuce Wraps"},
+ "Chicken-Ramen-451165"=>
+  {:title=>"Chicken Ramen",
+   :url=>"http://www.seriouseats.com/recipes/2013/10/chicken-ramen-dinner.html",
+   :image_url=>
+    "http://lh3.googleusercontent.com/Jy0JJB_E7rkoGU8684FKN1qAT5HOgTmelAeWBKUJ3ZUgYldtBRM5ig23AKylH91Ui2ENg16ru5QKKNyyUigw=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chicken Ramen"},
+ "Southern-Kale-1501125"=>
+  {:title=>"Southern Kale",
+   :url=>"http://www.eatingwell.com/recipes/southern_kale.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Ygxv72uUehvVvRLrPv8Q4gHTw3z-YyrbrV9yCVq93Kog4JYGZMgnrihTkkhvQLGVP3xrQx7kupBT7eVqWBXVPw=s360",
+   :category_id=>nil,
+   :description=>"Southern Kale"},
+ "Homemade-Red-Velvet-Pancakes-1526500"=>
+  {:title=>"Homemade Red Velvet Pancakes",
+   :url=>"http://www.mommyenterprises.com/homemade-red-velvet-pancakes.htm",
+   :image_url=>
+    "https://lh3.googleusercontent.com/biuNqjbpMSMeszPvLLWJNgE0LVNgAuUW0ljj4hzalhBpJggK-ArQ3ZjiTzCyot9dB5uiYopxnXSgnIvGiwCmKw=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Homemade Red Velvet Pancakes"},
+ "MINI-CHICKEN-SALAD-SANDWICHES-1534028"=>
+  {:title=>"MINI CHICKEN SALAD SANDWICHES",
+   :url=>"http://learnaboutcook.blogspot.com/2016/03/mini-chicken-salad-sandwiches.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/TSGTK0DyuQcDVmZjlXyn3RZuGtkdvnyFUPcQcOdJOKanegxa9wldyheM_QkYWTCBPBL0qJXcFYQV3WicBA_P=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"MINI CHICKEN SALAD SANDWICHES"},
+   "Homemade-Pizza-1521371"=>
+  {:title=>"Homemade Pizza",
+   :url=>"http://nurturehernature.com/2015/08/homemade-pizza/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/PP08clo8DBufbi16drAgZVZNM6d_lPakTvTcTd6LSdLV8rbzeGn-L-THqWP-JhKn_HIo8W-FN5RXeSY9PIm0dQ=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Homemade Pizza"},
+ "Roasted-Sweet-Potatoes-with-Honey-and-Cinnamon-1527801"=>
+  {:title=>"Roasted Sweet Potatoes with Honey and Cinnamon",
+   :url=>"http://www.anexpatcooks.com/recipe/roasted-sweet-potatoes-with-honey-and",
+   :image_url=>
+    "https://lh3.googleusercontent.com/FdVhBN9XSOBlE9KJ4ZuqMpJThW1UB6AdNb4H9giX8ICQKz5LiVvECTKemAUJmu1W7hRpwiBhc-rx3v6o2XyvCw=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Roasted Sweet Potatoes with Honey and Cinnamon"},
+ "Sloppy-Joe-Pizza-1527734"=>
+  {:title=>"Sloppy Joe Pizza",
+   :url=>"http://www.anexpatcooks.com/recipe/sloppy-joe-pizza",
+   :image_url=>
+    "https://lh3.googleusercontent.com/TEwus3qobhv9Uxy_NbNMSqhvWgf48mIx9JMK1idgaQrYidOOfG9X7aRQsgTMVbuJkXMU2aHm8nTYHFU0Cg9E8go=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Sloppy Joe Pizza"},
+ "Perfect-Pork-Chops-Everytime-1524285"=>
+  {:title=>"Perfect Pork Chops Everytime",
+   :url=>"http://www.alotofrecipes.com/perfect-pork-chops-everytime/2/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/NR1f7eTVmPwCHCisae5lVS87g5D98FQRuKmjpSuXbTzKNW4bOk5cj9SpOD3dM9qKRjiZsChhCw5mVNudPhCo3jE=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Perfect Pork Chops Everytime"},
+ "Avocado-Pizza-1534759"=>
+  {:title=>"Avocado Pizza",
+   :url=>"http://www.popsugar.com/food/Avocado-Pizza-Recipe-40386776",
+   :image_url=>
+    "https://lh3.googleusercontent.com/gyBhlc3EgFX9BQ-LUuy2ixjFZtSksx7e-73XmtiAWQlve4PCgmnFRjE-MdYba4tKhq5wbbmzdXOfPfWyNdsQq2g=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Avocado Pizza"},
+ "Beans-on-Toast-1516681"=>
+  {:title=>"Beans on Toast",
+   :url=>"http://www.cookingismessy.com/2016/02/21/beans-on-toast/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/vlXpU6NS3mDddF6RtV3PopG6HMiF_IuyUzLy4ndE71TdhzmrZl16b2ETYp1o3LrYMsXfI6LkIqJa_BOUxcpetg=s360",
+   :category_id=>nil,
+   :description=>"Beans on Toast"},
+ "Homemade-Flour-Tortillas-1524184"=>
+  {:title=>"Homemade Flour Tortillas",
+   :url=>"http://dinnersdishesanddesserts.com/homemade-flour-tortillas/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/cr5o4KTAhgM1TBGmorrR3vQBTgJf1G2JzzA4eVsBax68mmciE7ecxPIBa969t7MVJ5VfUEsFezo-VsERj7u9cg=s360",
+   :category_id=>"Breads",
+   :description=>"Homemade Flour Tortillas"},
+ "Fish-Tacos-with-Mango-Salsa-1501847"=>
+  {:title=>"Fish Tacos with Mango Salsa",
+   :url=>
+    "http://thelemonbowl.com/2016/02/fish-tacos-with-mango-salsa.html?utm_source=Receive+Updates+from+The+Lemon+Bowl&utm_campaign=7f81b1cc34-THE+LEMON+BOWL+DAILY+EMAIL&utm_medium=email&utm_term=0_098c0245b8-7f81b1cc34-62921321",
+   :image_url=>
+    "https://lh3.googleusercontent.com/k2Dt7fqE90pXvWo2kvKub1clKiNIw0w-2otIpzZ8Y56ybvFmdBttghWzctmrPB5rxoCEJM-Y4hZI3guKDXiq=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Fish Tacos with Mango Salsa"},
+ "Chili-1394971"=>
+  {:title=>"Chili",
+   :url=>"http://www.iamthatlady.com/easy-recipes-chili/?fb_ref=b02becafda964f22b7287821506efc3a-Yummly",
+   :image_url=>
+    "https://lh3.googleusercontent.com/xmN5ge7pllM_yUPiPkwXVGl9-GxjNsyxvzNgzfVS9XjtiA-e8VeHFMw6xVtbuDRrSHu2b-2jjWX6nWFGbfwvaJU=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chili"},
+ "Pizza-Panini-1525731"=>
+  {:title=>"Pizza Panini",
+   :url=>"http://www.daisyathome.com/2016/02/25/pizza-panini-recipe/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/x6KdFMaJEzlfKrb8haUwNnZLak_wcTJVvH7TFKMdS0cdj7NlSmf3cFnYUemtzBlfoSTumkhbU8TeAADWl5yAbWs=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Pizza Panini"},
+ "Lemon-Salmon-1524237"=>
+  {:title=>"Lemon Salmon",
+   :url=>"http://www.cupcakesandhammers.com/lemon-salmon/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/HrdME5w3bs5b-emQ3d5AgHpsqxBRpDFP-j5rydO_lBSdeSp7tISP26CiTuT6tzKfm3y_mrWUYeNmz2pVFZLx2w=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Lemon Salmon"},
+ "DIY-Coconut-Honey-Shampoo-1532690"=>
+  {:title=>"DIY Coconut Honey Shampoo",
+   :url=>"http://blog.culturesforhealth.com/diy-coconut-honey-shampoo/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/I8l5_fqZkZdUtuosSg649u-MiPwRocyPI5JBI2ZPw0Scc5OuTELsRlpKcelETOSgcsPeR2V38gKPJZh7RV5Rog=s360",
+   :category_id=>"Beverages",
+   :description=>"DIY Coconut Honey Shampoo"},
+ "Sweet-Potatoes-1518680"=>
+  {:title=>"Sweet Potatoes",
+   :url=>"http://www.momsfoodblog.com/sweet-potatoes/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/j6x3NkS88Exqw_kj1JQ1-_d5VCVAOssRtmHlvNNxhUM5R_c0F5rzyfLGSrqORMMqCbrMN5NooLcjRZITghZLgw=s360",
+   :category_id=>"Side Dishes",
+   :description=>"Sweet Potatoes"},
+ "Chili-1444908"=>
+  {:title=>"Chili",
+   :url=>"http://pastorchef.us/portfolio/chili/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/wvAhlpNvnCxzBVJ-eWA5iRfR8w9Qde6Fp0dOx4CwjGTRYTX8mdrklZQ5lhfmxM--_EOkvQkKLRtNMzczL29z=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Chili"},
+ "Christmas-Chocolate-Covered-Popcorn-1529871"=>
+  {:title=>"Christmas Chocolate Covered Popcorn",
+   :url=>"http://theseamanmom.com/chocolate-covered-popcorn/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/wjZmwWjlgJt9FXefbz2NpL88NWNrHr6uv_opB0jL5ebJ0-xtcppW3HdupiXoxhsVeGgl2ch7_G7EqfDhMuLN8w=s360",
+   :category_id=>"Desserts",
+   :description=>"Christmas Chocolate Covered Popcorn"},
+ "Beer-Battered-Fish-1523386"=>
+  {:title=>"Beer Battered Fish",
+   :url=>"http://www.homesweethomemade.com/2016/02/easy-beer-battered-fish.html",
+   :image_url=>
+    "https://lh3.googleusercontent.com/Wjy3O05dwOYC8pGsfuwBhnRbvaa7ahtPmSPZVsuBNlIx6XkDM27C4oyLvlzk-68rznPQsI3PvbRLks58ANmAHhM=s360",
+   :category_id=>"Main Dishes",
+   :description=>"Beer Battered Fish"},
+ "Nourishing-Salad-For-Lunch-___-1531737"=>
+  {:title=>"Nourishing Salad For Lunch !!!",
+   :url=>"http://ladiesboxx.com/nourishing-salad-for-lunch/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/I4iW_cnbzgHJ79HSmrulBbmO6TT6vax_X116fqWFOZwAvMgjoHVAe9CyjDO8LvxcKbCtPTY0qL0p45us_xVPZA=s360",
+   :category_id=>"Salads",
+   :description=>"Nourishing Salad For Lunch !!!"},
+ "Tempeh-Parmesan-Sandwich-1519760"=>
+  {:title=>"Tempeh Parmesan Sandwich",
+   :url=>"http://www.thekitchn.com/recipe-tempeh-parmesan-sandwich-227949",
+   :image_url=>
+    "https://lh3.googleusercontent.com/A2iwD3BlqvUhB5IoAogN4vAyoFuuNX-bzcRXwbpcbcgynAiqF36o6zru7my56LhkwnFBj2x8Kaq_AJGrSzfvlA=s360",
+   :category_id=>"Lunch and Snacks",
+   :description=>"Tempeh Parmesan Sandwich"},
+ "White-Beans-With-Feta-and-Breadcrumbs-1519958"=>
+  {:title=>"White Beans With Feta and Breadcrumbs",
+   :url=>"http://www.popsugar.com/food/White-Beans-Feta-Breadcrumbs-Recipe-11304864",
+   :image_url=>
+    "https://lh3.googleusercontent.com/LJeiQv_MnhUhbPzmBQQ-s2T-ad0Cj6hkgi3QQ-49WISwDXyyrq_4WuXc8gYlHWrc2fa9mpwuu2UG2wQrhxCV3Q=s360",
+   :category_id=>nil,
+   :description=>"White Beans With Feta and Breadcrumbs"},
+ "Pork-Ramen-1436556"=>
+  {:title=>"Pork Ramen",
+   :url=>"http://www.cookingchanneltv.com/recipes/pork-ramen.html",
+   :image_url=>
+    "http://lh3.googleusercontent.com/H6z_3LOVsk754qi3fLbTFSuZ3zuyIDt93Us6AGM_YEluHHb0w9hTHEoiYfnixyIQZqzfbM0X-pOkktBJeNUoqA=s360",
+   :category_id=>"Soups",
+   :description=>"Pork Ramen"},
+ "Breakfast-Egg-Boats-1521550"=>
+  {:title=>"Breakfast Egg Boats",
+   :url=>"http://happyhealthymotivated.com/breakfast-egg-boats/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/9DVO4twddyb4-A2uMGj6llChfghKcgLQhwnqo9XWYrgGHoVKkRwtdB6SK7XZbYbgitk16ZIZ02zyXA9lKhwWrw=s360",
+   :category_id=>"Breakfast and Brunch",
+   :description=>"Breakfast Egg Boats"},
+ "Freddys-Burgers-1513913"=>
+  {:title=>"Freddy’s Burgers",
+   :url=>"http://tastykitchen.com/recipes/main-courses/freddye28099s-burgers/",
+   :image_url=>
+    "https://lh3.googleusercontent.com/9ZNhx_4uBeYFRHVzcW9rha5ruZrk9gblVp_mQ1NH61TN3g4p8KAsHoU_a6pPt3XGC2PL7GtkstHNg0GjVvDG4w=s360",
+   :category_id=>nil,
+   :description=>"Freddy’s Burgers"}}
+
+ recipes.each do |recipeId, value|
+ 		category = Category.find_by(name: value[:category_id])
+   	if category
+   		value[:category_id] = category.id
+	   	r = Recipe.new(value)
+	   	if r.save
+	   		puts r
+	   	end
+	  end
+   end
 
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
 
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	
-Recipe.create({ title: "lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
-	image_url: "http://aseasyasapplepie.com/wp-content/uploads/2015/05/frozen-strawberry-lemonade.jpg", 
-	description: "Strawberry lemonade", category_id: 1})
-
-Recipe.create({ title: "Fish tacos", url: "http://cooking.nytimes.com/recipes/1012445-fish-tacos",
-	image_url: "http://graphics8.nytimes.com/images/2014/05/12/dining/Fish-Tacos/Fish-Tacos-videoSixteenByNine495.jpg",
-	description: "Fish tacos, that great meal of the Baja Peninsula, and a taste of summer. They are simple to make, no more complicated in fact than a hamburger or a mess of pancakes, and they are considerably more flavorful.",
-	category_id: 2})
-
-Recipe.create({ title: "Scrambled Eggs", url: "http://cooking.nytimes.com/recipes/1015676-the-best-scrambled-eggs",
-	image_url: "http://graphics8.nytimes.com/images/2015/05/20/dining/20HIT_EGGS/20HIT_EGGS-articleLarge.jpg",
-	description: "For silky, outrageously good scrambled eggs, cook them low and slow. This method, which Mark Bittman learned from James Beard, is very low and very slow: you place the eggs over very low heat, stirring frequently, breaking up the curds as they form. ",
-	category_id: 4})
-
-Recipe.create({ title: "Pizza", url: "http://cooking.nytimes.com/recipes/1016231-pizza-margherita",
-	image_url: "http://graphics8.nytimes.com/images/2014/04/09/dining/09JPPIZZA2/09JPPIZZA2-articleLarge.jpg",
-	description: "Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. This pizza is adapted from the recipe used by the staff at Roberta’s restaurant in Brooklyn, who make their tomato sauce simply by whizzing together canned tomatoes, a drizzle of olive oil and a pinch of salt. ",
-	category_id: 2})
-
-Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/recipes/1016032-vegetarian-chili-with-winter-vegetables",
-	image_url: "http://graphics8.nytimes.com/images/2014/02/11/science/12recipehealth/12recipehealth-articleLarge.jpg",
-	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
-	category_id: 3})
-
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 4})
-
-Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
-image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
-description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",
-category_id: 5 })
-
-Recipe.create({ title: "Raspberry Almond Chia Smoothie", url: "http://delightfulemade.com/2014/10/15/raspberry-almond-chia-smoothie-cooking-cure/",
-	image_url: "http://delightfulemade.com/wp-content/uploads/2014/10/Raspberry-Almond-Chia-Smoothie-DelightfulEMade.com-vert1.png",
-	description: "This delicious smoothie is not only pretty in pink, its loaded with protein and packed with flavor. The perfect go-to breakfast or snack!",
-	category_id: 1})
-
-Recipe.create({ title: "Mango Chicken", url: "http://www.foodfaithfitness.com/mango-chicken-with-coconut-cauliflower-rice/",
-	image_url: "http://cf.foodfaithfitness.com/wp-content/uploads/2016/01/mango-chicken-pic.jpg",
-	description: "Mango Chicken With Coconut Cauliflower Rice {Whole 30 + Paleo + High Protein}",
-	category_id: 2 })
-
-Recipe.create({ title: "Roasted Sweet Potatoes", url: "http://www.taylormadebytaylorbee.com/2013/10/coconut-oil-honey-roasted-sweet-potatoes.html",
-	image_url: "http://3.bp.blogspot.com/-WHDYYjKfhrw/UlWtiTdIEtI/AAAAAAAADWg/u9Vf-5VxEJE/s1600/IMG_6959.JPG",
-	category_id: 2 })	

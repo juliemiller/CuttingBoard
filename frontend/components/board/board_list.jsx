@@ -16,7 +16,6 @@ var BoardList = React.createClass({
 
 	_onChange: function() {
 		var boardObject = BoardStore.all();
-		console.log(boardObject);
 		var boards = boardObject.public.concat(boardObject.private);
 		this.setState({ boards: boards });
 	},

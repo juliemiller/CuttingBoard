@@ -239,7 +239,6 @@ body {
 .pinBoard {
 	width: 90%;
 	height: 50px;
-	overflow-y: scroll;
 }
 
 .pinBoard:hover {

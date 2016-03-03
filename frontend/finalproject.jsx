@@ -33,7 +33,6 @@ var App = React.createClass({
 		if (CategoryStore.followedCategories().length === 0) {
 			showCategoryModal = true;
 		};
-		console.log(showCategoryModal);
 
 		this.setState({ current_user: UserStore.getUser(), showModal: showCategoryModal });
 	},

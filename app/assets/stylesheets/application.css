@@ -465,7 +465,6 @@ body {
 }
 
 .formButtons input {
-
 }
 
 .boardList button {
@@ -507,7 +506,7 @@ body {
 	text-align: center;
 	box-shadow: 0px 0px 5px;
 	background-color: white;
-	},
+	}
 
 .categoryIndexOuter:hover {
 	cursor: pointer;
@@ -520,8 +519,7 @@ body {
 	border: dashed 2px gray;
 }
 .selectedCategory {
-	border: 3px solid #5DADC7;
-	box-shadow: 0px 0px 10px #5DADC7;
+	box-shadow: 0px 0px 20px #169BC7;
 }
 
 .categoryFormButton {
@@ -536,6 +534,9 @@ body {
 	border: 1px solid black;
 	margin-right: 10px;
 	border-radius: 2px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom;
 }
 
 .searchResults {
@@ -579,6 +580,5 @@ body {
 }
 
 .categoryText {
-	font-weight: bold;
 	height: 20px;
 }

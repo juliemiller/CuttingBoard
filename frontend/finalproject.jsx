@@ -11,20 +11,39 @@ var NavBar = require('./components/navbar');
 var UserForm = require('./components/user/user_form');
 var UserStore = require('./stores/user_store');
 var RecipeHome = require('./components/recipe/recipe_home');
+var CategoryStore = require('./stores/category_store');
+var Modal = require('react-bootstrap').Modal;
+var CategoryForm = require('./components/category/category_form');
 
 var App = React.createClass({
 	getInitialState: function() {
-		return { current_user: UserStore.getUser() };
+		return { current_user: UserStore.getUser(), showModal: false };
 	},
 
 	componentDidMount: function() {
 		UserStore.addListener(this._onChange);
+		CategoryStore.addListener(this._onChange);
 		ApiUtil.getCurrentUser();
 		ApiUtil.fetchFilteredRecipes();
+		ApiUtil.fetchFollowedCategories();
 	},
 
 	_onChange: function() {
-		this.setState({ current_user: UserStore.getUser()})
+		var showCategoryModal = false;
+		if (CategoryStore.followedCategories().length === 0) {
+			showCategoryModal = true;
+		};
+		console.log(showCategoryModal);
+
+		this.setState({ current_user: UserStore.getUser(), showModal: showCategoryModal });
+	},
+
+	openCategoryForm: function() {
+		this.setState({ showModal: true });
+	},
+
+	closeCategoryForm: function() {
+		this.setState({ showModal: false });
 	},
 
 	render: function() {
@@ -34,6 +53,14 @@ var App = React.createClass({
 				{this.props.children && React.cloneElement(this.props.children, { 
 					current_user: this.state.current_user
 				})}
+				<Modal show={this.state.showModal} onHide={this.closeCategoryForm}>
+				<Modal.Header closeButton>
+					<Modal.Title>Select Topics to Follow</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>
+					<CategoryForm modalCallback={this.closeCategoryForm}/>
+				</Modal.Body>
+			</Modal>
 			</div>	
 		)
 	}

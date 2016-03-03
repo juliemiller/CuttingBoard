@@ -7,13 +7,13 @@ var CategoryIndexItem = React.createClass({
 
 	getInitialState: function() {
 		this.selected = this.props.selected;
-		return { classes: "categoryIndex" }
+		return { classes: "categoryIndexOuter" }
 	},
 
 	componentDidMount: function() {
 		this.selected = this.props.selected;
 		if (this.selected) {
-			this.setState({ classes: "categoryIndex selectedCategory"})
+			this.setState({ classes: "categoryIndexOuter selectedCategory"})
 		}
 	},
 
@@ -31,10 +31,10 @@ var CategoryIndexItem = React.createClass({
 		this.props.selectedCallback();
 
 		if (this.selected) {
-			this.setState({ classes: "categoryIndex selectedCategory"});
+			this.setState({ classes: "categoryIndexOuter selectedCategory"});
 		}
 		else {
-			this.setState({ classes: "categoryIndex"});
+			this.setState({ classes: "categoryIndexOuter"});
 		}
 
 	},
@@ -47,8 +47,10 @@ var CategoryIndexItem = React.createClass({
 	render: function() {
 		var pic_url= {backgroundImage: 'url(' + this.props.category.image_url + ')'};
 		return (
-				<div className={this.state.classes} onClick={this.handleClick} style={pic_url}>
-				{this.props.category.name}		
+				<div className={this.state.classes}>
+					<span className="categoryText">{this.props.category.name}		</span>
+					<div className="categoryIndex" onClick={this.handleClick} style={pic_url}>
+					</div>
 				</div>
 		)
 	}

@@ -76,11 +76,6 @@ Recipe.create({ title: "Vegetarian Chili", url: "http://cooking.nytimes.com/reci
 	description: "I have made several versions of vegetarian chili; in some the beans take center stage, others are just as focused on vegetables. This thick, satisfying chili is equally focused on both. I particularly like the way the sweet flavor and comforting, creamy texture of the winter squash plays against the spicy flavors in the chili.",
 	category_id: 10})
 
-Recipe.create({ title: "Banana Bread", url: "http://www.thecountrycook.net/2011/01/cooking-by-numbers-and-banana-nut-bread.html",
-	image_url: "http://2.bp.blogspot.com/-9Efzd6w6p-s/UC04GTXrVcI/AAAAAAAAGWA/8kDQJQc9GWw/s1600/Banana+Nut+Bread+2+(thecountrycook.net).jpg",
-	description: "The Best Banana Bread Recipe from The Country Cook. Homemade doesn't get tastier or yummier than this!! So easy and bonus - it uses melted butter. Amazing!",
-	category_id: 8})
-
 Recipe.create({ title: "Chocolate Covered Almonds", url: "http://sallysbakingaddiction.com/2015/08/24/healthier-treat-dark-chocolate-sea-salt-almonds/",
 image_url: "http://sallysbakingaddiction.com/wp-content/uploads/2015/08/How-to-make-Dark-Chocolate-Sea-Salt-Almonds-3.jpg",
 description: "A simple healthy chocolate treat to feel good about! These sea salt chocolate almonds are soooo good!",

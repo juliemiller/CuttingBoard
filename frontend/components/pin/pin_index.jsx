@@ -23,7 +23,13 @@ var PinIndex = React.createClass({
 	},
 	
 	render: function() {
+		var noPinMessage;
+		if (this.state.pins.length === 0) {
+			noPinMessage = <p className="noPinMessage">You don't have any pins yet! Check out the home page to pin some recipes to your boards.</p>
+		}
 		return (
+			<div>
+				{noPinMessage}
 			<Masonry >
 				{
 					this.state.pins.map(function(recipe) {
@@ -31,6 +37,7 @@ var PinIndex = React.createClass({
 					})
 				}
 			</Masonry>
+		</div>
 		)
 	}
 });

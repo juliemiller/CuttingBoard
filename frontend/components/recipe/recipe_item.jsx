@@ -12,7 +12,7 @@ var RecipeItem = React.createClass( {
 				<div className="recipeCategory">
 					<div className="recipeCategoryImage" style={pic_url}>
 					</div>
-				{this.props.recipe.category.name}
+					{this.props.recipe.category.name}
 				</div>
 			</div>
 		)

@@ -57,5 +57,3 @@ var CategoryIndexItem = React.createClass({
 });
 
 module.exports = CategoryIndexItem;
-
-// {this.props.category.image_url}

@@ -193,6 +193,7 @@ body {
 .recipeCategory {
 	border-top: 1px solid #EBEBEB;
 	padding: 10px;
+	line-height: 35px;
 }
 
 .allRecipes {
@@ -465,6 +466,7 @@ body {
 }
 
 .formButtons input {
+
 }
 
 .boardList button {
@@ -581,4 +583,19 @@ body {
 
 .categoryText {
 	height: 20px;
+}
+
+.boardDetailButtonNavBar {
+	width: 80%;
+	margin-left: 10%;
+}
+
+.noPinMessage {
+	text-align: center;
+	position: relative;
+	font-size: 16px;
+}
+
+.noBoardMessage {
+	text-align: center;
 }

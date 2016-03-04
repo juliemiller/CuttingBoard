@@ -139,7 +139,7 @@ var BoardForm = React.createClass({
 					<div className="formButtons">
 					{this.editing ? <button className="btn" onClick={this.deleteBoard}>Delete</button> : ""}
 					<button className="btn btn-primary" onClick={this.handleCancel}>Cancel</button>
-					<input className="btn btn-primary" type="submit" value="Submit"/>
+					<input className="btn btn-primary submitButton" type="submit" value="Submit"/>
 					</div>
 			</form>
 		)

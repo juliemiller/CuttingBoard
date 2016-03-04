@@ -48,7 +48,7 @@ var BoardList = React.createClass({
 		var that = this;
 		var noBoards;
 		if (this.state.boards.length === 0) {
-			noBoards = <span>You don't have any boards yet. <button onClick={this.createBoard}> Create a board</button></span>
+			noBoards = <span>You don't have any boards yet. <button className="btn btn-primary" onClick={this.createBoard}> Create a board</button></span>
 		}
 
 		return (

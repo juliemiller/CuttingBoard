@@ -3,7 +3,7 @@
 </div>
 </div>
 	<div class="signInForm">
-		<%= button_to("Sign Up", new_user_url, method: :get) %>
+		<a class="btn btn-primary loginButton" href="<%=new_user_url%>">Sign Up</a>
 		<% if flash.now[:errors] %>
 			<p class="errors">Invalid username or password</p>
 		<% end %>

@@ -2,15 +2,16 @@
 <div class="blur">
 </div>
 
-</div>	<div class="signInForm">
-	<p class="loginButton">
-		<%= button_to("Log In", new_session_url, method: :get) %>
-	</p>
+</div>	
+<div class="signInForm">
 	<% if flash.now[:errors] %>
-		<%= flash.now[:errors].join(", ") %>
-		<% end %>
-		<%= render "form", user: @user, action_url: users_url, submit_button: "Create Account" %>
+		<p class="errors">
+			<%= flash.now[:errors].join(", ") %>
+		</p>
+	<% end %>
+	<%= render "form", user: @user, action_url: users_url, submit_button: "Create Account" %>
 
+		<a class="btn btn-primary loginButton" href="<%=new_session_url%>">Log In</a>
 	
 
 	</div>

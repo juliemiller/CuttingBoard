@@ -140,6 +140,10 @@ body {
 	font-size: 20px;
 }
 
+.nav-pills:hover {
+	cursor: pointer;
+}
+
 .boardNavBar {
 	height: 50px;
 }
@@ -313,8 +317,7 @@ body {
 	padding-bottom: 5px;
 }
 
-.signInForm button {
-	width: 50px;
+.signInForm a {
 }
 
 .signInPage {
@@ -566,11 +569,13 @@ body {
   vertical-align: middle;
   padding-left: 10px;
   margin-right: 0px;
+  border-right: 0px;
 }
 
 .searchForm {
 	width: 600px;
 	padding-left: 0px;
+	margin-left: 0px;
 }
 
 .searchResultsItem {
@@ -609,4 +614,17 @@ body {
   top: 50%;
   position: absolute;
   transform: translateY(-50%);
+}
+.errors {
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+.loginButton {
+ /* position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 10px;*/
+  float: right;
+  display: inline-block;
 }

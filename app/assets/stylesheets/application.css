@@ -234,7 +234,11 @@ body {
 }
 
 .pinBoardButton {
-	float: right;
+	top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  left: 75%;
+  margin: 0px auto !important;
 }
 
 .pinBoard {
@@ -598,4 +602,11 @@ body {
 
 .noBoardMessage {
 	text-align: center;
+}
+
+.pinBoardTitle {
+	font-size: 18px;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
 }

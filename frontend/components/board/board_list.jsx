@@ -48,7 +48,7 @@ var BoardList = React.createClass({
 		var that = this;
 		var noBoards;
 		if (this.state.boards.length === 0) {
-			noBoards = <span>You don't have any boards yet. <button className="btn btn-primary" onClick={this.createBoard}> Create a board</button></span>
+			noBoards = <span className="noBoardMessage">You don't have any boards yet. <button className="btn btn-primary" onClick={this.createBoard}> Create a board</button></span>
 		}
 
 		return (
@@ -61,7 +61,7 @@ var BoardList = React.createClass({
 						this.state.boards.map(function(board) {
 							return (
 								<li key={board.id} className="pinBoard">
-									 <span >{board.title}</span>
+									 <span className="pinBoardTitle">{board.title}</span>
 									<button className="pinBoardButton btn btn-primary" onClick={function(){ that.pinToBoard(board.id)} }>Pin</button>
 							</li>
 							)

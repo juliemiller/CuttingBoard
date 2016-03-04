@@ -37,6 +37,7 @@ var ApiUtil = {
 				successCallback(board.id);
 			},
 			error: function(errors) {
+				console.log(errors);
 				errorCallback(errors.responseText);
 			}
 		});

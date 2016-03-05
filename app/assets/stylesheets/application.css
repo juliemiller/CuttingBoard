@@ -15,6 +15,14 @@
  *= require bootstrap
  */
 
+.btn-primary {
+	background-color: #46879C;
+	border-color: #104D61;
+}
+
+.btn-primary:hover {
+	background-color: #2E5866;
+}
 
 .board {
 	height: 275px;
@@ -67,7 +75,7 @@
 	margin: 5px;
 	text-align: center;
 	box-shadow: none;
-	color: #7DAFBA;
+	color: #46879C;
 	font-weight: bold;
 }
 
@@ -159,7 +167,7 @@ body {
 	margin-top: 5px;
 	width: 100%;
 	background-color: #F2F2F2;
-	color: #7DAFBA;
+	color: #46879C;
 	font-weight: bold;
 	border: 1px solid #CCCCCC;
 }
@@ -378,28 +386,6 @@ body {
 	border: 0px;
 }
 
-.boardForm {
-	height: 400px;
-	padding-left: 20px;
-	margin: 10px;
-
-}
-
-.boardForm input, select, textarea {
-	width: 60%;
-	border-radius: 5px;
-	line-height: 32px;
-	margin: 10px;
-	padding-left: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-
-.boardForm label {
-	width: 30%;
-	text-align: left;
-}
-
 .recipeTitle {
 	padding: 10px;
 }
@@ -464,7 +450,7 @@ body {
 .onoffswitch-inner:before {
     content: "YES";
     padding-left: 10px;
-    background-color: #34A7C1; color: #FFFFFF;
+    background-color: #46879C; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
     content: "NO";
@@ -475,7 +461,7 @@ body {
 .onoffswitch-switch {
     display: block; width: 18px; margin: 6px;
     background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
+    position: absolute; top: 0; bottom: 4px;
     right: 56px;
     border: 2px solid #999999; border-radius: 20px;
     transition: all 0.3s ease-in 0s; 
@@ -487,8 +473,9 @@ body {
     right: 0px; 
 }
 
-.formButtons input {
-
+.formButtons {
+	display: flex;
+  justify-content: space-between;
 }
 
 .searchBar {
@@ -631,6 +618,7 @@ body {
 	border: 1px solid black;
 	border-radius: 5px;
 }
+
 .loginButton {
   width: 125px !important;
   line-height: 32px;
@@ -639,4 +627,12 @@ body {
 .close {
 	margin-right: 25px;
   margin-top: 25px;
+}
+
+.submitButton {
+	margin-left: 10px;
+}
+
+.deleteButton {
+	background-color: #878B8C;
 }

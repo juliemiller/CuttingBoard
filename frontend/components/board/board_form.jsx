@@ -109,25 +109,29 @@ var BoardForm = React.createClass({
 	render: function() {
 
 		return (
-			<form onSubmit={this.handleSubmit} className="boardForm">
+			<form onSubmit={this.handleSubmit} className="col-md-10 col-md-offset-1 form-horizontal">
 					{this.showAlert()}
-					<label >Title</label>
-					<input type="text" value={this.state.title} onChange={this.handleTitleChange}/>
-				<br/>
-					<label>Description</label>
-					<textarea onChange={this.handleDescriptionChange} value={this.state.description}></textarea>
-				<br/>
-				<label>Category</label>
-					<select value={this.state.category_id} onChange={this.handleCategoryChange}>
-						<option key=""></option>
-						{
-							this.state.categories.map(function(category) {
-								return <option key={category.id} value={category.id}>{category.name}</option>
-							})
-						}
-					</select>
-				<br/>
-					<label>Private</label>
+				<div className="form-group">
+					<label className="col-md-3">Title</label>
+					<input type="text" value={this.state.title} onChange={this.handleTitleChange} className="col-md-9"/>
+				</div>
+				<div className="form-group">
+					<label className="col-md-3">Description</label>
+					<textarea className="col-md-9" onChange={this.handleDescriptionChange} value={this.state.description}></textarea>
+				</div>
+				<div className="form-group">
+					<label className="col-md-3">Category</label>
+						<select className="col-md-9" value={this.state.category_id} onChange={this.handleCategoryChange}>
+							<option key=""></option>
+							{
+								this.state.categories.map(function(category) {
+									return <option key={category.id} value={category.id}>{category.name}</option>
+								})
+							}
+						</select>
+				</div>
+				<div className="form-group">
+					<label className="col-md-3">Private</label>
 					<div className="onoffswitch">
 					<input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox" id="myonoffswitch" checked={this.state.private} onClick={this.handlePrivateChange}/>
 						<label className="onoffswitch-label" htmlFor="myonoffswitch">
@@ -135,11 +139,13 @@ var BoardForm = React.createClass({
 							<span className="onoffswitch-switch"></span>
 						</label>
 					</div>
-				<br/>
+				</div>
 					<div className="formButtons">
-					{this.editing ? <button className="btn" onClick={this.deleteBoard}>Delete</button> : ""}
-					<button className="btn btn-primary" onClick={this.handleCancel}>Cancel</button>
-					<input className="btn btn-primary submitButton" type="submit" value="Submit"/>
+					{this.editing ? <button className="btn btn-primary deleteButton" onClick={this.deleteBoard}>Delete Board</button> : ""}
+					<div className="cancelSaveButtons">
+						<button className="btn btn-primary" onClick={this.handleCancel}>Cancel</button>
+						<input className="btn btn-primary submitButton" type="submit" value="Submit"/>
+					</div>
 					</div>
 			</form>
 		)

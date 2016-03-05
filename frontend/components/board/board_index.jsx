@@ -56,7 +56,7 @@ var BoardIndex = React.createClass( {
 					<Modal.Header closeButton>
 						<Modal.Title>Create a Board</Modal.Title>
 					</Modal.Header>
-					<Modal.Body>
+					<Modal.Body className="container-fluid">
 						<BoardForm boardId="" modalCallback={this.closeNewBoardForm}/>
 					</Modal.Body>
 				</Modal>

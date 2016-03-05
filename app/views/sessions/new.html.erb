@@ -3,12 +3,12 @@
 </div>
 </div>
 	<div class="signInForm">
-		<a class="btn btn-primary loginButton" href="<%=new_user_url%>">Sign Up</a>
+		
 		<% if flash.now[:errors] %>
 			<p class="errors">Invalid username or password</p>
 		<% end %>
 		<%= render "form", user: @user, action_url: session_url, submit_button: "Log In" %>
 
 		<%= render "users/demo" %>
-
+	<a class="btn btn-primary loginButton" href="<%=new_user_url%>">Sign Up</a>
 	</div>

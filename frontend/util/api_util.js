@@ -100,7 +100,7 @@ var ApiUtil = {
 			method: "DELETE",
 			dataType: "json",
 			success: function() {
-				callback();
+				window.location.reload();
 			}
 		})
 	},

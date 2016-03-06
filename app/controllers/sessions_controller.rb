@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
 	def destroy
 		logout!
 		render json: {user: nil}
-    # redirect_to new_session_url
 	end
 
 	def show

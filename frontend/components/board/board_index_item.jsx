@@ -37,7 +37,7 @@ var BoardIndexItem = React.createClass({
 		return (
 			<div className="col-md-3 col-xs-4" onClick={this.renderBoard}>
 				<section className="board">
-				<h5>{this.props.board.title}</h5>
+				<h4>{this.props.board.title}</h4>
 				<div className="pictures" >
 	 				<div className="biggerPicture" style={pictureUrls[0]}> 
 	 				</div>
@@ -52,7 +52,7 @@ var BoardIndexItem = React.createClass({
 						<button className="btn editButton" onClick={this.openEditBoardForm}>Edit</button>
 						<Modal show={this.state.showModal} onHide={this.closeEditBoardForm}>
 							<Modal.Header closeButton>
-								<Modal.Title>Edit you board</Modal.Title>
+								<Modal.Title>Edit your board</Modal.Title>
 							</Modal.Header>
 							<Modal.Body className="container-fluid">
 								<BoardForm boardId={boardId} modalCallback={this.closeEditBoardForm}/>

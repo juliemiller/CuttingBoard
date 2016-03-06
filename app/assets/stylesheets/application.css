@@ -14,13 +14,23 @@
  *= require_self
  *= require bootstrap
  */
+* {
+	font-family: 'Rokkitt', serif;
+}
 
+button {
+	font-size: 16px;
+}
 .btn-primary {
 	background-color: #46879C;
 	border-color: #104D61;
 }
 
 .btn-primary:hover {
+	background-color: #2E5866;
+}
+
+.btn-primary:active {
 	background-color: #2E5866;
 }
 

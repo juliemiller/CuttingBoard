@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Users
-User.create(firstname: Julia, lastname: Child, email: "me@gmail.com", password: "password")
+User.create(firstname: "Julia", lastname: "Child", email: "me@gmail.com", password: "password")
 
 
 categories = 
@@ -44,9 +44,8 @@ categories.each_with_index do |category, idx|
 end
 
 #Create demo account Boards
-user_id = 1
-category_id = 1
-Board.create({ title: Faker::App.name, description: Faker::Hipster.sentence, user_id: user_id, category_id: category_id})
+Board.create({ title: "Healthy Choices", description: "Delicious and nutritious food options", user_id: 1)
+Board.create({ title: "Chocolate", description: "Great desserts", user_id: 1, category_id: 4)
 
 #Recipes
 Recipe.create({ title: "Strawberry Lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",

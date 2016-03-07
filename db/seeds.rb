@@ -44,8 +44,8 @@ categories.each_with_index do |category, idx|
 end
 
 #Create demo account Boards
-Board.create({ title: "Healthy Choices", description: "Delicious and nutritious food options", user_id: 1)
-Board.create({ title: "Chocolate", description: "Great desserts", user_id: 1, category_id: 4)
+Board.create({ title: "Healthy Choices", description: "Delicious and nutritious food options", user_id: 1})
+Board.create({ title: "Chocolate", description: "Great desserts", user_id: 1, category_id: 4})
 
 #Recipes
 Recipe.create({ title: "Strawberry Lemonade", url: "http://aseasyasapplepie.com/frozen-strawberry-lemonade/",
@@ -3733,4 +3733,19 @@ A dietitian Cynthia Sass developed a drink recipe that would normalize the stoma
 	  end
    end
 
+#Add Pins to boards
+Pin.create({ board_id: 1, recipe_id: 5})
+Pin.create({ board_id: 1, recipe_id: 136})
+Pin.create({ board_id: 1, recipe_id: 134})
+Pin.create({ board_id: 1, recipe_id: 199})
+Pin.create({ board_id: 1, recipe_id: 206})
+Pin.create({ board_id: 2, recipe_id: 6})
+Pin.create({ board_id: 2, recipe_id: 144})
+Pin.create({ board_id: 2, recipe_id: 151})
+Pin.create({ board_id: 2, recipe_id: 172})
 
+#Follow categories
+FollowedCategory.create({user_id: 1, category_id: 2})
+FollowedCategory.create({user_id: 1, category_id: 4})
+FollowedCategory.create({user_id: 1, category_id: 6})
+FollowedCategory.create({user_id: 1, category_id: 8})

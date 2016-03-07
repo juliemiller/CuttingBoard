@@ -20,4 +20,8 @@ UserStore.getUser = function() {
 	return user;
 };
 
+UserStore.userRecipes = function() {
+	return _current_user.followed_recipes;
+}
+
 module.exports = UserStore;

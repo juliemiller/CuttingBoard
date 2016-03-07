@@ -23,9 +23,9 @@ var App = React.createClass({
 	componentDidMount: function() {
 		UserStore.addListener(this._onChange);
 		CategoryStore.addListener(this._onChange);
+		ApiUtil.fetchFollowedCategories();
 		ApiUtil.getCurrentUser();
 		ApiUtil.fetchFilteredRecipes();
-		ApiUtil.fetchFollowedCategories();
 	},
 
 	_onChange: function() {

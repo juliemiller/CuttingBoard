@@ -51,7 +51,7 @@ var NavBar = React.createClass({
 			 <nav className="navbar navbar-fixed-top navbar-default" role="navigation">
 			  <div className="container-fluid">
 			    <div className="collapse navbar-collapse">
-	 				<button className="btn navbar-btn pull-left btn-primary" onClick={this.goToRoot}>Home</button> 
+	 				<button className="btn navbar-btn pull-left btn-primary" onClick={this.goToRoot}>Recipes</button> 
 			        <NavBarSearch categories={this.state.categories} />
 			      <div className="btn-group pull-right">
 							<button className="btn btn-primary navbar-btn" onClick={this.renderBoardsIndex}>My Boards</button>

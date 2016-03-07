@@ -28,7 +28,7 @@ var RecipeIndexItem = React.createClass({
 						<Modal.Title>{this.props.recipe.title}</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<RecipeIndexItemDetail recipe={this.props.recipe} />
+						<RecipeIndexItemDetail recipe={this.props.recipe} current_user={this.props.current_user}/>
 					</Modal.Body>
 				</Modal>
 			</div>

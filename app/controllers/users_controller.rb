@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
 	def show
 		user = current_user
-		render json: {email: user.email, firstname: user.firstname, lastname: user.lastname}
+		render json: {email: user.email, firstname: user.firstname, lastname: user.lastname, followed_recipes: user.recipes.ids}
 	end
 
 	private

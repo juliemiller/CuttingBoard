@@ -30,6 +30,7 @@ var RecipeIndex = React.createClass({
 
 	render: function() {
 		var infiniteScroll = "";
+
 		if (this.state.recipes.length > 0) {
 			infiniteScroll = (
 				<InfiniteScroll pageStart={0} loadMore={this.loadFunc} hasMore={this.state.recipes.length > this.state.shownRecipes.length} >

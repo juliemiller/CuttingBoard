@@ -14,7 +14,7 @@ var CreatePin = React.createClass( {
 				<div className="createPinRecipeItem">
 					<RecipeItem recipe={this.props.recipe} />
 				</div>
-				<BoardList recipe={this.props.recipe} modalCallback={this.modalCallback} />
+				<BoardList current_user={this.props.current_user} recipe={this.props.recipe} modalCallback={this.modalCallback} />
 			</div>
 		)
 	}

@@ -117,18 +117,3 @@ end
  "Breakfast and Brunch",
  "Breads",
  "Soups"]
-
-# = { name: recipe.name, url: recipe.json["source"]["sourceRecipeUrl"],
-# 		image_url: recipe.images[0], category: recipe.json["attributes"]["course"][0] }
-
-# name = recipe.name
-# url = recipe.json["source"]["sourceRecipeUrl"]
-# image_url = recipe.images.last
-# category = recipe.json["attributes"]["course"][0]
-
-	# "rice",
-	# "pasta",
-	# "chocolate",
-	# "cake",
-	# "drink",
-	# "appetizer"

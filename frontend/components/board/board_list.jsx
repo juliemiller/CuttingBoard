@@ -3,15 +3,17 @@ var BoardStore = require('../../stores/board_store');
 var ApiUtil = require('../../util/api_util');
 var Modal = require('react-bootstrap').Modal;
 var BoardForm = require('./board_form');
+var UserStore = require('../../stores/user_store');
 
 var BoardList = React.createClass({
 	getInitialState: function() {
 		var boardObject = BoardStore.all();
 		var boards = boardObject.public.concat(boardObject.private);
-		return { boards: boards, newBoardModal: false }
+		return { boards: boards, newBoardModal: false, userRecipes: UserStore.userRecipes() }
 	},
 
 	componentDidMount: function() {
+		this.userRecipeListener = UserStore.addListener(this._onRecipeChange);
 		this.boardListener = BoardStore.addListener(this._onChange);
 		ApiUtil.fetchBoards();
 	},
@@ -21,6 +23,10 @@ var BoardList = React.createClass({
 		var boards = boardObject.public.concat(boardObject.private);
 		this.setState({ boards: boards });
 	},
+
+	_onRecipeChange: function() {
+		this.setState({ userRecipes: UserStore.userRecipes() })
+ 	},
 
 	componentWillUnmount: function() {
 		this.boardListener.remove();
@@ -47,6 +53,10 @@ var BoardList = React.createClass({
 	render: function() {
 		var that = this;
 		var noBoards;
+		var alreadyPinned;
+		if(this.state.userRecipes.indexOf(this.props.recipe.id) !== -1) {
+			alreadyPinned = <span>recipe already pinned</span>
+		}
 		if (this.state.boards.length === 0) {
 			noBoards = <span className="noBoardMessage">You don't have any boards yet. <button className="btn btn-primary" onClick={this.createBoard}> Create a board</button></span>
 		}

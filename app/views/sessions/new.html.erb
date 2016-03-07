@@ -3,12 +3,22 @@
 </div>
 </div>
 	<div class="signInForm">
-		
+		<h1 class="siteTitle">CuttingBoard</h1>
+		<p>Your personal digital recipe box</p>
 		<% if flash.now[:errors] %>
 			<p class="errors">Invalid username or password</p>
 		<% end %>
-		<%= render "form", user: @user, action_url: session_url, submit_button: "Log In" %>
+		<form class="userSignInForm" action="<%= session_url %>" method="POST">
+		  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		  <input type="text" name="user[email]" id="email" value="<%= @user.email %>" placeholder="Email">
+		  <br>
+		  <input type="password" name="user[password]" id="password" placeholder="Password">
+		  <br>
+		  <input class="btn btn-primary loginButton" type="submit" value="Log In">
+		</form>
+	
+		<%# render "form", user: @user, action_url: session_url, submit_button: "Log In" %>
 
 		<%= render "users/demo" %>
-	<a class="btn btn-primary loginButton" href="<%=new_user_url%>">Sign Up</a>
+		<p class="newUserUrl col-md-6" >New User? <a href="<%=new_user_url%>">Sign Up</a></p>
 	</div>

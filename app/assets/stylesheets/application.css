@@ -18,6 +18,10 @@
 	font-family: 'Rokkitt', serif;
 }
 
+body {
+	height: 100%;
+}
+
 button {
 	font-size: 16px;
 }
@@ -317,11 +321,11 @@ body {
 .signInForm {
 	padding: 20px;
 	width: 450px;
-	height: 400px;
+	height: 500px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -175px;
+	transform: translateY(-50%);
 	margin-left: -225px;
 	border-radius: 5px;
 	background-color: white;
@@ -535,6 +539,7 @@ body {
 	height: 155px;
 	font-weight: bold;
 	border: dashed 2px gray;
+	justify-content: center;
 }
 .selectedCategory {
 	box-shadow: 0px 0px 20px #169BC7;
@@ -645,4 +650,29 @@ body {
 
 .deleteButton {
 	background-color: #878B8C;
+}
+
+.newUserUrl {
+	position: absolute;
+	bottom: 0;
+	font-size: 18px;
+	left:0;
+}
+
+.siteTitle {
+	margin:0px;
+}
+
+.userSignInForm {
+	margin-top: 50px;
+}
+
+.footer {
+	position: fixed;
+	height: 20px;
+	bottom: 0;
+	background-color: #e7e7e7;
+	width: 100%;
+	margin: 0;
+	padding-left: 50px
 }

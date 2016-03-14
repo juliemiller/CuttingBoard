@@ -36,7 +36,7 @@ categories.each_with_index do |category, idx|
 		"http://images.fineartamerica.com/images-medium-large/sandwich-and-fries-multi-bits.jpg",
 		"http://opc2.dev1.bloomspin.com/wp-content/uploads/sites/19/2014/02/Tea-Camomiles-Breakfast.jpg",
 		"http://images3.wikia.nocookie.net/__cb20120128045061/thehungergames/images/6/67/Bread.jpg",
-		"https://janetching.files.wordpress.com/2008/10/img_0159-jc.jpg",
+		"http://cookdiary.net/wp-content/uploads/images/Pumpkin-Soup_18453.jpg",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn8bVjq5NbQBXHuHWCTfnkOL7C7ZuR8ER9lw6cU5ZeYqeTENqi"
 	]
 	image = category_pics[idx]

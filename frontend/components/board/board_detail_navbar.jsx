@@ -41,7 +41,7 @@ var BoardDetailNavBar = React.createClass({
 					<Modal.Header closeButton>
 						<Modal.Title>Edit you board</Modal.Title>
 					</Modal.Header>
-					<Modal.Body>
+					<Modal.Body className="container-fluid">
 						<BoardForm boardId={boardId} modalCallback={this.closeEditBoardForm}/>
 					</Modal.Body>
 				</Modal>

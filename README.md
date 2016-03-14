@@ -1,8 +1,8 @@
 # CuttingBoard
 
-[Heroku link][heroku] 
+[Live site][link] 
 
-[heroku]: http://www.cuttingboard.herokuapp.com
+[link]: http://www.cuttingboard.me/
 
 ## Minimum Viable Product
 

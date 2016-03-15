@@ -12,7 +12,7 @@ CuttingBoard is a recipe browsing and storing site inspired by Pinterest. Users 
 
 ## Features
 
-* Authentication - User authentication is performed on the back end using 
+* User Authentication
 * Create and Edit Boards
 * Follow Food Categories
 * Browse Recipes

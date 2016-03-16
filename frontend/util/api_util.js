@@ -101,7 +101,7 @@ var ApiUtil = {
 			dataType: "json",
 			success: function() {
 				setTimeout(function() {
-					window.location.reload()
+					window.location.href="/";
 				}, 100);
 			}
 		})

@@ -100,9 +100,7 @@ var ApiUtil = {
 			method: "DELETE",
 			dataType: "json",
 			success: function() {
-				setTimeout(function() {
-					window.location.href="/";
-				}, 100);
+				window.location.href="/";
 			}
 		})
 	},
